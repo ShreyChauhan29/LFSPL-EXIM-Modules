@@ -98,7 +98,7 @@ table 72018 "LFS EXIM License Header"
         field(16; "LFS Adv. Lic Export Qty."; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Export Qty.';
+            Caption = 'I/O Export Qty.';
             CalcFormula = sum("LFS EXIM License IO Details"."LFS Qty." where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Export)));
             Editable = false;
@@ -106,7 +106,7 @@ table 72018 "LFS EXIM License Header"
         field(17; "LFS Adv. Lic Exp FOB Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Export FOB Value (FCY)';
+            Caption = 'I/O Export FOB Value (FCY)';
             CalcFormula = sum("LFS EXIM License IO Details"."LFS FOB Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Export)));
             Editable = false;
@@ -123,7 +123,7 @@ table 72018 "LFS EXIM License Header"
         field(19; "LFS Export Inv FOB Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Export Invoice FOB Value';
+            Caption = 'Export Invoiced FOB Value';
             CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS No."),
                                                                         "LFS Type" = const(Export),
                                                                         "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -140,7 +140,7 @@ table 72018 "LFS EXIM License Header"
         }
         field(21; "LFS Export Invoice Qty."; Decimal)
         {
-            Caption = 'I/O Details Export Invoice Qty.';
+            Caption = 'Export Invoiced Qty.';
             FieldClass = FlowField;
             CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS No."),
                                                                         "LFS Type" = const(Export),
@@ -150,7 +150,7 @@ table 72018 "LFS EXIM License Header"
         field(22; "LFS Adv. License Imp Qty."; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Import Qty.';
+            Caption = 'I/O Import Qty.';
             CalcFormula = sum("LFS EXIM License IO Details"."LFS Qty." where("LFS Adv. License No." = field("LFS No."),
                                                                         "LFS Type" = const(Import)));
             Editable = false;
@@ -158,7 +158,7 @@ table 72018 "LFS EXIM License Header"
         field(23; "LFS Adv. Lic Imp CIF Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Import CIF Value (FCY)';
+            Caption = 'I/O Import CIF Value (FCY)';
             CalcFormula = sum("LFS EXIM License IO Details"."LFS CIF Value" where("LFS Adv. License No." = field("LFS No."),
                                                                                 "LFS Type" = const(Import)));
             Editable = false;
@@ -176,7 +176,7 @@ table 72018 "LFS EXIM License Header"
         {
 
             FieldClass = FlowField;
-            Caption = 'I/O Details Import Invoice CIF Value';
+            Caption = 'Import Invoiced CIF Value';
             CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Import),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -193,7 +193,7 @@ table 72018 "LFS EXIM License Header"
         }
         field(27; "LFS Import Invoice Qty."; Decimal)
         {
-            Caption = 'I/O Details Import Invoice Qty.';
+            Caption = 'Import Invoiced Qty.';
             FieldClass = FlowField;
             CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS No."),
                                                                         "LFS Type" = const(Import),
@@ -212,7 +212,7 @@ table 72018 "LFS EXIM License Header"
         field(29; "LFS Export Inv CIF Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Export Invoice CIF Value';
+            Caption = 'Export Invoiced CIF Value';
             CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Export),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -230,7 +230,7 @@ table 72018 "LFS EXIM License Header"
         field(31; "LFS Import Inv FOB Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'I/O Details Import Invoice FOB Value';
+            Caption = 'Import Invoiced FOB Value';
             CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Import),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -269,7 +269,7 @@ table 72018 "LFS EXIM License Header"
             FieldClass = FlowField;
             CalcFormula = sum("LFS EXIM License IO Details"."LFS FOB Value (LCY)" where("LFS Adv. License No." = field("LFS No."),
                                                                                     "LFS Type" = const(Export)));
-            Caption = 'I/O Details Export FOB Value (LCY)';
+            Caption = 'I/O Export FOB Value (LCY)';
             Editable = false;
         }
         field(36; "LFS Adv. Lic. CIF Value LCY"; Decimal)
@@ -277,12 +277,12 @@ table 72018 "LFS EXIM License Header"
             FieldClass = FlowField;
             CalcFormula = sum("LFS EXIM License IO Details"."LFS CIF Value (LCY)" where("LFS Adv. License No." = field("LFS No."),
                                                                                         "LFS Type" = const(Import)));
-            Caption = 'I/O Details Import CIF Value (LCY)';
+            Caption = 'I/O Import CIF Value (LCY)';
             Editable = false;
         }
         field(37; "LFS Import Order Bal Qty"; Decimal)
         {
-            Caption = 'I/O Details Import Order Balance Qty.';
+            Caption = 'Import Ordered Balance Qty.';
             DataClassification = CustomerContent;
         }
         field(38; "LFS Import Inv Bal Qty"; Decimal)
@@ -292,7 +292,7 @@ table 72018 "LFS EXIM License Header"
         }
         field(40; "LFS Export Inv Bal Qty"; Decimal)
         {
-            Caption = 'I/O Details Export Invoice Balance Qty.';
+            Caption = 'Export Invoiced Balance Qty.';
             DataClassification = CustomerContent;
         }
         // field(41; "LFS Adv. Lic File No."; Text[30])
