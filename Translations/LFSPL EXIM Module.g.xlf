@@ -689,32 +689,32 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2859746849 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Export FOB Value</source>
+          <source>I/O Details Export FOB Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. Lic Exp FOB Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 327255024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Export Qty.</source>
+          <source>I/O Details Export Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. Lic Export Qty. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 1376115107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Import CIF Value</source>
+          <source>I/O Details Import CIF Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. Lic Imp CIF Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 1809915455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Import CIF Value (LCY)</source>
+          <source>I/O Details Import CIF Value (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. Lic. CIF Value LCY - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3667059710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Export FOB Value (LCY)</source>
+          <source>I/O Details Export FOB Value (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. Lic. FOB Value LCY - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3289151011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Adv. License Import Qty.</source>
+          <source>I/O Details Import Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Adv. License Imp Qty. - Property Caption</note>
         </trans-unit>
@@ -789,22 +789,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export FOB Value LCY - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3589997865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Inv Bal Qty</source>
+          <source>I/O Details Export Invoice Balance Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv Bal Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3607300237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoice CIF Value</source>
+          <source>I/O Details Export Invoice CIF Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv CIF Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2451575216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoice FOB Value</source>
+          <source>I/O Details Export Invoice FOB Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv FOB Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2530113410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoice Qty.</source>
+          <source>I/O Details Export Invoice Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Invoice Qty. - Property Caption</note>
         </trans-unit>
@@ -879,22 +879,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv Bal Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3683085534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoice CIF Value</source>
+          <source>I/O Details Import Invoice CIF Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv CIF Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2951414127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoice FOB Value</source>
+          <source>I/O Details Import Invoice FOB Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv FOB Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 781994665 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoice Qty.</source>
+          <source>I/O Details Import Invoice Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Invoice Qty. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 1774167651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Order Bal Qty</source>
+          <source>I/O Details Import Order Balance Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Order Bal Qty - Property Caption</note>
         </trans-unit>
@@ -8274,7 +8274,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM Lic. IO Detail List - Control Variant Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2306477241 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>EXIM Advance License Card</source>
+          <source>License Card</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Property Caption</note>
         </trans-unit>
@@ -8402,11 +8402,6 @@
           <source>Specifies the value of the Expiry Date field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control Expiry Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2306477241 - Control 1774461192 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the Export Type field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control Export Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2306477241 - Control 3673444989 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the License Type</source>

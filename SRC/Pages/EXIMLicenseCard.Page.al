@@ -357,7 +357,6 @@ page 72021 "LFS EXIM License Card"
             // {
             //     ApplicationArea = all;
             //     ToolTip = 'Specifies the LUT Amount';
-
             // }
             // }
             group(Export)
