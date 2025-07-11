@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "LFS AddOns",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "LFS_Addons",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "ba246c6f-3a08-4eae-a0e9-82e32ab3eb76",
+            "schemaUpdateMode": "ForceSync"
+        }
+    ]
+}
