@@ -123,7 +123,7 @@ table 72018 "LFS EXIM License Header"
         field(19; "LFS Export Inv FOB Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'Export Invoiced FOB Value';
+            Caption = 'Export Invoiced FOB Value (FCY)';
             CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS No."),
                                                                         "LFS Type" = const(Export),
                                                                         "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -176,7 +176,7 @@ table 72018 "LFS EXIM License Header"
         {
 
             FieldClass = FlowField;
-            Caption = 'Import Invoiced CIF Value';
+            Caption = 'Import Invoiced CIF Value (FCY)';
             CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Import),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -212,7 +212,7 @@ table 72018 "LFS EXIM License Header"
         field(29; "LFS Export Inv CIF Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'Export Invoiced CIF Value';
+            Caption = 'Export Invoiced CIF Value (FCY)';
             CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Export),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));
@@ -230,7 +230,7 @@ table 72018 "LFS EXIM License Header"
         field(31; "LFS Import Inv FOB Value"; Decimal)
         {
             FieldClass = FlowField;
-            Caption = 'Import Invoiced FOB Value';
+            Caption = 'Import Invoiced FOB Value (FCY)';
             CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS No."),
                                                                             "LFS Type" = const(Import),
                                                                             "LFS Document Type" = filter("Posted Invoice" | Opening | "Credit Memo")));

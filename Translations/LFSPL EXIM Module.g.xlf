@@ -794,12 +794,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv Bal Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3607300237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoiced CIF Value</source>
+          <source>Export Invoiced CIF Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv CIF Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2451575216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoiced FOB Value</source>
+          <source>Export Invoiced FOB Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv FOB Value - Property Caption</note>
         </trans-unit>
@@ -879,12 +879,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv Bal Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3683085534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoiced CIF Value</source>
+          <source>Import Invoiced CIF Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv CIF Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 2951414127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoiced FOB Value</source>
+          <source>Import Invoiced FOB Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Inv FOB Value - Property Caption</note>
         </trans-unit>
