@@ -223,29 +223,6 @@ page 72060 "LFS Export Sales Orders"
     {
         area(Processing)
         {
-            action(NewRecord)
-            {
-                Caption = 'New Record';
-                Image = New;
-                ApplicationArea = All;
-                Promoted = true;
-                PromotedCategory = Process;
-
-                trigger OnAction()
-                var
-                    SalesHeader: Record "Sales Header";
-                begin
-                    SalesHeader.Init();
-                    SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
-                    SalesHeader."LFS EXIM Type" := SalesHeader."LFS EXIM Type"::Export;
-                    if SalesHeader.AssistEditExport(SalesHeader) then begin
-                        Commit();
-                    end;
-                    SalesHeader.Insert(true); // Triggers OnInsert and No. Series logic
-
-                    PAGE.Run(PAGE::"Sales Order", SalesHeader);
-                end;
-            }
             group(Order)
             {
                 Image = Order;
@@ -417,6 +394,31 @@ page 72060 "LFS Export Sales Orders"
                     end;
                 }
             }
+            action(NewRecord)
+            {
+                Caption = 'New Record';
+                Image = New;
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+                begin
+                    SalesHeader.Init();
+                    SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+                    SalesHeader."LFS EXIM Type" := SalesHeader."LFS EXIM Type"::Export;
+                    if SalesHeader.AssistEditExport(SalesHeader) then begin
+                        Commit();
+                    end;
+                    SalesHeader.Insert(true); // Triggers OnInsert and No. Series logic
+
+                    PAGE.Run(PAGE::"Sales Order", SalesHeader);
+                end;
+            }
             group("P&osting")
             {
                 Caption = 'P&osting';
@@ -541,15 +543,15 @@ page 72060 "LFS Export Sales Orders"
         Rec.SetRange("Date Filter", 0D, WorkDate() - 1);
     end;
 
-    trigger OnNewRecord(BelowxRec: Boolean)
-    begin
-        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
-    end;
+    // trigger OnNewRecord(BelowxRec: Boolean)
+    // begin
+    //     REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
+    // end;
 
-    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    begin
-        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
-    end;
+    // trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    // begin
+    //     REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
+    // end;
 
     var
         SalesPostYesNo: Codeunit "Sales-Post (Yes/No)";

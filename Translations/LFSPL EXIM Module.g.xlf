@@ -16283,6 +16283,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Control Attached Documents List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2689130036 - Action 2015509123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Record</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Action NewRecord - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2689130036 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16407,11 +16412,6 @@
           <source>S&amp;hipments</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Action Shipments - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2689130036 - Action 2015509123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New Record</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Action NewRecord - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2689130036 - Action 146219450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;rder</source>
