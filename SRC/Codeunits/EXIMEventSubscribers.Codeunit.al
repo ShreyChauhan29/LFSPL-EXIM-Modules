@@ -1196,4 +1196,47 @@ codeunit 72002 "LFS EXIM Event Subscribers"
 
     end;
 
+    // [EventSubscriber(ObjectType::Table, Database::"Sales Header", OnBeforeAssistEdit, '', false, false)]
+    // local procedure "Sales Header_OnBeforeAssistEdit"(var SalesHeader: Record "Sales Header"; OldSalesHeader: Record "Sales Header"; var IsHandled: Boolean; var Result: Boolean)
+    // var
+    //     EximSetup: Record "LFS EXIM Setup";
+    //     NoSeriesMgt: Codeunit "No. Series";
+    //     NewNo: Code[20];
+    //     SalesHeader2: Record "Sales Header";
+    // begin
+    //     if SalesHeader."Document Type" <> SalesHeader."Document Type"::Order then
+    //         exit;
+
+    //     if SalesHeader."LFS EXIM Type" <> SalesHeader."LFS EXIM Type"::Export then
+    //         exit;
+
+    //     if not EximSetup.Get() then
+    //         Error('EXIM Setup not found.');
+
+    //     if EximSetup."LFS Export Order Nos." = '' then
+    //         Error('Export Order No. Series is not defined in EXIM Setup.');
+
+    //     SalesHeader.TestNoSeries();
+
+    //     if NoSeriesMgt.LookupRelatedNoSeries(EximSetup."LFS Export Order Nos.", OldSalesHeader."No. Series", SalesHeader."No. Series") then begin
+    //         NewNo := NoSeriesMgt.GetNextNo(SalesHeader."No. Series", WorkDate(), true);
+
+    //         if SalesHeader2.Get(SalesHeader."Document Type", NewNo) then
+    //             Error('A sales order with number %1 already exists.', NewNo);
+
+    //         SalesHeader."No." := NewNo;
+    //         Commit();
+    //         // SalesHeader.Modify();
+    //         Result := true;
+    //         IsHandled := true;
+    //     end;
+    // end;
+
+    // [EventSubscriber(ObjectType::Table, Database::"Sales Header", OnBeforeRename, '', false, false)]
+    // local procedure "Sales Header_OnBeforeRename"(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean; xSalesHeader: Record "Sales Header")
+    // begin
+    //     if SalesHeader."LFS EXIM Type" = SalesHeader."LFS EXIM Type"::Export then
+    //         IsHandled := true;
+    // end;
+
 }

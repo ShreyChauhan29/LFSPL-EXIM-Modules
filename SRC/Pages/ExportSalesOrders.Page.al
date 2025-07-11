@@ -17,9 +17,12 @@ page 72060 "LFS Export Sales Orders"
     PageType = List;
     SourceTable = "Sales Header";
     UsageCategory = Lists;
-    Editable = false;
+    // Editable = false;
     DeleteAllowed = false;
-    CardPageId = "LFS Export Sales Order";
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    // CardPageId = "LFS Export Sales Order";
+    CardPageId = "Sales Order";
     SourceTableView = where("Document Type" = const(Order), "LFS EXIM Type" = filter(Export));
 
     layout
@@ -220,6 +223,29 @@ page 72060 "LFS Export Sales Orders"
     {
         area(Processing)
         {
+            action(NewRecord)
+            {
+                Caption = 'New Record';
+                Image = New;
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+                begin
+                    SalesHeader.Init();
+                    SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+                    SalesHeader."LFS EXIM Type" := SalesHeader."LFS EXIM Type"::Export;
+                    if SalesHeader.AssistEditExport(SalesHeader) then begin
+                        Commit();
+                    end;
+                    SalesHeader.Insert(true); // Triggers OnInsert and No. Series logic
+
+                    PAGE.Run(PAGE::"Sales Order", SalesHeader);
+                end;
+            }
             group(Order)
             {
                 Image = Order;
