@@ -282,7 +282,7 @@ table 72018 "LFS EXIM License Header"
         }
         field(37; "LFS Import Order Bal Qty"; Decimal)
         {
-            Caption = 'Import Ordered Balance Qty.';
+            Caption = 'Import Invoice Balance Qty.';
             DataClassification = CustomerContent;
         }
         field(38; "LFS Import Inv Bal Qty"; Decimal)
@@ -292,7 +292,7 @@ table 72018 "LFS EXIM License Header"
         }
         field(40; "LFS Export Inv Bal Qty"; Decimal)
         {
-            Caption = 'Export Invoiced Balance Qty.';
+            Caption = 'Export Invoice Balance Qty.';
             DataClassification = CustomerContent;
         }
         // field(41; "LFS Adv. Lic File No."; Text[30])

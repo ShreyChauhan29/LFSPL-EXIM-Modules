@@ -789,7 +789,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export FOB Value LCY - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3589997865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export Invoiced Balance Qty.</source>
+          <source>Export Invoice Balance Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Export Inv Bal Qty - Property Caption</note>
         </trans-unit>
@@ -894,7 +894,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Invoice Qty. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 1774167651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Ordered Balance Qty.</source>
+          <source>Import Invoice Balance Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Import Order Bal Qty - Property Caption</note>
         </trans-unit>
@@ -8462,11 +8462,6 @@
           <source>Specifies the Import Invoice Bal. Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control Import Order Bal Qty - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2306477241 - Control 3285702988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import Invoice Bal. Qty.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control Import Order Bal Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2306477241 - Control 1905116280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>License Utilization Line</source>

@@ -434,7 +434,6 @@ page 72021 "LFS EXIM License Card"
                 {
                     ApplicationArea = all;
                     Editable = false;
-                    Caption = 'Import Invoice Bal. Qty.';
                     ToolTip = 'Specifies the Import Invoice Bal. Qty.';
                 }
             }
