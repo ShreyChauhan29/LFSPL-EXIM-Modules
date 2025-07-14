@@ -70,11 +70,11 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             TableRelation = "LFS EXIM Inco Terms";
             DataClassification = CustomerContent;
         }
-        field(72007; "LFS Export Remark"; Text[250])
-        {
-            Caption = 'Export Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72007; "LFS Export Remark"; Text[250])
+        // {
+        //     Caption = 'Export Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72008; "LFS Custom Currency Code"; Code[10])
         {
             Caption = 'Custom Currency Code';

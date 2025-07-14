@@ -721,7 +721,7 @@ page 72061 "LFS Export Warehouse Shipment"
                 Rec."LFS Final Destination" := Salesheader."LFS Final Destination";
                 Rec."LFS Country Origin Goods" := Salesheader."LFS Country Origin Goods";
                 Rec."LFS Inco Terms" := Salesheader."LFS Inco Terms";
-                Rec."LFS Export Remark" := Salesheader."LFS Export Remark";
+                // Rec."LFS Export Remark" := Salesheader."LFS Export Remark";
                 Rec."LFS Custom Currency Code" := Salesheader."LFS Custom Currency Code";
                 Rec."LFS Custom Currency Factor" := Salesheader."LFS Custom Currency Factor";
                 Rec."LFS Pre Carriage" := Salesheader."LFS Pre Carriage";

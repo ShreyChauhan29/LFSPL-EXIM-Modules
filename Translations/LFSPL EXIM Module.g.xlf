@@ -36093,16 +36093,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension LFS Get Source Documents Ext - NamedType Text0101Err</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1447713582 - Control 3475559500 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1351594800">
-          <source>Specifies the value of the LFS EXIM Type field.</source>
-          <note from="Developer" annotates="general" priority="2">%</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS No. Series Ext. - Control LFS EXIM Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2786428408 - Field 3475559500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1351594800">
-          <source>LFS EXIM Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS No. Series Ext - Field LFS EXIM Type - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 140614514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>EXIM License Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>

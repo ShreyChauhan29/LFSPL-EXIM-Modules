@@ -536,12 +536,12 @@ page 72055 "LFS Export Sales Invoice"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Commercial Bank Account';
                 }
-                field("Export Remark"; Rec."LFS Export Remark")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Batch Code';
-                    ToolTip = 'Specifies the Batch Code';
-                }
+                // field("Export Remark"; Rec."LFS Export Remark")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Batch Code';
+                //     ToolTip = 'Specifies the Batch Code';
+                // }
                 field("Pre Carriage"; Rec."LFS Pre Carriage")
                 {
                     ApplicationArea = All;

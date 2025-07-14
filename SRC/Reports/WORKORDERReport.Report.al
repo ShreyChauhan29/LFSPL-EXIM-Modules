@@ -125,10 +125,10 @@ report 72003 "LFS WORK ORDER Report"
             {
 
             }
-            column(LFS_EX_Export_Remark; "LFS Export Remark")
-            {
+            // column(LFS_EX_Export_Remark; "LFS Export Remark")
+            // {
 
-            }
+            // }
             column(PreparedBy; PreparedBy)
             {
             }

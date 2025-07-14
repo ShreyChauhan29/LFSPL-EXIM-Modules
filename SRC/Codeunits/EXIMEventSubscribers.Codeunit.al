@@ -887,7 +887,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
             WhseShptHeader."LFS Final Destination" := SalesHeader."LFS Final Destination";
             WhseShptHeader."LFS Country Origin Goods" := SalesHeader."LFS Country Origin Goods";
             WhseShptHeader."LFS Inco Terms" := SalesHeader."LFS Inco Terms";
-            WhseShptHeader."LFS Export Remark" := SalesHeader."LFS Export Remark";
+            // WhseShptHeader."LFS Export Remark" := SalesHeader."LFS Export Remark";
             WhseShptHeader."LFS Custom Currency Code" := SalesHeader."LFS Custom Currency Code";
             WhseShptHeader."LFS Custom Currency Factor" := SalesHeader."LFS Custom Currency Factor";
             WhseShptHeader."LFS Shpping Line" := SalesHeader."LFS Shipping Line";

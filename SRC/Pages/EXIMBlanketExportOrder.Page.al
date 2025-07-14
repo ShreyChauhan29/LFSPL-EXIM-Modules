@@ -685,11 +685,11 @@ page 72090 "LFS EXIM Blanket Export Order"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Inco Terms';
                 }
-                field("Export Remark"; Rec."LFS Export Remark")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Export Remark';
-                }
+                // field("Export Remark"; Rec."LFS Export Remark")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Export Remark';
+                // }
                 field("Shpping Line"; Rec."LFS Shipping Line")
                 {
                     ApplicationArea = all;

@@ -263,12 +263,32 @@ page 72058 "LFS Export Sales Order"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Inco Terms Type';
                 }
-                field("LFS Export Remark"; Rec."LFS Export Remark")
+                group("Work Description")
                 {
-                    ApplicationArea = all;
-                    ToolTip = 'Export Remark';
-                }
+                    Caption = 'Work Description';
+                    field(WorkDescription; WorkDescription)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Importance = Additional;
+                        MultiLine = true;
+                        ShowCaption = false;
+                        ToolTip = 'Specifies the products or service being offered.';
 
+                        trigger OnValidate()
+                        begin
+                            Rec.SetWorkDescription(WorkDescription);
+                        end;
+                    }
+                }
+                // field("Work Description"; Rec."Work Description")
+                // {
+                //     ToolTip = 'Specifies the value of the Work Description field.', Comment = '%';
+                // }
+                // field("LFS Export Remark"; Rec."LFS Export Remark")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Export Remark';
+                // }
                 field("LFS Dispatch Date"; Rec."LFS Dispatch Date")
                 {
                     ApplicationArea = all;
@@ -417,12 +437,12 @@ page 72058 "LFS Export Sales Order"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Commercial Bank Account';
                 }
-                field("Export Remark"; Rec."LFS Export Remark")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Export Remark';
-                }
+                // field("Export Remark"; Rec."LFS Export Remark")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Export Remark';
+                // }
                 field("Pre Carriage"; Rec."LFS Pre Carriage")
                 {
                     ApplicationArea = all;
@@ -2457,6 +2477,7 @@ page 72058 "LFS Export Sales Order"
     var
         ICInboxOutboxMgt: Codeunit ICInboxOutboxMgt;
     begin
+        WorkDescription := Rec.GetWorkDescription();
         RejectICSalesOrderEnabled := ICInboxOutboxMgt.IsSalesHeaderFromIncomingIC(Rec);
         SetControlVisibility();
     end;
@@ -2481,6 +2502,7 @@ page 72058 "LFS Export Sales Order"
         UserMgt: Codeunit "User Setup Management";
         ChangeExchangeRate: Page "Change Exchange Rate";
         ChangeCustomExchangeRate: Page "LFSChange Custom Exchange Rate";
+        WorkDescription: Text;
         CanCancelApprovalForFlow: Boolean;
         CanCancelApprovalForRecord: Boolean;
         CanRequestApprovalForFlow: Boolean;
