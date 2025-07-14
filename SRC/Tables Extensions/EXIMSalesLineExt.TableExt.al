@@ -11,22 +11,22 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             Caption = 'No. of Packages';
             DataClassification = CustomerContent;
         }
-        field(72001; "LFS Purity"; Decimal)
-        {
-            Caption = 'Purity';
-            DataClassification = CustomerContent;
-        }
-        field(72002; "LFS Total Taxes"; Decimal)
-        {
-            Caption = 'Total Taxes';
-            DataClassification = CustomerContent;
-        }
-        field(72003; "LFS From"; Text[250])
+        // field(72001; "LFS Purity"; Decimal)
+        // {
+        //     Caption = 'Purity';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72002; "LFS Total Taxes"; Decimal)
+        // {
+        //     Caption = 'Total Taxes';
+        //     DataClassification = CustomerContent;
+        // }
+        field(72003; "LFS Container No/Shipp. Marks"; Text[250])
         {
             Caption = 'Container No. & Shipping Marks';
             DataClassification = CustomerContent;
         }
-        field(72004; "LFS to"; Text[250])
+        field(72004; "LFS No. & Kind of Packages"; Text[250])
         {
             Caption = 'No. & Kind of Packages';
             DataClassification = CustomerContent;
@@ -113,21 +113,21 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             Caption = 'No. of Container';
             DataClassification = CustomerContent;
         }
-        field(72012; "LFS Freight Type"; Enum "LFS Freight Type")
-        {
-            Caption = 'Freight Type';
-            DataClassification = CustomerContent;
-        }
+        // field(72012; "LFS Freight Type"; Enum "LFS Freight Type")
+        // {
+        //     Caption = 'Freight Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72013; "LFS Freight Value (LCY)"; Decimal)
         {
-            Caption = 'Freight Value Per Type (LCY)';
+            Caption = 'Freight Value (LCY)';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
             Editable = false;
         }
         field(72014; "LFS Freight Value (FCY)"; Decimal)
         {
-            Caption = 'Freight Value Per Type (FCY)';
+            Caption = 'Freight Value (FCY)';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
             trigger OnValidate()
@@ -135,21 +135,21 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 FOBvalue();
             end;
         }
-        field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
-        {
-            Caption = 'Insurance Type';
-            DataClassification = CustomerContent;
-        }
+        // field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
+        // {
+        //     Caption = 'Insurance Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72016; "LFS Insurance Value (LCY)"; Decimal)
         {
-            Caption = 'Insurance Value Per Type (LCY)';
+            Caption = 'Insurance Value (LCY)';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
             Editable = false;
         }
         field(72017; "LFS Insurance Value (FCY)"; Decimal)
         {
-            Caption = 'Insurance Value Per Type (FCY)';
+            Caption = 'Insurance Value (FCY)';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
             trigger OnValidate()
@@ -157,18 +157,16 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 FOBvalue();
             end;
         }
-        field(72018; "LFS Category Type"; Enum "LFS Category Type")
-        {
-            Caption = 'Category Type';
-            DataClassification = CustomerContent;
-
-        }
-
-        field(72024; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72018; "LFS Category Type"; Enum "LFS Category Type")
+        // {
+        //     Caption = 'Category Type';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72024; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72025; "LFS Packing List No."; Code[20])
         {
             Caption = 'Packing List No.';
@@ -231,14 +229,12 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             DataClassification = CustomerContent;
             Caption = 'RoDTEP Rebate Rate %';
         }
-
         field(72036; "LFS RoDTEP Rebate Value"; Decimal)
         {
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
             Editable = false;
             Caption = 'RoDTEP Rebate Value';
-
         }
         field(72037; "LFS Source No."; Code[20])
         {
@@ -288,18 +284,18 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             DataClassification = CustomerContent;
             Caption = 'No. & Kind Of PKDG';
         }
-        field(72046; "LFS CIF(FCY)"; decimal)
+        field(72046; "LFS CIF Value (FCY)"; decimal)
         {
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
-            Caption = 'CIF(FCY)';
+            Caption = 'CIF Value (FCY)';
             Editable = false;
         }
-        field(72047; "LFS CIF(LCY)"; decimal)
+        field(72047; "LFS CIF Value (LCY)"; decimal)
         {
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
-            Caption = 'CIF(LCY)';
+            Caption = 'CIF Value (LCY)';
             Editable = false;
         }
         field(72048; "LFS FOB CIF Calc. Type"; Option)
@@ -661,24 +657,24 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * exchRate;
                     Rec."LFS Freight Value (LCY)" := Rec."LFS Freight Value (FCY)" * exchRate;
                     Rec."LFS Insurance Value (LCY)" := Rec."LFS Insurance Value (FCY)" * exchRate;
-                    Rec."LFS CIF(FCY)" := Rec."LFS Freight Value (FCY)" + Rec."LFS Insurance Value (FCY)" + Rec."LFS FOB Amount (FCY)";
-                    Rec."LFS CIF(LCY)" := Rec."LFS CIF(FCY)" * exchRate;
+                    Rec."LFS CIF Value (FCY)" := Rec."LFS Freight Value (FCY)" + Rec."LFS Insurance Value (FCY)" + Rec."LFS FOB Amount (FCY)";
+                    Rec."LFS CIF Value (LCY)" := Rec."LFS CIF Value (FCY)" * exchRate;
                     if Rec.Quantity <> 0 then begin
                         Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
-                        Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF(FCY)" / Rec.Quantity;
+                        Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF value (FCY)" / Rec.Quantity;
                     end;
                 end
                 else
                     if SalesHeader."LFS FOB CIF Calc. Type" = SalesHeader."LFS FOB CIF Calc. Type"::CIF then begin
                         Rec."LFS Freight Value (LCY)" := Rec."LFS Freight Value (FCY)" * exchRate;
                         Rec."LFS Insurance Value (LCY)" := Rec."LFS Insurance Value (FCY)" * exchRate;
-                        Rec."LFS CIF(FCY)" := Rec."Line Amount";
-                        Rec."LFS CIF(LCY)" := Rec."Line Amount" * exchRate;
-                        Rec."LFS FOB Amount (FCY)" := rec."LFS CIF(FCY)" - Rec."LFS Freight Value (FCY)" - Rec."LFS Insurance Value (FCY)";
+                        Rec."LFS CIF Value (FCY)" := Rec."Line Amount";
+                        Rec."LFS CIF Value (LCY)" := Rec."Line Amount" * exchRate;
+                        Rec."LFS FOB Amount (FCY)" := rec."LFS CIF Value (FCY)" - Rec."LFS Freight Value (FCY)" - Rec."LFS Insurance Value (FCY)";
                         Rec."LFS FOB Amount (LCY)" := Rec."LFS FOB Amount (FCY)" * exchRate;
                         if Rec.Quantity <> 0 then begin
                             Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
-                            Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF(FCY)" / Rec.Quantity;
+                            Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF Value (FCY)" / Rec.Quantity;
                         end;
                     end;
                 if Rec."LFS Incentive Type" = Rec."LFS Incentive Type"::DDB then

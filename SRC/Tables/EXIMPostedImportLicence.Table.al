@@ -68,7 +68,7 @@ table 72023 "LFS EXIM Posted Import Licence"
             DataClassification = CustomerContent;
             Caption = 'Import Inv Bal Qty';
         }
-        field(14; "LFS CIF(FCY)"; decimal)
+        field(14; "LFS CIF Value (FCY)"; decimal)
         {
             DataClassification = CustomerContent;
             Caption = 'CIF(FCY)';

@@ -17,32 +17,32 @@ pageextension 72026 "LFS EXIM Sales Order Ext." extends "Sales Order"
                 ToolTip = 'Specifies the Customer Order Date';
             }
         }
-        addafter("External Document No.")
-        {
-            // field("Order Credit Limit"; Rec."Order Credit Limit")
-            // {
-            //     ToolTip = 'Specifies the order credit limit';
-            //     ApplicationArea = all;
-            // }
-        }
-        addafter("Applies-to Doc. No.")
-        {
-            field("LFS Notify Party 1"; Rec."LFS Notify Party 1")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the Notifying Parties values.';
-            }
-            field("LFS Notify Party 2"; Rec."LFS Notify Party 2")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the Notifying Parties values.';
-            }
-            field("LFS Notify Party 3"; Rec."LFS Notify Party 3")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the Notifying Parties values.';
-            }
-        }
+        // addafter("External Document No.")
+        // {
+        // field("Order Credit Limit"; Rec."Order Credit Limit")
+        // {
+        //     ToolTip = 'Specifies the order credit limit';
+        //     ApplicationArea = all;
+        // }
+        // }
+        // addafter("Applies-to Doc. No.")
+        // {
+        //     field("LFS Notify Party 1"; Rec."LFS Notify Party 1")
+        //     {
+        //         ApplicationArea = All;
+        //         ToolTip = 'Specifies the Notifying Parties values.';
+        //     }
+        //     field("LFS Notify Party 2"; Rec."LFS Notify Party 2")
+        //     {
+        //         ApplicationArea = All;
+        //         ToolTip = 'Specifies the Notifying Parties values.';
+        //     }
+        //     field("LFS Notify Party 3"; Rec."LFS Notify Party 3")
+        //     {
+        //         ApplicationArea = All;
+        //         ToolTip = 'Specifies the Notifying Parties values.';
+        //     }
+        // }
     }
 
     actions

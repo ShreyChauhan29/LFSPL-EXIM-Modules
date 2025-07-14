@@ -33,7 +33,7 @@ page 72013 "LFS Import Licenses"
                             repeat
                                 if Rec."LFS License Type" = Rec."LFS License Type"::RoDTEP then begin
                                     Rec."LFS Import Inv Bal Qty" := 0;
-                                    Rec."LFS CIF(FCY)" := 0;
+                                    Rec."LFS CIF Value (FCY)" := 0;
                                     Rec."LFS Quantity" := 0;
                                     if (ImportLicense."LFS License Type" = ImportLicense."LFS License Type"::"Adv. License") then
                                         Error('You cannot choose Rodtep license type for this document');
@@ -147,7 +147,7 @@ page 72013 "LFS Import Licenses"
                     Editable = false;
                     ToolTip = 'Specifies the Unit Cost';
                 }
-                field("CIF(FCY)"; Rec."LFS CIF(FCY)")
+                field("CIF(FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ApplicationArea = all;
                     Editable = false;

@@ -50,11 +50,11 @@ tableextension 72011 "LFS Purch. Cr. Memo Line Ext." extends "Purch. Cr. Memo Li
             Caption = 'Import Duties Amount (LCY)';
             DataClassification = CustomerContent;
         }
-        field(72010; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72010; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72011; "LFS Currency Exch. Rate"; Decimal)
         {
             Caption = 'Currency Exch. Rate';

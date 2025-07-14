@@ -57,12 +57,11 @@ tableextension 72013 "LFS EXIM Purch. Inv. Line Ext." extends "Purch. Inv. Line"
             Caption = 'Import Duties (LCY)';
             DataClassification = CustomerContent;
         }
-
-        field(72010; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72010; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72011; "LFS Currency Exch. Rate"; Decimal)
         {
             Caption = 'Currency Exch. Rate';

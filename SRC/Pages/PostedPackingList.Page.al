@@ -99,12 +99,12 @@ page 72049 "LFS Posted Packing List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Custom_Serial No.';
                 }
-                field("Packing Type"; Rec."LFS Packing Type")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Packing Type';
-                    visible = false;
-                }
+                // field("Packing Type"; Rec."LFS Packing Type")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Packing Type';
+                //     visible = false;
+                // }
                 field("LFS UOM"; Rec."LFS UOM")
                 {
                     ApplicationArea = all;

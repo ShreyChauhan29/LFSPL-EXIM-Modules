@@ -121,40 +121,37 @@ page 72072 "LFS Posted Export Invoice"
                     ApplicationArea = All;
                     Editable = false;
                 }
-
-
-                field("DDB Value"; Rec."LFS DDB Value")
-                {
-                    ApplicationArea = all;
-                    Editable = true;
-                    Visible = false;
-                    ToolTip = 'Specifies the DDB Value';
-                }
-                field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FOB Amount (FCY)';
-                }
-                field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FOB Amount (LCY)';
-                }
-                field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the CIF Amount (FCY)';
-                }
-                field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the CIF Amount (LCY)';
-                }
-
+                // field("DDB Value"; Rec."LFS DDB Value")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = true;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the DDB Value';
+                // }
+                // field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FOB Amount (FCY)';
+                // }
+                // field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FOB Amount (LCY)';
+                // }
+                // field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the CIF Amount (FCY)';
+                // }
+                // field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the CIF Amount (LCY)';
+                // }
             }
             group("Shipping Bill Details")
             {
@@ -169,26 +166,26 @@ page 72072 "LFS Posted Export Invoice"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Shipping Bill Date';
                 }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order No.';
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order date';
-                }
-                field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Bill of Lading No.';
-                }
-                field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Bill of Lading Date';
-                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Bill of Lading No.';
+                // }
+                // field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Bill of Lading Date';
+                // }
             }
             part(SalesInvLines; "LFS EXIMPostedExportInvoiceSub")
             {
@@ -283,32 +280,32 @@ page 72072 "LFS Posted Export Invoice"
                     Editable = false;
                     ToolTip = 'Specifies the ETD';
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT No.';
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT Date';
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    Visible = false;
-                    ToolTip = 'Specifies the BIN No.';
-                }
-                field("Additional Information"; Rec."LFS Additional Information")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Additional Information';
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT No.';
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT Date';
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the BIN No.';
+                // }
+                // field("Additional Information"; Rec."LFS Additional Information")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Additional Information';
+                // }
             }
             group(Invoicing)
             {

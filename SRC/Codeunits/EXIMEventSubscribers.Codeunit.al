@@ -299,7 +299,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 EXIMpostedLicense."LFS License No." := eximLicense."LFS License No.";
                 EXIMpostedLicense."LFS Unit Cost" := eximLicense."LFS Unit Cost";
                 EXIMpostedLicense."LFS Import Inv Bal Qty" := eximLicense."LFS Import Inv Bal Qty";
-                EXIMpostedLicense."LFS CIF(FCY)" := eximLicense."LFS CIF(FCY)";
+                EXIMpostedLicense."LFS CIF Value (FCY)" := eximLicense."LFS CIF Value (FCY)";
                 EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                 EXIMpostedLicense."LFS RoDTEP Balance" := eximLicense."LFS RoDTEP Balance";
                 EXIMpostedLicense."LFS RoDTEP Consump Value" := eximLicense."LFS RoDTEP Consump Value";
@@ -415,7 +415,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 EXIMpostedLicense."LFS License No." := eximLicense."LFS License No.";
                 EXIMpostedLicense."LFS Unit Cost" := EximLicense."LFS Unit Cost";
                 EXIMpostedLicense."LFS Import Inv Bal Qty" := eximLicense."LFS Import Inv Bal Qty";
-                EXIMpostedLicense."LFS CIF(FCY)" := eximLicense."LFS CIF(FCY)";
+                EXIMpostedLicense."LFS CIF Value (FCY)" := eximLicense."LFS CIF Value (FCY)";
                 EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                 EXIMpostedLicense."LFS RoDTEP Balance" := EximLicense."LFS RoDTEP Balance";
                 EXIMpostedLicense."LFS RoDTEP Consump Value" := EximLicense."LFS RoDTEP Consump Value";
@@ -451,9 +451,9 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         exportInfo: Record "LFS Export Information Header";
         PostedExport: Record "LFS Posted Export Information";
     begin
-        PostedWhseShptHeader."LFS Commission Agent" := WarehouseShipmentHeader."LFS Commission Agent";
-        PostedWhseShptHeader."LFS Comm. Amount" := WarehouseShipmentHeader."LFS Comm. Amount";
-        PostedWhseShptHeader.Modify();
+        // PostedWhseShptHeader."LFS Commission Agent" := WarehouseShipmentHeader."LFS Commission Agent";
+        // PostedWhseShptHeader."LFS Comm. Amount" := WarehouseShipmentHeader."LFS Comm. Amount";
+        // PostedWhseShptHeader.Modify();
 
         exportInfo.SetRange("LFS Document Type", exportInfo."LFS Document Type"::Shipment);
         exportInfo.SetRange("LFS Document No.", WarehouseShipmentHeader."No.");
@@ -470,14 +470,12 @@ codeunit 72002 "LFS EXIM Event Subscribers"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", OnAfterFinalizePosting, '', false, false)]
     local procedure LFS_EX_OnAfterFinalizePosting(var SalesHeader: Record "Sales Header"; var SalesShipmentHeader: Record "Sales Shipment Header"; var SalesInvoiceHeader: Record "Sales Invoice Header"; var SalesCrMemoHeader: Record "Sales Cr.Memo Header"; var ReturnReceiptHeader: Record "Return Receipt Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; CommitIsSuppressed: Boolean; PreviewMode: Boolean);
     var
-        EximSetup: Record "LFS EXIM Setup";
-        PHdr: Record "Purchase Header";
-        PL_rec: Record "Purchase Line";
-        NoSeriesMgmt: Codeunit "No. Series";
+        // EximSetup: Record "LFS EXIM Setup";
+        // PHdr: Record "Purchase Header";
+        // PL_rec: Record "Purchase Line";
+        // NoSeriesMgmt: Codeunit "No. Series";
         EximExportinvpage: Page "LFS Export Sales Invoice";
-        PurchDocNo: Code[20];
-
-
+    // PurchDocNo: Code[20];
     begin
         if SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice then
             if SalesHeader."LFS EXIM Type" = SalesHeader."LFS EXIM Type"::Export then
@@ -669,16 +667,16 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesInvHeaderInsert', '', false, false)]
-    local procedure LFS_EX_OnAfterSalesInvHeaderInsertSub(var SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; WhseShip: Boolean; WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header"; var TempWhseRcptHeader: Record "Warehouse Receipt Header"; PreviewMode: Boolean)
-    begin
-        if not WhseShip then begin
-            SalesInvHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-            SalesInvHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-            SalesInvHeader."LFS Additional Information" := SalesHeader."LFS Additional Information";
-            SalesInvHeader.Modify();
-        end;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesInvHeaderInsert', '', false, false)]
+    // local procedure LFS_EX_OnAfterSalesInvHeaderInsertSub(var SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; WhseShip: Boolean; WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header"; var TempWhseRcptHeader: Record "Warehouse Receipt Header"; PreviewMode: Boolean)
+    // begin
+    //     if not WhseShip then begin
+    //         SalesInvHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+    //         SalesInvHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+    //         SalesInvHeader."LFS Additional Information" := SalesHeader."LFS Additional Information";
+    //         SalesInvHeader.Modify();
+    //     end;
+    // end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterSalesShptHeaderInsert', '', false, false)]
     local procedure LFS_EX_OnAfterSalesShptHeaderInsertSub(var SalesShipmentHeader: Record "Sales Shipment Header"; SalesHeader: Record "Sales Header"; SuppressCommit: Boolean; WhseShip: Boolean; WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header"; var TempWhseRcptHeader: Record "Warehouse Receipt Header"; PreviewMode: Boolean)
@@ -686,17 +684,17 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         exportInfo: Record "LFS Export Information Header";
         PostedExport: Record "LFS Posted Export Information";
     begin
-        if WhseShip then begin
-            SalesShipmentHeader."LFS Commission Agent" := TempWhseShptHeader."LFS Commission Agent";
-            SalesShipmentHeader."LFS Comm. Amount" := TempWhseShptHeader."LFS Comm. Amount";
-            SalesShipmentHeader.Modify();
-        end
-        else begin
-            SalesShipmentHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-            SalesShipmentHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-            SalesShipmentHeader."LFS Additional Information" := SalesHeader."LFS Additional Information";
-            SalesShipmentHeader.Modify();
-        end;
+        // if WhseShip then begin
+        //     SalesShipmentHeader."LFS Commission Agent" := TempWhseShptHeader."LFS Commission Agent";
+        //     SalesShipmentHeader."LFS Comm. Amount" := TempWhseShptHeader."LFS Comm. Amount";
+        //     SalesShipmentHeader.Modify();
+        // end
+        // else begin
+        //     SalesShipmentHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+        //     SalesShipmentHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+        //     SalesShipmentHeader."LFS Additional Information" := SalesHeader."LFS Additional Information";
+        //     SalesShipmentHeader.Modify();
+        // end;
 
         exportInfo.SetRange("LFS Document Type", exportInfo."LFS Document Type"::Shipment);
         exportInfo.SetRange("LFS Document No.", TempWhseShptHeader."No.");
@@ -791,13 +789,13 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         PostedWhseShipmentHeader."LFS EXIM Type" := WarehouseShipmentHeader."LFS EXIM Type";
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Get Return Receipts", OnBeforeTransferLineToSalesDoc, '', false, false)]
-    local procedure LFS_EX_OnBeforeTransferLineToSalesDoc(ReturnReceiptHeader: Record "Return Receipt Header"; ReturnReceiptLine: Record "Return Receipt Line"; var SalesHeader: Record "Sales Header"; var TransferLine: Boolean);
-    begin
-        SalesHeader."LFS Commission Agent" := ReturnReceiptHeader."LFS Commission Agent";
-        SalesHeader."LFS Comm. Amount" := ReturnReceiptHeader."LFS Comm. Amount";
-        SalesHeader.Modify();
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Get Return Receipts", OnBeforeTransferLineToSalesDoc, '', false, false)]
+    // local procedure LFS_EX_OnBeforeTransferLineToSalesDoc(ReturnReceiptHeader: Record "Return Receipt Header"; ReturnReceiptLine: Record "Return Receipt Line"; var SalesHeader: Record "Sales Header"; var TransferLine: Boolean);
+    // begin
+    //     SalesHeader."LFS Commission Agent" := ReturnReceiptHeader."LFS Commission Agent";
+    //     SalesHeader."LFS Comm. Amount" := ReturnReceiptHeader."LFS Comm. Amount";
+    //     SalesHeader.Modify();
+    // end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Get Shipment", 'OnBeforeTransferLineToSalesDoc', '', false, false)]
     local procedure LFS_EX_OnBeforeTransferLineToSalesDocSub(SalesShipmentHeader: Record "Sales Shipment Header"; SalesShipmentLine: Record "Sales Shipment Line"; var SalesHeader: Record "Sales Header"; var TransferLine: Boolean)
@@ -806,9 +804,9 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         exportInformation: Record "LFS Export Information Header";
         PostedExport: Record "LFS Posted Export Information";
     begin
-        SalesHeader."LFS Commission Agent" := SalesShipmentHeader."LFS Commission Agent";
-        SalesHeader."LFS Comm. Amount" := SalesShipmentHeader."LFS Comm. Amount";
-        SalesHeader.Modify();
+        // SalesHeader."LFS Commission Agent" := SalesShipmentHeader."LFS Commission Agent";
+        // SalesHeader."LFS Comm. Amount" := SalesShipmentHeader."LFS Comm. Amount";
+        // SalesHeader.Modify();
 
         exportInfo.SetRange("LFS Document Type", SalesHeader."Document Type");
         exportInfo.SetRange("LFS Document No.", SalesHeader."No.");
@@ -838,34 +836,32 @@ codeunit 72002 "LFS EXIM Event Subscribers"
     end;
 
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Copy Document Mgt.", OnCopySalesInvLinesToDocOnAfterCopySalesDocLine, '', false, false)]
-    local procedure LFS_EX_OnCopySalesInvLinesToDocOnAfterCopySalesDocLine(ToSalesLine: Record "Sales Line"; FromSalesInvLine: Record "Sales Invoice Line");
-    var
-        SalesHeader: Record "Sales Header";
-        salesinvHeader: Record "Sales Invoice Header";
-    begin
-        salesinvHeader.SetRange("No.", FromSalesInvLine."Document No.");
-        if salesinvHeader.FindFirst() then begin
-            SalesHeader.SetRange("No.", ToSalesLine."Document No.");
-            if SalesHeader.FindFirst() then begin
-                SalesHeader."LFS Commission Agent" := salesinvHeader."LFS Commission Agent";
-                SalesHeader."LFS Comm. Amount" := salesinvHeader."LFS Comm. Amount";
-                SalesHeader.Modify();
-            end;
-        end;
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Copy Document Mgt.", OnCopySalesInvLinesToDocOnAfterCopySalesDocLine, '', false, false)]
+    // local procedure LFS_EX_OnCopySalesInvLinesToDocOnAfterCopySalesDocLine(ToSalesLine: Record "Sales Line"; FromSalesInvLine: Record "Sales Invoice Line");
+    // var
+    //     SalesHeader: Record "Sales Header";
+    //     salesinvHeader: Record "Sales Invoice Header";
+    // begin
+    //     salesinvHeader.SetRange("No.", FromSalesInvLine."Document No.");
+    //     if salesinvHeader.FindFirst() then begin
+    //         SalesHeader.SetRange("No.", ToSalesLine."Document No.");
+    //         if SalesHeader.FindFirst() then begin
+    //             SalesHeader."LFS Commission Agent" := salesinvHeader."LFS Commission Agent";
+    //             SalesHeader."LFS Comm. Amount" := salesinvHeader."LFS Comm. Amount";
+    //             SalesHeader.Modify();
+    //         end;
+    //     end;
+    // end;
 
-    end;
-
-
-    [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterCreateRcptHeader, '', false, false)]
-    local procedure LFS_EX_OnSalesLineOnAfterCreateRcptHeader(var WhseReceiptHeader: Record "Warehouse Receipt Header"; WhseHeaderCreated: Boolean; SalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line"; WarehouseRequest: Record "Warehouse Request");
-    begin
-        if SalesHeader."LFS Commission Agent" <> '' then begin
-            WhseReceiptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-            WhseReceiptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-            WhseReceiptHeader.Modify();
-        end;
-    end;
+    // [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterCreateRcptHeader, '', false, false)]
+    // local procedure LFS_EX_OnSalesLineOnAfterCreateRcptHeader(var WhseReceiptHeader: Record "Warehouse Receipt Header"; WhseHeaderCreated: Boolean; SalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line"; WarehouseRequest: Record "Warehouse Request");
+    // begin
+    //     if SalesHeader."LFS Commission Agent" <> '' then begin
+    //         WhseReceiptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+    //         WhseReceiptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+    //         WhseReceiptHeader.Modify();
+    //     end;
+    // end;
 
     [EventSubscriber(ObjectType::Report, report::"Get Source Documents", 'OnSalesLineOnAfterCreateShptHeader', '', false, false)]
     local procedure LFS_EX_OnSalesLineOnAfterCreateShptHeaderSub(var WhseShptHeader: Record "Warehouse Shipment Header"; WhseHeaderCreated: Boolean; SalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line"; WarehouseRequest: Record "Warehouse Request")
@@ -873,12 +869,12 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         ExportInfo: Record "LFS Export Information Header";
         exportInfo2: record "LFS Export Information Header";
     begin
-        if SalesHeader."LFS Commission Agent" <> '' then begin
-            WhseShptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-            WhseShptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-            WhseShptHeader.Modify();
+        // if SalesHeader."LFS Commission Agent" <> '' then begin
+        //     WhseShptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+        //     WhseShptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+        //     WhseShptHeader.Modify();
+        // end;
 
-        end;
         if SalesHeader."LFS EXIM Type" = SalesHeader."LFS EXIM Type"::Export then begin
             WhseShptHeader."LFS EXIM Type" := SalesHeader."LFS EXIM Type";
             WhseShptHeader."LFS Port of Discharge" := SalesHeader."LFS Port of Discharge";
@@ -892,13 +888,13 @@ codeunit 72002 "LFS EXIM Event Subscribers"
             WhseShptHeader."LFS Custom Currency Factor" := SalesHeader."LFS Custom Currency Factor";
             WhseShptHeader."LFS Shpping Line" := SalesHeader."LFS Shipping Line";
             WhseShptHeader."LFS Pre Carriage" := SalesHeader."LFS Pre Carriage";
-            WhseShptHeader."LFS Bill of Lading Date" := SalesHeader."LFS Bill of Lading Date";
-            WhseShptHeader."LFS Bill of Lading No." := SalesHeader."LFS Bill of Lading No.";
+            // WhseShptHeader."LFS Bill of Lading Date" := SalesHeader."LFS Bill of Lading Date";
+            // WhseShptHeader."LFS Bill of Lading No." := SalesHeader."LFS Bill of Lading No.";
             WhseShptHeader."LFS ETD" := SalesHeader."LFS ETD";
             WhseShptHeader."LFS ETA" := SalesHeader."LFS ETA";
             WhseShptHeader."LFS Customs Bank Account" := SalesHeader."LFS Customs Bank Account";
             WhseShptHeader."LFS Commercial Bank Account" := SalesHeader."LFS Commercial Bank Account";
-            WhseShptHeader."LFS Carrier" := SalesHeader."LFS Carrier";
+            // WhseShptHeader."LFS Carrier" := SalesHeader."LFS Carrier";
             WhseShptHeader.Modify();
             if SalesHeader."Document Type" = SalesHeader."Document Type"::Order then begin
                 ExportInfo.SetRange("LFS Document Type", ExportInfo."LFS Document Type"::Order);
@@ -914,58 +910,52 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         end;
     end;
 
-    [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterGetRecordOnBeforeCreateRcptHeader, '', false, false)]
-    local procedure LFS_EX_OnSalesLineOnAfterGetRecordOnBeforeCreateRcptHeader(SalesLine: Record "Sales Line"; var WarehouseRequest: Record "Warehouse Request"; var WarehouseReceiptHeader: Record "Warehouse Receipt Header"; var WhseHeaderCreated: Boolean; var OneHeaderCreated: Boolean);
-    var
-        SalesHeader: Record "Sales Header";
-    begin
-        if OneHeaderCreated = true then begin
-            SalesHeader.SetRange("No.", SalesLine."Document No.");
-            if SalesHeader.FindFirst() then
-                if SalesHeader."LFS Commission Agent" <> '' then begin
-                    WarehouseReceiptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-                    WarehouseReceiptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-                    WarehouseReceiptHeader.Modify();
-                end;
-        end;
-    end;
+    // [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterGetRecordOnBeforeCreateRcptHeader, '', false, false)]
+    // local procedure LFS_EX_OnSalesLineOnAfterGetRecordOnBeforeCreateRcptHeader(SalesLine: Record "Sales Line"; var WarehouseRequest: Record "Warehouse Request"; var WarehouseReceiptHeader: Record "Warehouse Receipt Header"; var WhseHeaderCreated: Boolean; var OneHeaderCreated: Boolean);
+    // var
+    //     SalesHeader: Record "Sales Header";
+    // begin
+    //     if OneHeaderCreated = true then begin
+    //         SalesHeader.SetRange("No.", SalesLine."Document No.");
+    //         if SalesHeader.FindFirst() then
+    //             if SalesHeader."LFS Commission Agent" <> '' then begin
+    //                 WarehouseReceiptHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+    //                 WarehouseReceiptHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+    //                 WarehouseReceiptHeader.Modify();
+    //             end;
+    //     end;
+    // end;
 
-    [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterGetRecordOnBeforeCreateShptHeader, '', false, false)]
-    local procedure LFS_EX_OnSalesLineOnAfterGetRecordOnBeforeCreateShptHeader(var Sender: Report "Get Source Documents"; SalesLine: Record "Sales Line";
+    // [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnSalesLineOnAfterGetRecordOnBeforeCreateShptHeader, '', false, false)]
+    // local procedure LFS_EX_OnSalesLineOnAfterGetRecordOnBeforeCreateShptHeader(var Sender: Report "Get Source Documents"; SalesLine: Record "Sales Line";
 
-    var
-        WarehouseRequest: Record "Warehouse Request";
-
-    var
-        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
-
-    var
-        WhseHeaderCreated: Boolean;
-
-    var
-        OneHeaderCreated: Boolean;
-
-    var
-        IsHandled: Boolean;
-
-    var
-        ErrorOccured: Boolean;
-
-    var
-        LinesCreated: Boolean);
-    var
-        SalesHeader: Record "Sales Header";
-    begin
-        if OneHeaderCreated = true then begin
-            SalesHeader.SetRange("No.", SalesLine."Document No.");
-            if SalesHeader.FindFirst() then
-                if SalesHeader."LFS Commission Agent" <> '' then begin
-                    WarehouseShipmentHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
-                    WarehouseShipmentHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
-                    WarehouseShipmentHeader.Modify();
-                end;
-        end;
-    end;
+    // var
+    //     WarehouseRequest: Record "Warehouse Request";
+    // var
+    //     WarehouseShipmentHeader: Record "Warehouse Shipment Header";
+    // var
+    //     WhseHeaderCreated: Boolean;
+    // var
+    //     OneHeaderCreated: Boolean;
+    // var
+    //     IsHandled: Boolean;
+    // var
+    //     ErrorOccured: Boolean;
+    // var
+    //     LinesCreated: Boolean);
+    // var
+    //     SalesHeader: Record "Sales Header";
+    // begin
+    //     if OneHeaderCreated = true then begin
+    //         SalesHeader.SetRange("No.", SalesLine."Document No.");
+    //         if SalesHeader.FindFirst() then
+    //             if SalesHeader."LFS Commission Agent" <> '' then begin
+    //                 WarehouseShipmentHeader."LFS Commission Agent" := SalesHeader."LFS Commission Agent";
+    //                 WarehouseShipmentHeader."LFS Comm. Amount" := SalesHeader."LFS Comm. Amount";
+    //                 WarehouseShipmentHeader.Modify();
+    //             end;
+    //     end;
+    // end;
 
     [EventSubscriber(ObjectType::Table, DATABASE::"Purchase Header", 'OnValidateBuyFromVendorNoOnAfterUpdateBuyFromCont', '', false, false)]
     local procedure LFS_EX_OnValidateBuyFromVendorNoOnAfterUpdateBuyFromCont(var PurchaseHeader: Record "Purchase Header"; xPurchaseHeader: Record "Purchase Header")

@@ -56,12 +56,11 @@ tableextension 72035 "LFS Purchase Line Archive Ext" extends "Purchase Line Arch
             Caption = 'Custom Duties Amount (LCY)';
             DataClassification = CustomerContent;
         }
-
-        field(72010; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72010; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72011; "LFS Currency Exch. Rate"; Decimal)
         {
             Caption = 'Currency Exch. Rate';

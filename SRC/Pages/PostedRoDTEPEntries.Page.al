@@ -102,11 +102,11 @@ page 72038 "LFS Posted RoDTEP Entries"
                     ToolTip = 'Specifies the value of the CIF (FCY) Per Unit field.';
                     ApplicationArea = All;
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ToolTip = 'Specifies the value of the Category Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Category Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("RoDTEP Rebate Rate %"; Rec."LFS RoDTEP Rebate Rate %")
                 {
                     ToolTip = 'Specifies the value of the RoDTEP Rebate Rate % field.';

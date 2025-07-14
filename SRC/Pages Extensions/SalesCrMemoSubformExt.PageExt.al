@@ -33,13 +33,13 @@ pageextension 72022 "LFS Sales Cr. Memo Subform Ext" extends "Sales Cr. Memo Sub
                 Editable = false;
                 ToolTip = 'Specifies the FOB (FCY) Per Unit';
             }
-            field("LFS CIF(FCY)"; Rec."LFS CIF(FCY)")
+            field("LFS CIF(FCY)"; Rec."LFS CIF Value (FCY)")
             {
                 ApplicationArea = all;
                 Editable = false;
                 ToolTip = 'Specifies the CIF(FCY)';
             }
-            field("LFS CIF(LCY)"; Rec."LFS CIF(LCY)")
+            field("LFS CIF(LCY)"; Rec."LFS CIF Value (LCY)")
             {
                 ApplicationArea = all;
                 Editable = false;

@@ -498,13 +498,13 @@ page 72056 "LFS Export Sales Inv. Subform"
                     Editable = false;
                     ToolTip = 'Specifies the FOB (FCY) Per Unit';
                 }
-                field("LFS CIF(FCY)"; Rec."LFS CIF(FCY)")
+                field("LFS CIF(FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ApplicationArea = all;
                     Editable = false;
                     ToolTip = 'Specifies the CIF(FCY)';
                 }
-                field("LFS CIF(LCY)"; Rec."LFS CIF(LCY)")
+                field("LFS CIF(LCY)"; Rec."LFS CIF Value (LCY)")
                 {
                     ApplicationArea = all;
                     Editable = false;
@@ -564,12 +564,12 @@ page 72056 "LFS Export Sales Inv. Subform"
                     ToolTip = 'Specifies the DDB Value (LCY)';
 
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Category Type';
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Category Type';
+                // }
 
                 field("Packing List No."; Rec."LFS Packing List No.")
                 {
@@ -705,12 +705,12 @@ page 72056 "LFS Export Sales Inv. Subform"
                     ToolTip = 'Specifies the value of the Shipment Line No. field.';
                     ApplicationArea = All;
                 }
-                field("LFS From"; Rec."LFS From")
+                field("LFS From"; Rec."LFS Container No/Shipp. Marks")
                 {
                     ToolTip = 'Specifies the value of the EX_From field.';
                     ApplicationArea = All;
                 }
-                field("LFS to"; Rec."LFS to")
+                field("LFS to"; Rec."LFS No. & Kind of Packages")
                 {
                     ToolTip = 'Specifies the value of the EX_To field.';
                     ApplicationArea = All;

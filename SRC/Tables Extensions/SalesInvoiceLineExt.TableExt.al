@@ -11,22 +11,22 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Caption = 'No. of Packages';
             DataClassification = CustomerContent;
         }
-        field(72001; "LFS Purity"; Decimal)
-        {
-            Caption = 'Purity';
-            DataClassification = CustomerContent;
-        }
-        field(72002; "LFS Total Taxes"; Decimal)
-        {
-            Caption = 'Total Taxes';
-            DataClassification = CustomerContent;
-        }
-        field(72003; "LFS From"; Text[250])
+        // field(72001; "LFS Purity"; Decimal)
+        // {
+        //     Caption = 'Purity';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72002; "LFS Total Taxes"; Decimal)
+        // {
+        //     Caption = 'Total Taxes';
+        //     DataClassification = CustomerContent;
+        // }
+        field(72003; "LFS Container No/Shipp. Marks"; Text[250])
         {
             Caption = 'From';
             DataClassification = CustomerContent;
         }
-        field(72004; "LFS to"; Text[50])
+        field(72004; "LFS No. & Kind of Packages"; Text[50])
         {
             Caption = 'To';
             DataClassification = CustomerContent;
@@ -68,12 +68,11 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Caption = 'No. of Container';
             DataClassification = CustomerContent;
         }
-        field(72012; "LFS Freight Type"; Enum "LFS Freight Type")
-        {
-            Caption = 'Freight Type';
-            DataClassification = CustomerContent;
-
-        }
+        // field(72012; "LFS Freight Type"; Enum "LFS Freight Type")
+        // {
+        //     Caption = 'Freight Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72013; "LFS Freight Value (LCY)"; Decimal)
         {
             Caption = 'Freight Value (LCY)';
@@ -84,11 +83,11 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Caption = 'Freight Value (FCY)';
             DataClassification = CustomerContent;
         }
-        field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
-        {
-            Caption = 'Insurance Type';
-            DataClassification = CustomerContent;
-        }
+        // field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
+        // {
+        //     Caption = 'Insurance Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72016; "LFS Insurance Value (LCY)"; Decimal)
         {
             Caption = 'Insurance Value (LCY)';
@@ -99,17 +98,16 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Caption = 'Insurance Value (FCY)';
             DataClassification = CustomerContent;
         }
-        field(72018; "LFS Category Type"; Enum "LFS Category Type")
-        {
-            Caption = 'Category Type';
-            DataClassification = CustomerContent;
-        }
-
-        field(72024; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72018; "LFS Category Type"; Enum "LFS Category Type")
+        // {
+        //     Caption = 'Category Type';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72024; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72025; "LFS Packing List No."; Code[20])
         {
             Caption = 'Packing List No.';
@@ -218,18 +216,18 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Caption = 'No. & Kind Of PKDG';
             DataClassification = CustomerContent;
         }
-        field(72046; "LFS CIF(FCY)"; decimal)
+        field(72046; "LFS CIF Value (FCY)"; decimal)
         {
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
-            Caption = 'CIF(FCY)';
+            Caption = 'CIF Value (FCY)';
         }
 
-        field(72047; "LFS CIF(LCY)"; decimal)
+        field(72047; "LFS CIF Value (LCY)"; decimal)
         {
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 5;
-            Caption = 'CIF(LCY)';
+            Caption = 'CIF Value (LCY)';
         }
         field(72048; "LFS Type"; Option)
         {

@@ -235,12 +235,11 @@ page 72091 "LFS EXIMBlanketImpOrderSubform"
                     ToolTip = 'Specifies the value of the Import Duties LCY Per Unit field.';
                     ApplicationArea = All;
                 }
-
-                field("EXIM Remark"; Rec."LFS EXIM Remark")
-                {
-                    ToolTip = 'Specifies the value of the EXIM Remark field.';
-                    ApplicationArea = All;
-                }
+                // field("EXIM Remark"; Rec."LFS EXIM Remark")
+                // {
+                //     ToolTip = 'Specifies the value of the EXIM Remark field.';
+                //     ApplicationArea = All;
+                // }
                 field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
                 {
                     ToolTip = 'Specifies the value of the Currency Exch. Rate field.';

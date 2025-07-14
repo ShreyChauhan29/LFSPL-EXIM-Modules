@@ -117,26 +117,26 @@ page 72075 "LFS Posted Export Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Shipping Bill Date';
                 }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order No.';
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order date';
-                }
-                field("bill No."; Rec."LFS bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill No.';
-                }
-                field("bill Date"; Rec."LFS bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill Date';
-                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("bill No."; Rec."LFS bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill No.';
+                // }
+                // field("bill Date"; Rec."LFS bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill Date';
+                // }
             }
             part(SalesShipmLines; "LFS EXIM Posted Shpt. Subform")
             {
@@ -259,29 +259,29 @@ page 72075 "LFS Posted Export Shipment"
                     ToolTip = 'Specifies the value of the ETD field.';
                     ApplicationArea = All;
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    ToolTip = 'Specifies the FTT No.';
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    ToolTip = 'Specifies the FTT Date';
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                    ToolTip = 'Specifies the BIN No.';
-                }
-                field("Additional Information"; Rec."LFS Additional Information")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Additional Information';
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     ToolTip = 'Specifies the FTT No.';
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     ToolTip = 'Specifies the FTT Date';
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                //     ToolTip = 'Specifies the BIN No.';
+                // }
+                // field("Additional Information"; Rec."LFS Additional Information")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Additional Information';
+                // }
             }
             group(Shipping)
             {

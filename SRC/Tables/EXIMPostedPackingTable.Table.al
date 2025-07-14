@@ -88,11 +88,11 @@ table 72033 "LFS EXIM Posted Packing Table"
             TableRelation = Location.Code;
             Editable = false;
         }
-        field(14; "LFS Packing Type"; Code[20])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Packing Type';
-        }
+        // field(14; "LFS Packing Type"; Code[20])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Packing Type';
+        // }
         field(15; "LFS Packing No. From"; Integer)
         {
             DataClassification = CustomerContent;

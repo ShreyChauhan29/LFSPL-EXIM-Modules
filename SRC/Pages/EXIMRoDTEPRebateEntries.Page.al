@@ -95,11 +95,11 @@ page 72039 "LFS EXIM RoDTEP Rebate Entries"
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("CIF (FCY)"; Rec."CIF (FCY)")
+                field("CIF (FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ToolTip = 'Specifies the value of the CIF (FCY) field.', Comment = '%';
                 }
-                field("CIF (LCY)"; Rec."CIF (LCY)")
+                field("CIF (LCY)"; Rec."LFS CIF Value (LCY)")
                 {
                     ToolTip = 'Specifies the value of the CIF (LCY) field.', Comment = '%';
                 }
@@ -109,11 +109,11 @@ page 72039 "LFS EXIM RoDTEP Rebate Entries"
                     ApplicationArea = All;
                     Editable = false;
                 }
-                field("LFS Freight Type"; Rec."LFS Freight Type")
-                {
-                    ToolTip = 'Specifies the value of the Freight Type field.', Comment = '%';
-                    Visible = false;
-                }
+                // field("LFS Freight Type"; Rec."LFS Freight Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Freight Type field.', Comment = '%';
+                //     Visible = false;
+                // }
                 field("LFS Freight Value (FCY)"; Rec."LFS Freight Value (FCY)")
                 {
                     ToolTip = 'Specifies the value of the Freight Value (FCY) field.', Comment = '%';
@@ -122,11 +122,11 @@ page 72039 "LFS EXIM RoDTEP Rebate Entries"
                 {
                     ToolTip = 'Specifies the value of the Freight Value (LCY) field.', Comment = '%';
                 }
-                field("LFS Insurance Type"; Rec."LFS Insurance Type")
-                {
-                    ToolTip = 'Specifies the value of the Insurance Type field.', Comment = '%';
-                    Visible = false;
-                }
+                // field("LFS Insurance Type"; Rec."LFS Insurance Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Insurance Type field.', Comment = '%';
+                //     Visible = false;
+                // }
                 field("LFS Insurance Value (FCY)"; Rec."LFS Insurance Value (FCY)")
                 {
                     ToolTip = 'Specifies the value of the Insurance Value (FCY) field.', Comment = '%';

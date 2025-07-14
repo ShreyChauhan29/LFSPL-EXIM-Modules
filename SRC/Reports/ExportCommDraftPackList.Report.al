@@ -329,7 +329,7 @@ report 72004 "LFSExport Comm Draft Pack List"
             { }
             column(Bill_to_County; Bill_to_County)
             { }
-            column(Commission__; "LFS Commission %") { }
+            // column(Commission__; "LFS Commission %") { }
             column(ShipBillNo; ShipBillNo)
             {
             }
@@ -354,10 +354,10 @@ report 72004 "LFSExport Comm Draft Pack List"
             {
 
             }
-            column(LFS_EX_Commission__; "LFS Commission %")
-            {
+            // column(LFS_EX_Commission__; "LFS Commission %")
+            // {
 
-            }
+            // }
             column(LUTNumber; LUTNumber)
             {
 
@@ -469,11 +469,11 @@ report 72004 "LFSExport Comm Draft Pack List"
                 {
 
                 }
-                column(LFS_EX_CIF_FCY_; ("LFS CIF(FCY)"))
+                column(LFS_EX_CIF_FCY_; ("LFS CIF Value (FCY)"))
                 {
 
                 }
-                column(LFS_EX_CIF_LCY_; ("LFS CIF(LCY)"))
+                column(LFS_EX_CIF_LCY_; ("LFS CIF Value (LCY)"))
                 {
 
                 }
@@ -592,11 +592,11 @@ report 72004 "LFSExport Comm Draft Pack List"
                 { }
                 column(License_No_; License_No_)
                 { }
-                column(LFS_EX_to; "LFS to")
+                column(LFS_EX_to; "LFS No. & Kind of Packages")
                 {
 
                 }
-                column(LFS_EX_From; "LFS From")
+                column(LFS_EX_From; "LFS Container No/Shipp. Marks")
                 {
 
                 }
@@ -1069,7 +1069,7 @@ report 72004 "LFSExport Comm Draft Pack List"
         CurrRec: Record Currency;
         DetailedGSTLedgerEntry: Record "Detailed GST Ledger Entry";
         GSTRegistrationNos: Record "GST Registration Nos.";
-        ItemRec: Record Item;
+        // ItemRec: Record Item;
         PackingList: Record "LFS EXIM Packing List Tab.";
         PackingList1: Record "LFS EXIM Packing List Tab.";
         EximPort: Record "LFS EXIM Port";

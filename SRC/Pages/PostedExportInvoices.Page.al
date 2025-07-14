@@ -70,26 +70,26 @@ page 72073 "LFS Posted Export Invoices"
                         PAGE.RUNMODAL(PAGE::"Posted Sales Invoice", Rec)
                     end;
                 }
-                field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FOB Amount (FCY)';
-                }
-                field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FOB Amount (LCY)';
-                }
-                field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the CIF Amount (FCY)';
-                }
-                field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the CIF Amount (LCY)';
-                }
+                // field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FOB Amount (FCY)';
+                // }
+                // field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FOB Amount (LCY)';
+                // }
+                // field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the CIF Amount (FCY)';
+                // }
+                // field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the CIF Amount (LCY)';
+                // }
                 field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     ToolTip = 'Specifies the postal code.';
@@ -406,33 +406,31 @@ page 72073 "LFS Posted Export Invoices"
                     ToolTip = 'Specifies the Pre Carriage';
                     ApplicationArea = all;
                 }
-                field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Bill of Lading No.';
-                }
-                field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Bill of Lading Date';
-                }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Late export order No.';
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ToolTip = 'Specifies the Late export order date';
-                    ApplicationArea = all;
-                }
-
-                field("DDB Value"; Rec."LFS DDB Value")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the DDB Value';
-                }
-
+                // field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Bill of Lading No.';
+                // }
+                // field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Bill of Lading Date';
+                // }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ToolTip = 'Specifies the Late export order date';
+                //     ApplicationArea = all;
+                // }
+                // field("DDB Value"; Rec."LFS DDB Value")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the DDB Value';
+                // }
             }
         }
         area(FactBoxes)
@@ -651,9 +649,9 @@ page 72073 "LFS Posted Export Invoices"
     begin
         DocExchStatusStyle := Rec.GetDocExchStatusStyle();
 
-        Rec.CalcFields(Amount);
-        if (Rec."Shipment Method Code" = 'FOB') or (Rec."Shipment Method Code" = 'EXW') then
-            Rec."LFS CIF Amount (FCY)" := Rec.Amount;
+        // Rec.CalcFields(Amount);
+        // if (Rec."Shipment Method Code" = 'FOB') or (Rec."Shipment Method Code" = 'EXW') then
+        //     Rec."LFS CIF Amount (FCY)" := Rec.Amount;
     end;
 
     trigger OnAfterGetCurrRecord()

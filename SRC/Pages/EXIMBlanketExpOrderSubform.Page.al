@@ -290,11 +290,11 @@ page 72089 "LFSEXIMBlanketExp.OrderSubform"
                     ToolTip = 'Specifies the value of the No. of Container field.';
                     ApplicationArea = All;
                 }
-                field("Freight Type"; Rec."LFS Freight Type")
-                {
-                    ToolTip = 'Specifies the value of the Freight Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Freight Type"; Rec."LFS Freight Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Freight Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("Freight Value Per Type (LCY)"; Rec."LFS Freight Value (LCY)")
                 {
                     ToolTip = 'Specifies the value of the Freight Value Per Type (LCY) field.';
@@ -305,11 +305,11 @@ page 72089 "LFSEXIMBlanketExp.OrderSubform"
                     ToolTip = 'Specifies the value of the Freight Value Per Type (FCY) field.';
                     ApplicationArea = All;
                 }
-                field("Insurance Type"; Rec."LFS Insurance Type")
-                {
-                    ToolTip = 'Specifies the value of the Insurance Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Insurance Type"; Rec."LFS Insurance Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Insurance Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("Insurance Value Per Type (LCY)"; Rec."LFS Insurance Value (LCY)")
                 {
                     ToolTip = 'Specifies the value of the Insurance Value Per Type (LCY) field.';
@@ -320,17 +320,16 @@ page 72089 "LFSEXIMBlanketExp.OrderSubform"
                     ToolTip = 'Specifies the value of the Insurance Value Per Type (FCY) field.';
                     ApplicationArea = All;
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ToolTip = 'Specifies the value of the Category Type field.';
-                    ApplicationArea = All;
-                }
-
-                field("EXIM Remark"; Rec."LFS EXIM Remark")
-                {
-                    ToolTip = 'Specifies the value of the EXIM Remark field.';
-                    ApplicationArea = All;
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Category Type field.';
+                //     ApplicationArea = All;
+                // }
+                // field("EXIM Remark"; Rec."LFS EXIM Remark")
+                // {
+                //     ToolTip = 'Specifies the value of the EXIM Remark field.';
+                //     ApplicationArea = All;
+                // }
                 field("Packing List No."; Rec."LFS Packing List No.")
                 {
                     ToolTip = 'Specifies the value of the Packing List No. field.';

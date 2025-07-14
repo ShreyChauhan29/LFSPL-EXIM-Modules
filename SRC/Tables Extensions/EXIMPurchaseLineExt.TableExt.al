@@ -60,12 +60,11 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             Caption = 'Custom Duties Amount (LCY)';
             DataClassification = CustomerContent;
         }
-
-        field(72010; "LFS EXIM Remark"; Text[250])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72010; "LFS EXIM Remark"; Text[250])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72011; "LFS Currency Exch. Rate"; Decimal)
         {
             Caption = 'Currency Exch. Rate';

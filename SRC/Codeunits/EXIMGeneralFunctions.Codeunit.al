@@ -36,7 +36,7 @@ codeunit 72001 "LFS EXIM General Functions"
     var
 
         EXIMSetup: Record "LFS EXIM Setup";
-        SalesShipmentHeader: Record "Sales Shipment Header";
+        // SalesShipmentHeader: Record "Sales Shipment Header";
         GetSourceDocuments: Report "Get Source Documents";
         Text00001ConfLbl: Label 'Packing Lines already exist. Do you wish to Overwrite them?';
 #pragma warning disable AA0470
@@ -271,8 +271,8 @@ codeunit 72001 "LFS EXIM General Functions"
         SalShipHdr.Reset();
         SalShipHdr.FILTERGROUP(2);
         SalShipHdr.SETRANGE("LFS EXIM Type", SalShipHdr."LFS EXIM Type"::Export);
-        SalShipHdr.SETRANGE("LFS Completely Packed", FALSE);
-        SalShipHdr.SETFILTER("LFS Total Line Qty.", '<>%1', 0);
+        // SalShipHdr.SETRANGE("LFS Completely Packed", FALSE);
+        // SalShipHdr.SETFILTER("LFS Total Line Qty.", '<>%1', 0);
         SalShipHdr.FILTERGROUP(0);
 
         CLEAR(PstedSalShipPg);
@@ -426,10 +426,10 @@ codeunit 72001 "LFS EXIM General Functions"
             UNTIL EXIMPackingLines.Next() = 0;
         EXIMPackingHeader."LFS Posted" := true;
         EXIMPackingHeader.MODIFY();
-        if SalesShipmentHeader.GET(EXIMPackingLines."LFS Shipment Document No.") then begin
-            SalesShipmentHeader."LFS Packing Posted" := true;
-            SalesShipmentHeader.MODIFY();
-        end;
+        // if SalesShipmentHeader.GET(EXIMPackingLines."LFS Shipment Document No.") then begin
+        //     SalesShipmentHeader."LFS Packing Posted" := true;
+        //     SalesShipmentHeader.MODIFY();
+        // end;
     end;
 
     procedure "LFS InsertDDBEntryFromExportPostedSalesDoc"(SalesInvLine: Record "Sales Invoice Line"; EXIMDDBRateSetup: record "LFS EXIM DDB Rate Setup")
@@ -485,13 +485,13 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS LCY Amount" := SalesInvLine."LFS FOB Amount (LCY)";
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesInvLine."LFS FOB Amount (FCY)";
-        EXIMDDBEntry."LFS CIF FCY Amount" := SalesInvLine."LFS CIF(FCY)";
-        EXIMDDBEntry."LFS CIF LCY Amount" := SalesInvLine."LFS CIF(LCY)";
+        EXIMDDBEntry."LFS CIF FCY Amount" := SalesInvLine."LFS CIF Value (FCY)";
+        EXIMDDBEntry."LFS CIF LCY Amount" := SalesInvLine."LFS CIF Value (LCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesInvLine."LFS CIF Amount (FCY)";
-        EXIMDDBEntry."ILFS Insurance Type" := SalesInvLine."LFS Insurance Type";
+        // EXIMDDBEntry."ILFS Insurance Type" := SalesInvLine."LFS Insurance Type";
         EXIMDDBEntry."LFS Insurance Value (FCY)" := SalesInvLine."LFS Insurance Value (FCY)";
         EXIMDDBEntry."LFS Insurance Value (LCY)" := SalesInvLine."LFS Insurance Value (LCY)";
-        EXIMDDBEntry."LFS Freight Type" := SalesInvLine."LFS Freight Type";
+        // EXIMDDBEntry."LFS Freight Type" := SalesInvLine."LFS Freight Type";
         EXIMDDBEntry."LFS Freight Value (FCY)" := SalesInvLine."LFS Freight Value (FCY)";
         EXIMDDBEntry."LFS Freight Value (LCY)" := SalesInvLine."LFS Freight Value (LCY)";
         EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
@@ -652,8 +652,8 @@ codeunit 72001 "LFS EXIM General Functions"
             EXIMRoDTEPEntry."LFS Rate" := SalesInvLine."Unit Price";
             EXIMRoDTEPEntry."LFS FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)";
 
-            EXIMRoDTEPEntry."CIF (FCY)" := SalesInvLine."LFS CIF(FCY)";
-            EXIMRoDTEPEntry."CIF (LCY)" := SalesInvLine."LFS CIF(LCY)";
+            EXIMRoDTEPEntry."LFS CIF Value (FCY)" := SalesInvLine."LFS CIF Value (FCY)";
+            EXIMRoDTEPEntry."LFS CIF Value (LCY)" := SalesInvLine."LFS CIF Value (LCY)";
             EXIMRoDTEPEntry."LFS CIF Amount (FCY)" := SalesInvLine."LFS CIF Amount (FCY)";
             EXIMRoDTEPEntry."LFS Freight Value (FCY)" := SalesInvLine."LFS Freight Value (FCY)";
             EXIMRoDTEPEntry."LFS Freight Value (LCY)" := SalesInvLine."LFS Freight Value (LCY)";
@@ -778,8 +778,8 @@ codeunit 72001 "LFS EXIM General Functions"
             EXIMRoDTEPEntry."LFS Rate" := SalesCrMemoLine."Unit Price";
             EXIMRoDTEPEntry."LFS FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)";
 
-            EXIMRoDTEPEntry."CIF (FCY)" := SalesCrMemoLine."LFS CIF(FCY)";
-            EXIMRoDTEPEntry."CIF (LCY)" := SalesCrMemoLine."LFS CIF(LCY)";
+            EXIMRoDTEPEntry."LFS CIF Value (FCY)" := SalesCrMemoLine."LFS CIF Value (FCY)";
+            EXIMRoDTEPEntry."LFS CIF Value (LCY)" := SalesCrMemoLine."LFS CIF Value (LCY)";
             EXIMRoDTEPEntry."LFS CIF Amount (FCY)" := SalesCrMemoLine."LFS CIF Amount (FCY)";
             EXIMRoDTEPEntry."LFS Freight Value (FCY)" := SalesCrMemoLine."LFS Freight Value (FCY)";
             EXIMRoDTEPEntry."LFS Freight Value (LCY)" := SalesCrMemoLine."LFS Freight Value (LCY)";
@@ -853,7 +853,7 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Adv. License No." := EXIMLicenseMultiple."LFS License No.";
                     EXIMAdvLicenseLines."LFS Line No." := LineNo;
                     EXIMAdvLicenseLines."LFS Qty." := -EXIMLicenseMultiple."LFS Quantity";
-                    EXIMAdvLicenseLines."LFS CIF Value" := -EXIMLicenseMultiple."LFS CIF(FCY)";
+                    EXIMAdvLicenseLines."LFS CIF Value" := -EXIMLicenseMultiple."LFS CIF Value (FCY)";
                     EXIMAdvLicenseLines."LFS FOB Value" := 0;
                     EXIMAdvLicenseLines."LFS Type" := EXIMAdvLicenseLines."LFS Type"::Import;
                     EXIMAdvLicenseLines."LFS IsImport" := true;
@@ -988,7 +988,7 @@ codeunit 72001 "LFS EXIM General Functions"
 
                     EXIMAdvLicenseLines."LFS Qty." := EXIMLicenseMultiple."LFS Quantity";
                     EXIMAdvLicenseLines."LFS FOB Value" := 0;
-                    EXIMAdvLicenseLines."LFS CIF Value" := EXIMLicenseMultiple."LFS CIF(FCY)";
+                    EXIMAdvLicenseLines."LFS CIF Value" := EXIMLicenseMultiple."LFS CIF Value (FCY)";
                     EXIMAdvLicenseLines."LFS Type" := EXIMAdvLicenseLines."LFS Type"::Import;
                     EXIMAdvLicenseLines."LFS IsImport" := true;
                     EXIMAdvLicenseLines."LFS Isexport" := false;
@@ -1636,8 +1636,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Description" := SalesInvoiceLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(SalesInvoiceLine."Unit of Measure");
                     RodtepLicenseLines."LFS Qty." := SalesInvoiceLine.Quantity;
-                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF(FCY)";
-                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF(LCY)";
+                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF Value (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF Value (LCY)";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := EXIMLicenseMultiple."LFS RoDTEP Consump Value";
                     RodtepLicenseLines."LFS FOB Amount (FCY)" := SalesInvoiceLine."LFS FOB Amount (FCY)";
                     RodtepLicenseLines."LFS FOB Amount (LCY)" := SalesInvoiceLine."LFS FOB Amount (LCY)";
@@ -1681,8 +1681,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Description" := SalesInvoiceLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(SalesInvoiceLine."Unit of Measure");
                     RodtepLicenseLines."LFS Qty." := SalesInvoiceLine.Quantity;
-                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF(FCY)";
-                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF(LCY)";
+                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF Value (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF Value (LCY)";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := SalesInvoiceLine."LFSRoDTEP License Sales Values" - SalesInvoiceLine."Line Discount Amount";
                     RodtepLicenseLines."LFS FOB Amount (FCY)" := SalesInvoiceLine."LFS FOB Amount (FCY)";
                     RodtepLicenseLines."LFS FOB Amount (LCY)" := SalesInvoiceLine."LFS FOB Amount (LCY)";
@@ -1717,8 +1717,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Description" := SalesInvoiceLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(SalesInvoiceLine."Unit of Measure");
                     RodtepLicenseLines."LFS Qty." := SalesInvoiceLine.Quantity;
-                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF(FCY)";
-                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF(LCY)";
+                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesInvoiceLine."LFS CIF Value (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesInvoiceLine."LFS CIF Value (LCY)";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := SalesInvoiceLine."Line Discount Amount";
                     RodtepLicenseLines."LFS FOB Amount (FCY)" := SalesInvoiceLine."LFS FOB Amount (FCY)";
                     RodtepLicenseLines."LFS FOB Amount (LCY)" := SalesInvoiceLine."LFS FOB Amount (LCY)";
@@ -1761,8 +1761,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Description" := SalesCreditMemoLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(SalesCreditMemoLine."Unit of Measure");
                     RodtepLicenseLines."LFS Qty." := SalesCreditMemoLine.Quantity;
-                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesCreditMemoLine."LFS CIF(FCY)";
-                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesCreditMemoLine."LFS CIF(LCY)";
+                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesCreditMemoLine."LFS CIF Value (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesCreditMemoLine."LFS CIF Value (LCY)";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := -(SalesCreditMemoLine."LFSRoDTEP License Sales Values" - SalesCreditMemoLine."Line Discount Amount");
                     RodtepLicenseLines."LFS FOB Amount (FCY)" := SalesCreditMemoLine."LFS FOB Amount (FCY)";
                     RodtepLicenseLines."LFS FOB Amount (LCY)" := SalesCreditMemoLine."LFS FOB Amount (LCY)";
@@ -1797,8 +1797,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Description" := SalesCreditMemoLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(SalesCreditMemoLine."Unit of Measure");
                     RodtepLicenseLines."LFS Qty." := SalesCreditMemoLine.Quantity;
-                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesCreditMemoLine."LFS CIF(FCY)";
-                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesCreditMemoLine."LFS CIF(LCY)";
+                    RodtepLicenseLines."LFS CIF Value(FC)" := SalesCreditMemoLine."LFS CIF Value (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := SalesCreditMemoLine."LFS CIF Value (LCY)";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := -SalesCreditMemoLine."Line Discount Amount";
                     RodtepLicenseLines."LFS FOB Amount (FCY)" := SalesCreditMemoLine."LFS FOB Amount (FCY)";
                     RodtepLicenseLines."LFS FOB Amount (LCY)" := SalesCreditMemoLine."LFS FOB Amount (LCY)";

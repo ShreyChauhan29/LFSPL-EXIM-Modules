@@ -126,11 +126,11 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             Caption = 'No. of Container';
             DataClassification = CustomerContent;
         }
-        field(22; "LFS Freight Type"; Enum "LFS Freight Type")
-        {
-            Caption = 'Freight Type';
-            DataClassification = CustomerContent;
-        }
+        // field(22; "LFS Freight Type"; Enum "LFS Freight Type")
+        // {
+        //     Caption = 'Freight Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(23; "LFS Freight ValPerType LCY"; Decimal)
         {
 
@@ -142,11 +142,11 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             DataClassification = CustomerContent;
             Caption = 'Freight Value Per Type (FCY)';
         }
-        field(25; "LFS Insurance Type"; Enum "LFS Insurance Type")
-        {
-            Caption = 'Insurance Type';
-            DataClassification = CustomerContent;
-        }
+        // field(25; "LFS Insurance Type"; Enum "LFS Insurance Type")
+        // {
+        //     Caption = 'Insurance Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(26; "LFS Insur Val Per Type LCY"; Decimal)
         {
             DataClassification = CustomerContent;
@@ -157,11 +157,11 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             DataClassification = CustomerContent;
             Caption = 'Insurance Value Per Type (FCY)';
         }
-        field(28; "LFS Category Type"; Enum "LFS Category Type")
-        {
-            Caption = 'Category Type';
-            DataClassification = CustomerContent;
-        }
+        // field(28; "LFS Category Type"; Enum "LFS Category Type")
+        // {
+        //     Caption = 'Category Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(29; "LFS RoDTEP Rebate Rate %"; Decimal)
         {
             Caption = 'RoDTEP Rate %';
@@ -177,11 +177,11 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             DataClassification = CustomerContent;
             Caption = 'RoDTEP Consumed Amount (LCY)';
         }
-        field(36; "LFS EXIM Remark"; Text[100])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(36; "LFS EXIM Remark"; Text[100])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(37; "LFS Freight Value (FCY)"; Decimal)
         {
             Caption = 'Freight Value (FCY)';
@@ -321,13 +321,13 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             TableRelation = "HSN/SAC".Code;
             Caption = 'HSN No.';
         }
-        field(66; "CIF (FCY)"; Decimal)
+        field(66; "LFS CIF Value (FCY)"; Decimal)
         {
             Caption = 'CIF (FCY)';
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(67; "CIF (LCY)"; Decimal)
+        field(67; "LFS CIF Value (LCY)"; Decimal)
         {
             Caption = 'CIF (LCY)';
             DataClassification = CustomerContent;

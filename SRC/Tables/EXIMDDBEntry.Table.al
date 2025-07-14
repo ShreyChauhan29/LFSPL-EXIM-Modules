@@ -136,11 +136,11 @@ table 72005 "LFS EXIM DDB Entry"
             DataClassification = CustomerContent;
             Caption = 'No. of Container';
         }
-        field(24; "LFS Freight Type"; Enum "LFS Freight Type")
-        {
-            Caption = 'Freight Type';
-            DataClassification = CustomerContent;
-        }
+        // field(24; "LFS Freight Type"; Enum "LFS Freight Type")
+        // {
+        //     Caption = 'Freight Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(25; "LFS Freight ValuePerTypeLCY"; Decimal)
         {
             DataClassification = CustomerContent;
@@ -151,11 +151,11 @@ table 72005 "LFS EXIM DDB Entry"
             DataClassification = CustomerContent;
             Caption = 'Freight Value Per Type (FCY)';
         }
-        field(27; "ILFS Insurance Type"; Enum "LFS Insurance Type")
-        {
-            Caption = 'Insurance Type';
-            DataClassification = CustomerContent;
-        }
+        // field(27; "ILFS Insurance Type"; Enum "LFS Insurance Type")
+        // {
+        //     Caption = 'Insurance Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(28; "LFS Insurance Value LCY"; Decimal)
         {
             DataClassification = CustomerContent;
@@ -166,11 +166,11 @@ table 72005 "LFS EXIM DDB Entry"
             DataClassification = CustomerContent;
             Caption = 'Insurance Value Per Type (FCY)';
         }
-        field(30; "LFS EXIM Remark"; Text[100])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'EXIM Remark';
-        }
+        // field(30; "LFS EXIM Remark"; Text[100])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'EXIM Remark';
+        // }
         field(31; "LFS Freight Value (FCY)"; Decimal)
         {
             DataClassification = CustomerContent;
@@ -227,20 +227,20 @@ table 72005 "LFS EXIM DDB Entry"
             Caption = 'DDB Value LCY';
         }
 
-        field(42; "LFS Late export order No."; code[15])
-        {
-            FieldClass = FlowField;
-            CalcFormula = lookup("Sales Invoice Header"."LFS Late export order No." where("No." = field("LFS Document No.")));
-            Editable = false;
-            Caption = 'Late export order No.';
-        }
-        field(43; "LFS Late export order date"; Date)
-        {
-            FieldClass = FlowField;
-            CalcFormula = lookup("Sales Invoice Header"."LFS Late export order date" where("No." = field("LFS Document No.")));
-            Editable = false;
-            Caption = 'Late export order date';
-        }
+        // field(42; "LFS Late export order No."; code[15])
+        // {
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("Sales Invoice Header"."LFS Late export order No." where("No." = field("LFS Document No.")));
+        //     Editable = false;
+        //     Caption = 'Late export order No.';
+        // }
+        // field(43; "LFS Late export order date"; Date)
+        // {
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("Sales Invoice Header"."LFS Late export order date" where("No." = field("LFS Document No.")));
+        //     Editable = false;
+        //     Caption = 'Late export order date';
+        // }
 
         field(44; "LFS bill No."; code[20])
         {

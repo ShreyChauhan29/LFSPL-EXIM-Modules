@@ -61,7 +61,7 @@ table 72012 "LFS EXIM Import License"
                         Error(Text001Lbl);
                 if Rec."LFS Source Type" <> Rec."LFS Source Type"::"Credit Memo" then
                     CheckTotalQty();
-                Rec."LFS CIF(FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
+                Rec."LFS CIF Value (FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
             end;
         }
         field(10; "LFS EXIM Item Group"; Code[20])
@@ -81,7 +81,7 @@ table 72012 "LFS EXIM Import License"
             DataClassification = CustomerContent;
             Caption = 'Import Inv Bal Qty';
         }
-        field(14; "LFS CIF(FCY)"; decimal)
+        field(14; "LFS CIF Value (FCY)"; decimal)
         {
             DataClassification = CustomerContent;
             Caption = 'CIF(FCY)';
@@ -92,7 +92,7 @@ table 72012 "LFS EXIM Import License"
             Caption = 'Unit Cost';
             trigger OnValidate()
             begin
-                Rec."LFS CIF(FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
+                Rec."LFS CIF Value (FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
             end;
         }
         field(16; "LFS Variant Code"; Code[10])

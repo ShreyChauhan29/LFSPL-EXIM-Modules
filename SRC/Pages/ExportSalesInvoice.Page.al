@@ -266,12 +266,12 @@ page 72055 "LFS Export Sales Invoice"
                     Importance = Promoted;
                 }
 
-                field("Your Reference Date"; Rec."LFS Your Reference Date")
-                {
-                    ApplicationArea = all;
-                    Caption = 'Customer Order Date';
-                    ToolTip = 'Specifies the Reference Date';
-                }
+                // field("Your Reference Date"; Rec."LFS Your Reference Date")
+                // {
+                //     ApplicationArea = all;
+                //     Caption = 'Customer Order Date';
+                //     ToolTip = 'Specifies the Reference Date';
+                // }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     ToolTip = 'Specifies a formula that calculates the payment due date, payment discount date, and payment discount amount.';
@@ -311,16 +311,16 @@ page 72055 "LFS Export Sales Invoice"
                     Visible = true;
                     ToolTip = 'Specifies the Posting No.';
                 }
-                field("Shortcut Dim Update"; rec."LFS Shortcut Dim Update")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shortcut Dim Update';
-                }
-                field(Carrier; REc."LFS Carrier")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Carrier';
-                }
+                // field("Shortcut Dim Update"; rec."LFS Shortcut Dim Update")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shortcut Dim Update';
+                // }
+                // field(Carrier; REc."LFS Carrier")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Carrier';
+                // }
                 field("Your Reference"; Rec."Your Reference")//sv
                 {
                     ApplicationArea = all;
@@ -328,55 +328,55 @@ page 72055 "LFS Export Sales Invoice"
                     ToolTip = 'Specifies the Other Reference';
                 }
 
-                field("DDB Value"; Rec."LFS DDB Value")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the DDB Value';
-                }
-                field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FOB Amount (FCY)';
-                }
-                field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FOB Amount (LCY)';
-                }
-                field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the CIF Amount (FCY)';
-                }
-                field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the CIF Amount (LCY)';
-                }
+                // field("DDB Value"; Rec."LFS DDB Value")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the DDB Value';
+                // }
+                // field("FOB Amount (FCY) LFSPL"; Rec."LFS FOB Amount (FCY) LFSPL")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FOB Amount (FCY)';
+                // }
+                // field("FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FOB Amount (LCY)';
+                // }
+                // field("CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the CIF Amount (FCY)';
+                // }
+                // field("CIF Amount (LCY)"; Rec."LFS CIF Amount (LCY)")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the CIF Amount (LCY)';
+                // }
 
-                field("Commission Agent"; Rec."LFS Commission Agent")
-                {
-                    ApplicationArea = all;
-                    TableRelation = Vendor."No.";
-                    ToolTip = 'Specifies the Commission Agent';
-                }
-                field("Comm. Amount"; Rec."LFS Comm. Amount")
-                {
-                    ApplicationArea = all;
-                    MinValue = 0;
-                    ToolTip = 'Specifies the Comm. Amount';
-                }
-                field("LFS Commission %"; Rec."LFS Commission %")
-                {
-                    ApplicationArea = all;
-                    MinValue = 0;
-                    ToolTip = 'Specifies the Commission %';
-                }
+                // field("Commission Agent"; Rec."LFS Commission Agent")
+                // {
+                //     ApplicationArea = all;
+                //     TableRelation = Vendor."No.";
+                //     ToolTip = 'Specifies the Commission Agent';
+                // }
+                // field("Comm. Amount"; Rec."LFS Comm. Amount")
+                // {
+                //     ApplicationArea = all;
+                //     MinValue = 0;
+                //     ToolTip = 'Specifies the Comm. Amount';
+                // }
+                // field("LFS Commission %"; Rec."LFS Commission %")
+                // {
+                //     ApplicationArea = all;
+                //     MinValue = 0;
+                //     ToolTip = 'Specifies the Commission %';
+                // }
                 field("LFS Type"; Rec."LFS FOB CIF Calc. Type")
                 {
                     ApplicationArea = all;
@@ -413,27 +413,27 @@ page 72055 "LFS Export Sales Invoice"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Shipping Bill Date';
                 }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order No.';
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
 
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order date';
-                }
-                field("Bill No."; Rec."LFS Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill No.';
-                }
-                field("Bill Date"; Rec."LFS Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill Date';
-                }
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("Bill No."; Rec."LFS Bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill No.';
+                // }
+                // field("Bill Date"; Rec."LFS Bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill Date';
+                // }
             }
             part(SalesLines; "LFS Export Sales Inv. Subform")
             {
@@ -563,24 +563,24 @@ page 72055 "LFS Export Sales Invoice"
                     Caption = 'EDD';
                     ToolTip = 'Specifies the EDD';
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT No.';
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT Date';
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the BIN No.';
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT No.';
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT Date';
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the BIN No.';
+                // }
             }
             group(Invoicing)
             {

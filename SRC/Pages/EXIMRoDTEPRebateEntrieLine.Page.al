@@ -82,12 +82,12 @@ page 72045 "EXIM RoDTEP Rebate Entrie Line"
                     ToolTip = 'Specifies the value of the LCY Amount field.';
                     ApplicationArea = All;
                 }
-                field("CIF (FCY)"; Rec."CIF (FCY)")
+                field("CIF (FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Value of CIF (FCY)';
                 }
-                field("CIF (LCY)"; Rec."CIF (LCY)")
+                field("CIF (LCY)"; Rec."LFS CIF Value (LCY)")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Value of CIF (LCY)';
@@ -112,11 +112,11 @@ page 72045 "EXIM RoDTEP Rebate Entrie Line"
                     ToolTip = 'Specifies the value of the CIF (FCY) Per Unit field.';
                     ApplicationArea = All;
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ToolTip = 'Specifies the value of the Category Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Category Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("RoDTEP Rebate Rate %"; Rec."LFS RoDTEP Rebate Rate %")
                 {
                     ToolTip = 'Specifies the value of the RoDTEP Rebate Rate % field.';

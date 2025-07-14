@@ -415,22 +415,22 @@ page 72059 "LFS Export Sales Order Subform"
                                 error('Multiple Licenses are already defined for this document line');
                     end;
                 }
-                field("LFS From"; Rec."LFS From")
+                field("LFS From"; Rec."LFS Container No/Shipp. Marks")
                 {
                     ToolTip = 'Specifies the value of the EX_From field.';
                     ApplicationArea = All;
                 }
-                field("LFS to"; Rec."LFS to")
+                field("LFS to"; Rec."LFS No. & Kind of Packages")
                 {
                     ToolTip = 'Specifies the value of the EX_To field.';
                     ApplicationArea = All;
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                    ToolTip = 'Specifies the Category Type';
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ApplicationArea = All;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Category Type';
+                // }
 
                 field("Claim DDB"; Rec."LFS Claim DDB")
                 {

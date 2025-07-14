@@ -32,7 +32,7 @@ pageextension 72018 "LFS Purchase Credit Memo Ext." extends "Purchase Credit Mem
                                 ImportLicense."LFS License No." := PostedImportLicences."LFS License No.";
                                 ImportLicense."LFS Item No." := PostedImportLicences."LFS Item No.";
                                 ImportLicense."LFS Import Inv Bal Qty" := PostedImportLicences."LFS Import Inv Bal Qty";
-                                ImportLicense."LFS CIF(FCY)" := PostedImportLicences."LFS CIF(FCY)";
+                                ImportLicense."LFS CIF Value (FCY)" := PostedImportLicences."LFS CIF Value (FCY)";
                                 ImportLicense."LFS EXIM Item Group" := PostedImportLicences."LFS EXIM Item Group";
                                 ImportLicense.Insert();
                             until PostedImportLicences.Next() = 0;

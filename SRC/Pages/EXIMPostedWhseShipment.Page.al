@@ -179,16 +179,16 @@ page 72053 "LFS EXIM Posted Whse. Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Pre Carriage';
                 }
-                field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill of Lading Date';
-                }
-                field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill of Lading No.';
-                }
+                // field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill of Lading Date';
+                // }
+                // field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill of Lading No.';
+                // }
                 field(ETD; Rec."LFS ETD")
                 {
                     ApplicationArea = All;
@@ -199,24 +199,24 @@ page 72053 "LFS EXIM Posted Whse. Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the ETA';
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FTT No.';
-                    Editable = false;
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FTT Date';
-                    Editable = false;
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the BIN No.';
-                    Editable = false;
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FTT No.';
+                //     Editable = false;
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FTT Date';
+                //     Editable = false;
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the BIN No.';
+                //     Editable = false;
+                // }
                 field("Customs Bank Account"; Rec."LFS Customs Bank Account")
                 {
                     ApplicationArea = All;
@@ -227,11 +227,11 @@ page 72053 "LFS EXIM Posted Whse. Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Commercial  Bank Account';
                 }
-                field(Carrier; Rec."LFS Carrier")
-                {
-                    ToolTip = 'Specifies the Carrier';
-                    ApplicationArea = All;
-                }
+                // field(Carrier; Rec."LFS Carrier")
+                // {
+                //     ToolTip = 'Specifies the Carrier';
+                //     ApplicationArea = All;
+                // }
             }
         }
         area(factboxes)

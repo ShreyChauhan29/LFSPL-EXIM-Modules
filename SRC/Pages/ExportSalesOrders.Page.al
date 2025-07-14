@@ -140,16 +140,16 @@ page 72060 "LFS Export Sales Orders"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Status';
                 }
-                field("Commission Agent"; Rec."LFS Commission Agent")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Commission Agent';
-                }
-                field("Comm. Amount"; Rec."LFS Comm. Amount")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Comm. Amount';
-                }
+                // field("Commission Agent"; Rec."LFS Commission Agent")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Commission Agent';
+                // }
+                // field("Comm. Amount"; Rec."LFS Comm. Amount")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Comm. Amount';
+                // }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     ApplicationArea = all;

@@ -81,16 +81,16 @@ tableextension 72006 "LFS Posted Whse. Shpt. Header" extends "Posted Whse. Shipm
             Caption = 'Pre Carriage';
             DataClassification = CustomerContent;
         }
-        field(72012; "LFS Bill of Lading Date"; Date)
-        {
-            Caption = 'Bill of Lading Date';
-            DataClassification = CustomerContent;
-        }
-        field(72013; "LFS Bill of Lading No."; Code[20])
-        {
-            Caption = 'Bill of Lading No.';
-            DataClassification = CustomerContent;
-        }
+        // field(72012; "LFS Bill of Lading Date"; Date)
+        // {
+        //     Caption = 'Bill of Lading Date';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72013; "LFS Bill of Lading No."; Code[20])
+        // {
+        //     Caption = 'Bill of Lading No.';
+        //     DataClassification = CustomerContent;
+        // }
         field(72014; "LFS ETD"; Date)
         {
             Caption = 'ETD';
@@ -113,50 +113,49 @@ tableextension 72006 "LFS Posted Whse. Shpt. Header" extends "Posted Whse. Shipm
             DataClassification = CustomerContent;
             TableRelation = "Bank Account";
         }
-        field(72018; "LFS Carrier"; Text[30])
-        {
-            Caption = 'Carrier';
-            DataClassification = CustomerContent;
-        }
-        field(72019; "LFS FTT No."; Code[20])
-        {
-            Caption = 'FTT No.';
-            DataClassification = CustomerContent;
-        }
-        field(72020; "LFS FTT Date"; Date)
-        {
-            Caption = 'FTT Date';
-            DataClassification = CustomerContent;
-        }
-        field(72021; "LFS BIN No."; Code[20])
-        {
-            Caption = 'BIN No.';
-            DataClassification = CustomerContent;
-        }
+        // field(72018; "LFS Carrier"; Text[30])
+        // {
+        //     Caption = 'Carrier';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72019; "LFS FTT No."; Code[20])
+        // {
+        //     Caption = 'FTT No.';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72020; "LFS FTT Date"; Date)
+        // {
+        //     Caption = 'FTT Date';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72021; "LFS BIN No."; Code[20])
+        // {
+        //     Caption = 'BIN No.';
+        //     DataClassification = CustomerContent;
+        // }
         field(72022; "LFS Exim Shipping Line"; Code[10])
         {
             Caption = 'Exim Shipping Line';
             DataClassification = CustomerContent;
             TableRelation = "LFS EXIM Shipping Line"."LFS Code";
         }
-        field(72023; "LFS Commission Agent"; Code[20])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Commission Agent Domestic';
-            trigger OnLookup()
-            var
-                vendor: Record Vendor;
-            begin
-                if vendor.Findset() then
-                    if page.Runmodal(page::"Vendor List", vendor) = action::LookupOK then
-                        Rec."LFS Commission Agent" := vendor."No.";
-            end;
-        }
-        field(72024; "LFS Comm. Amount"; Decimal)
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Commission Amount Domestic';
-        }
-
+        // field(72023; "LFS Commission Agent"; Code[20])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Commission Agent Domestic';
+        //     trigger OnLookup()
+        //     var
+        //         vendor: Record Vendor;
+        //     begin
+        //         if vendor.Findset() then
+        //             if page.Runmodal(page::"Vendor List", vendor) = action::LookupOK then
+        //                 Rec."LFS Commission Agent" := vendor."No.";
+        //     end;
+        // }
+        // field(72024; "LFS Comm. Amount"; Decimal)
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Commission Amount Domestic';
+        // }
     }
 }

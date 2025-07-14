@@ -136,12 +136,12 @@ page 72092 "LFS EXIMPostedExportInvoiceSub"
                     ToolTip = 'Specifies the value of the FOB (FCY) Per Unit field.';
                     ApplicationArea = All;
                 }
-                field("LFS CIF(FCY)"; Rec."LFS CIF(FCY)")
+                field("LFS CIF(FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ApplicationArea = all;
                     ToolTip = 'Specifies the CIF(FCY)';
                 }
-                field("LFS CIF(LCY)"; Rec."LFS CIF(LCY)")
+                field("LFS CIF(LCY)"; Rec."LFS CIF Value (LCY)")
                 {
                     ApplicationArea = all;
                     ToolTip = 'Specifies the CIF(LCY)';

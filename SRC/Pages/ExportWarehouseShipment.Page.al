@@ -206,16 +206,16 @@ page 72061 "LFS Export Warehouse Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Pre Carriage';
                 }
-                field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill of Lading Date';
-                }
-                field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Bill of Lading No.';
-                }
+                // field("Bill of Lading Date"; Rec."LFS Bill of Lading Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill of Lading Date';
+                // }
+                // field("Bill of Lading No."; Rec."LFS Bill of Lading No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill of Lading No.';
+                // }
                 field(ETD; Rec."LFS ETD")
                 {
                     ApplicationArea = All;
@@ -226,21 +226,21 @@ page 72061 "LFS Export Warehouse Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the ETA';
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FTT No.';
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the FTT Date';
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the BIN No.';
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FTT No.';
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FTT Date';
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the BIN No.';
+                // }
                 field("Customs Bank Account"; Rec."LFS Customs Bank Account")
                 {
                     ApplicationArea = All;
@@ -251,11 +251,11 @@ page 72061 "LFS Export Warehouse Shipment"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Commercial Bank Account';
                 }
-                field(Carrier; Rec."LFS Carrier")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Carrier';
-                }
+                // field(Carrier; Rec."LFS Carrier")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Carrier';
+                // }
             }
         }
         area(factboxes)
@@ -725,14 +725,14 @@ page 72061 "LFS Export Warehouse Shipment"
                 Rec."LFS Custom Currency Code" := Salesheader."LFS Custom Currency Code";
                 Rec."LFS Custom Currency Factor" := Salesheader."LFS Custom Currency Factor";
                 Rec."LFS Pre Carriage" := Salesheader."LFS Pre Carriage";
-                Rec."LFS Bill of Lading Date" := Salesheader."LFS Bill of Lading Date";
-                Rec."LFS Bill of Lading No." := Salesheader."LFS Bill of Lading No.";
+                // Rec."LFS Bill of Lading Date" := Salesheader."LFS Bill of Lading Date";
+                // Rec."LFS Bill of Lading No." := Salesheader."LFS Bill of Lading No.";
                 Rec."LFS ETD" := Salesheader."LFS ETD";
                 Rec."LFS ETA" := Salesheader."LFS ETA";
                 Rec."LFS Shpping Line" := Salesheader."LFS Shipping Line";
                 Rec."LFS Customs Bank Account" := Salesheader."LFS Customs Bank Account";
                 Rec."LFS Commercial Bank Account" := Salesheader."LFS Commercial Bank Account";
-                Rec."LFS Carrier" := Salesheader."LFS Carrier";
+                // Rec."LFS Carrier" := Salesheader."LFS Carrier";
                 Rec.Modify();
             end;
         end;

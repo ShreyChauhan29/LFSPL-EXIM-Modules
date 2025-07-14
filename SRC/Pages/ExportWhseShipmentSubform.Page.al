@@ -263,11 +263,11 @@ page 72063 "LFSExportWhse. ShipmentSubform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the No. of Container';
                 }
-                field("Freight Type"; Rec."LFS Freight Type")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Freight Type';
-                }
+                // field("Freight Type"; Rec."LFS Freight Type")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Freight Type';
+                // }
                 field("Freight Value Per Type (LCY)"; Rec."LFS Freight Value (LCY)")
                 {
                     ApplicationArea = All;
@@ -278,11 +278,11 @@ page 72063 "LFSExportWhse. ShipmentSubform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Freight Value Per Type (FCY)';
                 }
-                field("Insurance Type"; Rec."LFS Insurance Type")
-                {
-                    ToolTip = 'Specifies the Insurance Type';
-                    ApplicationArea = All;
-                }
+                // field("Insurance Type"; Rec."LFS Insurance Type")
+                // {
+                //     ToolTip = 'Specifies the Insurance Type';
+                //     ApplicationArea = All;
+                // }
                 field("Insurance Value Per Type (LCY)"; Rec."LFS Insurance Value (LCY)")
                 {
                     ApplicationArea = All;
@@ -293,17 +293,16 @@ page 72063 "LFSExportWhse. ShipmentSubform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Insurance Value Per Type (FCY)';
                 }
-                field("Category Type"; Rec."LFS Category Type")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Category Type';
-                }
-
-                field("EXIM Remark"; Rec."LFS EXIM Remark")
-                {
-                    ToolTip = 'Specifies the EXIM Remark';
-                    ApplicationArea = All;
-                }
+                // field("Category Type"; Rec."LFS Category Type")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Category Type';
+                // }
+                // field("EXIM Remark"; Rec."LFS EXIM Remark")
+                // {
+                //     ToolTip = 'Specifies the EXIM Remark';
+                //     ApplicationArea = All;
+                // }
                 field("Packing List No."; Rec."LFS Packing List No.")
                 {
                     ApplicationArea = All;

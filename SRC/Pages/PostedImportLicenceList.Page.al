@@ -41,7 +41,7 @@ page 72035 "LFS Posted Import Licence List"
                     Editable = false;
                     ToolTip = 'Specifies the Unit Cost';
                 }
-                field("CIF(FCY)"; Rec."LFS CIF(FCY)")
+                field("CIF(FCY)"; Rec."LFS CIF Value (FCY)")
                 {
                     ApplicationArea = all;
                     Editable = false;

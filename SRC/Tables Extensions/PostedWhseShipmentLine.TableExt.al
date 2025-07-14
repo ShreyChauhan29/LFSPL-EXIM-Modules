@@ -45,12 +45,11 @@ tableextension 72007 "LFS Posted Whse. Shipment Line" extends "Posted Whse. Ship
             Caption = 'No. of Container';
             DataClassification = CustomerContent;
         }
-        field(72007; "LFS Freight Type"; Enum "LFS Freight Type")
-        {
-            Caption = 'Freight Type';
-            DataClassification = CustomerContent;
-
-        }
+        // field(72007; "LFS Freight Type"; Enum "LFS Freight Type")
+        // {
+        //     Caption = 'Freight Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72008; "LFS Freight Value (LCY)"; Decimal)
         {
             Caption = 'Freight Value Per Type (LCY)';
@@ -62,11 +61,11 @@ tableextension 72007 "LFS Posted Whse. Shipment Line" extends "Posted Whse. Ship
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72010; "LFS Insurance Type"; Enum "LFS Insurance Type")
-        {
-            Caption = 'Insurance Type';
-            DataClassification = CustomerContent;
-        }
+        // field(72010; "LFS Insurance Type"; Enum "LFS Insurance Type")
+        // {
+        //     Caption = 'Insurance Type';
+        //     DataClassification = CustomerContent;
+        // }
         field(72011; "LFS Insurance Value (LCY)"; Decimal)
         {
             Caption = 'Insurance Value Per Type (LCY)';
@@ -78,16 +77,16 @@ tableextension 72007 "LFS Posted Whse. Shipment Line" extends "Posted Whse. Ship
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72013; "LFS Category Type"; Enum "LFS Category Type")
-        {
-            Caption = 'Category Type';
-            DataClassification = CustomerContent;
-        }
-        field(72019; "LFS EXIM Remark"; Text[100])
-        {
-            Caption = 'EXIM Remark';
-            DataClassification = CustomerContent;
-        }
+        // field(72013; "LFS Category Type"; Enum "LFS Category Type")
+        // {
+        //     Caption = 'Category Type';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72019; "LFS EXIM Remark"; Text[100])
+        // {
+        //     Caption = 'EXIM Remark';
+        //     DataClassification = CustomerContent;
+        // }
         field(72020; "LFS Packing List No."; Code[20])
         {
             Caption = 'Packing List No.';

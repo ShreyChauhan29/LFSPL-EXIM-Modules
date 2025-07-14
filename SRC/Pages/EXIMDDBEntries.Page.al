@@ -175,20 +175,20 @@ page 72005 "LFS EXIM DDB Entries"
                     ToolTip = 'Specifies the Shipping Bill Date';
                     Editable = false;
                 }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = All;
-                    Editable = false;
-                    Visible = false;
-                    ToolTip = 'Specifies the Late export order No.';
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ApplicationArea = All;
-                    Editable = false;
-                    Visible = false;
-                    ToolTip = 'Specifies the Late export order date';
-                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     Editable = false;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     Editable = false;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
                 field("Bill No."; Rec."LFS bill No.")
                 {
                     ApplicationArea = All;

@@ -182,12 +182,12 @@ page 72058 "LFS Export Sales Order"
                     ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
                     ApplicationArea = All;
                 }
-                field("Your Reference Date"; Rec."LFS Your Reference Date")
-                {
-                    ApplicationArea = all;
-                    Caption = 'Customer Order Date';
-                    ToolTip = 'Specifies the Customer Order Date';
-                }
+                // field("Your Reference Date"; Rec."LFS Your Reference Date")
+                // {
+                //     ApplicationArea = all;
+                //     Caption = 'Customer Order Date';
+                //     ToolTip = 'Specifies the Customer Order Date';
+                // }
                 field("Your Reference"; Rec."Your Reference")
                 {
                     ApplicationArea = All;
@@ -240,24 +240,24 @@ page 72058 "LFS Export Sales Order"
                         Rec."LFS Port of Loading" := Rec."Exit Point";
                     end;
                 }
-                field("Commission Agent"; Rec."LFS Commission Agent")
-                {
-                    ApplicationArea = all;
-                    TableRelation = Vendor."No.";
-                    ToolTip = 'Specifies the Commission Agent';
-                }
-                field("Comm. Amount"; Rec."LFS Comm. Amount")
-                {
-                    ApplicationArea = all;
-                    MinValue = 0;
-                    ToolTip = 'Specifies the Comm. Amount';
-                }
-                field("LFS Commission %"; Rec."LFS Commission %")
-                {
-                    ApplicationArea = all;
-                    MinValue = 0;
-                    ToolTip = 'Specifies the Commission %';
-                }
+                // field("Commission Agent"; Rec."LFS Commission Agent")
+                // {
+                //     ApplicationArea = all;
+                //     TableRelation = Vendor."No.";
+                //     ToolTip = 'Specifies the Commission Agent';
+                // }
+                // field("Comm. Amount"; Rec."LFS Comm. Amount")
+                // {
+                //     ApplicationArea = all;
+                //     MinValue = 0;
+                //     ToolTip = 'Specifies the Comm. Amount';
+                // }
+                // field("LFS Commission %"; Rec."LFS Commission %")
+                // {
+                //     ApplicationArea = all;
+                //     MinValue = 0;
+                //     ToolTip = 'Specifies the Commission %';
+                // }
                 field("LFS ExpType"; Rec."LFS FOB CIF Calc. Type")
                 {
                     ApplicationArea = all;
@@ -309,28 +309,28 @@ page 72058 "LFS Export Sales Order"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Shipping Bill Date';
                 }
-                field("Late export order No."; Rec."LFS Late export order No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order No.';
-                }
-                field("Late export order date"; Rec."LFS Late export order date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Late export order date';
-                }
-                field("bill No."; Rec."LFS bill No.")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Bill No.';
-                    ToolTip = 'Specifies the Bill No.';
-                }
-                field("bill Date"; Rec."LFS bill Date")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Bill Date';
-                    ToolTip = 'Specifies the Bill Date';
-                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("bill No."; Rec."LFS bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Bill No.';
+                //     ToolTip = 'Specifies the Bill No.';
+                // }
+                // field("bill Date"; Rec."LFS bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Bill Date';
+                //     ToolTip = 'Specifies the Bill Date';
+                // }
             }
             part(SalesLines; "LFS Export Sales Order Subform")
             {
@@ -453,24 +453,24 @@ page 72058 "LFS Export Sales Order"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Place of Receipt By Pre-Carriage';
                 }
-                field("FTT No."; Rec."LFS FTT No.")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT No.';
-                }
-                field("FTT Date"; Rec."LFS FTT Date")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the FTT Date';
-                }
-                field("BIN No."; Rec."LFS BIN No.")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the BIN No.';
-                }
+                // field("FTT No."; Rec."LFS FTT No.")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT No.';
+                // }
+                // field("FTT Date"; Rec."LFS FTT Date")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the FTT Date';
+                // }
+                // field("BIN No."; Rec."LFS BIN No.")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the BIN No.';
+                // }
                 field(ETA; Rec."LFS ETA")
                 {
                     ApplicationArea = all;
@@ -484,12 +484,12 @@ page 72058 "LFS Export Sales Order"
                     Visible = false;
                     ToolTip = 'Specifies the ETD';
                 }
-                field("Additional Information"; Rec."LFS Additional Information")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Additional Information';
-                }
+                // field("Additional Information"; Rec."LFS Additional Information")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Additional Information';
+                // }
             }
             group(Invoicing)
             {
@@ -578,21 +578,21 @@ page 72058 "LFS Export Sales Order"
                     ToolTip = 'Specifies how to make payment, such as with bank transfer, cash, or check.';
                     ApplicationArea = All;
                 }
-                field("LFS Notify Party 1"; Rec."LFS Notify Party 1")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Notifying Parties values.';
-                }
-                field("LFS Notify Party 2"; Rec."LFS Notify Party 2")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Notifying Parties values.';
-                }
-                field("LFS Notify Party 3"; Rec."LFS Notify Party 3")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Notifying Parties values.';
-                }
+                // field("LFS Notify Party 1"; Rec."LFS Notify Party 1")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Notifying Parties values.';
+                // }
+                // field("LFS Notify Party 2"; Rec."LFS Notify Party 2")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Notifying Parties values.';
+                // }
+                // field("LFS Notify Party 3"; Rec."LFS Notify Party 3")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Notifying Parties values.';
+                // }
             }
             group(Shipping)
             {
