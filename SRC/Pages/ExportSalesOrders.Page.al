@@ -517,15 +517,15 @@ page 72060 "LFS Export Sales Orders"
         Rec.SetRange("Date Filter", 0D, WorkDate() - 1);
     end;
 
-    // trigger OnNewRecord(BelowxRec: Boolean)
-    // begin
-    //     REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
-    // end;
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
+    end;
 
-    // trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    // begin
-    //     REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
-    // end;
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
+    end;
 
     var
         SalesPostYesNo: Codeunit "Sales-Post (Yes/No)";

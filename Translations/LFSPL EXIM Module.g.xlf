@@ -16283,11 +16283,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Control Attached Documents List - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2689130036 - Action 2015509123 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New Record</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Orders - Action NewRecord - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2689130036 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -30603,116 +30598,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Action LFS Sales Order Report - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 3864084727 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Additional Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Additional Information - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 3157054374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the BIN No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control BIN No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2543426973 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Commercial Bank Account</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Commercial  Bank Account - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 826098683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Country of Final Destination</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Country of Final Destination - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 1211363920 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Country of Origin of Goods</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Country of Origin of Goods - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2773843293 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the currency that is used on the entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Currency Code1 - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2482577747 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Currency Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Custom Currency Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2482577747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Currency Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Custom Currency Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 1078736169 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Customs Bank Account</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Customs Bank Account - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 4029956924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the ETA</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control ETA - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 841473839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the ETD</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control ETD - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 841473839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>EDD</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control ETD - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 3322412234 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Export Remark</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Export Remark - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2509395532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Final Destination</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Final Destination - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 1842672518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the FTT Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control FTT Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 3076151907 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the FTT No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control FTT No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2182847602 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Inco Terms</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Inco Terms - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 2352818591 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Place of Receipt By Pre-Carriage</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control LFSPlaceofReceiptPre-Carriage - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 470357480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Port of Discharge</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Port of Discharge - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 758243890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Port of Loading</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Port of Loading - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 3876468065 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Pre Carriage</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Pre Carriage - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1068024795 - Control 1343467039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the Shpping Line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS EXIM Sales Order Ext. - Control Shpping Line - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1068024795 - Control 571079601 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Specifies the Customer Order Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -36207,6 +36092,16 @@
           <source>There are no new warehouse shipment lines to create</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension LFS Get Source Documents Ext - NamedType Text0101Err</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1447713582 - Control 3475559500 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1351594800">
+          <source>Specifies the value of the LFS EXIM Type field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS No. Series Ext. - Control LFS EXIM Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2786428408 - Field 3475559500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1351594800">
+          <source>LFS EXIM Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS No. Series Ext - Field LFS EXIM Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 140614514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>EXIM License Lines</source>
