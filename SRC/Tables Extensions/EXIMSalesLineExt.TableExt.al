@@ -305,16 +305,16 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             OptionCaption = 'FOB,CIF';
             OptionMembers = FOB,CIF;
         }
-        field(72049; "LFS Salesperson Comm %"; Decimal)
-        {
-            Caption = 'Salesperson Commission %';
-            DataClassification = CustomerContent;
-        }
-        field(72050; "LFS Salesperson Comm Amount"; Decimal)
-        {
-            Caption = 'Salesperson Commission Amount';
-            DataClassification = CustomerContent;
-        }
+        // field(72049; "LFS Salesperson Comm %"; Decimal)
+        // {
+        //     Caption = 'Salesperson Commission %';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72050; "LFS Salesperson Comm Amount"; Decimal)
+        // {
+        //     Caption = 'Salesperson Commission Amount';
+        //     DataClassification = CustomerContent;
+        // }
         field(72051; "LFS RoDTEP License No."; Code[20])
         {
             Caption = 'RoDTEP License No.';

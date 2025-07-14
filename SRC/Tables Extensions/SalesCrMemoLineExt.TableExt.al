@@ -235,16 +235,16 @@ tableextension 72019 "LFS Sales Cr.Memo Line Ext." extends "Sales Cr.Memo Line"
             OptionCaption = 'CIF,FOB';
             OptionMembers = CIF,FOB;
         }
-        field(72049; "LFS Salesperson Comm %"; Decimal)
-        {
-            Caption = 'Salesperson Commission %';
-            DataClassification = CustomerContent;
-        }
-        field(72050; "LFS Salesperson Comm Amount"; Decimal)
-        {
-            Caption = 'Salesperson Commission Amount';
-            DataClassification = CustomerContent;
-        }
+        // field(72049; "LFS Salesperson Comm %"; Decimal)
+        // {
+        //     Caption = 'Salesperson Commission %';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72050; "LFS Salesperson Comm Amount"; Decimal)
+        // {
+        //     Caption = 'Salesperson Commission Amount';
+        //     DataClassification = CustomerContent;
+        // }
         field(72051; "LFS RoDTEP License No."; Code[20])
         {
             Caption = 'RoDTEP License No.';
