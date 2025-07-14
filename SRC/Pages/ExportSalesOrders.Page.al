@@ -17,12 +17,11 @@ page 72060 "LFS Export Sales Orders"
     PageType = List;
     SourceTable = "Sales Header";
     UsageCategory = Lists;
-    // Editable = false;
+    Editable = false;
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
-    // CardPageId = "LFS Export Sales Order";
-    CardPageId = "Sales Order";
+    CardPageId = "LFS Export Sales Order";
     SourceTableView = where("Document Type" = const(Order), "LFS EXIM Type" = filter(Export));
 
     layout
@@ -393,31 +392,6 @@ page 72060 "LFS Export Sales Orders"
                         ApprovalsMgmt.OnCancelSalesApprovalRequest(Rec);
                     end;
                 }
-            }
-            action(NewRecord)
-            {
-                Caption = 'New Record';
-                Image = New;
-                ApplicationArea = All;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-
-                trigger OnAction()
-                var
-                    SalesHeader: Record "Sales Header";
-                begin
-                    SalesHeader.Init();
-                    SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
-                    SalesHeader."LFS EXIM Type" := SalesHeader."LFS EXIM Type"::Export;
-                    if SalesHeader.AssistEditExport(SalesHeader) then begin
-                        Commit();
-                    end;
-                    SalesHeader.Insert(true); // Triggers OnInsert and No. Series logic
-
-                    PAGE.Run(PAGE::"Sales Order", SalesHeader);
-                end;
             }
             group("P&osting")
             {
