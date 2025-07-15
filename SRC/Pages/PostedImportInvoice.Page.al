@@ -22,6 +22,7 @@ page 72077 "LFS Posted Import Invoice"
     Permissions = TableData "Purch. Inv. Header" = rm;
     RefreshOnActivate = true;
     SourceTableView = where("LFS EXIM Type" = FILTER(Import));
+    UsageCategory = None;
 
     layout
     {

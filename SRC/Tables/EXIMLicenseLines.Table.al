@@ -1,3 +1,4 @@
+namespace LFSEximModule.LFSPLEXIMModule;
 table 72020 "LFS EXIM License Lines"
 {
     Caption = 'EXIM License Lines';

@@ -6,7 +6,6 @@ using Microsoft.Inventory.Ledger;
 using Microsoft.Finance.Currency;
 using Microsoft.Inventory.Intrastat;
 using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Location;
 using Microsoft.Bank.BankAccount;
 using Microsoft.Finance.TaxBase;

@@ -16,7 +16,6 @@ using Microsoft.Inventory.Location;
 using System.Automation;
 using System.Security.AccessControl;
 using Microsoft.Finance.TaxBase;
-using Microsoft.Inventory.Item;
 
 report 72003 "LFS WORK ORDER Report"
 {

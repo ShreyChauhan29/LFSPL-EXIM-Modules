@@ -7,6 +7,7 @@ page 72021 "LFS EXIM License Card"
     Caption = 'License Card';
     PageType = Card;
     SourceTable = "LFS EXIM License Header";
+    UsageCategory = None;
 
     layout
     {

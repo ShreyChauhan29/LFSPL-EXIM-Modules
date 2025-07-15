@@ -1,3 +1,7 @@
+namespace LFSEximModule.LFSPLEXIMModule;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Finance.GeneralLedger.Journal;
+using Microsoft.Finance.GeneralLedger.Account;
 table 72000 "LFS EXIM Setup"
 {
     Caption = 'EXIM Setup';
@@ -13,7 +17,7 @@ table 72000 "LFS EXIM Setup"
         field(2; "LFS Adv. License Nos."; Code[20])
         {
             Caption = 'Advance License Nos.';
-            TableRelation = "No. Series";
+            TableRelation = "No. Series".Code;
             DataClassification = CustomerContent;
         }
         field(4; "LFS Export Order Nos."; Code[20])
@@ -127,13 +131,13 @@ table 72000 "LFS EXIM Setup"
         {
             DataClassification = CustomerContent;
             Caption = 'Rdp Cons Account No.';
-            TableRelation = "G/L Account";
+            TableRelation = "G/L Account"."No.";
         }
         field(31; "LFS Rdp Cons Bal Acc. Num"; code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Rdp Cons Bal Acc. Num';
-            TableRelation = "G/L Account";
+            TableRelation = "G/L Account"."No.";
         }
         field(32; "LFS RoDTEP %"; decimal)
         {

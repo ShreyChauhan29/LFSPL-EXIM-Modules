@@ -4,7 +4,6 @@ using Microsoft.Bank.BankAccount;
 using Microsoft.Sales.History;
 using Microsoft.Inventory.Ledger;
 using Microsoft.Foundation.PaymentTerms;
-using Microsoft.Inventory.Item;
 using Microsoft.Foundation.Company;
 using Microsoft.Finance.GST.Base;
 using Microsoft.Inventory.Location;

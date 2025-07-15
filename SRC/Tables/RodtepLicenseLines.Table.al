@@ -1,3 +1,4 @@
+namespace LFSEximModule.LFSPLEXIMModule;
 table 72035 "LFS Rodtep License Lines"
 {
     Caption = 'Rodtep License Lines';

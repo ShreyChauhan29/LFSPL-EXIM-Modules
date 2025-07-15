@@ -24,6 +24,7 @@ page 72090 "LFS EXIM Blanket Export Order"
     PromotedActionCategories = 'New,Process,Report,Approve';
     SourceTableView = where("Document Type" = filter("Blanket Order"));
     DeleteAllowed = false;
+    UsageCategory = None;
 
     layout
     {

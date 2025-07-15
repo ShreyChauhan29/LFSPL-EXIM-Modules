@@ -1,3 +1,4 @@
+namespace LFSEximModule.LFSPLEXIMModule;
 page 72000 "LFS EXIM Setup"
 {
     AdditionalSearchTerms = 'Exim Module,Exim,Export Setup, Import Setup';

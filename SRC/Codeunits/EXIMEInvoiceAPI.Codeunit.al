@@ -602,22 +602,19 @@ codeunit 72003 "EXIM EInvoiceAPI"
         json_token: JsonToken;
         valuejson_token: JsonToken;
     begin
-        if json_token.ReadFrom(Response) then begin
-
+        if json_token.ReadFrom(Response) then
             if json_token.IsObject then begin
                 json_object := json_token.AsObject();
                 json_object.Get('MessageId', valuejson_token);
                 MessageId := valuejson_token.AsValue().AsText();
                 IF MessageId = '1' then
-                    if json_object.Get('Data', json_token) then begin
+                    if json_object.Get('Data', json_token) then
                         if json_token.IsObject then begin
                             json_object := json_token.AsObject();
                             json_object.Get('CancelDate', valuejson_token);
                             CancelDt := valuejson_token.AsValue().AsText();
                         end;
-                    end;
             end;
-        end;
     end;
 
     local procedure ReadfromResponse(Response: Text; var IRNNo: Text[64]; var AckNo: Text[30]; var AckDt: Text; var QrCode: Text; var MessageId: Text)

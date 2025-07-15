@@ -16,6 +16,7 @@ page 72075 "LFS Posted Export Shipment"
     InsertAllowed = false;
     DeleteAllowed = false;
     SourceTableView = where("LFS Exim Type" = filter(Export));
+    UsageCategory = None;
 
     layout
     {

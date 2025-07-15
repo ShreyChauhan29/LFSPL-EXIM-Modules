@@ -1,7 +1,6 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 
 using Microsoft.Sales.Document;
-using Microsoft.Purchases.Vendor;
 using Microsoft.Sales.Comment;
 using Microsoft.CRM.Outlook;
 using Microsoft.Finance.GeneralLedger.Posting;

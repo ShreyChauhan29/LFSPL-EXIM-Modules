@@ -960,7 +960,7 @@ report 72009 "LFS Export Custom Invoice"
         CurrRec: Record Currency;
         DetailedGSTLedgerEntry: Record "Detailed GST Ledger Entry";
         GSTRegistrationNos: Record "GST Registration Nos.";
-        ItemRec: Record Item;
+        // ItemRec: Record Item;
         PackingList: Record "LFS EXIM Packing List Tab.";
         EximPort: Record "LFS EXIM Port";
         ExpInfo: Record "LFS Posted Export Information";

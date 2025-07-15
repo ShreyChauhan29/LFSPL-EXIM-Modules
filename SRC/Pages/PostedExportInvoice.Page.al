@@ -24,6 +24,7 @@ page 72072 "LFS Posted Export Invoice"
     RefreshOnActivate = true;
     InsertAllowed = false;
     DeleteAllowed = false;
+    UsageCategory = None;
 
     layout
     {

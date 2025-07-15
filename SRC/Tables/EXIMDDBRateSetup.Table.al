@@ -1,7 +1,6 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 using Microsoft.Inventory.Item;
 using Microsoft.Finance.GST.Base;
-using Microsoft.Foundation.UOM;
 table 72027 "LFS EXIM DDB Rate Setup"
 {
     Caption = 'EXIM DDB Rate Setup';

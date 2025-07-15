@@ -7,7 +7,6 @@ using Microsoft.Inventory.Ledger;
 using Microsoft.Inventory.Tracking;
 using Microsoft.Inventory.Intrastat;
 using Microsoft.Finance.Currency;
-using Microsoft.Inventory.Item;
 using Microsoft.Foundation.PaymentTerms;
 using Microsoft.Finance.TaxBase;
 using Microsoft.Bank.BankAccount;
@@ -973,7 +972,7 @@ report 72001 "LFS Export Draft Invoice"
         CurrRec: Record Currency;
         DetailedGSTLedgerEntry: Record "Detailed GST Ledger Entry";
         GSTRegistrationNos: Record "GST Registration Nos.";
-        ItemRec: Record Item;
+        // ItemRec: Record Item;
         PackingList: Record "LFS EXIM Packing List Tab.";
         EximPort: Record "LFS EXIM Port";
         ExpInfo: Record "LFS Export Information Header";
