@@ -5279,12 +5279,6 @@ End Function
         <Field Name="Bill_to_County">
           <DataField>Bill_to_County</DataField>
         </Field>
-        <Field Name="Commission__">
-          <DataField>Commission__</DataField>
-        </Field>
-        <Field Name="Commission__Format">
-          <DataField>Commission__Format</DataField>
-        </Field>
         <Field Name="ShipBillNo">
           <DataField>ShipBillNo</DataField>
         </Field>
@@ -5305,12 +5299,6 @@ End Function
         </Field>
         <Field Name="PartyHSCode">
           <DataField>PartyHSCode</DataField>
-        </Field>
-        <Field Name="LFS_EX_Commission__">
-          <DataField>LFS_EX_Commission__</DataField>
-        </Field>
-        <Field Name="LFS_EX_Commission__Format">
-          <DataField>LFS_EX_Commission__Format</DataField>
         </Field>
         <Field Name="LUTNumber">
           <DataField>LUTNumber</DataField>

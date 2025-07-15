@@ -2,7 +2,7 @@
   "id": "13571f33-15bc-4ab0-b96a-d1f084f1cbc4",
   "name": "LFSPL EXIM Module",
   "publisher": "Leaping Frog Solutions Pvt. Ltd.",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "brief": "EXIM Module for LFSPL",
   "description": "This module provides EXIM functionality for the LFSPL system.",
   "privacyStatement": "",
