@@ -196,11 +196,11 @@ page 72054 "LFSEXIM PostedWhse.ShipmentSub"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Custom Exch. Rate';
                 }
-                field("EXIM Item Group"; Rec."LFS EXIM Item Group")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the EXIM Item Group';
-                }
+                // field("EXIM Item Group"; Rec."LFS EXIM Item Group")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the EXIM Item Group';
+                // }
                 // field("Packing Line Exists"; Rec."LFS Packing Line Exists")
                 // {
                 //     ApplicationArea = All;

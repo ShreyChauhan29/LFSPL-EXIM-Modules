@@ -43,12 +43,12 @@ table 72019 "LFS EXIM License IO Details"
                     Error('Same Item already exists for this license type');
             end;
         }
-        field(4; "LFS Item Type"; Code[20])
-        {
-            Caption = 'Item Type';
-            TableRelation = "LFS EXIM Item Group"."LFS Code" where("LFS EXIM Type" = field("LFS Type"));
-            DataClassification = CustomerContent;
-        }
+        // field(4; "LFS Item Type"; Code[20])
+        // {
+        //     Caption = 'Item Type';
+        //     TableRelation = "LFS EXIM Item Group"."LFS Code" where("LFS EXIM Type" = field("LFS Type"));
+        //     DataClassification = CustomerContent;
+        // }
         field(5; "LFS Item No."; Code[20])
         {
             Caption = 'Item No.';
@@ -140,7 +140,7 @@ table 72019 "LFS EXIM License IO Details"
             CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS Adv. License No."),
                                                                     "LFS Type" = field("LFS Type"),
                                                                     "LFS Item No." = field("LFS Item No."),
-                                                                    "LFS EXIM Item Group" = field("LFS Item Type"),
+                                                                    // "LFS EXIM Item Group" = field("LFS Item Type"),
                                                                     "LFS Isexport" = filter(true)));
             Editable = false;
             Caption = 'Consumed Export Qty.';
@@ -153,7 +153,7 @@ table 72019 "LFS EXIM License IO Details"
             CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS Adv. License No."),
                                                                             "LFS Type" = field("LFS Type"),
                                                                              "LFS Item No." = field("LFS Item No."),
-                                                                            "LFS EXIM Item Group" = field("LFS Item Type"),
+                                                                            // "LFS EXIM Item Group" = field("LFS Item Type"),
                                                                             "LFS Isexport" = filter(true)));
             Editable = false;
         }
@@ -164,7 +164,7 @@ table 72019 "LFS EXIM License IO Details"
             CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS Adv. License No."),
                                                                     "LFS Type" = field("LFS Type"),
                                                                     "LFS Item No." = field("LFS Item No."),
-                                                                    "LFS EXIM Item Group" = field("LFS Item Type"),
+                                                                    // "LFS EXIM Item Group" = field("LFS Item Type"),
                                                                     "LFS IsImport" = filter(true)));
             Caption = 'Consumed Import Qty.';
             Editable = false;
@@ -176,7 +176,7 @@ table 72019 "LFS EXIM License IO Details"
             CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS Adv. License No."),
                                                                             "LFS Type" = field("LFS Type"),
                                                                              "LFS Item No." = field("LFS Item No."),
-                                                                                       "LFS EXIM Item Group" = field("LFS Item Type"),
+                                                                                       //    "LFS EXIM Item Group" = field("LFS Item Type"),
                                                                                        "LFS IsImport" = filter(true)));
             Editable = false;
         }
@@ -327,9 +327,9 @@ table 72019 "LFS EXIM License IO Details"
         {
             Clustered = true;
         }
-        key(Key2; "LFS Item Type")
-        {
-        }
+        // key(Key2; "LFS Item Type")
+        // {
+        // }
     }
 
     trigger OnInsert()

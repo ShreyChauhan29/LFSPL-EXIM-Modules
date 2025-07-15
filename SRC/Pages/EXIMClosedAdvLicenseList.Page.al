@@ -90,11 +90,11 @@ page 72022 "LFS EXIMClosed Adv.LicenseList"
                     ToolTip = 'Specifies the value of the Export Type field.';
                     ApplicationArea = All;
                 }
-                field("Item Type"; Rec."LFS Item Type")
-                {
-                    ToolTip = 'Specifies the value of the Item Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Item Type"; Rec."LFS Item Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Item Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("Adv. License Export Qty."; Rec."LFS Adv. Lic Export Qty.")
                 {
                     ToolTip = 'Specifies the value of the Adv. License Export Qty. field.';

@@ -142,32 +142,32 @@ tableextension 72027 "LFS Sales Shipment Header Ext." extends "Sales Shipment He
             Caption = 'Shipping Bill No.';
             DataClassification = CustomerContent;
 
-            trigger OnValidate()
-            begin
-                EXIMPackingLines.Reset();
-                EXIMPackingLines.SETRANGE("LFS Shipment Document No.", "No.");
-                if EXIMPackingLines.Findset() then begin
-                    EXIMPackingHeader.GET(EXIMPackingLines."LFS Type", EXIMPackingLines."LFS Packing List No.");
-                    EXIMPackingHeader.VALIDATE("LFS Shipping Bill No.", "LFS Shipping Bill No.");
-                    EXIMPackingHeader.MODIFY();
-                end;
-            end;
+            // trigger OnValidate()
+            // begin
+            //     EXIMPackingLines.Reset();
+            //     EXIMPackingLines.SETRANGE("LFS Shipment Document No.", "No.");
+            //     if EXIMPackingLines.Findset() then begin
+            //         EXIMPackingHeader.GET(EXIMPackingLines."LFS Type", EXIMPackingLines."LFS Packing List No.");
+            //         EXIMPackingHeader.VALIDATE("LFS Shipping Bill No.", "LFS Shipping Bill No.");
+            //         EXIMPackingHeader.MODIFY();
+            //     end;
+            // end;
         }
         field(72024; "LFS Shipping Bill Date"; Date)
         {
             Caption = 'Shipping Bill Date';
             DataClassification = CustomerContent;
 
-            trigger OnValidate()
-            begin
-                EXIMPackingLines.Reset();
-                EXIMPackingLines.SETRANGE("LFS Shipment Document No.", "No.");
-                if EXIMPackingLines.Findset() then begin
-                    EXIMPackingHeader.GET(EXIMPackingLines."LFS Type", EXIMPackingLines."LFS Packing List No.");
-                    EXIMPackingHeader.VALIDATE("LFS Shipping Bill Date", "LFS Shipping Bill Date");
-                    EXIMPackingHeader.MODIFY();
-                end;
-            end;
+            // trigger OnValidate()
+            // begin
+            //     EXIMPackingLines.Reset();
+            //     EXIMPackingLines.SETRANGE("LFS Shipment Document No.", "No.");
+            //     if EXIMPackingLines.Findset() then begin
+            //         EXIMPackingHeader.GET(EXIMPackingLines."LFS Type", EXIMPackingLines."LFS Packing List No.");
+            //         EXIMPackingHeader.VALIDATE("LFS Shipping Bill Date", "LFS Shipping Bill Date");
+            //         EXIMPackingHeader.MODIFY();
+            //     end;
+            // end;
         }
         // field(72026; "LFS DDB Value"; Decimal)
         // {
@@ -351,7 +351,7 @@ tableextension 72027 "LFS Sales Shipment Header Ext." extends "Sales Shipment He
             Caption = 'Place of Receipt By Pre-Carriage';
         }
     }
-    var
-        EXIMPackingHeader: Record "LFS EXIM Packing Header";
-        EXIMPackingLines: Record "LFS EXIM Packing Lines";
+    // var
+    //     EXIMPackingHeader: Record "LFS EXIM Packing Header";
+    //     EXIMPackingLines: Record "LFS EXIM Packing Lines";
 }

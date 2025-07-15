@@ -89,12 +89,12 @@ table 72018 "LFS EXIM License Header"
             OptionMembers = " ",Normal,Deemed;
             OptionCaption = 'Normal,Deemed';
         }
-        field(15; "LFS Item Type"; Code[20])
-        {
-            Caption = 'Item Type';
-            TableRelation = "LFS EXIM Item Group"."LFS Code";
-            DataClassification = CustomerContent;
-        }
+        // field(15; "LFS Item Type"; Code[20])
+        // {
+        //     Caption = 'Item Type';
+        //     TableRelation = "LFS EXIM Item Group"."LFS Code";
+        //     DataClassification = CustomerContent;
+        // }
         field(16; "LFS Adv. Lic Export Qty."; Decimal)
         {
             FieldClass = FlowField;

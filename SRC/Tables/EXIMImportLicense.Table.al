@@ -64,13 +64,13 @@ table 72012 "LFS EXIM Import License"
                 Rec."LFS CIF Value (FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
             end;
         }
-        field(10; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(10; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         field(11; "LFS Item No."; Code[20])
         {
             DataClassification = CustomerContent;

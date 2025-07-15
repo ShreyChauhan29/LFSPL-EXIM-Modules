@@ -145,13 +145,13 @@ tableextension 72025 "LFS Sales Line Archive Ext." extends "Sales Line Archive"
             Editable = false;
             DataClassification = CustomerContent;
         }
-        field(72029; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(72029; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         // field(72030; "LFS Packing Line Exists"; Boolean)
         // {
         //     Caption = 'Packing Line Exists';

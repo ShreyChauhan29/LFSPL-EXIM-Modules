@@ -78,13 +78,13 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72013; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            DataClassification = CustomerContent;
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-        }
+        // field(72013; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        // }
         // field(72014; "LFS BCD Amt. License Calc."; Decimal)
         // {
         //     Caption = 'BCD Amt. For License Calc.';

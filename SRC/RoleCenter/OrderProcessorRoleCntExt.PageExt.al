@@ -169,28 +169,28 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         ObsoleteTag = '19.0';
                         ToolTip = 'Display export sales invoices generated for foreign trade customers.';
                     }
-                    action("EXIM Custom Packing List")
-                    {
-                        Caption = 'EXIM Custom Packing List';
-                        ApplicationArea = all;
-                        RunObject = page "LFS EXIM Custom Packing List";
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Setup is no longer shown in this page.';
-                        ObsoleteTag = '19.0';
-                        Visible = false;
-                        ToolTip = 'Manage the custom packing list required for EXIM export documentation.';
-                    }
-                    action("EXIM Commercial Packing List")
-                    {
-                        Caption = 'EXIM Commercial Packing List';
-                        ApplicationArea = Basic, Suite;
-                        RunObject = page "LFS EXIM CommercialPackingList";
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Setup is no longer shown in this page.';
-                        ObsoleteTag = '19.0';
-                        Visible = false;
-                        ToolTip = 'Display or generate commercial packing lists for export compliance.';
-                    }
+                    // action("EXIM Custom Packing List")
+                    // {
+                    //     Caption = 'EXIM Custom Packing List';
+                    //     ApplicationArea = all;
+                    //     RunObject = page "LFS EXIM Custom Packing List";
+                    //     ObsoleteState = Pending;
+                    //     ObsoleteReason = 'Setup is no longer shown in this page.';
+                    //     ObsoleteTag = '19.0';
+                    //     Visible = false;
+                    //     ToolTip = 'Manage the custom packing list required for EXIM export documentation.';
+                    // }
+                    // action("EXIM Commercial Packing List")
+                    // {
+                    //     Caption = 'EXIM Commercial Packing List';
+                    //     ApplicationArea = Basic, Suite;
+                    //     RunObject = page "LFS EXIM CommercialPackingList";
+                    //     ObsoleteState = Pending;
+                    //     ObsoleteReason = 'Setup is no longer shown in this page.';
+                    //     ObsoleteTag = '19.0';
+                    //     Visible = false;
+                    //     ToolTip = 'Display or generate commercial packing lists for export compliance.';
+                    // }
                     action("Blanket Import Orders")
                     {
                         Caption = 'Blanket Import Purchase Orders';
@@ -278,17 +278,17 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         ObsoleteTag = '19.0';
                         ToolTip = 'View posted export invoices issued to overseas customers.';
                     }
-                    action("EXIM PostedCustom Packing List")
-                    {
-                        Caption = 'EXIM PostedCustom Packing List';
-                        ApplicationArea = Basic, Suite;
-                        RunObject = page "LFSEXIMPostedCustomPackingList";
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Setup is no longer shown in this page.';
-                        ObsoleteTag = '19.0';
-                        Visible = false;
-                        ToolTip = 'Access the posted version of the EXIM custom packing list for historical reference.';
-                    }
+                    // action("EXIM PostedCustom Packing List")
+                    // {
+                    //     Caption = 'EXIM PostedCustom Packing List';
+                    //     ApplicationArea = Basic, Suite;
+                    //     RunObject = page "LFSEXIMPostedCustomPackingList";
+                    //     ObsoleteState = Pending;
+                    //     ObsoleteReason = 'Setup is no longer shown in this page.';
+                    //     ObsoleteTag = '19.0';
+                    //     Visible = false;
+                    //     ToolTip = 'Access the posted version of the EXIM custom packing list for historical reference.';
+                    // }
                     action("Posted Import Purch Receipts")
                     {
                         Caption = 'Posted Import Receipts';

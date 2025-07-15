@@ -250,11 +250,11 @@ page 72091 "LFS EXIMBlanketImpOrderSubform"
                     ToolTip = 'Specifies the value of the Custom Exch. Rate field.';
                     ApplicationArea = All;
                 }
-                field("EXIM Item Group"; Rec."LFS EXIM Item Group")
-                {
-                    ToolTip = 'Specifies the value of the EXIM Item Group field.';
-                    ApplicationArea = All;
-                }
+                // field("EXIM Item Group"; Rec."LFS EXIM Item Group")
+                // {
+                //     ToolTip = 'Specifies the value of the EXIM Item Group field.';
+                //     ApplicationArea = All;
+                // }
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     ApplicationArea = all;

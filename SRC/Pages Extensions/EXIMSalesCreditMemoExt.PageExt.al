@@ -53,7 +53,7 @@ pageextension 72021 "LFSEXIM Sales Credit Memo Ext." extends "Sales Credit Memo"
                                 ExportLicense."LFS Item No." := PostedExportLicences."LFS Item No.";
                                 ExportLicense."LFS FOB (FCY)" := PostedExportLicences."LFS FOB (FCY)";
                                 ExportLicense."LFS Export Inv Bal Qty" := PostedExportLicences."LFS Export Inv Bal Qty";
-                                ExportLicense."LFS EXIM Item Group" := PostedExportLicences."LFS EXIM Item Group";
+                                // ExportLicense."LFS EXIM Item Group" := PostedExportLicences."LFS EXIM Item Group";
                                 ExportLicense."LFS Exim Group No." := SalesCrMemoLine."LFS Exim Group No.";
                                 ExportLicense.modify();
                             until PostedExportLicences.Next() = 0;

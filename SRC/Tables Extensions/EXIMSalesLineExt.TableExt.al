@@ -73,11 +73,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     CASE "LFS License Type" OF
                         "LFS License Type"::"Adv. License":
                             begin
-                                EXIMAdvLicenseIODetails.Reset();
-                                EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Adv. License No.", "LFS License No.");
-                                EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Item Type", "LFS EXIM Item Group");
-                                if NOT EXIMAdvLicenseIODetails.FINDFIRST() then
-                                    ERROR('Item Group %1 is not defined in the I/O Details of License No. %2', "LFS EXIM Item Group", "LFS License No.");
+                                // EXIMAdvLicenseIODetails.Reset();
+                                // EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Adv. License No.", "LFS License No.");
+                                // EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Item Type", "LFS EXIM Item Group");
+                                // if NOT EXIMAdvLicenseIODetails.FINDFIRST() then
+                                //     ERROR('Item Group %1 is not defined in the I/O Details of License No. %2', "LFS EXIM Item Group", "LFS License No.");
                                 PromptAdvLicUsageMsg();
                                 EXIMAdvLicenseIODetails.Reset();
                                 EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Adv. License No.", "LFS License No.");
@@ -191,13 +191,13 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             Editable = false;
             DataClassification = CustomerContent;
         }
-        field(72029; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(72029; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         // field(72030; "LFS Packing Line Exists"; Boolean)
         // {
         //     Caption = 'Packing Line Exists';
@@ -719,7 +719,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             EXIT;
         EXIMAdvLicenseIODetails.Reset();
         EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Adv. License No.", "LFS License No.");
-        EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Item Type", "LFS EXIM Item Group");
+        // EXIMAdvLicenseIODetails.SETRANGE(EXIMAdvLicenseIODetails."LFS Item Type", "LFS EXIM Item Group");
         EXIMAdvLicenseIODetails.FINDFIRST();
         if Quantity + EXIMAdvLicenseIODetails."LFS Consumed Export Qty." > EXIMAdvLicenseIODetails."LFS Qty." then
             MESSAGE('ALERT: Consumption for License No. %1 is going to exceed or has exceeded already.', "LFS License No.");

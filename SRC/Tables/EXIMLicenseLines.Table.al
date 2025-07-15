@@ -98,12 +98,12 @@ table 72020 "LFS EXIM License Lines"
             Caption = 'CIF LCY Value';
             DataClassification = CustomerContent;
         }
-        field(19; "LFS EXIM Item Group"; Code[50])
-        {
-            Caption = 'EXIM Item Group';
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(19; "LFS EXIM Item Group"; Code[50])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         field(20; "LFS License Currency Factor"; Decimal)
         {
             DataClassification = CustomerContent;

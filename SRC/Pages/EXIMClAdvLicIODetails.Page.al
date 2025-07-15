@@ -29,11 +29,11 @@ page 72025 "LFS EXIM ClAdv. Lic.IO Details"
                     ToolTip = 'Specifies the value of the Type field.';
                     ApplicationArea = All;
                 }
-                field("Item Type"; Rec."LFS Item Type")
-                {
-                    ToolTip = 'Specifies the value of the Item Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Item Type"; Rec."LFS Item Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Item Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("Item No."; Rec."LFS Item No.")
                 {
                     ToolTip = 'Specifies the value of the Item No. field.';

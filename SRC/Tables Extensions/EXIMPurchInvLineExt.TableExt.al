@@ -72,12 +72,12 @@ tableextension 72013 "LFS EXIM Purch. Inv. Line Ext." extends "Purch. Inv. Line"
             Caption = 'Custom Exch. Rate';
             DataClassification = CustomerContent;
         }
-        field(72013; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            DataClassification = CustomerContent;
-            TableRelation = "LFS EXIM Item Group";
-        }
+        // field(72013; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     DataClassification = CustomerContent;
+        //     TableRelation = "LFS EXIM Item Group";
+        // }
         // field(72014; "LFS BCD Amt. License Calc."; Decimal)
         // {
         //     Caption = 'BCD Amt. For License Calc.';

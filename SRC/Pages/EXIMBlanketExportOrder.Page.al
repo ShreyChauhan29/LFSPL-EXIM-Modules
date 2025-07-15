@@ -137,6 +137,49 @@ page 72090 "LFS EXIM Blanket Export Order"
                     ApplicationArea = All;
                 }
             }
+            group(EXIM)
+            {
+                field("Port of Loading"; Rec."LFS Port of Loading")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Port of Loading';
+                }
+                field("Port of Discharge"; Rec."LFS Port of Discharge")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Port of Discharge';
+                }
+                field("Country of Final Destination"; Rec."LFS Country of Final Dest.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Country of Final Destination';
+                }
+                field("Final Destination"; Rec."LFS Final Destination")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Final Destination';
+                }
+                field("Country of Origin of Goods"; Rec."LFS Country Origin Goods")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Country of Origin of Goods';
+                }
+                field("Inco Terms"; Rec."LFS Inco Terms")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Inco Terms';
+                }
+                // field("Export Remark"; Rec."LFS Export Remark")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Export Remark';
+                // }
+                field("Shpping Line"; Rec."LFS Shipping Line")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Shpping Line';
+                }
+            }
             part(SalesLines; "LFSEXIMBlanketExp.OrderSubform")
             {
                 ApplicationArea = all;
@@ -654,49 +697,7 @@ page 72090 "LFS EXIM Blanket Export Order"
                     end;
                 }
             }
-            group(EXIM)
-            {
-                field("Port of Loading"; Rec."LFS Port of Loading")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Port of Loading';
-                }
-                field("Port of Discharge"; Rec."LFS Port of Discharge")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Port of Discharge';
-                }
-                field("Country of Final Destination"; Rec."LFS Country of Final Dest.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Country of Final Destination';
-                }
-                field("Final Destination"; Rec."LFS Final Destination")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Final Destination';
-                }
-                field("Country of Origin of Goods"; Rec."LFS Country Origin Goods")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Country of Origin of Goods';
-                }
-                field("Inco Terms"; Rec."LFS Inco Terms")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Inco Terms';
-                }
-                // field("Export Remark"; Rec."LFS Export Remark")
-                // {
-                //     ApplicationArea = all;
-                //     ToolTip = 'Specifies the Export Remark';
-                // }
-                field("Shpping Line"; Rec."LFS Shipping Line")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Shpping Line';
-                }
-            }
+
         }
         area(FactBoxes)
         {

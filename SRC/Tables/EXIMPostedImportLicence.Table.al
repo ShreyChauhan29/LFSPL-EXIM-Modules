@@ -51,13 +51,13 @@ table 72023 "LFS EXIM Posted Import Licence"
             Caption = 'Quantity';
 
         }
-        field(10; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(10; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         field(11; "LFS Item No."; Code[20])
         {
             DataClassification = CustomerContent;

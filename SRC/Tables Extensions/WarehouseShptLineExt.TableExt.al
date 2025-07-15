@@ -111,13 +111,13 @@ tableextension 72032 "LFS Warehouse Shpt. Line Ext." extends "Warehouse Shipment
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72024; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            DataClassification = CustomerContent;
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-        }
+        // field(72024; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        // }
         // field(72025; "LFS Packing Line Exists"; Boolean)
         // {
         //     Caption = 'Packing Line Exists';

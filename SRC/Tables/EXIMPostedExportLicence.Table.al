@@ -63,13 +63,13 @@ table 72022 "LFS EXIM Posted Export Licence"
                 Rec."LFS FOB (FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Price";
             end;
         }
-        field(10; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-            DataClassification = CustomerContent;
-        }
+        // field(10; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        //     DataClassification = CustomerContent;
+        // }
         field(11; "LFS Item No."; Code[20])
         {
             DataClassification = CustomerContent;

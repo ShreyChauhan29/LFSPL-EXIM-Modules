@@ -38,7 +38,7 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMSetup: Record "LFS EXIM Setup";
         // SalesShipmentHeader: Record "Sales Shipment Header";
         GetSourceDocuments: Report "Get Source Documents";
-        Text00001ConfLbl: Label 'Packing Lines already exist. Do you wish to Overwrite them?';
+        // Text00001ConfLbl: Label 'Packing Lines already exist. Do you wish to Overwrite them?';
 #pragma warning disable AA0470
         TextErrLbl: Label 'if %1 is %2 in %3 no. %4, then all associated lines where type is %5 must use the same location.';
         Text002Lbl: Label 'The warehouse shipment was not created because the Shipping Advice field is set to Complete, and item no. %1 is not available in location code %2.\\You can create the warehouse shipment by either changing the Shipping Advice field to Partial in %3 no. %4 or by manually filling in the warehouse shipment document.';
@@ -68,7 +68,7 @@ codeunit 72001 "LFS EXIM General Functions"
 
     procedure "LFS InsertLicenseDtlFromExportSalesOrderDocToAdvLicense"(SalesLine: Record "Sales Line")
     var
-        Item: Record Item;
+        //Item: Record Item;
         EXIMAdvLicenseHeader: Record "LFS EXIM License Header";
         EXIMAdvLicenseLines: Record "LFS EXIM License Lines";
         Licenses: Record "LFS EXIM Posted Export Licence";
@@ -105,8 +105,8 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesLine."LFS Custom Exch. Rate";
                 EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                 EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
-                Item.GET(EXIMAdvLicenseLines."LFS Item No.");
-                EXIMAdvLicenseLines."LFS EXIM Item Group" := Item."LFS EXIM Item Group";
+                // Item.GET(EXIMAdvLicenseLines."LFS Item No.");
+                // EXIMAdvLicenseLines."LFS EXIM Item Group" := Item."LFS EXIM Item Group";
                 EXIMAdvLicenseLines."LFS License Currency Factor" := EXIMAdvLicenseHeader."LFS Currency Factor";
                 EXIMAdvLicenseLines.Modify();
 
@@ -246,193 +246,193 @@ codeunit 72001 "LFS EXIM General Functions"
             until EXIMLicenseMultiple.Next() = 0;
     end;
 
-    procedure "LFS GetPstedShipLinesCustomPacking"(EXIMPackHdr: Record "LFS EXIM Packing Header")
-    var
-        EXIMPackLines: Record "LFS EXIM Packing Lines";
-        SalShipHdr: Record "Sales Shipment Header";
-        // SalShipHdr2: Record "Sales Shipment Header";
-        SalShipLine: Record "Sales Shipment Line";
-        PstedSalShipPg: Page "LFS Posted Export Shipments";
-        // HdrUpdated: Boolean;
-        LineNo: Integer;
-    begin
-        EXIMPackLines.Reset();
-        EXIMPackLines.SETRANGE(EXIMPackLines."LFS Type", EXIMPackHdr."LFS Type");
-        EXIMPackLines.SETRANGE(EXIMPackLines."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
-        if EXIMPackLines.FINDFIRST() then
-            if NOT CONFIRM(Text00001ConfLbl, FALSE) then
-                EXIT;
-        Commit();
-        EXIMPackLines.Reset();
-        EXIMPackLines.SETRANGE(EXIMPackLines."LFS Type", EXIMPackHdr."LFS Type");
-        EXIMPackLines.SETRANGE(EXIMPackLines."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
-        EXIMPackLines.DELETEALL(true);
-        COMMIT();
+    // procedure "LFS GetPstedShipLinesCustomPacking"(EXIMPackHdr: Record "LFS EXIM Packing Header")
+    // var
+    //     EXIMPackLines: Record "LFS EXIM Packing Lines";
+    //     SalShipHdr: Record "Sales Shipment Header";
+    //     // SalShipHdr2: Record "Sales Shipment Header";
+    //     SalShipLine: Record "Sales Shipment Line";
+    //     PstedSalShipPg: Page "LFS Posted Export Shipments";
+    //     // HdrUpdated: Boolean;
+    //     LineNo: Integer;
+    // begin
+    //     EXIMPackLines.Reset();
+    //     EXIMPackLines.SETRANGE(EXIMPackLines."LFS Type", EXIMPackHdr."LFS Type");
+    //     EXIMPackLines.SETRANGE(EXIMPackLines."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
+    //     if EXIMPackLines.FINDFIRST() then
+    //         if NOT CONFIRM(Text00001ConfLbl, FALSE) then
+    //             EXIT;
+    //     Commit();
+    //     EXIMPackLines.Reset();
+    //     EXIMPackLines.SETRANGE(EXIMPackLines."LFS Type", EXIMPackHdr."LFS Type");
+    //     EXIMPackLines.SETRANGE(EXIMPackLines."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
+    //     EXIMPackLines.DELETEALL(true);
+    //     COMMIT();
 
-        SalShipHdr.Reset();
-        SalShipHdr.FILTERGROUP(2);
-        SalShipHdr.SETRANGE("LFS EXIM Type", SalShipHdr."LFS EXIM Type"::Export);
-        // SalShipHdr.SETRANGE("LFS Completely Packed", FALSE);
-        // SalShipHdr.SETFILTER("LFS Total Line Qty.", '<>%1', 0);
-        SalShipHdr.FILTERGROUP(0);
+    //     SalShipHdr.Reset();
+    //     SalShipHdr.FILTERGROUP(2);
+    //     SalShipHdr.SETRANGE("LFS EXIM Type", SalShipHdr."LFS EXIM Type"::Export);
+    //     // SalShipHdr.SETRANGE("LFS Completely Packed", FALSE);
+    //     // SalShipHdr.SETFILTER("LFS Total Line Qty.", '<>%1', 0);
+    //     SalShipHdr.FILTERGROUP(0);
 
-        CLEAR(PstedSalShipPg);
-        PstedSalShipPg.LOOKUPMODE(true);
-        PstedSalShipPg.SETTABLEVIEW(SalShipHdr);
-        if PstedSalShipPg.RUNMODAL() <> ACTION::LookupOK then
-            EXIT;
+    //     CLEAR(PstedSalShipPg);
+    //     PstedSalShipPg.LOOKUPMODE(true);
+    //     PstedSalShipPg.SETTABLEVIEW(SalShipHdr);
+    //     if PstedSalShipPg.RUNMODAL() <> ACTION::LookupOK then
+    //         EXIT;
 
-        PstedSalShipPg.GetResult(SalShipHdr);
+    //     PstedSalShipPg.GetResult(SalShipHdr);
 
-        if SalShipHdr.Findset() then
-            repeat
-                // HdrUpdated := FALSE;
-                SalShipLine.Reset();
-                SalShipLine.SETRANGE(SalShipLine."Document No.", SalShipHdr."No.");
-                SalShipLine.SETRANGE(SalShipLine.Type, SalShipLine.Type::Item);
-                if SalShipLine.Findset() then
-                    // begin
-                    repeat
-                        LineNo += 10000;
-                        EXIMPackLines.Init();
-                        EXIMPackLines."LFS Type" := EXIMPackHdr."LFS Type";
-                        EXIMPackLines."LFS Line No." := LineNo;
-                        EXIMPackLines."LFS Parent Line No." := 0;
-                        EXIMPackLines."LFS Packing List No." := EXIMPackHdr."LFS Packing List No.";
-                        EXIMPackLines.Insert();
-                        Commit();
-                        EXIMPackLines.Reset();
-                        EXIMPackLines.SetRange("LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
-                        if EXIMPackLines.FindLast() then begin
-                            EXIMPackLines.VALIDATE(EXIMPackLines."LFS Item No.", SalShipLine."No.");
-                            EXIMPackLines."LFS Unit of Measure Code" := SalShipLine."Unit of Measure Code";
-                            // EXIMPackLines."LFS Total Shipment Qty." := SalShipLine."LFS Rem. Qty. To be Packed";
-                            EXIMPackLines."LFS BL No." := SalShipHdr."Bill Of Export No.";
-                            EXIMPackLines."LFS BL Date" := SalShipHdr."Bill Of Export Date";
-                            EXIMPackLines."LFS Shipment Document No." := SalShipLine."Document No.";
-                            EXIMPackLines."LFS Shipment Document Line No." := SalShipLine."Line No.";
-                            // EXIMPackLines."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
-                            // EXIMPackLines."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
-                            EXIMPackLines."LFS Container No." := EXIMPackHdr."LFS Container No.";
-                            EXIMPackLines."LFS Container Size" := EXIMPackHdr."LFS Container Size";
-                            EXIMPackLines."LFS Trailor No." := EXIMPackHdr."LFS Trailor No.";
-                            EXIMPackLines."LFS Vehicle No." := EXIMPackHdr."LFS Vehicle No.";
-                            EXIMPackLines."LFS Agent Seal No." := EXIMPackHdr."LFS Agent Seal No.";
-                            EXIMPackLines."LFS RFID E-Seal Nos." := EXIMPackHdr."LFS RFID E-Seal Nos.";
-                            EXIMPackLines."LFS Rotation No." := EXIMPackHdr."LFS Rotation No.";
-                            EXIMPackLines."LFS Shipping Line" := EXIMPackHdr."LFS Shipping Line";
-                            EXIMPackLines."LFS Vessel / Flight Details" := EXIMPackHdr."LFS Vessel / Flight Details";
-                            EXIMPackLines."LFS Carriage" := EXIMPackHdr."LFS Carriage";
-                            EXIMPackLines."LFS ETD" := EXIMPackHdr."LFS ETD";
-                            EXIMPackLines."LFS ETA" := EXIMPackHdr."LFS ETA";
-                            EXIMPackLines."LFS Date of Stuffing" := EXIMPackHdr."LFS Date of Stuffing";
-                            EXIMPackLines."LFS Port Cut off" := EXIMPackHdr."LFS Port Cut off";
-                            EXIMPackLines."LFS Forwarder No." := EXIMPackHdr."LFS Forwarder No.";
-                            EXIMPackLines."LFS CHA No." := EXIMPackHdr."LFS CHA No.";
-                            EXIMPackLines."LFS Transporter No." := EXIMPackHdr."LFS Transporter No.";
-                            EXIMPackLines."LFS QC Vendor No." := EXIMPackHdr."LFS QC Vendor No.";
-                            EXIMPackLines."LFS BL No." := EXIMPackHdr."LFS BL No.";
-                            EXIMPackLines."LFS BL Date" := EXIMPackHdr."LFS BL Date";
-                            EXIMPackLines."LFS Total Shipment Qty." := SalShipLine.Quantity;
-                            EXIMPackLines.Modify();
-                            Commit();
-                        end;
-                    UNTIL SalShipLine.Next() = 0;
-                // if NOT HdrUpdated then begin
-                //     if SalShipHdr2.GET(SalShipHdr."No.") then begin
-                //         SalShipHdr2."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
-                //         SalShipHdr2."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
-                //         SalShipHdr2.MODIFY();
-                //     end;
-                //     HdrUpdated := true;
-                // end;
-                // end;
-                Commit();
-            UNTIL SalShipHdr.Next() = 0;
-    end;
+    //     if SalShipHdr.Findset() then
+    //         repeat
+    //             // HdrUpdated := FALSE;
+    //             SalShipLine.Reset();
+    //             SalShipLine.SETRANGE(SalShipLine."Document No.", SalShipHdr."No.");
+    //             SalShipLine.SETRANGE(SalShipLine.Type, SalShipLine.Type::Item);
+    //             if SalShipLine.Findset() then
+    //                 // begin
+    //                 repeat
+    //                     LineNo += 10000;
+    //                     EXIMPackLines.Init();
+    //                     EXIMPackLines."LFS Type" := EXIMPackHdr."LFS Type";
+    //                     EXIMPackLines."LFS Line No." := LineNo;
+    //                     EXIMPackLines."LFS Parent Line No." := 0;
+    //                     EXIMPackLines."LFS Packing List No." := EXIMPackHdr."LFS Packing List No.";
+    //                     EXIMPackLines.Insert();
+    //                     Commit();
+    //                     EXIMPackLines.Reset();
+    //                     EXIMPackLines.SetRange("LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
+    //                     if EXIMPackLines.FindLast() then begin
+    //                         EXIMPackLines.VALIDATE(EXIMPackLines."LFS Item No.", SalShipLine."No.");
+    //                         EXIMPackLines."LFS Unit of Measure Code" := SalShipLine."Unit of Measure Code";
+    //                         // EXIMPackLines."LFS Total Shipment Qty." := SalShipLine."LFS Rem. Qty. To be Packed";
+    //                         EXIMPackLines."LFS BL No." := SalShipHdr."Bill Of Export No.";
+    //                         EXIMPackLines."LFS BL Date" := SalShipHdr."Bill Of Export Date";
+    //                         EXIMPackLines."LFS Shipment Document No." := SalShipLine."Document No.";
+    //                         EXIMPackLines."LFS Shipment Document Line No." := SalShipLine."Line No.";
+    //                         // EXIMPackLines."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
+    //                         // EXIMPackLines."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
+    //                         EXIMPackLines."LFS Container No." := EXIMPackHdr."LFS Container No.";
+    //                         EXIMPackLines."LFS Container Size" := EXIMPackHdr."LFS Container Size";
+    //                         EXIMPackLines."LFS Trailor No." := EXIMPackHdr."LFS Trailor No.";
+    //                         EXIMPackLines."LFS Vehicle No." := EXIMPackHdr."LFS Vehicle No.";
+    //                         EXIMPackLines."LFS Agent Seal No." := EXIMPackHdr."LFS Agent Seal No.";
+    //                         EXIMPackLines."LFS RFID E-Seal Nos." := EXIMPackHdr."LFS RFID E-Seal Nos.";
+    //                         EXIMPackLines."LFS Rotation No." := EXIMPackHdr."LFS Rotation No.";
+    //                         EXIMPackLines."LFS Shipping Line" := EXIMPackHdr."LFS Shipping Line";
+    //                         EXIMPackLines."LFS Vessel / Flight Details" := EXIMPackHdr."LFS Vessel / Flight Details";
+    //                         EXIMPackLines."LFS Carriage" := EXIMPackHdr."LFS Carriage";
+    //                         EXIMPackLines."LFS ETD" := EXIMPackHdr."LFS ETD";
+    //                         EXIMPackLines."LFS ETA" := EXIMPackHdr."LFS ETA";
+    //                         EXIMPackLines."LFS Date of Stuffing" := EXIMPackHdr."LFS Date of Stuffing";
+    //                         EXIMPackLines."LFS Port Cut off" := EXIMPackHdr."LFS Port Cut off";
+    //                         EXIMPackLines."LFS Forwarder No." := EXIMPackHdr."LFS Forwarder No.";
+    //                         EXIMPackLines."LFS CHA No." := EXIMPackHdr."LFS CHA No.";
+    //                         EXIMPackLines."LFS Transporter No." := EXIMPackHdr."LFS Transporter No.";
+    //                         EXIMPackLines."LFS QC Vendor No." := EXIMPackHdr."LFS QC Vendor No.";
+    //                         EXIMPackLines."LFS BL No." := EXIMPackHdr."LFS BL No.";
+    //                         EXIMPackLines."LFS BL Date" := EXIMPackHdr."LFS BL Date";
+    //                         EXIMPackLines."LFS Total Shipment Qty." := SalShipLine.Quantity;
+    //                         EXIMPackLines.Modify();
+    //                         Commit();
+    //                     end;
+    //                 UNTIL SalShipLine.Next() = 0;
+    //             // if NOT HdrUpdated then begin
+    //             //     if SalShipHdr2.GET(SalShipHdr."No.") then begin
+    //             //         SalShipHdr2."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
+    //             //         SalShipHdr2."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
+    //             //         SalShipHdr2.MODIFY();
+    //             //     end;
+    //             //     HdrUpdated := true;
+    //             // end;
+    //             // end;
+    //             Commit();
+    //         UNTIL SalShipHdr.Next() = 0;
+    // end;
 
 
-    procedure "LFS GetRelCusPackingLinesCommPacking"(EXIMPackHdr: Record "LFS EXIM Packing Header")
-    var
-        EXIMPackHdr_Custom: Record "LFS EXIM Packing Header";
-        EXIMPackLines_Commercial: Record "LFS EXIM Packing Lines";
-        EXIMPackLines_Custom: Record "LFS EXIM Packing Lines";
-        EXIMCustomPackingList: Page "LFS EXIM Custom Packing List";
-        LineNo: Integer;
+    // procedure "LFS GetRelCusPackingLinesCommPacking"(EXIMPackHdr: Record "LFS EXIM Packing Header")
+    // var
+    //     EXIMPackHdr_Custom: Record "LFS EXIM Packing Header";
+    //     EXIMPackLines_Commercial: Record "LFS EXIM Packing Lines";
+    //     EXIMPackLines_Custom: Record "LFS EXIM Packing Lines";
+    //     EXIMCustomPackingList: Page "LFS EXIM Custom Packing List";
+    //     LineNo: Integer;
 
-    begin
-        EXIMPackLines_Commercial.Reset();
-        EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Type", EXIMPackHdr."LFS Type");
-        EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
-        if EXIMPackLines_Commercial.FindFirst() then
-            if not Confirm(Text00001ConfLbl, false) then
-                exit;
+    // begin
+    //     EXIMPackLines_Commercial.Reset();
+    //     EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Type", EXIMPackHdr."LFS Type");
+    //     EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
+    //     if EXIMPackLines_Commercial.FindFirst() then
+    //         if not Confirm(Text00001ConfLbl, false) then
+    //             exit;
 
-        EXIMPackLines_Commercial.Reset();
-        EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Type", EXIMPackHdr."LFS Type");
-        EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
-        EXIMPackLines_Commercial.DeleteAll(true);
-        Commit();
+    //     EXIMPackLines_Commercial.Reset();
+    //     EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Type", EXIMPackHdr."LFS Type");
+    //     EXIMPackLines_Commercial.SetRange(EXIMPackLines_Commercial."LFS Packing List No.", EXIMPackHdr."LFS Packing List No.");
+    //     EXIMPackLines_Commercial.DeleteAll(true);
+    //     Commit();
 
-        EXIMPackHdr_Custom.Reset();
-        EXIMPackHdr_Custom.FilterGroup(2);
-        EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Commercial Packing No.", '');
-        EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Posted", true);
-        EXIMPackHdr_Custom.FilterGroup(0);
+    //     EXIMPackHdr_Custom.Reset();
+    //     EXIMPackHdr_Custom.FilterGroup(2);
+    //     EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Commercial Packing No.", '');
+    //     EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Posted", true);
+    //     EXIMPackHdr_Custom.FilterGroup(0);
 
-        Clear(EXIMCustomPackingList);
-        EXIMCustomPackingList.LookupMode(true);
-        EXIMCustomPackingList.SetTableView(EXIMPackHdr_Custom);
-        if EXIMCustomPackingList.RunModal() <> Action::LookupOK then
-            exit;
+    //     Clear(EXIMCustomPackingList);
+    //     EXIMCustomPackingList.LookupMode(true);
+    //     EXIMCustomPackingList.SetTableView(EXIMPackHdr_Custom);
+    //     if EXIMCustomPackingList.RunModal() <> Action::LookupOK then
+    //         exit;
 
-        EXIMCustomPackingList.GetResult(EXIMPackHdr_Custom);
+    //     EXIMCustomPackingList.GetResult(EXIMPackHdr_Custom);
 
-        if EXIMPackHdr_Custom.FindFirst() then
-            repeat
-                EXIMPackHdr_Custom.Reset();
-                EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Type", EXIMPackHdr_Custom."LFS Type"::Custom);
-                EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Packing List No.", EXIMPackHdr_Custom."LFS Packing List No.");
-                if EXIMPackHdr_Custom.Findset() then
-                    repeat
-                        LineNo += 10000;
-                        EXIMPackLines_Commercial.Init();
-                        EXIMPackLines_Commercial.TransferFields(EXIMPackLines_Custom);
-                        EXIMPackLines_Commercial."LFS Type" := EXIMPackHdr."LFS Type";
-                        EXIMPackLines_Commercial."LFS Packing List No." := Format(EXIMPackHdr."LFS Pallet Size");
-                        EXIMPackLines_Commercial."LFS Line No." := LineNo;
-                        EXIMPackLines_Commercial."LFS Custom Packing No." := EXIMPackLines_Custom."LFS Packing List No.";
-                        EXIMPackLines_Commercial."LFS Custom Packing Line No." := EXIMPackLines_Custom."LFS Line No.";
-                        EXIMPackLines_Commercial.Insert();
-                    until EXIMPackLines_Custom.Next() = 0;
-            until EXIMPackHdr_Custom.Next() = 0;
-    end;
+    //     if EXIMPackHdr_Custom.FindFirst() then
+    //         repeat
+    //             EXIMPackHdr_Custom.Reset();
+    //             EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Type", EXIMPackHdr_Custom."LFS Type"::Custom);
+    //             EXIMPackHdr_Custom.SetRange(EXIMPackHdr_Custom."LFS Packing List No.", EXIMPackHdr_Custom."LFS Packing List No.");
+    //             if EXIMPackHdr_Custom.Findset() then
+    //                 repeat
+    //                     LineNo += 10000;
+    //                     EXIMPackLines_Commercial.Init();
+    //                     EXIMPackLines_Commercial.TransferFields(EXIMPackLines_Custom);
+    //                     EXIMPackLines_Commercial."LFS Type" := EXIMPackHdr."LFS Type";
+    //                     EXIMPackLines_Commercial."LFS Packing List No." := Format(EXIMPackHdr."LFS Pallet Size");
+    //                     EXIMPackLines_Commercial."LFS Line No." := LineNo;
+    //                     EXIMPackLines_Commercial."LFS Custom Packing No." := EXIMPackLines_Custom."LFS Packing List No.";
+    //                     EXIMPackLines_Commercial."LFS Custom Packing Line No." := EXIMPackLines_Custom."LFS Line No.";
+    //                     EXIMPackLines_Commercial.Insert();
+    //                 until EXIMPackLines_Custom.Next() = 0;
+    //         until EXIMPackHdr_Custom.Next() = 0;
+    // end;
 
-    procedure "LFS PostCustomPackingDocument"(var EXIMPackingHeader: Record "LFS EXIM Packing Header")
-    var
-    // EXIMPackingLines: Record "LFS EXIM Packing Lines";
-    // SalesShipmentLine: Record "Sales Shipment Line";
-    begin
-        // EXIMPackingLines.Reset();
-        // EXIMPackingLines.SETRANGE("LFS Type", EXIMPackingHeader."LFS Type");
-        // EXIMPackingLines.SETRANGE("LFS Packing List No.", EXIMPackingHeader."LFS Packing List No.");
-        // EXIMPackingLines.SETFILTER("LFS Parent Line No.", '<>%1', 0);
-        // if EXIMPackingLines.Findset() then
-        //     repeat
-        //         SalesShipmentLine.GET(EXIMPackingLines."LFS Shipment Document No.", EXIMPackingLines."LFS Shipment Document Line No.");
-        //         // SalesShipmentLine."LFS Packed Qty." += EXIMPackingLines."LFS Qty. To Pack";
-        //         // if SalesShipmentLine."LFS Packed Qty." > SalesShipmentLine.Quantity then
-        //         //     ERROR('Cannot pack more than %1 units', SalesShipmentLine.Quantity);
-        //         // SalesShipmentLine."LFS Rem. Qty. To be Packed" -= EXIMPackingLines."LFS Qty. To Pack";
-        //         // SalesShipmentLine.MODIFY();
-        //     UNTIL EXIMPackingLines.Next() = 0;
-        EXIMPackingHeader."LFS Posted" := true;
-        EXIMPackingHeader.MODIFY();
-        // if SalesShipmentHeader.GET(EXIMPackingLines."LFS Shipment Document No.") then begin
-        //     SalesShipmentHeader."LFS Packing Posted" := true;
-        //     SalesShipmentHeader.MODIFY();
-        // end;
-    end;
+    // procedure "LFS PostCustomPackingDocument"(var EXIMPackingHeader: Record "LFS EXIM Packing Header")
+    // var
+    // // EXIMPackingLines: Record "LFS EXIM Packing Lines";
+    // // SalesShipmentLine: Record "Sales Shipment Line";
+    // begin
+    //     // EXIMPackingLines.Reset();
+    //     // EXIMPackingLines.SETRANGE("LFS Type", EXIMPackingHeader."LFS Type");
+    //     // EXIMPackingLines.SETRANGE("LFS Packing List No.", EXIMPackingHeader."LFS Packing List No.");
+    //     // EXIMPackingLines.SETFILTER("LFS Parent Line No.", '<>%1', 0);
+    //     // if EXIMPackingLines.Findset() then
+    //     //     repeat
+    //     //         SalesShipmentLine.GET(EXIMPackingLines."LFS Shipment Document No.", EXIMPackingLines."LFS Shipment Document Line No.");
+    //     //         // SalesShipmentLine."LFS Packed Qty." += EXIMPackingLines."LFS Qty. To Pack";
+    //     //         // if SalesShipmentLine."LFS Packed Qty." > SalesShipmentLine.Quantity then
+    //     //         //     ERROR('Cannot pack more than %1 units', SalesShipmentLine.Quantity);
+    //     //         // SalesShipmentLine."LFS Rem. Qty. To be Packed" -= EXIMPackingLines."LFS Qty. To Pack";
+    //     //         // SalesShipmentLine.MODIFY();
+    //     //     UNTIL EXIMPackingLines.Next() = 0;
+    //     EXIMPackingHeader."LFS Posted" := true;
+    //     EXIMPackingHeader.MODIFY();
+    //     // if SalesShipmentHeader.GET(EXIMPackingLines."LFS Shipment Document No.") then begin
+    //     //     SalesShipmentHeader."LFS Packing Posted" := true;
+    //     //     SalesShipmentHeader.MODIFY();
+    //     // end;
+    // end;
 
     procedure "LFS InsertDDBEntryFromExportPostedSalesDoc"(SalesInvLine: Record "Sales Invoice Line"; EXIMDDBRateSetup: record "LFS EXIM DDB Rate Setup")
     var

@@ -73,13 +73,13 @@ tableextension 72035 "LFS Purchase Line Archive Ext" extends "Purchase Line Arch
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72013; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            DataClassification = CustomerContent;
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-        }
+        // field(72013; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        // }
         field(72015; "LFS GST Assesable Value INR"; Decimal)
         {
             DataClassification = CustomerContent;

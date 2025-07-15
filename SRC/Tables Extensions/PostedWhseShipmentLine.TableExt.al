@@ -109,13 +109,13 @@ tableextension 72007 "LFS Posted Whse. Shipment Line" extends "Posted Whse. Ship
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72024; "LFS EXIM Item Group"; Code[20])
-        {
-            Caption = 'EXIM Item Group';
-            DataClassification = CustomerContent;
-            Editable = false;
-            TableRelation = "LFS EXIM Item Group";
-        }
+        // field(72024; "LFS EXIM Item Group"; Code[20])
+        // {
+        //     Caption = 'EXIM Item Group';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        //     TableRelation = "LFS EXIM Item Group";
+        // }
         // field(72025; "LFS Packing Line Exists"; Boolean)
         // {
         //     Caption = 'Packing Line Exists';

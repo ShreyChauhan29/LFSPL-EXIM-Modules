@@ -94,11 +94,11 @@ page 72023 "LFS EXIMClosed Adv.LicenseCard"
                     ToolTip = 'Specifies the value of the Export Type field.';
                     ApplicationArea = All;
                 }
-                field("Item Type"; Rec."LFS Item Type")
-                {
-                    ToolTip = 'Specifies the value of the Item Type field.';
-                    ApplicationArea = All;
-                }
+                // field("Item Type"; Rec."LFS Item Type")
+                // {
+                //     ToolTip = 'Specifies the value of the Item Type field.';
+                //     ApplicationArea = All;
+                // }
                 field("Currency Code"; Rec."LFS Currency Code")
                 {
                     ToolTip = 'Specifies the value of the Currency Code field.';
