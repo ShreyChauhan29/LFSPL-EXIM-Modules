@@ -398,47 +398,6 @@ page 72055 "LFS Export Sales Invoice"
                     }
                 }
             }
-
-            group("Shipping Bill Details")
-            {
-                Visible = false;
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill No.';
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                }
-                // field("Late export order No."; Rec."LFS Late export order No.")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Late export order No.';
-
-                // }
-                // field("Late export order date"; Rec."LFS Late export order date")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Late export order date';
-                // }
-                // field("Bill No."; Rec."LFS Bill No.")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Bill No.';
-                // }
-                // field("Bill Date"; Rec."LFS Bill Date")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Bill Date';
-                // }
-            }
-            part(SalesLines; "LFS Export Sales Inv. Subform")
-            {
-                ApplicationArea = all;
-                SubPageLink = "Document No." = field("No."), "Document Type" = field("Document Type");
-            }
             group(EXIM)
             {
                 field("Currency Code"; Rec."Currency Code")
@@ -580,6 +539,46 @@ page 72055 "LFS Export Sales Invoice"
                 //     Visible = false;
                 //     ToolTip = 'Specifies the BIN No.';
                 // }
+            }
+            group("Shipping Bill Details")
+            {
+                Visible = false;
+                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill No.';
+                }
+                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill Date';
+                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
+
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("Bill No."; Rec."LFS Bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill No.';
+                // }
+                // field("Bill Date"; Rec."LFS Bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Bill Date';
+                // }
+            }
+            part(SalesLines; "LFS Export Sales Inv. Subform")
+            {
+                ApplicationArea = all;
+                SubPageLink = "Document No." = field("No."), "Document Type" = field("Document Type");
             }
             group(Invoicing)
             {

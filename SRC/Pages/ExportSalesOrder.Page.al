@@ -296,49 +296,6 @@ page 72058 "LFS Export Sales Order"
                     ToolTip = 'Dispatch Date';
                 }
             }
-            group("Shipping Bill Details")
-            {
-                Visible = false;
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill No.';
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                }
-                // field("Late export order No."; Rec."LFS Late export order No.")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Late export order No.';
-                // }
-                // field("Late export order date"; Rec."LFS Late export order date")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Late export order date';
-                // }
-                // field("bill No."; Rec."LFS bill No.")
-                // {
-                //     ApplicationArea = All;
-                //     Caption = 'Bill No.';
-                //     ToolTip = 'Specifies the Bill No.';
-                // }
-                // field("bill Date"; Rec."LFS bill Date")
-                // {
-                //     ApplicationArea = All;
-                //     Caption = 'Bill Date';
-                //     ToolTip = 'Specifies the Bill Date';
-                // }
-            }
-            part(SalesLines; "LFS Export Sales Order Subform")
-            {
-                ApplicationArea = all;
-                Enabled = Rec."Sell-to Customer No." <> '';
-                SubPageLink = "Document No." = FIELD("No.");
-                UpdatePropagation = Both;
-            }
             group(EXIM)
             {
                 field("Currency Code"; Rec."Currency Code")
@@ -490,6 +447,49 @@ page 72058 "LFS Export Sales Order"
                 //     Visible = false;
                 //     ToolTip = 'Specifies the Additional Information';
                 // }
+            }
+            group("Shipping Bill Details")
+            {
+                Visible = false;
+                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill No.';
+                }
+                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill Date';
+                }
+                // field("Late export order No."; Rec."LFS Late export order No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order No.';
+                // }
+                // field("Late export order date"; Rec."LFS Late export order date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Late export order date';
+                // }
+                // field("bill No."; Rec."LFS bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Bill No.';
+                //     ToolTip = 'Specifies the Bill No.';
+                // }
+                // field("bill Date"; Rec."LFS bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Bill Date';
+                //     ToolTip = 'Specifies the Bill Date';
+                // }
+            }
+            part(SalesLines; "LFS Export Sales Order Subform")
+            {
+                ApplicationArea = all;
+                Enabled = Rec."Sell-to Customer No." <> '';
+                SubPageLink = "Document No." = FIELD("No.");
+                UpdatePropagation = Both;
             }
             group(Invoicing)
             {
