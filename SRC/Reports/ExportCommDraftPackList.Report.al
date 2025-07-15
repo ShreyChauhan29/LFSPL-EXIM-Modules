@@ -844,17 +844,17 @@ report 72004 "LFSExport Comm Draft Pack List"
                                 until PackingList1.Next() = 0;
                         end;
 
-                    Clear(CartonDimensions);
-                    ExpInfo.Reset();
-                    ExpInfo.SetRange("LFS Document No.", "Sales Line"."Document No.");
-                    if ExpInfo.FindFirst() then begin
-                        ShippingMrks := ExpInfo."LFS Shipping Marks";
-                        ContainerDetails := ExpInfo."LFS Description of Goods";
-                        IncoTermsDescription := ExpInfo."LFS Sp Notes";
-                        CustomerOrderNo := ExpInfo."LFS Customer Order No.";
-                        CustomerOrderDate := ExpInfo."LFS Customer Order Date 2";
-                        CartonDimensions := ExpInfo."LFS Notes";
-                    end;
+                    // Clear(CartonDimensions);
+                    // ExpInfo.Reset();
+                    // ExpInfo.SetRange("LFS Document No.", "Sales Line"."Document No.");
+                    // if ExpInfo.FindFirst() then begin
+                    //     ShippingMrks := ExpInfo."LFS Shipping Marks";
+                    //     ContainerDetails := ExpInfo."LFS Description of Goods";
+                    //     IncoTermsDescription := ExpInfo."LFS Sp Notes";
+                    //     CustomerOrderNo := ExpInfo."LFS Customer Order No.";
+                    //     CustomerOrderDate := ExpInfo."LFS Customer Order Date 2";
+                    //     CartonDimensions := ExpInfo."LFS Notes";
+                    // end;
 
                     if "Sales Line"."HSN/SAC Code" <> '' then begin
                         HSCode := "Sales Line"."LFS HS Code";
@@ -985,20 +985,20 @@ report 72004 "LFSExport Comm Draft Pack List"
                     ShipBillDate := PostedExportInformation."LFS Shipping Bill Date";
                     BOLNo := PostedExportInformation."LFS BL No/ AWB No.";
                     BOLDate := PostedExportInformation."LFS BL Date/ AWB Date";
-                    DescOfGoods := PostedExportInformation."LFS Description of Goods";
+                    // DescOfGoods := PostedExportInformation."LFS Description of Goods";
                     LCDate := PostedExportInformation."LFS LC Date";
                     LCNo := PostedExportInformation."LFS LC No.";
-                    PaymentTerms := PostedExportInformation."LFS Payment Terms";
-                    Delivery_Terms := PostedExportInformation."LFS Delivery Terms";
-                    PaymentTerms2 := PostedExportInformation."LFS Payment Terms 2";
-                    PortName := PostedExportInformation."LFS Port of Discharge";
-                    PortOfLoading := PostedExportInformation."LFS Port of Loading";
-                    BuyerIfotherthenConsignee_ := PostedExportInformation."LFS BuyerotherthanConsignee";
+                    // PaymentTerms := PostedExportInformation."LFS Payment Terms";
+                    // Delivery_Terms := PostedExportInformation."LFS Delivery Terms";
+                    // PaymentTerms2 := PostedExportInformation."LFS Payment Terms 2";
+                    // PortName := PostedExportInformation."LFS Port of Discharge";
+                    // PortOfLoading := PostedExportInformation."LFS Port of Loading";
+                    // BuyerIfotherthenConsignee_ := PostedExportInformation."LFS BuyerotherthanConsignee";
                     VesselFlightNo := PostedExportInformation."LFS Vessel/Flight No.";
-                    Bank := PostedExportInformation."LFS Our Bank";
-                    PartyHSCode := PostedExportInformation."LFS HS Code";
-                    Seller_Address := PostedExportInformation."LFS Seller Name & Address";
-                    CustomerBankName := PostedExportInformation."LFS Bank Details";
+                    // Bank := PostedExportInformation."LFS Our Bank";
+                    // PartyHSCode := PostedExportInformation."LFS HS Code";
+                    // Seller_Address := PostedExportInformation."LFS Seller Name & Address";
+                    // CustomerBankName := PostedExportInformation."LFS Bank Details";
                     if SalesHeader."LFS ETD" = 0D then
                         ETD := PostedExportInformation."LFS ETD"
                     else

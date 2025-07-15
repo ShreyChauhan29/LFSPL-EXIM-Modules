@@ -748,16 +748,16 @@ report 72002 "LFS Export Draft Packing List"
                     Clear(HSCode);
                     Clear(CartonDimensions);
                     Clear(sumQtyToShip);
-                    ExpInfo.Reset();
-                    ExpInfo.SetRange("LFS Document No.", "Sales Line"."Document No.");
-                    if ExpInfo.FindFirst() then begin
-                        ShippingMrks := ExpInfo."LFS Shipping Marks";
-                        ContainerDetails := ExpInfo."LFS Description of Goods";
-                        IncoTermsDescription := ExpInfo."LFS Sp Notes";
-                        CustomerOrderNo := ExpInfo."LFS Customer Order No.";
-                        CustomerOrderDate := ExpInfo."LFS Customer Order Date 2";
-                        CartonDimensions := ExpInfo."LFS Notes";
-                    end;
+                    // ExpInfo.Reset();
+                    // ExpInfo.SetRange("LFS Document No.", "Sales Line"."Document No.");
+                    // if ExpInfo.FindFirst() then begin
+                    //     ShippingMrks := ExpInfo."LFS Shipping Marks";
+                    //     ContainerDetails := ExpInfo."LFS Description of Goods";
+                    //     IncoTermsDescription := ExpInfo."LFS Sp Notes";
+                    //     CustomerOrderNo := ExpInfo."LFS Customer Order No.";
+                    //     CustomerOrderDate := ExpInfo."LFS Customer Order Date 2";
+                    //     CartonDimensions := ExpInfo."LFS Notes";
+                    // end;
 
                     if "Sales Line"."HSN/SAC Code" <> '' then begin
                         HSCode := "Sales Line"."LFS HS Code";
@@ -894,20 +894,20 @@ report 72002 "LFS Export Draft Packing List"
                     ShipBillDate := ExportInformation."LFS Shipping Bill Date";
                     BOLNo := ExportInformation."LFS BL No/ AWB No.";
                     BOLDate := ExportInformation."LFS BL Date/ AWB Date";
-                    DescOfGoods := ExportInformation."LFS Description of Goods";
+                    // DescOfGoods := ExportInformation."LFS Description of Goods";
                     LCDate := ExportInformation."LFS LC Date";
                     LCNo := ExportInformation."LFS LC No.";
-                    PaymentTerms := ExportInformation."LFS Payment Terms";
-                    Delivery_Terms := ExportInformation."LFS Delivery Terms";
-                    PaymentTerms2 := ExportInformation."LFS Payment Terms 2";
-                    PortName := ExportInformation."Port of Discharge";
-                    PortOfLoading := ExportInformation."Port of Loading";
-                    BuyerIfotherthenConsignee_ := ExportInformation."LFS BuyerotherthanConsignee";
+                    // PaymentTerms := ExportInformation."LFS Payment Terms";
+                    // Delivery_Terms := ExportInformation."LFS Delivery Terms";
+                    // PaymentTerms2 := ExportInformation."LFS Payment Terms 2";
+                    // PortName := ExportInformation."Port of Discharge";
+                    // PortOfLoading := ExportInformation."Port of Loading";
+                    // BuyerIfotherthenConsignee_ := ExportInformation."LFS BuyerotherthanConsignee";
                     VesselFlightNo := ExportInformation."LFS Vessel/Flight No.";
-                    Bank := ExportInformation."LFS Our Bank";
-                    PartyHSCode := ExportInformation."LFS HS Code";
-                    Seller_Address := ExportInformation."LFS Seller Name & Address";
-                    CustomerBankName := ExportInformation."LFS Bank Details";
+                    // Bank := ExportInformation."LFS Our Bank";
+                    // PartyHSCode := ExportInformation."LFS HS Code";
+                    // Seller_Address := ExportInformation."LFS Seller Name & Address";
+                    // CustomerBankName := ExportInformation."LFS Bank Details";
                     if SalesHeader."LFS ETD" = 0D then
                         ETD := ExportInformation."LFS ETD"
                     else
