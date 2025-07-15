@@ -54,6 +54,14 @@ page 72000 "LFS EXIM Setup"
                     ToolTip = 'Specifies the value of the Remission of Duties and Taxes on Exported Products License No. field.';
                     ApplicationArea = All;
                 }
+                field("LFS Blanket Exp Order No."; Rec."LFS Blanket Exp Order No.")
+                {
+                    ToolTip = 'Specifies the value of the Blanket Export Order No. field.', Comment = '%';
+                }
+                field("LFS Blanket Imp Order No."; Rec."LFS Blanket Imp Order No.")
+                {
+                    ToolTip = 'Specifies the value of the Blanket Import Order No. field.', Comment = '%';
+                }
                 field("Export Order Nos."; Rec."LFS Export Order Nos.")
                 {
                     ToolTip = 'Specifies the value of the Export Order Nos. field.';
