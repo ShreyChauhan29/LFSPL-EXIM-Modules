@@ -152,6 +152,26 @@ page 72024 "LFS EXIM Lic. IO Detail List"
                     ToolTip = 'Specifies the value of the Consumed CIF Value field.';
                     ApplicationArea = All;
                 }
+                field("Consumed Export Qty. (Group)"; Rec."Consumed Export Qty. (Group)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'EXIM';
+                }
+                field("Consumed FOB Value (Group)"; Rec."Consumed FOB Value (Group)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'EXIM';
+                }
+                field("Consumed Import Qty.(Group)"; Rec."Consumed Import Qty.(Group)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'EXIM';
+                }
+                field("Consumed CIF Value (Group)"; Rec."Consumed CIF Value (Group)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'EXIM';
+                }
                 field("Export Inv Bal Qty"; Rec."LFS Export Inv Bal Qty")
                 {
                     ApplicationArea = all;
