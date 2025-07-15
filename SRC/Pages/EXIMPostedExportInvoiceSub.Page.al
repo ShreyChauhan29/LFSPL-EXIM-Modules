@@ -192,12 +192,12 @@ page 72092 "LFS EXIMPostedExportInvoiceSub"
                     Editable = false;
                     AutoFormatType = 1;
                 }
-                field("Packing Details"; Rec."LFS Packing Details")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Packing Details';
-                }
+                // field("Packing Details"; Rec."LFS Packing Details")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Packing Details';
+                // }
             }
         }
     }

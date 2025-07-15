@@ -571,12 +571,12 @@ page 72056 "LFS Export Sales Inv. Subform"
                 //     ToolTip = 'Specifies the Category Type';
                 // }
 
-                field("Packing List No."; Rec."LFS Packing List No.")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Packing List No.';
-                }
+                // field("Packing List No."; Rec."LFS Packing List No.")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Packing List No.';
+                // }
                 field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
                 {
                     Visible = false;
@@ -722,18 +722,18 @@ page 72056 "LFS Export Sales Inv. Subform"
                     Visible = false;
                     ToolTip = 'Specifies the RoDTEP Rebate Value';
                 }
-                field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Dispatch Instruction';
-                }
-                field("Packing Details"; Rec."LFS Packing Details")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Packing Details';
-                }
+                // field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Dispatch Instruction';
+                // }
+                // field("Packing Details"; Rec."LFS Packing Details")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Packing Details';
+                // }
             }
             group(Control33)
             {

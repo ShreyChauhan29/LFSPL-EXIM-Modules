@@ -157,11 +157,11 @@ page 72094 "LFS EXIM Posted Shpt. Subform"
                     ToolTip = 'Specifies the value of the Unit Price field.';
                     ApplicationArea = All;
                 }
-                field("Packing Details"; Rec."LFS Packing Details")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Packing Details of the line';
-                }
+                // field("Packing Details"; Rec."LFS Packing Details")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Packing Details of the line';
+                // }
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     ApplicationArea = Dimensions;

@@ -109,11 +109,11 @@ tableextension 72019 "LFS Sales Cr.Memo Line Ext." extends "Sales Cr.Memo Line"
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72025; "LFS Packing List No."; Code[20])
-        {
-            Caption = 'Packing List No.';
-            DataClassification = CustomerContent;
-        }
+        // field(72025; "LFS Packing List No."; Code[20])
+        // {
+        //     Caption = 'Packing List No.';
+        //     DataClassification = CustomerContent;
+        // }
         field(72026; "LFS Claim DDB"; Boolean)
         {
             Caption = 'Claim DDB';
@@ -134,31 +134,31 @@ tableextension 72019 "LFS Sales Cr.Memo Line Ext." extends "Sales Cr.Memo Line"
             Caption = 'EXIM Item Group';
             DataClassification = CustomerContent;
         }
-        field(72030; "LFS Packing Line Exists"; Boolean)
-        {
-            Caption = 'Packing Line Exists';
-            DataClassification = CustomerContent;
-        }
-        field(72031; "LFS Packed Qty."; Decimal)
-        {
-            Caption = 'Packed Qty.';
-            DataClassification = CustomerContent;
-        }
-        field(72032; "LFS Rem. Qty. To be Packed"; Decimal)
-        {
-            Caption = 'Rem. Qty. To be Packed';
-            DataClassification = CustomerContent;
-        }
-        field(72033; "LFS Shipping Bill No."; Code[50])
-        {
-            Caption = 'Shipping Bill No.';
-            DataClassification = CustomerContent;
-        }
-        field(72034; "LFS Shipping Bill Date"; Date)
-        {
-            Caption = 'Shipping Bill Date';
-            DataClassification = CustomerContent;
-        }
+        // field(72030; "LFS Packing Line Exists"; Boolean)
+        // {
+        //     Caption = 'Packing Line Exists';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72031; "LFS Packed Qty."; Decimal)
+        // {
+        //     Caption = 'Packed Qty.';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72032; "LFS Rem. Qty. To be Packed"; Decimal)
+        // {
+        //     Caption = 'Rem. Qty. To be Packed';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72033; "LFS Shipping Bill No."; Code[50])
+        // {
+        //     Caption = 'Shipping Bill No.';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72034; "LFS Shipping Bill Date"; Date)
+        // {
+        //     Caption = 'Shipping Bill Date';
+        //     DataClassification = CustomerContent;
+        // }
         field(72035; "LFS RoDTEP Rebate Rate %"; Decimal)
         {
             Caption = 'RoDTEP Rebate Rate %';
@@ -201,21 +201,21 @@ tableextension 72019 "LFS Sales Cr.Memo Line Ext." extends "Sales Cr.Memo Line"
             Caption = 'DDB Value (LCY)';
             DataClassification = CustomerContent;
         }
-        field(72043; "LFS Dispatch Instruction"; Text[1000])
-        {
-            Caption = 'Dispatch Instruction';
-            DataClassification = CustomerContent;
-        }
-        field(72044; "LFS Packing Details"; Text[500])
-        {
-            Caption = 'Packing Details';
-            DataClassification = CustomerContent;
-        }
-        field(72045; "LFS No. & Kind Of PKDG"; Code[50])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'No. & Kind Of PKDG';
-        }
+        // field(72043; "LFS Dispatch Instruction"; Text[1000])
+        // {
+        //     Caption = 'Dispatch Instruction';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72044; "LFS Packing Details"; Text[500])
+        // {
+        //     Caption = 'Packing Details';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72045; "LFS No. & Kind Of PKDG"; Code[50])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'No. & Kind Of PKDG';
+        // }
         field(72046; "LFS CIF Value (FCY)"; decimal)
         {
             DataClassification = CustomerContent;

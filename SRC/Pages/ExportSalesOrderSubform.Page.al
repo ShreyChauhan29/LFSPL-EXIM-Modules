@@ -489,25 +489,25 @@ page 72059 "LFS Export Sales Order Subform"
                     Visible = false;
                     Editable = false;
                 }
-                field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Dispatch Instruction';
-                }
+                // field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Dispatch Instruction';
+                // }
 
-                field("Packing Details"; Rec."LFS Packing Details")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Packing Details';
-                }
-                field("No. & Kind Of PKDG"; Rec."LFS No. & Kind Of PKDG")
-                {
-                    ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the No. & Kind Of PKDG';
-                }
+                // field("Packing Details"; Rec."LFS Packing Details")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the Packing Details';
+                // }
+                // field("No. & Kind Of PKDG"; Rec."LFS No. & Kind Of PKDG")
+                // {
+                //     ApplicationArea = all;
+                //     Visible = false;
+                //     ToolTip = 'Specifies the No. & Kind Of PKDG';
+                // }
             }
 
         }

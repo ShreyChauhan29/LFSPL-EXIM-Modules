@@ -249,10 +249,10 @@ codeunit 72001 "LFS EXIM General Functions"
     var
         EXIMPackLines: Record "LFS EXIM Packing Lines";
         SalShipHdr: Record "Sales Shipment Header";
-        SalShipHdr2: Record "Sales Shipment Header";
+        // SalShipHdr2: Record "Sales Shipment Header";
         SalShipLine: Record "Sales Shipment Line";
         PstedSalShipPg: Page "LFS Posted Export Shipments";
-        HdrUpdated: Boolean;
+        // HdrUpdated: Boolean;
         LineNo: Integer;
     begin
         EXIMPackLines.Reset();
@@ -285,11 +285,12 @@ codeunit 72001 "LFS EXIM General Functions"
 
         if SalShipHdr.Findset() then
             repeat
-                HdrUpdated := FALSE;
+                // HdrUpdated := FALSE;
                 SalShipLine.Reset();
                 SalShipLine.SETRANGE(SalShipLine."Document No.", SalShipHdr."No.");
                 SalShipLine.SETRANGE(SalShipLine.Type, SalShipLine.Type::Item);
-                if SalShipLine.Findset() then begin
+                if SalShipLine.Findset() then
+                    // begin
                     repeat
                         LineNo += 10000;
                         EXIMPackLines.Init();
@@ -304,13 +305,13 @@ codeunit 72001 "LFS EXIM General Functions"
                         if EXIMPackLines.FindLast() then begin
                             EXIMPackLines.VALIDATE(EXIMPackLines."LFS Item No.", SalShipLine."No.");
                             EXIMPackLines."LFS Unit of Measure Code" := SalShipLine."Unit of Measure Code";
-                            EXIMPackLines."LFS Total Shipment Qty." := SalShipLine."LFS Rem. Qty. To be Packed";
+                            // EXIMPackLines."LFS Total Shipment Qty." := SalShipLine."LFS Rem. Qty. To be Packed";
                             EXIMPackLines."LFS BL No." := SalShipHdr."Bill Of Export No.";
                             EXIMPackLines."LFS BL Date" := SalShipHdr."Bill Of Export Date";
                             EXIMPackLines."LFS Shipment Document No." := SalShipLine."Document No.";
                             EXIMPackLines."LFS Shipment Document Line No." := SalShipLine."Line No.";
-                            EXIMPackLines."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
-                            EXIMPackLines."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
+                            // EXIMPackLines."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
+                            // EXIMPackLines."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
                             EXIMPackLines."LFS Container No." := EXIMPackHdr."LFS Container No.";
                             EXIMPackLines."LFS Container Size" := EXIMPackHdr."LFS Container Size";
                             EXIMPackLines."LFS Trailor No." := EXIMPackHdr."LFS Trailor No.";
@@ -336,15 +337,15 @@ codeunit 72001 "LFS EXIM General Functions"
                             Commit();
                         end;
                     UNTIL SalShipLine.Next() = 0;
-                    if NOT HdrUpdated then begin
-                        if SalShipHdr2.GET(SalShipHdr."No.") then begin
-                            SalShipHdr2."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
-                            SalShipHdr2."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
-                            SalShipHdr2.MODIFY();
-                        end;
-                        HdrUpdated := true;
-                    end;
-                end;
+                // if NOT HdrUpdated then begin
+                //     if SalShipHdr2.GET(SalShipHdr."No.") then begin
+                //         SalShipHdr2."LFS Shipping Bill Date" := SalShipLine."LFS Shipping Bill Date";
+                //         SalShipHdr2."LFS Shipping Bill No." := SalShipLine."LFS Shipping Bill No.";
+                //         SalShipHdr2.MODIFY();
+                //     end;
+                //     HdrUpdated := true;
+                // end;
+                // end;
                 Commit();
             UNTIL SalShipHdr.Next() = 0;
     end;
@@ -408,22 +409,22 @@ codeunit 72001 "LFS EXIM General Functions"
 
     procedure "LFS PostCustomPackingDocument"(var EXIMPackingHeader: Record "LFS EXIM Packing Header")
     var
-        EXIMPackingLines: Record "LFS EXIM Packing Lines";
-        SalesShipmentLine: Record "Sales Shipment Line";
+    // EXIMPackingLines: Record "LFS EXIM Packing Lines";
+    // SalesShipmentLine: Record "Sales Shipment Line";
     begin
-        EXIMPackingLines.Reset();
-        EXIMPackingLines.SETRANGE("LFS Type", EXIMPackingHeader."LFS Type");
-        EXIMPackingLines.SETRANGE("LFS Packing List No.", EXIMPackingHeader."LFS Packing List No.");
-        EXIMPackingLines.SETFILTER("LFS Parent Line No.", '<>%1', 0);
-        if EXIMPackingLines.Findset() then
-            repeat
-                SalesShipmentLine.GET(EXIMPackingLines."LFS Shipment Document No.", EXIMPackingLines."LFS Shipment Document Line No.");
-                SalesShipmentLine."LFS Packed Qty." += EXIMPackingLines."LFS Qty. To Pack";
-                if SalesShipmentLine."LFS Packed Qty." > SalesShipmentLine.Quantity then
-                    ERROR('Cannot pack more than %1 units', SalesShipmentLine.Quantity);
-                SalesShipmentLine."LFS Rem. Qty. To be Packed" -= EXIMPackingLines."LFS Qty. To Pack";
-                SalesShipmentLine.MODIFY();
-            UNTIL EXIMPackingLines.Next() = 0;
+        // EXIMPackingLines.Reset();
+        // EXIMPackingLines.SETRANGE("LFS Type", EXIMPackingHeader."LFS Type");
+        // EXIMPackingLines.SETRANGE("LFS Packing List No.", EXIMPackingHeader."LFS Packing List No.");
+        // EXIMPackingLines.SETFILTER("LFS Parent Line No.", '<>%1', 0);
+        // if EXIMPackingLines.Findset() then
+        //     repeat
+        //         SalesShipmentLine.GET(EXIMPackingLines."LFS Shipment Document No.", EXIMPackingLines."LFS Shipment Document Line No.");
+        //         // SalesShipmentLine."LFS Packed Qty." += EXIMPackingLines."LFS Qty. To Pack";
+        //         // if SalesShipmentLine."LFS Packed Qty." > SalesShipmentLine.Quantity then
+        //         //     ERROR('Cannot pack more than %1 units', SalesShipmentLine.Quantity);
+        //         // SalesShipmentLine."LFS Rem. Qty. To be Packed" -= EXIMPackingLines."LFS Qty. To Pack";
+        //         // SalesShipmentLine.MODIFY();
+        //     UNTIL EXIMPackingLines.Next() = 0;
         EXIMPackingHeader."LFS Posted" := true;
         EXIMPackingHeader.MODIFY();
         // if SalesShipmentHeader.GET(EXIMPackingLines."LFS Shipment Document No.") then begin

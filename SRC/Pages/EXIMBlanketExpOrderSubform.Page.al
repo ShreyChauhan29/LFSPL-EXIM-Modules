@@ -330,11 +330,11 @@ page 72089 "LFSEXIMBlanketExp.OrderSubform"
                 //     ToolTip = 'Specifies the value of the EXIM Remark field.';
                 //     ApplicationArea = All;
                 // }
-                field("Packing List No."; Rec."LFS Packing List No.")
-                {
-                    ToolTip = 'Specifies the value of the Packing List No. field.';
-                    ApplicationArea = All;
-                }
+                // field("Packing List No."; Rec."LFS Packing List No.")
+                // {
+                //     ToolTip = 'Specifies the value of the Packing List No. field.';
+                //     ApplicationArea = All;
+                // }
                 field("Claim DDB"; Rec."LFS Claim DDB")
                 {
                     ToolTip = 'Specifies the value of the Claim DDB field.';

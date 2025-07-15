@@ -176,11 +176,11 @@ page 72054 "LFSEXIM PostedWhse.ShipmentSub"
                 //     ApplicationArea = All;
                 //     ToolTip = 'Specifies the EXIM Remark';
                 // }
-                field("Packing List No."; Rec."LFS Packing List No.")
-                {
-                    ToolTip = 'Specifies the Packing List No.';
-                    ApplicationArea = All;
-                }
+                // field("Packing List No."; Rec."LFS Packing List No.")
+                // {
+                //     ToolTip = 'Specifies the Packing List No.';
+                //     ApplicationArea = All;
+                // }
                 field("Claim DDB"; Rec."LFS Claim DDB")
                 {
                     ApplicationArea = All;
@@ -201,31 +201,31 @@ page 72054 "LFSEXIM PostedWhse.ShipmentSub"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the EXIM Item Group';
                 }
-                field("Packing Line Exists"; Rec."LFS Packing Line Exists")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Packing Line Exists';
-                }
-                field("Packed Qty."; Rec."LFS Packed Qty.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Packed Qty.';
-                }
-                field("Rem. Qty. To be Packed"; Rec."LFS Rem. Qty. To be Packed")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Rem. Qty. To be Packed';
-                }
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill No';
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                }
+                // field("Packing Line Exists"; Rec."LFS Packing Line Exists")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Packing Line Exists';
+                // }
+                // field("Packed Qty."; Rec."LFS Packed Qty.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Packed Qty.';
+                // }
+                // field("Rem. Qty. To be Packed"; Rec."LFS Rem. Qty. To be Packed")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Rem. Qty. To be Packed';
+                // }
+                // field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill No';
+                // }
+                // field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill Date';
+                // }
             }
         }
     }

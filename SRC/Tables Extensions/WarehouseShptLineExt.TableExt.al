@@ -89,11 +89,11 @@ tableextension 72032 "LFS Warehouse Shpt. Line Ext." extends "Warehouse Shipment
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72020; "LFS Packing List No."; Code[20])
-        {
-            Caption = 'Packing List No.';
-            DataClassification = CustomerContent;
-        }
+        // field(72020; "LFS Packing List No."; Code[20])
+        // {
+        //     Caption = 'Packing List No.';
+        //     DataClassification = CustomerContent;
+        // }
         field(72021; "LFS Claim DDB"; Boolean)
         {
             Caption = 'Claim DDB';
@@ -118,33 +118,33 @@ tableextension 72032 "LFS Warehouse Shpt. Line Ext." extends "Warehouse Shipment
             Editable = false;
             TableRelation = "LFS EXIM Item Group";
         }
-        field(72025; "LFS Packing Line Exists"; Boolean)
-        {
-            Caption = 'Packing Line Exists';
-            Editable = false;
-            FieldClass = FlowField;
-            CalcFormula = Exist("LFS EXIM Packing Lines" where("LFS Shipment Document No." = FIELD("Source No."), "LFS Shipment Document Line No." = FIELD("Source Line No.")));
-        }
-        field(72026; "LFS Packed Qty."; Decimal)
-        {
-            Caption = 'Packed Qty.';
-            DataClassification = CustomerContent;
-        }
-        field(72027; "LFS Rem. Qty. To be Packed"; Decimal)
-        {
-            Caption = 'Rem. Qty. To be Packed';
-            DataClassification = CustomerContent;
-        }
-        field(72028; "LFS Shipping Bill No."; Code[50])
-        {
-            Caption = 'Shipping Bill No.';
-            DataClassification = CustomerContent;
-        }
-        field(72029; "LFS Shipping Bill Date"; Date)
-        {
-            Caption = 'Shipping Bill Date';
-            DataClassification = CustomerContent;
-        }
+        // field(72025; "LFS Packing Line Exists"; Boolean)
+        // {
+        //     Caption = 'Packing Line Exists';
+        //     Editable = false;
+        //     FieldClass = FlowField;
+        //     CalcFormula = Exist("LFS EXIM Packing Lines" where("LFS Shipment Document No." = FIELD("Source No."), "LFS Shipment Document Line No." = FIELD("Source Line No.")));
+        // }
+        // field(72026; "LFS Packed Qty."; Decimal)
+        // {
+        //     Caption = 'Packed Qty.';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72027; "LFS Rem. Qty. To be Packed"; Decimal)
+        // {
+        //     Caption = 'Rem. Qty. To be Packed';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72028; "LFS Shipping Bill No."; Code[50])
+        // {
+        //     Caption = 'Shipping Bill No.';
+        //     DataClassification = CustomerContent;
+        // }
+        // field(72029; "LFS Shipping Bill Date"; Date)
+        // {
+        //     Caption = 'Shipping Bill Date';
+        //     DataClassification = CustomerContent;
+        // }
         field(72056; "LFS FOB Amount (LCY)"; Decimal)
         {
             DataClassification = CustomerContent;
