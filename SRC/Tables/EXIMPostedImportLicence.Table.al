@@ -93,7 +93,11 @@ table 72023 "LFS EXIM Posted Import Licence"
             DataClassification = CustomerContent;
             Caption = 'RoDTEP Consumption Value';
         }
-
+        field(19; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
     }
 
     keys

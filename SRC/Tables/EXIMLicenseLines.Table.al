@@ -132,6 +132,11 @@ table 72020 "LFS EXIM License Lines"
             Caption = 'Is Import';
             DataClassification = CustomerContent;
         }
+        field(25; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            Editable = true;
+        }
     }
 
     keys

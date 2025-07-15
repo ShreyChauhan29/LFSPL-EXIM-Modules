@@ -98,6 +98,10 @@ page 72026 "LFS EXIM License Line Subpage"
                     ToolTip = 'Specifies the value of the CIF LCY Value field.';
                     ApplicationArea = All;
                 }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
             }
         }
     }

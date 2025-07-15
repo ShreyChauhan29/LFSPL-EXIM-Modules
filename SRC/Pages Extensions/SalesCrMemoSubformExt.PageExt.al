@@ -92,6 +92,14 @@ pageextension 72022 "LFS Sales Cr. Memo Subform Ext" extends "Sales Cr. Memo Sub
                 ToolTip = 'Specifies the RoDTEP License Sales Values.';
             }
         }
+        addafter("Qty. Assigned")
+        {
+            field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+            }
+        }
         modify("Variant Code")
         {
             Visible = true;
@@ -116,6 +124,8 @@ pageextension 72022 "LFS Sales Cr. Memo Subform Ext" extends "Sales Cr. Memo Sub
                     EXIM_License2.Reset();
                     EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
                     EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                    if Rec."LFS Exim Group No." <> '' then
+                        EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
                     EXIM_licenseList.SetTableView(EXIM_License2);
                     EXIM_licenseList.SetRecord(EXIM_License2);
                     EXIM_licenseList.run();

@@ -101,7 +101,11 @@ table 72022 "LFS EXIM Posted Export Licence"
 
             end;
         }
-
+        field(19; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
     }
 
     keys

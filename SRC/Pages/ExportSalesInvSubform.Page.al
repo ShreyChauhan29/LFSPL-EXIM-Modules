@@ -722,6 +722,10 @@ page 72056 "LFS Export Sales Inv. Subform"
                     Visible = false;
                     ToolTip = 'Specifies the RoDTEP Rebate Value';
                 }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
                 // field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
                 // {
                 //     ApplicationArea = all;

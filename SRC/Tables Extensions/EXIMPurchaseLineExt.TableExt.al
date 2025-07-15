@@ -1,6 +1,7 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 
 using Microsoft.Purchases.Document;
+using Microsoft.Inventory.Item;
 
 tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
 {
@@ -118,6 +119,30 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
         {
             Caption = 'RoDTEP Value (LCY)';
             DataClassification = CustomerContent;
+        }
+        field(72032; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
+        modify("No.")
+        {
+            trigger OnAfterValidate()
+            var
+                Item: Record Item;
+            begin
+                if (Rec."No." <> '') then begin
+                    Clear(Rec."LFS Exim Group No.");
+                    if Rec.Type = Rec.Type::Item then begin
+                        Item.Get(Rec."No.");
+                        Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
+                    end;
+                end
+                else
+                    Rec."LFS Exim Group No." := '';
+            end;
         }
         modify(Quantity)
         {

@@ -1,6 +1,7 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 
 using Microsoft.Sales.Document;
+using Microsoft.Inventory.Item;
 
 tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
 {
@@ -352,6 +353,31 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             DataClassification = CustomerContent;
             DecimalPlaces = 2 : 5;
             Caption = 'FOB Amount (LCY)';
+        }
+        field(72057; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
+        modify("No.")
+        {
+            trigger OnAfterValidate()
+            var
+                Item: Record Item;
+
+            begin
+                if (Rec."No." <> '') then begin
+                    Clear(Rec."LFS Exim Group No.");
+                    if Rec.Type = Rec.Type::Item then begin
+                        Item.Get(Rec."No.");
+                        Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
+                    end;
+                end
+                else
+                    Rec."LFS Exim Group No." := '';
+            end;
         }
         modify(Quantity)
         {

@@ -18,6 +18,11 @@ pageextension 72017 "LFS Purch. Cr. Memo Sub. Ext." extends "Purch. Cr. Memo Sub
                 ApplicationArea = all;
                 ToolTip = 'Specifies the CIF Amount (LCY)';
             }
+            field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+            }
         }
         modify("Variant Code")
         {

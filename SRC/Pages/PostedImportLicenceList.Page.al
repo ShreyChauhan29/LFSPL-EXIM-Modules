@@ -60,6 +60,10 @@ page 72035 "LFS Posted Import Licence List"
                     Editable = false;
                     ToolTip = 'Specifies the RoDTEP Consumption Value';
                 }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
             }
         }
     }

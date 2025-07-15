@@ -174,6 +174,11 @@ page 72012 "LFS EXIM Export License"
                     Editable = false;
                     ToolTip = 'Specifies the RoDTEP Balance';
                 }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Exim Group No. field.';
+                }
             }
         }
     }

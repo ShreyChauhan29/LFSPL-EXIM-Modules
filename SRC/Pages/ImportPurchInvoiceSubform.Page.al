@@ -11,13 +11,10 @@ using Microsoft.Finance.AllocationAccount;
 using Microsoft.Finance.AllocationAccount.Purchase;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Inventory.BOM;
-using Microsoft.Sales.History;
 using System.Integration.Excel;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Utilities;
 using System.Environment.Configuration;
-using Microsoft.Sales.Document;
-using Microsoft.Foundation.Navigate;
 
 page 72070 "LFS ImportPurch.InvoiceSubform"
 {
@@ -650,6 +647,10 @@ page 72070 "LFS ImportPurch.InvoiceSubform"
                     ToolTip = 'Specifies the value of the License No. field.';
                     ApplicationArea = All;
                     Visible = false;
+                }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
                 }
                 field("RoDTEP Value (LCY)"; Rec."LFS RoDTEP Value (LCY)")
                 {

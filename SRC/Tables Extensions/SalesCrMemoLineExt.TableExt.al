@@ -267,5 +267,12 @@ tableextension 72019 "LFS Sales Cr.Memo Line Ext." extends "Sales Cr.Memo Line"
             DecimalPlaces = 2 : 5;
             Caption = 'FOB Amount (LCY)';
         }
+        field(72057; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
     }
 }

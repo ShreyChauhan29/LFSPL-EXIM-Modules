@@ -119,5 +119,12 @@ tableextension 72013 "LFS EXIM Purch. Inv. Line Ext." extends "Purch. Inv. Line"
             DecimalPlaces = 2 : 5;
             Caption = 'FOB Amount (LCY)';
         }
+        field(72032; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
     }
 }

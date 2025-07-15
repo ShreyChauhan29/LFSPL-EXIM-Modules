@@ -116,6 +116,12 @@ table 72012 "LFS EXIM Import License"
 
             end;
         }
+        field(19; "LFS EXIM Group No."; Code[20])
+        {
+            Caption = 'EXIM Group No.';
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+            ToolTip = 'Exim';
+        }
     }
 
     keys
@@ -127,7 +133,19 @@ table 72012 "LFS EXIM Import License"
     }
 
     trigger OnInsert()
+    var
+        PurchLine: Record "Purchase Line";
     begin
+        PurchLine.Reset();
+        PurchLine.SetFilter("Document Type", '%1|%2|%3', PurchLine."Document Type"::Order,
+                                PurchLine."Document Type"::Invoice,
+                                PurchLine."Document Type"::"Credit Memo");
+        PurchLine.SetRange("Document No.", Rec."LFS Source No.");
+        PurchLine.SetRange("Line No.", Rec."LFS Source line No.");
+        if PurchLine.FindFirst() then
+            if PurchLine."LFS Exim Group No." <> '' then
+                Rec."LFS Exim Group No." := PurchLine."LFS Exim Group No.";
+
         exportOrder.Reset();
         exportOrder.SetRange("Document No.", Rec."LFS Source No.");
         exportOrder.SetRange("Line No.", Rec."LFS Source line No.");

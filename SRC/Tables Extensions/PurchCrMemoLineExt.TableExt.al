@@ -112,5 +112,12 @@ tableextension 72011 "LFS Purch. Cr. Memo Line Ext." extends "Purch. Cr. Memo Li
             DecimalPlaces = 2 : 5;
             Caption = 'FOB Amount (LCY)';
         }
+        field(72032; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
     }
 }

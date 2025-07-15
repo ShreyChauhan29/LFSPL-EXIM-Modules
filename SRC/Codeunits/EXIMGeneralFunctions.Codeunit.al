@@ -186,6 +186,7 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesInvoiceLine."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
+                    EXIMAdvLicenseLines."LFS Exim Group No." := SalesInvoiceLine."LFS Exim Group No.";
                     SalesInvoiceHeader.GET(SalesInvoiceLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := SalesInvoiceHeader."Currency Code";
                     EXIMAdvLicenseLines.insert();
@@ -869,6 +870,7 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := PurchInvLine."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
+                    EXIMAdvLicenseLines."LFS Exim Group No." := PurchInvLine."LFS Exim Group No.";
                     PurchInvHeader.GET(PurchInvLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := PurchInvHeader."Currency Code";
                     EXIMAdvLicenseLines.insert();

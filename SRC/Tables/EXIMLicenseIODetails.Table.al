@@ -259,6 +259,66 @@ table 72019 "LFS EXIM License IO Details"
                 end;
             end;
         }
+        field(27; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            TableRelation = "EXIM Group Master"."LFS Group No." where("LFS EXIM Type" = field("LFS Type"));
+            trigger OnValidate()
+            var
+                EximGroupMaster: Record "EXIM Group Master";
+            begin
+                Clear("LFS Item Description");
+                if EximGroupMaster.Get("LFS Exim Group No.", "LFS Type") then
+                    "LFS Item Description" := CopyStr(EximGroupMaster."LFS Group Name", 1, 80);
+            end;
+        }
+        field(28; "Consumed Export Qty. (Group)"; Decimal)
+        {
+            AutoFormatType = 1;
+            CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS Adv. License No."),
+                                                                    "LFS Type" = field("LFS Type"),
+                                                                    "LFS Exim Group No." = field("LFS Exim Group No."),
+                                                                    "LFS Isexport" = filter(true)));
+            Caption = 'Consumed Export Qty.(Group)';
+            Editable = false;
+            FieldClass = FlowField;
+
+        }
+        field(29; "Consumed FOB Value (Group)"; Decimal)
+        {
+            CalcFormula = sum("LFS EXIM License Lines"."LFS FOB Value" where("LFS Adv. License No." = field("LFS Adv. License No."),
+                                                                            "LFS Type" = field("LFS Type"),
+                                                                             "LFS Exim Group No." = field("LFS Exim Group No."),
+                                                                            "LFS Isexport" = filter(true)));
+            Caption = 'Consumed FOB Value (Group)';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(30; "Consumed Import Qty.(Group)"; Decimal)
+        {
+            AutoFormatType = 1;
+            CalcFormula = sum("LFS EXIM License Lines"."LFS Qty." where("LFS Adv. License No." = field("LFS Adv. License No."),
+                                                                    "LFS Type" = field("LFS Type"),
+                                                                     "LFS Exim Group No." = field("LFS Exim Group No."),
+                                                                    "LFS IsImport" = filter(true)));
+            Caption = 'Consumed Import Qty.(Group)';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(31; "Consumed CIF Value (Group)"; Decimal)
+        {
+            CalcFormula = sum("LFS EXIM License Lines"."LFS CIF Value" where("LFS Adv. License No." = field("LFS Adv. License No."),
+                                                                            "LFS Type" = field("LFS Type"),
+                                                                              "LFS Exim Group No." = field("LFS Exim Group No."),
+                                                                                       "LFS IsImport" = filter(true)));
+            Caption = 'Consumed CIF Value (Group)';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(32; "Scrap Percent"; Decimal)
+        {
+            Caption = 'Scrap %';
+        }
     }
 
     keys

@@ -164,7 +164,11 @@ page 72024 "LFS EXIM Lic. IO Detail List"
                     Editable = false;
                     ToolTip = 'Specifies the Import Inv Bal Qty';
                 }
-
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.';
+                    ApplicationArea = All;
+                }
             }
         }
     }
