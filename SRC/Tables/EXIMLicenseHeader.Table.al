@@ -356,8 +356,8 @@ table 72018 "LFS EXIM License Header"
         {
             Caption = 'License Type';
             DataClassification = CustomerContent;
-            OptionMembers = "Advance Authorization",DFIA,Others;
-            OptionCaption = 'Advance Authorization,DFIA,Others';
+            OptionMembers = " ",SION,ZALC;
+            OptionCaption = ' ,SION,ZALC';
         }
         field(53; "LFS LUT No."; Code[30])
         {
@@ -385,8 +385,8 @@ table 72018 "LFS EXIM License Header"
         {
             Caption = 'Scheme Type';
             DataClassification = CustomerContent;
-            OptionMembers = SION,"Self-Declared",Others;
-            OptionCaption = 'SION,Self-Declared,Others';
+            OptionMembers = " ","Advance License",RoDTEP;
+            OptionCaption = ' ,Advance License,RoDTEP';
         }
         field(58; "LFS Import Exchange Rate"; Decimal)
         {

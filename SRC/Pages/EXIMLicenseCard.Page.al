@@ -140,6 +140,23 @@ page 72021 "LFS EXIM License Card"
             {
                 Caption = 'Exchange Rates';
 
+                field("LFS Currency Code"; Rec."LFS Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the Currency Code field.';
+                    trigger OnValidate()
+                    var
+                        EXIMcurrExch: Record "LFSEXIM Currency Exchange Rate";
+                    begin
+                        EXIMcurrExch.reset();
+                        EXIMcurrExch.SetRange("LFS Currency Code", Rec."LFS Currency Code");
+                        EXIMcurrExch.SetCurrentKey("LFS Starting Date");
+                        if EXIMcurrExch.FindLast() then
+                            Rec.Validate("LFS Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Imp)");
+                        Rec.Validate("LFS Import Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Imp)");
+                        Rec.Validate("LFS Export Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Exp)");
+                        Rec.Modify();
+                    end;
+                }
                 field("LFS Import Exchange Rate"; Rec."LFS Import Exchange Rate")
                 {
                     ToolTip = 'Specifies the value of the Import Exchange Rate field.';
@@ -204,23 +221,6 @@ page 72021 "LFS EXIM License Card"
                 field("LFS Original FOB Value LC"; Rec."LFS Export FOB Value LCY")
                 {
                     ToolTip = 'Specifies the value of the Original FOB Value (LCY) field.', Comment = '%';
-                }
-                field("LFS Currency Code"; Rec."LFS Currency Code")
-                {
-                    ToolTip = 'Specifies the value of the Currency Code field.';
-                    trigger OnValidate()
-                    var
-                        EXIMcurrExch: Record "LFSEXIM Currency Exchange Rate";
-                    begin
-                        EXIMcurrExch.reset();
-                        EXIMcurrExch.SetRange("LFS Currency Code", Rec."LFS Currency Code");
-                        EXIMcurrExch.SetCurrentKey("LFS Starting Date");
-                        if EXIMcurrExch.FindLast() then
-                            Rec.Validate("LFS Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Imp)");
-                        Rec.Validate("LFS Import Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Imp)");
-                        Rec.Validate("LFS Export Exchange Rate", EXIMcurrExch."LFS Rel Exch Rate Amt (Exp)");
-                        Rec.Modify();
-                    end;
                 }
             }
             group("LUT/Bond Info")
