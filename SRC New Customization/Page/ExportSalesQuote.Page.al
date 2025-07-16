@@ -50,11 +50,10 @@ page 72014 "LFS Export Sales Quote"
                     ApplicationArea = All;
                     Importance = Standard;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
-                    Visible = DocNoVisible;
 
                     trigger OnAssistEdit()
                     begin
-                        if Rec.AssistEdit(xRec) then
+                        if Rec.AssistEditExport(xRec) then
                             CurrPage.Update();
                     end;
                 }
