@@ -1,4 +1,4 @@
-namespace LFSEXIMModule.LFSPLEXIMModules;
+namespace LFSEXIMModule.LFSPLEXIMModule;
 
 using Microsoft.Inventory.Item;
 

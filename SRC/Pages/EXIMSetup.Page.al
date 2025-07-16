@@ -302,6 +302,10 @@ page 72000 "LFS EXIM Setup"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Cons EXP GL Ent Auto Post';
                 }
+                field("Group Wise License"; Rec."LFS Group Wise License")
+                {
+                    ToolTip = 'Specifies the value of the Group Wise License field.', Comment = '%';
+                }
             }
         }
     }

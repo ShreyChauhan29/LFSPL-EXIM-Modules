@@ -292,6 +292,11 @@ table 72000 "LFS EXIM Setup"
             DataClassification = CustomerContent;
             Caption = 'RoDTEP Cons G/L Entry Auto Post';
         }
+        field(66; "LFS Group Wise License"; Boolean)
+        {
+            Caption = 'Group Wise License';
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

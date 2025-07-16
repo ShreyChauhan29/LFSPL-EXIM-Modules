@@ -63,11 +63,17 @@ page 72013 "LFS Import Licenses"
                         ImportLicense: Record "LFS EXIM Import License";
                         eximIOdetails: Record "LFS EXIM License IO Details";
                         rodtepLicenseHeader: Record "LFS Rodtep License Header";
+                        EximSetup: Record "LFS EXIM Setup";
                         eximIOdetailslist: Page "LFS EXIM Lic. IO Detail List";
                     // RodtepLicenseList: page "LFS Rodtep License List";
                     begin
+                        EximSetup.Get();
                         if Rec."LFS License Type" = rec."LFS License Type"::"Adv. License" then begin
                             eximIOdetails.SetRange("LFS type", eximIOdetails."LFS Type"::Import);
+                            if EximSetup."LFS Group Wise License" then
+                                eximIOdetails.SetRange("LFS Exim Group No.", Rec."LFS EXIM Group No.")
+                            else
+                                eximIOdetails.SetRange("LFS Item No.", Rec."LFS Item No.");
                             eximIOdetails.SetRange("LFS Item No.", Rec."LFS Item No.");
                             eximIOdetails.SetRange("LFS Status", eximIOdetails."LFS Status"::Active);
                             eximIOdetails.SetRange("LFS Scheme Type", eximIOdetails."LFS Scheme Type"::"Advance License");
