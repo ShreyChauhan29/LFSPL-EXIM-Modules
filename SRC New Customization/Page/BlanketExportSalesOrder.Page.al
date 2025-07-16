@@ -414,7 +414,6 @@ page 72008 "Blanket Export Sales Order"
                 //     ToolTip = 'Specifies the Additional Information';
                 // }
             }
-
             part(SalesLines; "Blanket Export Sales Order Sub")
             {
                 ApplicationArea = Suite;
