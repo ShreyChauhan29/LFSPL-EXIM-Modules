@@ -460,7 +460,9 @@ page 72090 "LFS EXIM Blanket Export Order"
                             Importance = Additional;
                             ToolTip = 'Specifies the code that represents the default shipping agent service you are using for this sales order.';
                         }
+#pragma warning disable AL0432
                         field("Package Tracking No."; Rec."Package Tracking No.")
+#pragma warning restore AL0432
                         {
                             ApplicationArea = Suite;
                             Importance = Additional;

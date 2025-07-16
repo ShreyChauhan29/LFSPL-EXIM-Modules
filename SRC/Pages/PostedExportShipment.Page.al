@@ -331,7 +331,9 @@ page 72075 "LFS Posted Export Shipment"
                     ToolTip = 'Specifies the shipment method for the shipment.';
                     ApplicationArea = All;
                 }
+#pragma warning disable AL0432
                 field("Package Tracking No."; Rec."Package Tracking No.")
+#pragma warning restore AL0432
                 {
                     ToolTip = 'Specifies the shipping agent''s package number.';
                     ApplicationArea = All;

@@ -27,6 +27,7 @@ page 72008 "Blanket Export Sales Order"
     SourceTable = "Sales Header";
     RefreshOnActivate = true;
     SourceTableView = where("Document Type" = filter("Blanket Order"));
+    UsageCategory = None;
 
     layout
     {
@@ -742,7 +743,9 @@ page 72008 "Blanket Export Sales Order"
                             Importance = Additional;
                             ToolTip = 'Specifies which shipping agent service is used to transport the items on the sales document to the customer.';
                         }
+#pragma warning disable AL0432
                         field("Package Tracking No."; Rec."Package Tracking No.")
+#pragma warning restore AL0432
                         {
                             ApplicationArea = Suite;
                             Importance = Additional;

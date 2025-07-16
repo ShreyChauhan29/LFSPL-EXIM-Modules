@@ -905,7 +905,9 @@ page 72014 "LFS Export Sales Quote"
                             Importance = Additional;
                             ToolTip = 'Specifies which shipping agent service is used to transport the items on the sales document to the customer.';
                         }
+#pragma warning disable AL0432
                         field("Package Tracking No."; Rec."Package Tracking No.")
+#pragma warning restore AL0432
                         {
                             ApplicationArea = Suite;
                             Importance = Additional;
