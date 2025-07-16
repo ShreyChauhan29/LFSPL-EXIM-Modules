@@ -342,7 +342,7 @@ tableextension 72023 "LFS Sales Invoice Header Ext." extends "Sales Invoice Head
             Caption = 'Lodgement Ref No';
             DataClassification = CustomerContent;
         }
-        field(50050; "Json Body"; Blob)
+        field(72065; "Json Body"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Json Body';

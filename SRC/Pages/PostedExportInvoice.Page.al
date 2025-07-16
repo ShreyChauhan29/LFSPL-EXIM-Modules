@@ -603,12 +603,6 @@ page 72072 "LFS Posted Export Invoice"
                     ToolTip = 'Specifies the Cancel Reason';
                     Visible = false;
                 }
-                field("QR Code"; Rec."QR Code")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the QR Code';
-                    Visible = false;
-                }
             }
         }
         area(FactBoxes)

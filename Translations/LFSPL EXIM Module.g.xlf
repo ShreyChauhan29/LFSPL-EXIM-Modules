@@ -849,7 +849,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS License Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3397037638 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Authorization,DFIA,Others</source>
+          <source> ,SION,ZALC</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS License Type - Property OptionCaption</note>
         </trans-unit>
@@ -904,7 +904,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Scheme Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3499273440 - Field 3295073168 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SION,Self-Declared,Others</source>
+          <source> ,Advance License,RoDTEP</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM License Header - Field LFS Scheme Type - Property OptionCaption</note>
         </trans-unit>
@@ -6968,6 +6968,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control Exchange Rates - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2306477241 - Control 2729375117 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control LFS Currency Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2306477241 - Control 4275859544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Export Exchange Rate field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7102,11 +7107,6 @@
           <source>License Values</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control License Values - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2306477241 - Control 2729375117 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the value of the Currency Code field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM License Card - Control LFS Currency Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2306477241 - Control 197949816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Original Export Quantity field.</source>
@@ -31467,6 +31467,1521 @@
           <source>Item &amp;Tracking Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFSPstdPurchaseImportCredSubfo - Action ItemTrackingEntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3222158277 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the credit memo line could have included a possible invoice discount calculation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Allow Invoice Disc. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 565903963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the item ledger entry that the document or journal line is applied from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Appl.-from Item Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3244334840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the item ledger entry that the document or journal line is applied to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Appl.-to Item Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 866715734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the deferral template that governs how revenue earned with this sales document is deferred to the different accounting periods when the good or service was delivered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Deferral Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item or general ledger account, or some descriptive text.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 47657272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies information in addition to the description.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Description 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2721142765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of transaction that was posted with the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FilteredTypeField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2721142765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FilteredTypeField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 633819257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's or customer's trade type to link transactions made for this business partner with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Gen. Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2139693550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item's product type to link transactions made for this item with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Gen. Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4239513174 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross weight of one unit of the item. In the sales statistics window, the gross weight on the line is included in the total gross weight of all the lines for the particular sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Gross Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4239513174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Gross Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Gross Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1329258699 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the intercompany partner that the transaction is related to if the entry was created from an intercompany transaction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control IC Partner Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3948462483 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the referenced item number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Item Reference No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1908272084 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related project.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Job No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 561421623 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related project task.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Job Task No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3582421358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Line Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2702998682 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the discount percentage that is granted for the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Line Discount % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1206454073 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the discount amount that is granted for the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Line Discount Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3088522385 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net weight of one unit of the item. In the sales statistics window, the net weight on the line is included in the total net weight of all the lines for the particular sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Net Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3088522385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Net Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Net Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units of the item specified on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1576505637 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code explaining why the item was returned.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Return Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 655538596 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 3, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[3] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3128656593 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 4, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[4] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 377216802 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 5, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[5] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3685713487 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 6, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[6] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 934273696 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 7, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[7] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1291090573 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 8, which is one of six shortcut dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control ShortcutDimCode[8] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 305562489 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax area that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Tax Area Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2552458873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax group that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Tax Group Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 53839102 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the customer or vendor is liable for sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Tax Liable - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 68186622 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cost, in LCY, of one unit of the item or resource on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Unit Cost (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item or resource's unit of measure, such as piece or hour.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours. By default, the value in the Base Unit of Measure field on the item or resource card is inserted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2937233469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the price of one unit of the item or resource. You can enter a price manually or have it entered according to the Price/Profit Calculation field on the related card.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Unit Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4034345114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the volume of one unit of the item. In the sales statistics window, the volume of one unit of the item on the line is included in the total volume of all the lines for the particular sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Unit Volume - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1631894181 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units per parcel of the item. In the sales statistics window, the number of units per parcel on the line helps to determine the total number of units for all the lines for the particular sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Units per Parcel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the variant of the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved customer or vendor to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved item or resource to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3104584724 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a discount amount that is deducted from the value of the Total Incl. VAT field, based on sales lines where the Allow Invoice Disc. field is selected.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Invoice Discount Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3104584724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Discount Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Invoice Discount Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4231276579 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sum of the value in the Line Amount Excl. VAT field on all lines in the document minus any discount amount in the Invoice Discount Amount field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total Amount Excl. VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 4231276579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount Excl. VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total Amount Excl. VAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1153710285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sum of the value in the Line Amount Incl. VAT field on all lines in the document minus any discount amount in the Invoice Discount Amount field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total Amount Incl. VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1153710285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount Incl. VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total Amount Incl. VAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1658561743 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sum of VAT amounts on all lines in the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total VAT Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1658561743 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Total VAT Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 503024588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Comments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 503024588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 1062429549 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a file as an attachment. You can attach images as well as documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DocAttach - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 1062429549 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DocAttach - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 1767787850 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View related open, posted, or archived documents or document lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DocumentLineTracking - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 1767787850 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document &amp;Line Tracking</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DocumentLineTracking - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2719354298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View posted return receipts for the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action ItemReturnReceiptLines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2719354298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Return Receipt &amp;Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action ItemReturnReceiptLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 3592998076 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View serial, lot or package numbers that are assigned to items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action ItemTrackingEntries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 3592998076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item &amp;Tracking Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action ItemTrackingEntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2510810126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the deferral schedule that governs how revenue made with this sales document was deferred to different accounting periods when the document was posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DeferralSchedule - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 2510810126 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deferral Schedule</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DeferralSchedule - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Export Sales Credit Memos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total of the amounts on all the credit memo lines, in the currency of the credit memo. The amount does not include VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total of the amounts, including VAT, on all the lines on the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2865137134 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the posted document that this document or journal line will be applied to when you post, for example to register payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Applies-to Doc. Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4064815791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the customer's billing address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Bill-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2096911897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of the customer's billing address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Bill-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 240204966 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer that you send or sent the invoice or credit memo to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Bill-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 675862156 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code of the customer's billing address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Bill-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4069904181 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the posted sales invoice that relates to this sales credit memo has been either corrected or canceled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Cancelled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1853199792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the posted sales invoice has been either corrected or canceled by this sales credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Corrective - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency code of the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 580412389 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the related document was created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Document Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 903830292 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the document if you are using a document exchange service to send it as an electronic document. The status values are reported by the document exchange service.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Document Exchange Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4085727052 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the shipment is due for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Due Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the location where the credit memo was registered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2682724073 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many times the document has been printed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control No. Printed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 789473408 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the posted sales invoice that relates to this sales credit memo is paid.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Paid - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the credit memo was posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2975378708 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount that remains to be paid for the posted sales invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Remaining Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 553464652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which salesperson is associated with the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Salesperson Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1006519668 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the customer's main address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Sell-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 3434865006 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of the customer's main address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Sell-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1474036805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer that you shipped the items on the credit memo to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Sell-to Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Sell-to Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 709296807 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code of the customer's main address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Sell-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Ship-to Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 929198632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Ship-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 3354576322 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Ship-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2743501653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Ship-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 3172878019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Ship-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 2967437008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control Attached Documents List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Control 4134623066 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related G/L Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Control GLEntriesPart - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4133730939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action &amp;Credit Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1405007275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries and documents that exist for the document number and posting date on the selected document. (Formerly this action was named Navigate.)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action &amp;Navigate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4125097576 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the posted sales credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Card - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4125097576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1994964448 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit detailed information about the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Customer - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2577889954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or create an incoming document record that is linked to the entry or document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action IncomingDoc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2577889954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action IncomingDoc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 84074407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View statistical information, such as the value of posted entries, for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Statistics - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 84074407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Statistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2678035379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the status and any errors if the document was sent as an electronic document or OCR file through the document exchange service.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action ActivityLog - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2678035379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action ActivityLog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 788258546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Cancel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2982552071 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create and post a sales invoice that reverses this posted sales credit memo. This posted sales credit memo will be canceled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action CancelCrMemo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2982552071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action CancelCrMemo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4086833734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the posted sales invoice that was created when you canceled the posted sales credit memo. If the posted sales credit memo is the result of a canceled sales invoice, then canceled invoice will open.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action ShowInvoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4086833734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Canceled/Corrective Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action ShowInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4174539456 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Send - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action &amp;Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action &amp;Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4232200557 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a PDF file and attach it to the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action AttachAsPDF - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 4232200557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attach as PDF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action AttachAsPDF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2928960335 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to send the document by email. The Send Email window opens prefilled for the customer where you can add or change information before you send the email.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Send by &amp;Email - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2928960335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send by &amp;Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Send by &amp;Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1934669617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens where you can confirm or select a sending profile.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action SendCustom - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action SendCustom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 3.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Navigate</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 5.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print/Send</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 6.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2327237781 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 2.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Credit Memos - Action Category_Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Export Sales Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4069904181 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the posted sales invoice that relates to this sales credit memo has been either corrected or canceled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Cancelled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 903830292 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the document if you are using a document exchange service to send it as an electronic document. The status values are reported by the document exchange service.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Document Exchange Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1853199792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the posted sales invoice has been either corrected or canceled by this sales credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Corrective - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 580412389 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which you created the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Document Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1527563463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the external document number that is entered on the sales header that this line was posted from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control External Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the posted credit memo number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2682724073 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many times the document has been printed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control No. Printed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the credit memo was posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 412056007 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the credit memo that the posted credit memo was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Pre-Assigned No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the responsibility center that serves the customer on this sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 553464652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which salesperson is associated with the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Salesperson Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1171597780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sell-to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2131962646 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the state, province or county as a part of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3606264650 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address of the customer that the items on the credit memo were sent to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3606264650 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 469609400 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional address information.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 469609400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1281923305 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the customer on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1281923305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3128777977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Contact No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3128777977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Contact No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3434865006 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3434865006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 709296807 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 709296807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1039268963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the email address of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToEmail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1039268963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToEmail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 941895540 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mobile telephone number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToMobilePhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 941895540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToMobilePhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1395551804 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToPhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1395551804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control SellToPhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1006519668 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the person to contact when you communicate with the customer who you shipped the items on the credit memo to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1006519668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1474036805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer that you shipped the items on the credit memo to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1225278069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sell-to Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 617267791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's VAT registration number for customers.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control VAT Registration No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 350412371 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT date on the invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control VAT Reporting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 22244033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Work Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2646942531 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the products or services being offered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control GetWorkDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3001618318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Your Reference - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 712518885 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Invoice Details - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2899774127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the posted document that this document or journal line will be applied to when you post, for example to register payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Applies-to Doc. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2865137134 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the posted document that this document or journal line will be applied to when you post, for example to register payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Applies-to Doc. Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 261671151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bank account to use for bank information when the document is printed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Company Bank Account Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3083748138 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry was posted as a corrective entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Correction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency code of the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 410940989 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Customer Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3348534314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the invoice was part of an EU 3-party trade transaction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control EU 3-Party Trade - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the location where the credit memo was registered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3855271124 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's method of payment. The program has copied the code from the Payment Method Code field on the sales header.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Payment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 305562489 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax area that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Tax Area Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 53839102 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the customer or vendor is liable for sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Tax Liable - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3786975230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping and Billing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping and Billing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1974884895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 831017837 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address of the customer that the credit memo was sent to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 831017837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 460968363 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional address information.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 460968363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3869539606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the customer on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3869539606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4064815791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the person you regularly contact when you communicate with the customer to whom the credit memo was sent.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4064815791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3363652926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Contact No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3363652926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Contact No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2096911897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2096911897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 240204966 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer that the credit memo was sent to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 240204966 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 675862156 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 675862156 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1811655752 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the email address of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactEmail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1811655752 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactEmail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1898994951 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mobile telephone number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactMobilePhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1898994951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactMobilePhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2509961135 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the contact at the customer who handles the credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactPhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2509961135 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control BillToContactPhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3882955433 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the state, province or county as a part of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill-to County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2150623144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 187607738 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the state, province or county as a part of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1187003046 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address that the items were shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1187003046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1417792948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional address information.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1417792948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1981213637 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the customer on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1981213637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 929198632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the person you regularly contact at the customer to whom the items were shipped.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 929198632 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3354576322 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3354576322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2743501653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer that the items were shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2743501653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3261344115 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an additional part of the name of the customer that the items were shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Name 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3261344115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Name 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3876514665 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the company's shipping address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3876514665 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Phone No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3172878019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3172878019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3470333905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipment Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1115434830 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the shipping agent's package number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Package Tracking No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2205104606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the shipment method for the shipment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2205104606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipment Method Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4045368290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which shipping agent is used to transport the items on the sales document to the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping Agent Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4045368290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Agent</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping Agent Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2730811709 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which shipping agent service is used to transport the items on the sales document to the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping Agent Service Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2730811709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Agent Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping Agent Service Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2967437008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Attached Documents List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2942356813 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Cr. Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action &amp;Cr. Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3860314472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Approvals - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3860314472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Approvals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1062429549 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a file as an attachment. You can attach images as well as documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action DocAttach - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1062429549 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action DocAttach - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 84074407 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View statistical information, such as the value of posted entries, for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Statistics - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 84074407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Statistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1405007275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries and documents that exist for the document number and posting date on the selected document. (Formerly this action was named Navigate.)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action &amp;Navigate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2678035379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the status and any errors if the document was sent as an electronic document or OCR file through the document exchange service.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action ActivityLog - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2678035379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Log</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action ActivityLog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 4232200557 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a PDF file and attach it to the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action AttachAsPDF - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 4232200557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attach as PDF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action AttachAsPDF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 788258546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Cancel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2982552071 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create and post a sales invoice that reverses this posted sales credit memo. This posted sales credit memo will be canceled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action CancelCrMemo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2982552071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action CancelCrMemo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 4086833734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the posted sales invoice that was created when you canceled the posted sales credit memo. If the posted sales credit memo is the result of a canceled sales invoice, then canceled invoice will open.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action ShowInvoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 4086833734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Canceled/Corrective Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action ShowInvoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1994964448 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit detailed information about the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Customer - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F&amp;unctions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action F&amp;unctions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2179836989 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the shipping agent's tracking page to track the package. </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action &amp;Track Package - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2179836989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Track Package</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action &amp;Track Package - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2748447179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action IncomingDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1671420421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create an incoming document record by selecting a file to attach, and then link the incoming document record to the entry or document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action IncomingDocAttachFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1671420421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Incoming Document from File</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action IncomingDocAttachFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2879753038 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View any incoming document records and file attachments that exist for the entry or document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action IncomingDocCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2879753038 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action IncomingDocCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1744698506 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select an incoming document record and file attachment that you want to link to the entry or document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action SelectIncomingDoc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1744698506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action SelectIncomingDoc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1002420131 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2928960335 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the sales credit memo document as a PDF file attached to an email.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Send by &amp;Email - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2928960335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send by &amp;Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Send by &amp;Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1934669617 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action SendCustom - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1934669617 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action SendCustom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1282942290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add new information that is relevant to the document, such as information from the shipping agent. You can only edit a few fields because the document has already been posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Update Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1282942290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Update Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 3.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Navigate</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 5.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print/Send</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 6.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 478268706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Incoming Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 2.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Category_Report - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 974154516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Purchase Order</source>
