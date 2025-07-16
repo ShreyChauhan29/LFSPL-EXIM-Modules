@@ -9418,6 +9418,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIMPostedExportInvoiceSub - Control LFS CIF(LCY) - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2786463516 - Control 3931800692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIMPostedExportInvoiceSub - Control LFS FOB Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2786463516 - Control 2858377564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Factor field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIMPostedExportInvoiceSub - Control LFS FOB Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2786463516 - Control 3334741201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB in USD field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIMPostedExportInvoiceSub - Control LFS FOB in USD - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2786463516 - Control 1513740634 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Freight Value (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9788,6 +9803,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Blanket Order No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 1758300588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the CIF (FCY) Per Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control CIF (FCY) Per Unit - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2353703582 - Control 3868377020 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Claim DDB</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9833,10 +9853,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FilteredTypeField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 1052102233 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOB (FC) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 1052102233 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FOB (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOB (FC) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 166613033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (FCY) Per Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOB (FCY) Per Unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 880276975 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOB (LC) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 880276975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FOB (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOB (LC) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2353703582 - Control 3184373166 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if FOC is applicable on Current Line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control FOC - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2782857406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Freight Value (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Freight Value Per Type (FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2782857406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Value (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Freight Value Per Type (FCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 4063906292 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Freight Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Freight Value Per Type (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 4063906292 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Freight Value Per Type (LCY) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2353703582 - Control 633819257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the vendor's or customer's trade type to link transactions made for this business partner with the appropriate general ledger account according to the general posting setup.</source>
@@ -9903,6 +9968,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Incentive Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 3654562453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Insurance Value (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Insurance Value Per Type (FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 3654562453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Value (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Insurance Value Per Type (FCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2517311931 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Insurance Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Insurance Value Per Type (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2517311931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Insurance Value Per Type (LCY) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2353703582 - Control 907522666 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the invoice discount amount for the line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9923,6 +10008,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control Job Task No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 438517268 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the CIF(FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS CIF(FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 3823600990 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the CIF(LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS CIF(LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 925730556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Exim Group No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS Exim Group No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 3931800692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS FOB Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2858377564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Factor field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS FOB Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 3334741201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB in USD field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS FOB in USD - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2353703582 - Control 799043985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the EX_From field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9933,10 +10048,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS HS Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 2251370199 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the RoDTEP License No. Value.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS RoDTEP License No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2353703582 - Control 3125387198 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the EX_To field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFS to - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Control 501599622 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the RoDTEP License Sales Values.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Control LFSRoDTEP License Sales Values - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2353703582 - Control 3582421358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.</source>
@@ -10307,6 +10432,16 @@
           <source>Item &amp;Tracking Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Action ItemTrackingLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Action 581783219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Action LFS Licenses - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2353703582 - Action 581783219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Cr. Memo Subf - Action LFS Licenses - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2353703582 - Action 2510810126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit the deferral schedule that governs how revenue made with this sales document is deferred to different accounting periods when the document is posted.</source>
@@ -15973,6 +16108,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Order Subform - Control Inv. Discount Amount - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3633977235 - Control 3931800692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Order Subform - Control LFS FOB Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3633977235 - Control 2858377564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Factor field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Order Subform - Control LFS FOB Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3633977235 - Control 3334741201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB in USD field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Order Subform - Control LFS FOB in USD - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3633977235 - Control 799043985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the EX_From field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18427,6 +18577,21 @@
           <source>Specifies the referenced item number.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Quote Subform - Control Item Reference No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3168863231 - Control 3931800692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Quote Subform - Control LFS FOB Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3168863231 - Control 2858377564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Factor field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Quote Subform - Control LFS FOB Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3168863231 - Control 3334741201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB in USD field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Export Sales Quote Subform - Control LFS FOB in USD - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3168863231 - Control 799043985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the EX_From field.</source>
@@ -24762,11 +24927,6 @@
           <source>Specifies the nature of GST transaction. For example, B2B/B2C.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Invoice - Control Nature of Supply - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3364950495 - Control 1160835642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the QR Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Invoice - Control QR Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3364950495 - Control 3193866272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Transport Method</source>
@@ -31488,6 +31648,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Appl.-to Item Entry - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1758300588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the CIF (FCY) Per Unit field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control CIF (FCY) Per Unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3560472071 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Currency Exch. Rate field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Currency Exch. Rate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1973001227 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Custom Exch. Rate field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Custom Exch. Rate - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2167564562 - Control 866715734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the deferral template that governs how revenue earned with this sales document is deferred to the different accounting periods when the good or service was delivered.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31513,6 +31688,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FilteredTypeField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1052102233 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FOB (FC) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 166613033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB (FCY) Per Unit field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FOB (FCY) Per Unit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 880276975 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control FOB (LC) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2782857406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Freight Value Per Type (FCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Freight Value Per Type (FCY) - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2167564562 - Control 633819257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the vendor's or customer's trade type to link transactions made for this business partner with the appropriate general ledger account according to the general posting setup.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31533,10 +31728,40 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Gross Weight - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1815712918 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the GST Group Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control GST Group Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1428033313 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the GST Group Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control GST Group Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2382182463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the GST Jurisdiction Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control GST Jurisdiction Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3958490267 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the GST Place of Supply field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control GST Place of Supply - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2629078778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the HSN/SAC Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control HSN/SAC Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2167564562 - Control 1329258699 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the intercompany partner that the transaction is related to if the entry was created from an intercompany transaction.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control IC Partner Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3654562453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Insurance Value Per Type (FCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Insurance Value Per Type (FCY) - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2167564562 - Control 3948462483 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the referenced item number.</source>
@@ -31552,6 +31777,66 @@
           <source>Specifies the number of the related project task.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control Job Task No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 438517268 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the CIF(FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS CIF(FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3823600990 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the CIF(LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS CIF(LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1560118765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (FCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS FOB Amount (FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3538547075 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the FOB (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS FOB Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3931800692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS FOB Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2858377564 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB Currency Factor field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS FOB Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3334741201 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the FOB in USD field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS FOB in USD - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 1513740634 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Freight Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS Freight Value (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 3808391929 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the HS Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS HS Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 416943449 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Insurance Value (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS Insurance Value (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 2251370199 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the RoDTEP License No. Value.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFS RoDTEP License No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Control 501599622 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the RoDTEP License Sales Values.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Control LFSRoDTEP License Sales Values - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2167564562 - Control 3582421358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.</source>
@@ -31803,6 +32088,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action ItemTrackingEntries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 581783219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action LFS Licenses - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 581783219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action LFS Licenses - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2167564562 - Action 2510810126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the deferral schedule that governs how revenue made with this sales document was deferred to different accounting periods when the document was posted.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31812,6 +32107,31 @@
           <source>Deferral Schedule</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action DeferralSchedule - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 260316147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EXIM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Exim - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 761346140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Licenses - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 761346140 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Multiple License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Licenses - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 3761295861 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Packing List - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2167564562 - Action 3761295861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Packing List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd Export Sales Cr. Memo Sub - Action Packing List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2327237781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Export Sales Credit Memos</source>
@@ -32183,6 +32503,86 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2543426973 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Commercial Bank Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Commercial  Bank Account - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 826098683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Country of Final Destination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Country of Final Destination - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1211363920 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Country of Origin of Goods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Country of Origin of Goods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1078736169 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Customs Bank Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Customs Bank Account - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4029956924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ETA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control ETA - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 841473839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ETD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control ETD - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 841473839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ETD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control ETD - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3322412234 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Export Remark</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Export Remark - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3322412234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Export Remark - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2509395532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Final Destination</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Final Destination - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2182847602 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Inco Terms</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Inco Terms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2352818591 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Place of Receipt By Pre-Carriage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control LFSPlaceofReceiptPre-Carriage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 470357480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Port of Discharge</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Port of Discharge - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 758243890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Port of Loading</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Port of Loading - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3876468065 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Pre Carriage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Pre Carriage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1343467039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Shpping Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shpping Line - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2815404394 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32423,6 +32823,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Currency Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2482577747 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Custom Currency Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Custom Currency Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2815404394 - Control 410940989 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's market type to link business transactions to.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32433,6 +32838,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control EU 3-Party Trade - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2683817906 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the posted sales invoice must be paid.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control LFS Lodgement Ref No - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2815404394 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the location where the credit memo was registered.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32442,6 +32852,11 @@
           <source>Specifies the customer's method of payment. The program has copied the code from the Payment Method Code field on the sales header.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Payment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3195762964 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Ship to Customer code on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to Customer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2815404394 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
@@ -32728,6 +33143,131 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Shipping Agent Service Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3106964826 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of acknowledgement.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Acknowledgement Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3326657031 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a unique number assigned by e-invoice portal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Acknowledgement No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2117080758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry date defined in bill of export document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill Of Export Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1621847027 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bill of export number. It is a document number which is submitted to custom department .</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Bill Of Export No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1157332158 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cancellation reason.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Cancel Reason - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3666116087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the GST registration number of the customer specified on the Sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Customer GST Reg. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1988187488 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the distance.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Distance (Km) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4174357583 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the merchant ID provided to customers by their payment processor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control E-Comm. Merchant Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 444603859 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number for which merchant id has to be recorded.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control e-Commerce Customer - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3521172508 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies e-invoice cancellation date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control E-Inv. Cancelled Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3370547937 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bill-to state code of the customer on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control GST Bill-to State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3463723080 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the customer. For example, Registered, Unregistered, Export etc..</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control GST Customer Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 110755522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ship-to state code of the customer on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control GST Ship-to State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3399403805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the invoice is a GST invoice with or without payment of duty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control GST Without Payment of Duty - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4095313195 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Invoice type as per GST law.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Invoice Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 82115433 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a unique number of 64 character generated by system.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control IRN Hash - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 897926272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the GST registration number of the Location specified on the Sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Location GST Reg. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 907665689 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sate code mentioned in location on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Location State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 3962430981 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the nature of GST transaction. For example, B2B/B2C.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Nature of Supply - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2984004148 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the place of supply of invoice is out of India.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control POS Out Of India - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 4137645431 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Reference Invoice number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Reference Invoice No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 955767915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sale return type. For example, Sales cancellation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Sale Return Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1883316924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Ship to GST Customer Type mentioned on the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to GST Customer Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 2175957087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ship to GST registration number of the customer specified on the Sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Ship-to GST Reg. No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2815404394 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32737,6 +33277,11 @@
           <source>Documents</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control Attached Documents List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Control 1160835642 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QR Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Control QR Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2815404394 - Action 2942356813 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Cr. Memo</source>
@@ -32857,6 +33402,21 @@
           <source>Customer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 4239765664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EXIM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action EXIM actions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1506693633 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Export Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Export_Information - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2815404394 - Action 1506693633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Export Sales Credit Memo - Action Export_Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2815404394 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;unctions</source>
@@ -35003,6 +35563,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS EXIM Sales Line Ext. - Field LFS FOB CIF Calc. Type - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2861538811 - Field 3931800692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>FOB Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS EXIM Sales Line Ext. - Field LFS FOB Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2861538811 - Field 2858377564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>FOB Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS EXIM Sales Line Ext. - Field LFS FOB Currency Factor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2861538811 - Field 3334741201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
+          <source>FOB in USD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS EXIM Sales Line Ext. - Field LFS FOB in USD - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2861538811 - Field 2423624208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Freight Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -36033,6 +36608,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Header Ext. - Field LFS Inco Terms - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3643032848 - Field 2683817906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
+          <source>Lodgement Ref No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Header Ext. - Field LFS Lodgement Ref No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3643032848 - Field 3207987975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Port of Discharge</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -36152,6 +36732,21 @@
           <source>FOB Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Line Ext. - Field LFS FOB Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3073065199 - Field 3931800692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>FOB Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Line Ext. - Field LFS FOB Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3073065199 - Field 2858377564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>FOB Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Line Ext. - Field LFS FOB Currency Factor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3073065199 - Field 3334741201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
+          <source>FOB in USD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Cr.Memo Line Ext. - Field LFS FOB in USD - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3073065199 - Field 2423624208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3059602325">
           <source>Freight Value Per Type (FCY)</source>
@@ -36598,6 +37193,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Invoice Line Ext. - Field LFS FOB Amount (LCY) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2324222483 - Field 3931800692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>FOB Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Invoice Line Ext. - Field LFS FOB Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2324222483 - Field 2858377564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>FOB Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Invoice Line Ext. - Field LFS FOB Currency Factor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2324222483 - Field 3334741201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
+          <source>FOB in USD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Invoice Line Ext. - Field LFS FOB in USD - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2324222483 - Field 2423624208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2079186865">
           <source>Freight Value (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -37003,6 +37613,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS DDB Value (LCY) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4128360340 - Field 925730556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>Exim Group No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS Exim Group No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4128360340 - Field 2557933030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
           <source>EXIM Item Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -37022,6 +37637,21 @@
           <source>FOB Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS FOB Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4128360340 - Field 3931800692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>FOB Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS FOB Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4128360340 - Field 2858377564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>FOB Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS FOB Currency Factor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4128360340 - Field 3334741201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
+          <source>FOB in USD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LFS Sales Shipment Line Ext. - Field LFS FOB in USD - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4128360340 - Field 2423624208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1114148978">
           <source>Freight Value Per Type (FCY)</source>

@@ -151,6 +151,43 @@ page 72031 "Pstd Export Sales Cr. Memo Sub"
                     BlankZero = true;
                     ToolTip = 'Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.';
                 }
+                field("LFS FOB Amount (FCY)"; rec."LFS FOB Amount (FCY)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the FOB (FCY)';
+                }
+                field("LFS FOB Amount (LCY)"; Rec."LFS FOB Amount (LCY)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the FOB (LCY)';
+                }
+                // field("LFS FOB Amount (FCY)"; Rec."LFS FOB Amount (FCY)")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the FOB (FCY) Per Unit';
+                // }
+                field("LFS RoDTEP License No."; Rec."LFS RoDTEP License No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the RoDTEP License No. Value.';
+                }
+                field("LFSRoDTEP License Sales Values"; Rec."LFSRoDTEP License Sales Values")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the RoDTEP License Sales Values.';
+                }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("Line Discount %"; Rec."Line Discount %")
                 {
                     ApplicationArea = Basic, Suite;
@@ -492,6 +529,26 @@ page 72031 "Pstd Export Sales Cr. Memo Sub"
                     trigger OnAction()
                     begin
                         Rec.ShowLineComments();
+                    end;
+                }
+                action("LFS Licenses")
+                {
+                    Caption = 'Multiple License';
+                    ToolTip = 'Specifies the Multiple License';
+                    ApplicationArea = all;
+                    Image = Task;
+                    trigger OnAction()
+                    var
+                        EXIM_License2: Record "LFS EXIM Posted Export Licence";
+                        EXIM_licenseList: Page "LFS Posted Export Licence List";
+
+                    begin
+                        EXIM_License2.Reset();
+                        EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                        EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                        EXIM_licenseList.SetTableView(EXIM_License2);
+                        EXIM_licenseList.SetRecord(EXIM_License2);
+                        EXIM_licenseList.run();
                     end;
                 }
                 action(ItemTrackingEntries)

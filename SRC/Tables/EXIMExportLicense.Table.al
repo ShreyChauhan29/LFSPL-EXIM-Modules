@@ -145,6 +145,7 @@ table 72011 "LFS EXIM Export License"
     trigger OnInsert()
     var
         SalesLine: Record "Sales Line";
+        PerUnitCost: Decimal;
     begin
         SalesLine.Reset();
         SalesLine.SetFilter("Document Type", '%1|%2|%3', SalesLine."Document Type"::Order,
@@ -163,7 +164,10 @@ table 72011 "LFS EXIM Export License"
         exportOrder.setrange(Type, exportOrder.Type::Item);
 
         if exportOrder.FindFirst() then begin
-            rec.Validate("LFS Unit Price", exportOrder."Unit Price");
+            if exportOrder.Quantity <> 0 then
+                PerUnitCost := exportOrder."LFS FOB in USD" / exportOrder.Quantity;
+            Rec.Validate("LFS Unit Price", PerUnitCost);
+            // rec.Validate("LFS Unit Price", exportOrder."Unit Price");
             Rec.Validate("LFS Item No.", exportOrder."No.");
             Rec.Validate("LFS Variant Code", exportOrder."Variant Code");
         end;

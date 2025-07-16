@@ -131,6 +131,18 @@ page 72092 "LFS EXIMPostedExportInvoiceSub"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the FOB (LCY)';
                 }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("FOB (FCY) Per Unit"; Rec."LFS FOB Amount (FCY)")
                 {
                     ToolTip = 'Specifies the value of the FOB (FCY) Per Unit field.';

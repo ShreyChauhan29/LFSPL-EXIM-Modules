@@ -134,6 +134,8 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             trigger OnValidate()
             begin
                 FOBvalue();
+                if Rec."LFS FOB Currency Factor" <> 0 then
+                    Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)" - rec."LFS Freight Value (LCY)" - Rec."LFS Insurance Value (LCY)") / Rec."LFS FOB Currency Factor";
             end;
         }
         // field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
@@ -156,6 +158,8 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             trigger OnValidate()
             begin
                 FOBvalue();
+                if Rec."LFS FOB Currency Factor" <> 0 then
+                    Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)" - rec."LFS Freight Value (LCY)" - Rec."LFS Insurance Value (LCY)") / Rec."LFS FOB Currency Factor";
             end;
         }
         // field(72018; "LFS Category Type"; Enum "LFS Category Type")
@@ -361,12 +365,35 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             Editable = false;
             TableRelation = "EXIM Group Master"."LFS Group No.";
         }
+        field(72058; "LFS FOB in USD"; decimal)
+        {
+            Caption = 'FOB in USD';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 2;
+            Editable = false;
+        }
+        field(72059; "LFS FOB Currency Code"; Code[10])
+        {
+            Caption = 'FOB Currency Code';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "LFSEXIM Currency Exchange Rate";
+        }
+        field(72060; "LFS FOB Currency Factor"; Decimal)
+        {
+            Caption = 'FOB Currency Factor';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 15;
+            MinValue = 0;
+        }
         modify("No.")
         {
             trigger OnAfterValidate()
             var
                 Item: Record Item;
-
+                EXIMCurrExRate: Record "LFSEXIM Currency Exchange Rate";
+                SalesHeader: Record "Sales Header";
+                Exc_Rate: Decimal;
             begin
                 if (Rec."No." <> '') then begin
                     Clear(Rec."LFS Exim Group No.");
@@ -374,6 +401,23 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         Item.Get(Rec."No.");
                         Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
                     end;
+
+                    Exc_Rate := 0;
+                    Rec.Validate("LFS FOB Currency Code", 'USD');
+
+                    SalesHeader.Reset();
+                    SalesHeader.SetRange("Document Type", Rec."Document Type");
+                    SalesHeader.SetRange("No.", Rec."Document No.");
+                    if SalesHeader.FindFirst() then;
+
+                    EXIMCurrExRate.Reset();
+                    EXIMCurrExRate.SetRange("LFS Currency Code", Rec."LFS FOB Currency Code");
+                    EXIMCurrExRate.SetAscending("LFS Starting Date", true);
+                    if EXIMCurrExRate.FindLast() then begin
+                        Exc_Rate := 1 / EXIMCurrExRate.ExchangeRate(EXIMCurrExRate."LFS Starting Date", Rec."LFS FOB Currency Code", 1);
+                        Rec.Validate("LFS FOB Currency Factor", Exc_Rate);
+                    end;
+
                 end
                 else
                     Rec."LFS Exim Group No." := '';

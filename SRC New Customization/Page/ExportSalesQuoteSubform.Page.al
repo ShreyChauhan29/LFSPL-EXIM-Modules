@@ -676,6 +676,18 @@ page 72015 "LFS Export Sales Quote Subform"
                         UpdateForm(false);
                     end;
                 }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("Shipping Agent Code"; Rec."Shipping Agent Code")
                 {
                     ApplicationArea = Suite;

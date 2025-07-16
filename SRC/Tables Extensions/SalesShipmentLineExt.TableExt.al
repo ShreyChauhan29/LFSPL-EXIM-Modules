@@ -278,5 +278,33 @@ tableextension 72028 "LFS Sales Shipment Line Ext." extends "Sales Shipment Line
             DecimalPlaces = 2 : 5;
             Caption = 'FOB Amount (LCY)';
         }
+        field(72057; "LFS Exim Group No."; Code[20])
+        {
+            Caption = 'Exim Group No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "EXIM Group Master"."LFS Group No.";
+        }
+        field(72058; "LFS FOB in USD"; decimal)
+        {
+            Caption = 'FOB in USD';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 2;
+            Editable = false;
+        }
+        field(72059; "LFS FOB Currency Code"; Code[10])
+        {
+            Caption = 'FOB Currency Code';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "LFSEXIM Currency Exchange Rate";
+        }
+        field(72060; "LFS FOB Currency Factor"; Decimal)
+        {
+            Caption = 'FOB Currency Factor';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 15;
+            MinValue = 0;
+        }
     }
 }

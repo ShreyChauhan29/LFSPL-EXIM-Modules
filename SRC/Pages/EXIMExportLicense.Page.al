@@ -227,7 +227,8 @@ page 72012 "LFS EXIM Export License"
     end;
 
     trigger OnAfterGetRecord()
-    // var
+    var
+        PerUnitCost: Decimal;
     //     exportLicense: Record "LFS EXIM Export License";
     //     EXIMiodetails: Record "LFS EXIM License IO Details";
     begin
@@ -235,7 +236,10 @@ page 72012 "LFS EXIM Export License"
         exportSalesOrder.SetRange("Document No.", Rec."LFS Source No.");
         exportSalesOrder.SetRange("Line No.", Rec."LFS Source line No.");
         if exportSalesOrder.FindFirst() then begin
-            rec.Validate("LFS Unit Price", exportSalesOrder."Unit Price");
+            // rec.Validate("LFS Unit Price", exportSalesOrder."Unit Price");
+            if exportSalesOrder.Quantity <> 0 then
+                PerUnitCost := exportSalesOrder."LFS FOB in USD" / exportSalesOrder.Quantity;
+            rec.Validate("LFS Unit Price", PerUnitCost);
             Rec.Validate("LFS Item No.", exportSalesOrder."No.");
             Rec.Validate("LFS Variant Code", exportSalesOrder."Variant Code");
         end;
@@ -257,7 +261,8 @@ page 72012 "LFS EXIM Export License"
     end;
 
     trigger OnAfterGetCurrRecord()
-    // var
+    var
+        PerUnitCost: Decimal;
     //     myInt: Integer;
     begin
         exportSalesOrder.Reset();
@@ -265,7 +270,10 @@ page 72012 "LFS EXIM Export License"
         exportSalesOrder.SetRange("Line No.", Rec."LFS Source line No.");
         if exportSalesOrder.FindFirst() then begin
             Rec.Validate("LFS Source Type", exportSalesOrder."Document Type");
-            rec.Validate("LFS Unit Price", exportSalesOrder."Unit Price");
+            // rec.Validate("LFS Unit Price", exportSalesOrder."Unit Price");
+            if exportSalesOrder.Quantity <> 0 then
+                PerUnitCost := exportSalesOrder."LFS FOB in USD" / exportSalesOrder.Quantity;
+            rec.Validate("LFS Unit Price", PerUnitCost);
             Rec.Validate("LFS Item No.", exportSalesOrder."No.");
             Rec.Validate("LFS Variant Code", exportSalesOrder."Variant Code");
         end;

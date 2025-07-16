@@ -377,6 +377,18 @@ page 72059 "LFS Export Sales Order Subform"
                     Enabled = (Rec.Type <> Rec.Type::"Fixed Asset") AND (Rec.Type <> Rec.Type::" ");
                     TableRelation = "Deferral Template"."Deferral Code";
                 }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("GST Group Code"; Rec."GST Group Code")
                 {
                     ApplicationArea = all;

@@ -46,6 +46,8 @@ page 72056 "LFS Export Sales Inv. Subform"
                     ShowMandatory = TypeChosen;
                     trigger OnValidate()
                     var
+                        EXIMCurrExRate: Record "LFSEXIM Currency Exchange Rate";
+                        Exc_Rate: Decimal;
                     begin
                         AllowItemtoModify();
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
