@@ -10,6 +10,7 @@ using Microsoft.Finance.Dimension;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Inventory.Availability;
+using Microsoft.SubscriptionBilling;
 using Microsoft.Finance.ChargeGroup.ChargeOnSales;
 using Microsoft.Finance.GST.Sales;
 using Microsoft.Finance.TaxBase;
@@ -440,6 +441,11 @@ page 72015 "LFS Export Sales Quote Subform"
                     begin
                         DeltaUpdateTotals();
                     end;
+                }
+                field("Service Commitments"; Rec."Subscription Lines")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Shows the number of Subscription Lines for the sales line.';
                 }
                 field("GST Place Of Supply"; Rec."GST Place Of Supply")
                 {
@@ -1187,6 +1193,15 @@ page 72015 "LFS Export Sales Quote Subform"
                         end;
                     }
                 }
+                action(ShowSalesServiceCommitments)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Subscription Lines';
+                    Image = AllLines;
+                    RunObject = page "Sales Service Commitments";
+                    RunPageLink = "Document Type" = field("Document Type"), "Document No." = field("Document No."), "Document Line No." = field("Line No.");
+                    ToolTip = 'Shows the Subscription Lines for the sales line.';
+                }
             }
             group("F&unctions")
             {
@@ -1324,6 +1339,20 @@ page 72015 "LFS Export Sales Quote Subform"
                     ToolTip = 'Insert the charge group lines.';
                     RunObject = codeunit "Sales Charge Group Management";
                 }
+                // action(AddSalesServiceCommitment)
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Add Subscription Lines';
+                //     Image = ExpandDepositLine;
+                //     ToolTip = 'Shows all Subscription Lines for the item. Subscription Lines can be added, changed or removed.';
+
+                //     trigger OnAction()
+                //     var
+                //         SalesServiceCommitmentMgmt: Codeunit "Sales Subscription Line Mgmt.";
+                //     begin
+                //         SalesServiceCommitmentMgmt.AddAdditionalSalesServiceCommitmentsForSalesLine(Rec);
+                //     end;
+                // }
             }
             group("Page")
             {
@@ -1471,6 +1500,7 @@ page 72015 "LFS Export Sales Quote Subform"
         TransferExtendedText: Codeunit "Transfer Extended Text";
         SalesAvailabilityMgt: Codeunit "Sales Availability Mgt.";
         SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
+        IsCapabilityRegistered: Boolean;
         // TCSSalesManagement: Codeunit "TCS Sales Management";
         AmountWithDiscountAllowed: Decimal;
         VariantCodeMandatory: Boolean;

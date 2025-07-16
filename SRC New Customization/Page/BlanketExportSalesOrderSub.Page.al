@@ -6,6 +6,7 @@ using Microsoft.Finance.Dimension;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Foundation.Navigate;
+using Microsoft.SubscriptionBilling;
 using Microsoft.Inventory.Availability;
 using Microsoft.Inventory.BOM;
 using Microsoft.Inventory.Item;
@@ -354,6 +355,11 @@ page 72009 "Blanket Export Sales Order Sub"
                     begin
                         DeltaUpdateTotals();
                     end;
+                }
+                field("Service Commitments"; Rec."Subscription Lines")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Shows the number of Subscription Lines for the sales line.';
                 }
                 field("GST Group Code"; Rec."GST Group Code")
                 {
@@ -1045,6 +1051,15 @@ page 72009 "Blanket Export Sales Order Sub"
                     begin
                         ShowDocumentLineTracking();
                     end;
+                }
+                action(ShowSalesServiceCommitments)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Subscription Lines';
+                    Image = AllLines;
+                    RunObject = page "Sales Service Commitments";
+                    RunPageLink = "Document Type" = field("Document Type"), "Document No." = field("Document No."), "Document Line No." = field("Line No.");
+                    ToolTip = 'Shows the Subscription Lines for the sales line.';
                 }
             }
             group("F&unctions")
