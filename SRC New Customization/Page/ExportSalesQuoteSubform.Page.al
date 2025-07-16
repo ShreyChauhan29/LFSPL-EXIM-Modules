@@ -1500,7 +1500,6 @@ page 72015 "LFS Export Sales Quote Subform"
         TransferExtendedText: Codeunit "Transfer Extended Text";
         SalesAvailabilityMgt: Codeunit "Sales Availability Mgt.";
         SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
-        IsCapabilityRegistered: Boolean;
         // TCSSalesManagement: Codeunit "TCS Sales Management";
         AmountWithDiscountAllowed: Decimal;
         VariantCodeMandatory: Boolean;
