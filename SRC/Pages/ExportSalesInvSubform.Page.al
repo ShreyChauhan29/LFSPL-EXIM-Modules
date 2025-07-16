@@ -1036,6 +1036,7 @@ page 72056 "LFS Export Sales Inv. Subform"
                             EXIM_License2.Reset();
                             EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
                             EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                            EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
                             EXIM_licenseList.SetTableView(EXIM_License2);
                             EXIM_licenseList.SetRecord(EXIM_License2);
                             EXIM_licenseList.run();

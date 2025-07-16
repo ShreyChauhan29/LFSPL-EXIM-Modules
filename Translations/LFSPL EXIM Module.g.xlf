@@ -2548,6 +2548,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM Setup - Field LFS Export Validate Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2250941841 - Field 3864564631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Group Wise License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table LFS EXIM Setup - Field LFS Group Wise License - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2250941841 - Field 3222818075 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Invoice Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8442,6 +8447,11 @@
           <source>Specifies the Warehouse Shipment Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM Setup - Control Warehouse Shipment Nos. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2250941841 - Control 1913270240 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Group Wise License field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM Setup - Control Group Wise License - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2250941841 - Control 773898002 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Cons EXP GL Ent Auto Post</source>
@@ -25633,6 +25643,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Licence List - Control FOB (FCY) - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 788577095 - Control 925730556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Exim Group No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Licence List - Control LFS Exim Group No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 788577095 - Control 280903592 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the License No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -25667,6 +25682,11 @@
           <source>Specifies the FOB (FCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Licences - Control FOB (FCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1394841544 - Control 925730556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Exim Group No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LFS Posted Export Licences - Control LFS Exim Group No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1394841544 - Control 280903592 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the License No.</source>
@@ -32193,6 +32213,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS GST Registration Nos. Ext. - Control LFS LUT No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 697299145 - Control 925730556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Specifies the value of the Exim Group No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS Item Card Ext. - Control LFS Exim Group No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2279566614 - Control 1591597651 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2406989597">
           <source>Specifies the value of the LFS Item Charge No. field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
@@ -37262,11 +37287,6 @@
           <source>Report</source>
           <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 2.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Blanket Export Sales Orders - Action Category_Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 697299145 - Control 925730556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>Specifies the value of the Exim Group No. field.</source>
-          <note from="Developer" annotates="general" priority="2">%</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS Item Card Ext. - Control LFS Exim Group No. - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>

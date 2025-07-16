@@ -54,6 +54,10 @@ page 72074 "LFS Posted Export Licences"
                     Editable = false;
                     ToolTip = 'Specifies the Export Inv Bal Qty';
                 }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
             }
         }
     }
