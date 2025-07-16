@@ -6779,7 +6779,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM LC Terms &amp; Conditions - Control Insert Default in LC Details - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 44435263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>EXIM Lic. IO Detail List</source>
+          <source>EXIM License IO Detail List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page LFS EXIM Lic. IO Detail List - Property Caption</note>
         </trans-unit>

@@ -75,7 +75,6 @@ page 72012 "LFS EXIM Export License"
                                 eximIOdetails.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.")
                             else
                                 eximIOdetails.SetRange("LFS Item No.", Rec."LFS Item No.");
-                            eximIOdetails.SetRange("LFS Item No.", Rec."LFS Item No.");
                             eximIOdetails.SetRange("LFS Status", eximIOdetails."LFS Status"::Active);
                             eximIOdetails.SetRange("LFS Scheme Type", eximIOdetails."LFS Scheme Type"::"Advance License");
                             eximIOdetails.SetFilter("LFS Export Inv Bal Qty", '>%1', 0);

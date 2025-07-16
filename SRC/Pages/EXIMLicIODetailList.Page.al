@@ -4,7 +4,7 @@ using Microsoft.Inventory.Item;
 page 72024 "LFS EXIM Lic. IO Detail List"
 {
     ApplicationArea = All;
-    Caption = 'EXIM Lic. IO Detail List';
+    Caption = 'EXIM License IO Detail List';
     PageType = List;
     SourceTable = "LFS EXIM License IO Details";
     UsageCategory = Lists;
