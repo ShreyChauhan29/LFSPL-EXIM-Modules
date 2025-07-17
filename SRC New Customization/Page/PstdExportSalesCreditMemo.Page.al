@@ -885,7 +885,7 @@ page 72030 "Pstd. Export Sales Credit Memo"
                 ApplicationArea = Basic, Suite;
             }
 #if not CLEAN25
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
                 ObsoleteState = Pending;

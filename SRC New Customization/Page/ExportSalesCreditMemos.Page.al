@@ -249,7 +249,7 @@ page 72016 "LFS Export Sales Credit Memos"
         area(factboxes)
         {
 #if not CLEAN25
-            part(AttachedDocuments; "Document Attachment Factbox")
+            part(AttachedDocuments; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
                 ObsoleteState = Pending;
