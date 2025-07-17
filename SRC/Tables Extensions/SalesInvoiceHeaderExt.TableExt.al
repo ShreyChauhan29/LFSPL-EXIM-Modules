@@ -337,7 +337,7 @@ tableextension 72023 "LFS Sales Invoice Header Ext." extends "Sales Invoice Head
             DataClassification = CustomerContent;
             Caption = 'Place of Receipt By Pre-Carriage';
         }
-        field(72064; "LFS Lodgement Ref No"; Code[50])
+        field(72069; "LFS Lodgement Ref No"; Code[50])
         {
             Caption = 'Lodgement Ref No';
             DataClassification = CustomerContent;
