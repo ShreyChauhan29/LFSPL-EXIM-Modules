@@ -1,26 +1,25 @@
 namespace LFSEXIMModule.LFSPLEXIMModule;
 
-using Microsoft.Sales.Document;
+using Microsoft.Purchases.Document;
 using Microsoft.Finance.Dimension;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.Reporting;
-using Microsoft.Sales.Comment;
-using Microsoft.Sales.Customer;
+using Microsoft.Purchases.Comment;
+using Microsoft.Purchases.Vendor;
 using System.Automation;
-
-page 72010 "Blanket Export Sales Orders"
+page 72032 "Blanket Import Purchase Orders"
 {
     ApplicationArea = All;
-    Caption = 'Blanket Export Sales Orders';
-    SourceTable = "Sales Header";
-    CardPageID = "Blanket Export Sales Order";
-    DataCaptionFields = "Sell-to Customer No.";
-    Editable = false;
+    Caption = 'Blanket Import Purchase Orders';
     PageType = List;
-    QueryCategory = 'Blanket Export Sales Orders';
-    RefreshOnActivate = true;
-    SourceTableView = where("Document Type" = const("Blanket Order"), "LFS EXIM Type" = filter(Export));
+    SourceTable = "Purchase Header";
     UsageCategory = Lists;
+    CardPageID = "Blanket Import Purchase Order";
+    DataCaptionFields = "Buy-from Vendor No.";
+    Editable = false;
+    QueryCategory = 'Blanket Purchase Orders';
+    RefreshOnActivate = true;
+    SourceTableView = where("Document Type" = const("Blanket Order"), "LFS EXIM Type" = filter(Import));
 
     layout
     {
@@ -34,67 +33,73 @@ page 72010 "Blanket Export Sales Orders"
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 }
-                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
+                field("Buy-from Vendor No."; Rec."Buy-from Vendor No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the customer.';
+                    ToolTip = 'Specifies the name of the vendor who delivered the items.';
                 }
-                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
+                field("Order Address Code"; Rec."Order Address Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the name of the customer.';
-                }
-                field("External Document No."; Rec."External Document No.")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
-                }
-                field("Sell-to Post Code"; Rec."Sell-to Post Code")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the postal code of the customer''s main address.';
+                    ToolTip = 'Specifies the order address of the related vendor.';
                     Visible = false;
                 }
-                field("Sell-to Country/Region Code"; Rec."Sell-to Country/Region Code")
+                field("Buy-from Vendor Name"; Rec."Buy-from Vendor Name")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the country/region code of the customer''s main address.';
+                    ToolTip = 'Specifies the name of the vendor who delivered the items.';
+                }
+                field("Vendor Authorization No."; Rec."Vendor Authorization No.")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the compensation agreement identification number, sometimes referred to as the RMA No. (Returns Materials Authorization).';
+                }
+                field("Buy-from Post Code"; Rec."Buy-from Post Code")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the post code of the vendor who delivered the items.';
                     Visible = false;
                 }
-                field("Sell-to Contact"; Rec."Sell-to Contact")
+                field("Buy-from Country/Region Code"; Rec."Buy-from Country/Region Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the name of the contact person at the customer''s main address.';
+                    ToolTip = 'Specifies the city of the vendor who delivered the items.';
                     Visible = false;
                 }
-                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
+                field("Buy-from Contact"; Rec."Buy-from Contact")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the customer that you send or sent the invoice or credit memo to.';
+                    ToolTip = 'Specifies the name of the contact person at the vendor who delivered the items.';
                     Visible = false;
                 }
-                field("Bill-to Name"; Rec."Bill-to Name")
+                field("Pay-to Vendor No."; Rec."Pay-to Vendor No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the name of the customer that you send or sent the invoice or credit memo to.';
+                    ToolTip = 'Specifies the number of the vendor that you received the invoice from.';
                     Visible = false;
                 }
-                field("Bill-to Post Code"; Rec."Bill-to Post Code")
+                field("Pay-to Name"; Rec."Pay-to Name")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the postal code of the customer''s billing address.';
+                    ToolTip = 'Specifies the name of the vendor who you received the invoice from.';
                     Visible = false;
                 }
-                field("Bill-to Country/Region Code"; Rec."Bill-to Country/Region Code")
+                field("Pay-to Post Code"; Rec."Pay-to Post Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the country/region code of the customer''s billing address.';
+                    ToolTip = 'Specifies the post code of the vendor that you received the invoice from.';
                     Visible = false;
                 }
-                field("Bill-to Contact"; Rec."Bill-to Contact")
+                field("Pay-to Country/Region Code"; Rec."Pay-to Country/Region Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the name of the contact person at the customer''s billing address.';
+                    ToolTip = 'Specifies the country/region code of the address.';
+                    Visible = false;
+                }
+                field("Pay-to Contact"; Rec."Pay-to Contact")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the name of the person to contact about an invoice from this vendor.';
                     Visible = false;
                 }
                 field("Ship-to Code"; Rec."Ship-to Code")
@@ -130,7 +135,7 @@ page 72010 "Blanket Export Sales Orders"
                 field("Posting Date"; Rec."Posting Date")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date when the posting of the sales document will be recorded.';
+                    ToolTip = 'Specifies the date when the posting of the purchase document will be recorded.';
                     Visible = false;
                 }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
@@ -148,12 +153,12 @@ page 72010 "Blanket Export Sales Orders"
                 field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = Location;
-                    ToolTip = 'Specifies the location from where items are to be shipped. This field acts as the default location for new lines. You can update the location code for individual lines as needed.';
+                    ToolTip = 'Specifies the location where the items are to be placed when they are received. This field acts as the default location for new lines. You can update the location code for individual lines as needed.';
                 }
-                field("Salesperson Code"; Rec."Salesperson Code")
+                field("Purchaser Code"; Rec."Purchaser Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the name of the sales person who is assigned to the customer.';
+                    ToolTip = 'Specifies which purchaser is assigned to the vendor.';
                     Visible = false;
                 }
                 field("Assigned User ID"; Rec."Assigned User ID")
@@ -164,7 +169,7 @@ page 72010 "Blanket Export Sales Orders"
                 field("Currency Code"; Rec."Currency Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the currency of amounts on the sales document.';
+                    ToolTip = 'Specifies the code of the currency of the amounts on the purchase lines.';
                     Visible = false;
                 }
                 field(Status; Rec.Status)
@@ -185,7 +190,7 @@ page 72010 "Blanket Export Sales Orders"
                 ObsoleteReason = 'The "Document Attachment FactBox" has been replaced by "Doc. Attachment List Factbox", which supports multiple files upload.';
                 ApplicationArea = All;
                 Visible = false;
-                SubPageLink = "Table ID" = const(Database::"Sales Header"),
+                SubPageLink = "Table ID" = const(Database::"Purchase Header"),
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
@@ -195,20 +200,14 @@ page 72010 "Blanket Export Sales Orders"
                 ApplicationArea = All;
                 Caption = 'Documents';
                 UpdatePropagation = Both;
-                SubPageLink = "Table ID" = const(Database::"Sales Header"),
+                SubPageLink = "Table ID" = const(Database::"Purchase Header"),
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-            part(Control1902018507; "Customer Statistics FactBox")
+            part(Control1901138007; "Vendor Details FactBox")
             {
                 ApplicationArea = Suite;
-                SubPageLink = "No." = field("Bill-to Customer No."),
-                              "Date Filter" = field("Date Filter");
-            }
-            part(Control1900316107; "Customer Details FactBox")
-            {
-                ApplicationArea = Suite;
-                SubPageLink = "No." = field("Bill-to Customer No."),
+                SubPageLink = "No." = field("Buy-from Vendor No."),
                               "Date Filter" = field("Date Filter");
             }
             systempart(Control1900383207; Links)
@@ -239,17 +238,17 @@ page 72010 "Blanket Export Sales Orders"
                 //                     Image = Statistics;
                 //                     ShortCutKey = 'F7';
                 //                     ToolTip = 'View statistical information, such as the value of posted entries, for the record.';
-                //                     ObsoleteReason = 'The statistics action will be replaced with the SalesOrderStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
+                //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseOrderStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
                 //                     ObsoleteState = Pending;
                 //                     ObsoleteTag = '26.0';
 
                 //                     trigger OnAction()
                 //                     begin
-                //                         Rec.OpenSalesOrderStatistics();
+                //                         Rec.OpenPurchaseOrderStatistics();
                 //                     end;
                 //                 }
                 // #endif
-                action(SalesOrderStatistics)
+                action(PurchaseOrderStatistics)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Statistics';
@@ -258,25 +257,26 @@ page 72010 "Blanket Export Sales Orders"
                     ShortCutKey = 'F7';
                     Visible = true;
                     ToolTip = 'View statistical information, such as the value of posted entries, for the record.';
-                    RunObject = Page "Sales Order Statistics";
+                    RunObject = Page "Purchase Order Statistics";
                     RunPageOnRec = true;
                 }
-                action(CustomerStatistics)
+                action(VendorStatistics)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Customer Statistics';
+                    Caption = 'Vendor Statistics';
+                    Enabled = Rec."Buy-from Vendor No." <> '';
                     Image = Statistics;
-                    RunObject = Page "Customer Statistics";
-                    RunPageLink = "No." = field("Sell-to Customer No."),
+                    RunObject = Page "Vendor Statistics";
+                    RunPageLink = "No." = field("Buy-from Vendor No."),
                                   "Date Filter" = field("Date Filter");
-                    ToolTip = 'View statistical information, such as the value of posted entries, for the sell-to customer on the sales document.';
+                    ToolTip = 'View statistical information, such as the value of posted entries, for the buy-from vendor on the purchase document.';
                 }
                 action("Co&mments")
                 {
                     ApplicationArea = Suite;
                     Caption = 'Co&mments';
                     Image = ViewComments;
-                    RunObject = Page "Sales Comment Sheet";
+                    RunObject = Page "Purch. Comment Sheet";
                     RunPageLink = "Document Type" = const("Blanket Order"),
                                   "No." = field("No."),
                                   "Document Line No." = const(0);
@@ -308,7 +308,7 @@ page 72010 "Blanket Export Sales Orders"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        ApprovalsMgmt.OpenApprovalsSales(Rec);
+                        ApprovalsMgmt.OpenApprovalsPurchase(Rec);
                     end;
                 }
             }
@@ -319,7 +319,7 @@ page 72010 "Blanket Export Sales Orders"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-                action("Re&lease")
+                action(Release)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&lease';
@@ -329,13 +329,13 @@ page 72010 "Blanket Export Sales Orders"
 
                     trigger OnAction()
                     var
-                        SalesHeader: Record "Sales Header";
+                        PurchaseHeader: Record "Purchase Header";
                     begin
-                        CurrPage.SetSelectionFilter(SalesHeader);
-                        Rec.PerformManualRelease(SalesHeader);
+                        CurrPage.SetSelectionFilter(PurchaseHeader);
+                        Rec.PerformManualRelease(PurchaseHeader);
                     end;
                 }
-                action("Re&open")
+                action(Reopen)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&open';
@@ -344,65 +344,12 @@ page 72010 "Blanket Export Sales Orders"
 
                     trigger OnAction()
                     var
-                        SalesHeader: Record "Sales Header";
+                        PurchaseHeader: Record "Purchase Header";
                     begin
-                        CurrPage.SetSelectionFilter(SalesHeader);
-                        Rec.PerformManualReopen(SalesHeader);
+                        CurrPage.SetSelectionFilter(PurchaseHeader);
+                        Rec.PerformManualReopen(PurchaseHeader);
                     end;
                 }
-                action("Delete Invoiced Blanket")
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Delete Invoiced Blanket Sales Orders';
-                    Image = Delete;
-                    RunObject = Report "Delete Invd Blnkt Sales Orders";
-                    ToolTip = 'Delete orders that were not automatically deleted after completion. For example, when several sales orders were completed by a single invoice.';
-                }
-            }
-            action("Make &Order")
-            {
-                ApplicationArea = Suite;
-                Caption = 'Make &Order';
-                Image = MakeOrder;
-                ToolTip = 'Convert the blanket sales order to a sales order.';
-
-                trigger OnAction()
-                var
-                    ApprovalsMgmt: Codeunit "Approvals Mgmt.";
-                begin
-                    if ApprovalsMgmt.PrePostApprovalCheckSales(Rec) then
-                        CODEUNIT.Run(CODEUNIT::"Blnkt Sales Ord. to Ord. (Y/N)", Rec);
-                end;
-            }
-            action(Print)
-            {
-                ApplicationArea = Suite;
-                Caption = '&Print';
-                Ellipsis = true;
-                Image = Print;
-                ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
-
-                trigger OnAction()
-                begin
-                    DocPrint.PrintSalesHeader(Rec);
-                end;
-            }
-            action(AttachAsPDF)
-            {
-                ApplicationArea = Basic, Suite;
-                Caption = 'Attach as PDF';
-                Image = PrintAttachment;
-                ToolTip = 'Create a PDF file and attach it to the document.';
-
-                trigger OnAction()
-                var
-                    SalesHeader: Record "Sales Header";
-                    DocPrint: Codeunit "Document-Print";
-                begin
-                    SalesHeader := Rec;
-                    CurrPage.SetSelectionFilter(SalesHeader);
-                    DocPrint.PrintSalesHeaderToDocumentAttachment(SalesHeader);
-                end;
             }
             group("Request Approval")
             {
@@ -419,8 +366,8 @@ page 72010 "Blanket Export Sales Orders"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        if ApprovalsMgmt.CheckSalesApprovalPossible(Rec) then
-                            ApprovalsMgmt.OnSendSalesDocForApproval(Rec);
+                        if ApprovalsMgmt.CheckPurchaseApprovalPossible(Rec) then
+                            ApprovalsMgmt.OnSendPurchaseDocForApproval(Rec);
                     end;
                 }
                 action(CancelApprovalRequest)
@@ -435,9 +382,94 @@ page 72010 "Blanket Export Sales Orders"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        ApprovalsMgmt.OnCancelSalesApprovalRequest(Rec);
+                        ApprovalsMgmt.OnCancelPurchaseApprovalRequest(Rec);
                     end;
                 }
+            }
+            action(MakeOrder)
+            {
+                ApplicationArea = Suite;
+                Caption = 'Make &Order';
+                Image = MakeOrder;
+                ToolTip = 'Convert the blanket purchase order to a purchase order.';
+
+                trigger OnAction()
+                var
+                    ApprovalsMgmt: Codeunit "Approvals Mgmt.";
+                begin
+                    if ApprovalsMgmt.PrePostApprovalCheckPurch(Rec) then
+                        CODEUNIT.Run(CODEUNIT::"Blnkt Purch Ord. to Ord. (Y/N)", Rec);
+                end;
+            }
+            action(Print)
+            {
+                ApplicationArea = Suite;
+                Caption = '&Print';
+                Ellipsis = true;
+                Image = Print;
+                ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
+
+                trigger OnAction()
+                begin
+                    DocPrint.PrintPurchHeader(Rec);
+                end;
+            }
+            action(Email)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Send by Email';
+                Ellipsis = true;
+                Image = Email;
+                ToolTip = 'Finalize and prepare to email the document. The Send Email window opens prefilled with the vendor''s email address so you can add or edit information.';
+
+                trigger OnAction()
+                var
+                    DocPrint: Codeunit "Document-Print";
+                begin
+                    DocPrint.EmailPurchHeader(Rec);
+                end;
+            }
+            action(Send)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Send';
+                Ellipsis = true;
+                Image = SendToMultiple;
+                ToolTip = 'Prepare to send the document according to the vendor''s sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.';
+
+                trigger OnAction()
+                var
+                    PurchaseHeader: Record "Purchase Header";
+                begin
+                    PurchaseHeader := Rec;
+                    CurrPage.SetSelectionFilter(PurchaseHeader);
+                    PurchaseHeader.SendRecords();
+                end;
+            }
+            action(AttachAsPDF)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Attach as PDF';
+                Image = PrintAttachment;
+                ToolTip = 'Create a PDF file and attach it to the document.';
+
+                trigger OnAction()
+                var
+                    PurchaseHeader: Record "Purchase Header";
+                    DocPrint: Codeunit "Document-Print";
+                begin
+                    PurchaseHeader := Rec;
+                    CurrPage.SetSelectionFilter(PurchaseHeader);
+                    DocPrint.PrintPurchaseHeaderToDocumentAttachment(PurchaseHeader);
+                end;
+            }
+            action("Delete Invoiced")
+            {
+                ApplicationArea = Suite;
+                Caption = 'Delete Invoiced Orders';
+                Image = Delete;
+                RunObject = Report "Delete Invd Blnkt Purch Orders";
+                ToolTip = 'Delete orders that were not automatically deleted after completion. For example, when several purchase orders were completed by a single invoice.';
             }
         }
         area(Promoted)
@@ -446,7 +478,7 @@ page 72010 "Blanket Export Sales Orders"
             {
                 Caption = 'Process', Comment = 'Generated from the PromotedActionCategories property index 1.';
 
-                actionref("Make &Order_Promoted"; "Make &Order")
+                actionref(MakeOrder_Promoted; MakeOrder)
                 {
                 }
             }
@@ -455,10 +487,10 @@ page 72010 "Blanket Export Sales Orders"
                 Caption = 'Release';
                 ShowAs = SplitButton;
 
-                actionref("Re&lease_Promoted"; "Re&lease")
+                actionref(Release_Promoted; Release)
                 {
                 }
-                actionref("Re&open_Promoted"; "Re&open")
+                actionref(Reopen_Promoted; Reopen)
                 {
                 }
             }
@@ -466,7 +498,13 @@ page 72010 "Blanket Export Sales Orders"
             {
                 Caption = 'Print/Send', Comment = 'Generated from the PromotedActionCategories property index 4.';
 
+                actionref(Email_Promoted; Email)
+                {
+                }
                 actionref(Print_Promoted; Print)
+                {
+                }
+                actionref(Send_Promoted; Send)
                 {
                 }
                 actionref(AttachAsPDF_Promoted; AttachAsPDF)
@@ -487,12 +525,12 @@ page 72010 "Blanket Export Sales Orders"
                 // #if not CLEAN26
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
-                //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
+                //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
                 //                     ObsoleteState = Pending;
                 //                     ObsoleteTag = '26.0';
                 //                 }
-                // #else
-                actionref(SalesOrderStatistics_Promoted; SalesOrderStatistics)
+                // #else                
+                actionref(PurchaseOrderStatistics_Promoted; PurchaseOrderStatistics)
                 {
                 }
                 actionref("Co&mments_Promoted"; "Co&mments")
@@ -523,17 +561,7 @@ page 72010 "Blanket Export Sales Orders"
     begin
         Rec.SetSecurityFilterOnRespCenter();
 
-        Rec.CopySellToCustomerFilter();
-    end;
-
-    trigger OnNewRecord(BelowxRec: Boolean)
-    begin
-        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
-    end;
-
-    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    begin
-        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
+        Rec.CopyBuyFromVendorFilter();
     end;
 
     var

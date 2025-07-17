@@ -1,4 +1,4 @@
-namespace LFSEXIMModule.LFSPLEXIMModules;
+namespace LFSEXIMModule.LFSPLEXIMModule;
 
 using Microsoft.CRM.Contact;
 using Microsoft.Finance.Currency;
