@@ -314,6 +314,11 @@ tableextension 72020 "LFS Sales Cr.Memo Header Ext." extends "Sales Cr.Memo Head
             DataClassification = CustomerContent;
             Caption = 'Place of Receipt By Pre-Carriage';
         }
+        field(72064; "Json Body"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Json Body';
+        }
         field(72069; "LFS Lodgement Ref No"; Code[50])
         {
             Caption = 'Lodgement Ref No';
