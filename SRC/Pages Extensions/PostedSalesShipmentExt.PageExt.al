@@ -26,25 +26,24 @@ pageextension 72013 "LFS Posted Sales Shipment Ext." extends "Posted Sales Shipm
                     Page.RunModal(Page::"LFS Posted Export Information", Export)
                 end;
             }
-            action("LFS Factory Packing List")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Factory Packing List';
-                Image = Report;
-                Promoted = true;
-                PromotedCategory = Report;
-                PromotedIsBig = true;
-                trigger OnAction()
-                var
-                    SalesShptHeader: Record "Sales Shipment Header";
-                begin
-                    SalesShptHeader.Reset();
-                    SalesShptHeader.SETRANGE("No.", Rec."No.");
-                    if SalesShptHeader.FindFirst() then
-                        REPORT.RUNMODAL(70240, true, true, SalesShptHeader);
-                end;
-
-            }
+            // action("LFS Factory Packing List")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Factory Packing List';
+            //     Image = Report;
+            //     Promoted = true;
+            //     PromotedCategory = Report;
+            //     PromotedIsBig = true;
+            //     trigger OnAction()
+            //     var
+            //         SalesShptHeader: Record "Sales Shipment Header";
+            //     begin
+            //         SalesShptHeader.Reset();
+            //         SalesShptHeader.SETRANGE("No.", Rec."No.");
+            //         if SalesShptHeader.FindFirst() then
+            //             REPORT.RUNMODAL(70240, true, true, SalesShptHeader);
+            //     end;
+            // }
         }
     }
 }
