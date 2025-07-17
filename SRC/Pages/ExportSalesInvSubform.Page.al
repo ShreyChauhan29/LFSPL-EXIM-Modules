@@ -544,6 +544,18 @@ page 72056 "LFS Export Sales Inv. Subform"
                     ToolTip = 'Specifies the Insurance Value (LCY)';
                     Editable = false;
                 }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("LFS RoDTEP Rebate Rate %"; Rec."LFS RoDTEP Rebate Rate %")
                 {
                     ApplicationArea = all;
