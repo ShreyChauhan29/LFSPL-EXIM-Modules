@@ -34323,11 +34323,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS Posted Sales Shipment Ext. - Action LFS Export Information - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 683718345 - Action 4048389250 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Factory Packing List</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension LFS Posted Sales Shipment Ext. - Action LFS Factory Packing List - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 252611792 - Action 3150246622 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
           <source>Specifies the Packing List</source>
           <note from="Developer" annotates="general" priority="2"></note>
