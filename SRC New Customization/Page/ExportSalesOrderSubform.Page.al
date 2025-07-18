@@ -1228,6 +1228,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         begin
                             DocumentTotals.SalesDocTotalsNotUpToDate();
                             ValidateInvoiceDiscountAmount();
+                            // TCSSalesManagement.UpdateTaxAmountOnSalesLine(Rec);
                             UpdateTaxAmountOnSalesLine(Rec);
                         end;
                     }
