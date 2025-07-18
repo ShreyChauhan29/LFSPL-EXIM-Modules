@@ -10,7 +10,7 @@ using System.Automation;
 
 page 72010 "Blanket Export Sales Orders"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Blanket Export Sales Orders';
     SourceTable = "Sales Header";
     CardPageID = "Blanket Export Sales Order";

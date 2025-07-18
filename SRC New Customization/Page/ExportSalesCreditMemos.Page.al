@@ -19,7 +19,7 @@ using System.Threading;
 page 72016 "LFS Export Sales Credit Memos"
 {
     AdditionalSearchTerms = 'refund credit return refund correct cancel undo sale';
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Export Sales Credit Memos';
     PageType = List;
     SourceTable = "Sales Header";

@@ -14,7 +14,7 @@ using System.Automation;
 
 page 72011 "LFS Export Sales Quotes"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Export Sales Quotes';
     PageType = List;
     SourceTable = "Sales Header";

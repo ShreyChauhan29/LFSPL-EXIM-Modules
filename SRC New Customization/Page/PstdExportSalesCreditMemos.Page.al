@@ -10,7 +10,7 @@ using Microsoft.Sales.Comment;
 using Microsoft.Sales.Customer;
 page 72029 "Pstd Export Sales Credit Memos"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Posted Export Sales Credit Memos';
     PageType = List;
     SourceTable = "Sales Cr.Memo Header";

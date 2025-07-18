@@ -11,7 +11,7 @@ using Microsoft.Utilities;
 using System.Automation;
 page 72043 "LFS Import Purchase Quotes"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Import Purchase Quotes';
     PageType = List;
     SourceTable = "Purchase Header";

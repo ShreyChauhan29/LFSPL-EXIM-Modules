@@ -30,7 +30,7 @@ using System.Threading;
 
 page 72105 "LFS Export Sales Order List"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Export Sales Order List';
     PageType = List;
     SourceTable = "Sales Header";

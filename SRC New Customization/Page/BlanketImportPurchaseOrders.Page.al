@@ -9,7 +9,7 @@ using Microsoft.Purchases.Vendor;
 using System.Automation;
 page 72032 "Blanket Import Purchase Orders"
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'Blanket Import Purchase Orders';
     PageType = List;
     SourceTable = "Purchase Header";
