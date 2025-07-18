@@ -1,38 +1,30 @@
 namespace LFSEXIMModule.LFSPLEXIMModule;
 
 using Microsoft.Sales.Document;
-using Microsoft.Assembly.Document;
 using Microsoft.Finance.AllocationAccount;
 using Microsoft.Finance.AllocationAccount.Sales;
 using Microsoft.Finance.Currency;
-using Microsoft.Finance.Deferral;
 using Microsoft.Finance.Dimension;
-using Microsoft.Finance.GST.Sales;
-using Microsoft.Finance.TaxBase;
-using Microsoft.Finance.ChargeGroup.ChargeOnSales;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.ExtendedText;
-using Microsoft.Foundation.Navigate;
+using Microsoft.Finance.GST.Sales;
+using Microsoft.Finance.TaxBase;
 using Microsoft.Inventory.Availability;
 using Microsoft.Inventory.BOM;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Item.Catalog;
-using Microsoft.Inventory.Item.Substitution;
 using Microsoft.Inventory.Location;
-using Microsoft.Inventory.Setup;
-using Microsoft.Sustainability.Setup;
 using Microsoft.Pricing.Calculation;
-using Microsoft.Purchases.Document;
-using Microsoft.Purchases.History;
+using Microsoft.Projects.Project.Planning;
 using Microsoft.Sales.History;
 using Microsoft.Sales.Pricing;
+using Microsoft.Finance.ChargeGroup.ChargeOnSales;
 using Microsoft.Sales.Setup;
 using Microsoft.Utilities;
 using System.Environment.Configuration;
 using System.Integration.Excel;
-using System.Utilities;
 
-page 72107 "LFS Export Sales OrderSubform"
+page 72110 "LFS Export Sales Invoice Subf"
 {
     ApplicationArea = All;
     PageType = ListPart;
@@ -42,7 +34,7 @@ page 72107 "LFS Export Sales OrderSubform"
     DelayedInsert = true;
     LinksAllowed = false;
     MultipleNewLines = true;
-    SourceTableView = where("Document Type" = filter(Order), "LFS EXIM Type" = const(Export));
+    SourceTableView = where("Document Type" = filter(Invoice), "LFS EXIM Type" = filter(Export));
 
     layout
     {
@@ -60,7 +52,6 @@ page 72107 "LFS Export Sales OrderSubform"
                     trigger OnValidate()
                     begin
                         NoOnAfterValidate();
-                        SetLocationCodeMandatory();
                         UpdateEditableOnRow();
                         UpdateTypeText();
                         DeltaUpdateTotals();
@@ -80,7 +71,7 @@ page 72107 "LFS Export Sales OrderSubform"
                     trigger OnValidate()
                     begin
                         TempOptionLookupBuffer.SetCurrentType(Rec.Type.AsInteger());
-                        if TempOptionLookupBuffer.AutoCompleteLookup(TypeAsText, TempOptionLookupBuffer."Lookup Type"::Sales) then
+                        if TempOptionLookupBuffer.AutoCompleteLookup(TypeAsText, Enum::"Option Lookup Type"::Sales) then
                             Rec.Validate(Type, TempOptionLookupBuffer.ID);
                         TempOptionLookupBuffer.ValidateOption(TypeAsText);
                         UpdateEditableOnRow();
@@ -92,24 +83,20 @@ page 72107 "LFS Export Sales OrderSubform"
                 {
                     ApplicationArea = Basic, Suite;
                     ShowMandatory = not IsCommentLine;
-                    ToolTip = 'Specifies what you are selling, such as a product or a fixed asset. You’ll see different lists of things to choose from depending on your choice in the Type field.';
+                    ToolTip = 'Specifies what you''re selling. The options vary, depending on what you choose in the Type field.';
 
                     trigger OnValidate()
                     var
-                        IsHandled: Boolean;
+                        Item: Record "Item";
                     begin
-                        IsHandled := false;
-                        OnBeforeValidateNo(Rec, xRec, IsHandled);
-                        if IsHandled then
-                            exit;
-
                         NoOnAfterValidate();
                         UpdateEditableOnRow();
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-
-                        QuantityOnAfterValidate();
                         UpdateTypeText();
                         DeltaUpdateTotals();
+                        if Rec."Variant Code" = '' then
+                            VariantCodeMandatory := Item.IsVariantMandatory(Rec.Type = Rec.Type::Item, Rec."No.");
+
                         SaveRecords();
                         FormatLine();
                         CurrPage.Update();
@@ -120,20 +107,18 @@ page 72107 "LFS Export Sales OrderSubform"
                     AccessByPermission = tabledata "Item Reference" = R;
                     ApplicationArea = Suite, ItemReferences;
                     QuickEntry = false;
-                    ToolTip = 'Specifies a reference to the item number as defined by the vendor or customer, or the item''s barcode.';
+                    ToolTip = 'Specifies the referenced item number. If you enter a cross reference between yours and your vendor''s or customer''s item number, then this number will override the standard item number when you enter the reference number on a sales or purchase document.';
                     Visible = ItemReferenceVisible;
 
                     trigger OnLookup(var Text: Text): Boolean
                     var
-                        SalesHeader: Record "Sales Header";
                         ItemReferenceMgt: Codeunit "Item Reference Management";
                     begin
-                        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
-                        ItemReferenceMgt.SalesReferenceNoLookup(Rec, SalesHeader);
+                        ItemReferenceMgt.SalesReferenceNoLookup(Rec);
                         NoOnAfterValidate();
                         UpdateEditableOnRow();
                         DeltaUpdateTotals();
-                        OnReferenceNoOnAfterLookup(Rec);
+                        OnItemReferenceNoOnLookup(Rec);
                         CurrPage.Update();
                     end;
 
@@ -163,40 +148,21 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the IC partner. If the line is being sent to one of your intercompany partners, this field is used together with the IC Partner Ref. Type field to indicate the item or account in your partner''s company that corresponds to the line.';
                     Visible = false;
                 }
-                field("IC Item Reference"; Rec."IC Item Reference No.")
-                {
-                    ApplicationArea = Intercompany;
-                    ToolTip = 'Specifies the IC item reference. If the line is being sent to one of your intercompany partners, this field is used together with the IC Partner Ref. Type field to indicate the item or account in your partner''s company that corresponds to the line.';
-                    Visible = false;
-                }
                 field("Variant Code"; Rec."Variant Code")
                 {
                     ApplicationArea = Planning;
                     ToolTip = 'Specifies the variant of the item on the line.';
-                    ShowMandatory = VariantCodeMandatory;
                     Visible = false;
+                    ShowMandatory = VariantCodeMandatory;
 
                     trigger OnValidate()
                     var
-                        Item: Record Item;
+                        Item: Record "Item";
                     begin
-                        VariantCodeOnAfterValidate();
                         DeltaUpdateTotals();
                         if Rec."Variant Code" = '' then
                             VariantCodeMandatory := Item.IsVariantMandatory(Rec.Type = Rec.Type::Item, Rec."No.");
                     end;
-                }
-                field("Substitution Available"; Rec."Substitution Available")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies that a substitute is available for the item on the sales line.';
-                    Visible = false;
-                }
-                field("Purchasing Code"; Rec."Purchasing Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the code for a special procurement method, such as drop shipment.';
-                    Visible = false;
                 }
                 field(Nonstock; Rec.Nonstock)
                 {
@@ -251,9 +217,8 @@ page 72107 "LFS Export Sales OrderSubform"
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = Basic, Suite;
-                    QuickEntry = false;
                     ShowMandatory = not IsCommentLine;
-                    ToolTip = 'Specifies a description of what you’re selling. Based on your choices in the Type and No. fields, the field may show suggested text that you can change it for this document. To add a comment, set the Type field to Comment and write the comment itself here.';
+                    ToolTip = 'Specifies a description of what you are selling. Based on your choices in the Type and No. fields, the field may show suggested text that you can change it for this document. To add a comment, set the Type field to Comment and write the comment itself here.';
 
                     trigger OnValidate()
                     begin
@@ -268,7 +233,6 @@ page 72107 "LFS Export Sales OrderSubform"
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
                         UpdateTypeText();
                         DeltaUpdateTotals();
-                        OnAfterValidateDescription(Rec, xRec);
                     end;
 
                     trigger OnAfterLookup(Selected: RecordRef)
@@ -283,18 +247,6 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies information in addition to the description.';
                     Visible = false;
                 }
-                field("Drop Shipment"; Rec."Drop Shipment")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies if your vendor ships the items directly to your customer.';
-                    Visible = false;
-                }
-                field("Special Order"; Rec."Special Order")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies that the item on the sales line is a special-order item.';
-                    Visible = false;
-                }
                 field("Return Reason Code"; Rec."Return Reason Code")
                 {
                     ApplicationArea = Suite;
@@ -306,8 +258,6 @@ page 72107 "LFS Export Sales OrderSubform"
                     ApplicationArea = Location;
                     Editable = not IsBlankNumber;
                     Enabled = not IsBlankNumber;
-                    QuickEntry = false;
-                    ShowMandatory = LocationCodeMandatory;
                     ToolTip = 'Specifies the inventory location from which the items sold should be picked and where the inventory decrease is registered.';
                     Visible = LocationCodeVisible;
 
@@ -315,18 +265,17 @@ page 72107 "LFS Export Sales OrderSubform"
                     var
                         CalculateTax: Codeunit "Calculate Tax";
                     begin
-                        LocationCodeOnAfterValidate();
                         DeltaUpdateTotals();
+                        CurrPage.Update();
 
                         CurrPage.SaveRecord();
                         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
-                        UpdateTaxAmount();
                     end;
                 }
                 field("TCS Nature of Collection"; Rec."TCS Nature of Collection")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the TCS Nature of collection on which the TCS will be calculated for the Sales Order.';
+                    ToolTip = 'Specifies the TCS Nature of collection on which the TCS will be calculated for the Sales Invoice.';
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         Rec.AllowedNocLookup(Rec, Rec."Sell-to Customer No.");
@@ -334,6 +283,7 @@ page 72107 "LFS Export Sales OrderSubform"
                     end;
 
                     trigger OnValidate()
+                    var
                     begin
                         UpdateTaxAmount();
                     end;
@@ -344,81 +294,42 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the bin where the items are picked or put away.';
                     Visible = false;
                 }
-                field("Sust. Account No."; Rec."Sust. Account No.")
-                {
-                    Visible = SustainabilityVisible;
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the value of the Sustainability Account No. field.';
-                }
-                field(Control50; Rec.Reserve)
-                {
-                    ApplicationArea = Reservation;
-                    ToolTip = 'Specifies whether a reservation can be made for items on this line.';
-                    Visible = false;
-
-                    trigger OnValidate()
-                    begin
-                        ReserveOnAfterValidate();
-                    end;
-                }
                 field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = Basic, Suite;
                     BlankZero = true;
-                    Editable = not IsCommentLine;
-                    Enabled = not IsCommentLine;
+                    Editable = not IsBlankNumber;
+                    Enabled = not IsBlankNumber;
                     ShowMandatory = (Rec.Type <> Rec.Type::" ") and (Rec."No." <> '');
                     ToolTip = 'Specifies how many units are being sold.';
 
-                    AboutTitle = 'How much is being ordered';
-                    AboutText = 'The quantity on a line specifies how much of an item a customer is ordering. This quantity determines whether the order qualifies for special prices or discounts.';
-
                     trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
                     begin
                         QuantityOnAfterValidate();
-                        DeltaUpdateTotals();
-                        SetItemChargeFieldsStyle();
                         if SalesSetup."Calc. Inv. Discount" and (Rec.Quantity = 0) then
                             CurrPage.Update(false);
+
                         SaveRecords();
+                        if (Rec."GST Group Code" <> '') and (Rec."HSN/SAC Code" <> '') then begin
+                            Rec.Validate("GST Place Of Supply");
+                            CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                        end;
                         UpdateTaxAmount();
                     end;
-                }
-                field("Qty. to Assemble to Order"; Rec."Qty. to Assemble to Order")
-                {
-                    ApplicationArea = Assembly;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how many units of the sales line quantity that you want to supply by assembly.';
-                    Visible = true;
-
-                    trigger OnDrillDown()
-                    begin
-                        Rec.ShowAsmToOrderLines();
-                    end;
-
-                    trigger OnValidate()
-                    begin
-                        QtyToAsmToOrderOnAfterValidate();
-                    end;
-                }
-                field("Reserved Quantity"; Rec."Reserved Quantity")
-                {
-                    ApplicationArea = Reservation;
-                    BlankZero = true;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies how many units of the item on the line have been reserved.';
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = UnitofMeasureCodeIsChangeable;
                     Enabled = UnitofMeasureCodeIsChangeable;
-                    QuickEntry = false;
                     ToolTip = 'Specifies how each unit of the item or resource is measured, such as in pieces or hours. By default, the value in the Base Unit of Measure field on the item or resource card is inserted.';
 
                     trigger OnValidate()
                     begin
-                        UnitofMeasureCodeOnAfterValidate();
+                        ValidateAutoReserve();
+                        DeltaUpdateTotals();
                     end;
                 }
                 field("Unit of Measure"; Rec."Unit of Measure")
@@ -433,7 +344,7 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the unit cost of the item on the line.';
                     Visible = false;
                 }
-                field(SalesPriceExist; Rec.PriceExists())
+                field(PriceExists; Rec.PriceExists())
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Sales Price Exists';
@@ -476,8 +387,8 @@ page 72107 "LFS Export Sales OrderSubform"
                 field("Tax Group Code"; Rec."Tax Group Code")
                 {
                     ApplicationArea = SalesTax;
-                    Editable = not IsCommentLine;
-                    Enabled = not IsCommentLine;
+                    Editable = Rec.Type <> Rec.Type::" ";
+                    Enabled = Rec.Type <> Rec.Type::" ";
                     ShowMandatory = Rec."Tax Area Code" <> '';
                     ToolTip = 'Specifies the tax group that is used to calculate and post sales tax.';
 
@@ -528,35 +439,6 @@ page 72107 "LFS Export Sales OrderSubform"
                         DeltaUpdateTotals();
                     end;
                 }
-                field("GST Group Code"; Rec."GST Group Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = IsHSNSACEditable;
-                    ToolTip = 'Specifies an identifier for the GST group used to calculate and post GST.';
-
-                    trigger OnValidate()
-                    var
-                        CalculateTax: Codeunit "Calculate Tax";
-                    begin
-                        CurrPage.SaveRecord();
-                        Rec.Validate("GST Place Of Supply");
-                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
-                    end;
-                }
-                field("HSN/SAC Code"; Rec."HSN/SAC Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = IsHSNSACEditable;
-                    ToolTip = 'Specifies the HSN/SAC code for the calculation of GST on Sales line.';
-
-                    trigger OnValidate()
-                    var
-                        CalculateTax: Codeunit "Calculate Tax";
-                    begin
-                        CurrPage.SaveRecord();
-                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
-                    end;
-                }
                 field("GST on Assessable Value"; Rec."GST on Assessable Value")
                 {
                     ApplicationArea = Basic, Suite;
@@ -573,20 +455,7 @@ page 72107 "LFS Export Sales OrderSubform"
                 field("GST Assessable Value (LCY)"; Rec."GST Assessable Value (LCY)")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the GST Assessable value of the line.';
-
-                    trigger OnValidate()
-                    var
-                        CalculateTax: Codeunit "Calculate Tax";
-                    begin
-                        CurrPage.SaveRecord();
-                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
-                    end;
-                }
-                field("Unit Price Incl. of Tax"; Rec."Unit Price Incl. of Tax")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies unit prices are inclusive of tax on the line.';
+                    ToolTip = 'Specifies the GST Assessable value on which GST is calculated for the line.';
 
                     trigger OnValidate()
                     var
@@ -611,8 +480,8 @@ page 72107 "LFS Export Sales OrderSubform"
                 }
                 field("Price Exclusive of Tax"; Rec."Price Inclusive of Tax")
                 {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies if the price in inclusive of tax for the line.';
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if prices are exclusive of tax on the line.';
 
                     trigger OnValidate()
                     var
@@ -622,16 +491,73 @@ page 72107 "LFS Export Sales OrderSubform"
                         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                     end;
                 }
+                field("Unit Price Incl. of Tax"; Rec."Unit Price Incl. of Tax")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies unit prices are inclusive of tax on the line.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("GST Credit"; Rec."GST Credit")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if the GST credit has to be availed or not.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("Qty. to Invoice"; Rec."Qty. to Invoice")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the quantity of items that remains to be invoiced. It is calculated as Quantity-Qty. Invoiced';
+                }
                 field("GST Jurisdiction Type"; Rec."GST Jurisdiction Type")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the type related to GST jurisdiction. For example, interstate/intrastate.';
                 }
+                field("GST Group Code"; Rec."GST Group Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies an identifier for the GST group used to calculate and post GST.';
+                    Editable = IsHSNSACEditable;
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        Rec.Validate("GST Place Of Supply");
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("HSN/SAC Code"; Rec."HSN/SAC Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the HSN/SAC code for the calculation of GST on Sales line.';
+                    Editable = IsHSNSACEditable;
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
                 field("GST Group Type"; Rec."GST Group Type")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies if the GST group is assigned for goods or service.';
-
                 }
                 field(Exempted; Rec.Exempted)
                 {
@@ -646,20 +572,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                     end;
                 }
-                field("Allocation Account No."; Rec."Selected Alloc. Account No.")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Allocation Account No.';
-                    ToolTip = 'Specifies the allocation account number that will be used to distribute the amounts during the posting process.';
-                    Visible = UseAllocationAccountNumber;
-                    trigger OnValidate()
-                    var
-                        SalesAllocAccMgt: Codeunit "Sales Alloc. Acc. Mgt.";
-                    begin
-                        SalesAllocAccMgt.VerifySelectedAllocationAccountNo(Rec);
-                    end;
-                }
-                field(SalesLineDiscExists; Rec.LineDiscExists())
+                field(LineDiscExists; Rec.LineDiscExists())
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Sales Line Disc. Exists';
@@ -682,24 +595,6 @@ page 72107 "LFS Export Sales OrderSubform"
                         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                     end;
                 }
-                field("Prepayment %"; Rec."Prepayment %")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment percentage to use to calculate the prepayment for sales.';
-                    Visible = false;
-                }
-                field("Prepmt. Line Amount"; Rec."Prepmt. Line Amount")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount of the line in the currency of the sales document if a prepayment percentage is specified for the sales line.';
-                    Visible = false;
-                }
-                field("Prepmt. Amt. Inv."; Rec."Prepmt. Amt. Inv.")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount that has already been invoiced to the customer for this sales line.';
-                    Visible = false;
-                }
                 field("Allow Invoice Disc."; Rec."Allow Invoice Disc.")
                 {
                     ApplicationArea = Basic, Suite;
@@ -717,104 +612,13 @@ page 72107 "LFS Export Sales OrderSubform"
                 field("Inv. Discount Amount"; Rec."Inv. Discount Amount")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the total calculated invoice discount amount for the line.';
+                    ToolTip = 'Specifies the invoice discount amount for the line.';
                     Visible = false;
 
                     trigger OnValidate()
                     begin
                         DeltaUpdateTotals();
                     end;
-                }
-                field("Inv. Disc. Amount to Invoice"; Rec."Inv. Disc. Amount to Invoice")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the actual invoice discount amount that will be posted for the line in next invoice.';
-                    Visible = false;
-                }
-                field("Qty. to Ship"; Rec."Qty. to Ship")
-                {
-                    ApplicationArea = Basic, Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the quantity of items that remain to be shipped.';
-
-                    AboutTitle = 'Partially shipping the order?';
-                    AboutText = 'If you want to ship only parts of the order, adjust the *Qty. to Ship* value to that quantity. By common default, the total quantity is shipped.';
-
-                    trigger OnValidate()
-                    begin
-                        SetItemChargeFieldsStyle();
-                        if Rec."Qty. to Asm. to Order (Base)" <> 0 then begin
-                            CurrPage.SaveRecord();
-                            CurrPage.Update(false);
-                        end;
-                    end;
-                }
-                field("Quantity Shipped"; Rec."Quantity Shipped")
-                {
-                    ApplicationArea = Basic, Suite;
-                    BlankZero = true;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies how many units of the item on the line have been posted as shipped.';
-
-                    trigger OnDrillDown()
-                    var
-                        SalesShipmentLine: Record "Sales Shipment Line";
-                    begin
-                        SalesShipmentLine.SetCurrentKey("Document No.", "No.", "Shipment Date");
-                        SalesShipmentLine.SetRange("Order No.", Rec."Document No.");
-                        SalesShipmentLine.SetRange("Order Line No.", Rec."Line No.");
-                        SalesShipmentLine.SetFilter(Quantity, '<>%1', 0);
-                        Page.RunModal(0, SalesShipmentLine);
-                    end;
-                }
-                field("Qty. to Invoice"; Rec."Qty. to Invoice")
-                {
-                    ApplicationArea = Basic, Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the quantity that remains to be invoiced. It is calculated as Quantity - Qty. Invoiced.';
-
-                    AboutTitle = 'Invoicing more or less than you ship?';
-                    AboutText = 'Adjust the *Qty. to Invoice* to specify the quantity you want to invoice now. If that is more than you ship, use the prepayment functionality.';
-
-                    trigger OnValidate()
-                    begin
-                        SetItemChargeFieldsStyle();
-                    end;
-                }
-                field("Quantity Invoiced"; Rec."Quantity Invoiced")
-                {
-                    ApplicationArea = Basic, Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how many units of the item on the line have been posted as invoiced.';
-
-                    trigger OnDrillDown()
-                    var
-                        SalesInvoiceLine: Record "Sales Invoice Line";
-                    begin
-                        SalesInvoiceLine.SetCurrentKey("Document No.", "No.", "Posting Date");
-                        SalesInvoiceLine.SetRange("Order No.", Rec."Document No.");
-                        SalesInvoiceLine.SetRange("Order Line No.", Rec."Line No.");
-                        SalesInvoiceLine.SetFilter(Quantity, '<>%1', 0);
-                        Page.RunModal(0, SalesInvoiceLine);
-                    end;
-                }
-                field("Total CO2e"; Rec."Total CO2e")
-                {
-                    Visible = SustainabilityVisible;
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the value of the Total CO2e field.';
-                }
-                field("Prepmt Amt to Deduct"; Rec."Prepmt Amt to Deduct")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount that has already been deducted from ordinary invoices posted for this sales order line.';
-                    Visible = false;
-                }
-                field("Prepmt Amt Deducted"; Rec."Prepmt Amt Deducted")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount that has already been deducted from ordinary invoices posted for this sales order line.';
-                    Visible = false;
                 }
                 field("Allow Item Charge Assignment"; Rec."Allow Item Charge Assignment")
                 {
@@ -825,98 +629,74 @@ page 72107 "LFS Export Sales OrderSubform"
                 field("Qty. to Assign"; Rec."Qty. to Assign")
                 {
                     ApplicationArea = ItemCharges;
-                    QuickEntry = false;
                     StyleExpr = ItemChargeStyleExpression;
-                    ToolTip = 'Specifies how many units of the item charge are assigned to the line originally.';
+                    ToolTip = 'Specifies how many units of the item charge will be assigned to the line.';
 
                     trigger OnDrillDown()
                     begin
                         CurrPage.SaveRecord();
                         Rec.ShowItemChargeAssgnt();
-                        UpdateForm(false);
-                    end;
-                }
-                field("Item Charge Qty. to Handle"; Rec."Item Charge Qty. to Handle")
-                {
-                    ApplicationArea = ItemCharges;
-                    QuickEntry = false;
-                    StyleExpr = ItemChargeToHandleStyleExpression;
-                    ToolTip = 'Specifies how many items the item charge will be assigned to on the line. It can be either equal to Qty. to Assign or to zero. If it is zero, the item charge will not be assigned to the line.';
-
-                    trigger OnDrillDown()
-                    begin
-                        CurrPage.SaveRecord();
-                        Rec.ShowItemChargeAssgnt();
-                        UpdateForm(false);
+                        UpdatePage(false);
                     end;
                 }
                 field("Qty. Assigned"; Rec."Qty. Assigned")
                 {
                     ApplicationArea = ItemCharges;
                     BlankZero = true;
-                    QuickEntry = false;
                     ToolTip = 'Specifies the quantity of the item charge that was assigned to a specified item when you posted this sales line.';
+                    Visible = false;
 
                     trigger OnDrillDown()
                     begin
                         CurrPage.SaveRecord();
                         Rec.ShowItemChargeAssgnt();
-                        CurrPage.Update(false);
+                        UpdatePage(false);
                     end;
                 }
-                field("Requested Delivery Date"; Rec."Requested Delivery Date")
+                field("Allocation Account No."; Rec."Selected Alloc. Account No.")
                 {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the date that the customer has asked for the order to be delivered.';
+                    ApplicationArea = All;
+                    Caption = 'Allocation Account No.';
+                    ToolTip = 'Specifies the allocation account number that will be used to distribute the amounts during the posting process.';
+                    Visible = UseAllocationAccountNumber;
+                    trigger OnValidate()
+                    var
+                        SalesAllocAccMgt: Codeunit "Sales Alloc. Acc. Mgt.";
+                    begin
+                        SalesAllocAccMgt.VerifySelectedAllocationAccountNo(Rec);
+                    end;
+                }
+                field("Job No."; Rec."Job No.")
+                {
+                    ApplicationArea = Jobs;
+                    Editable = false;
+                    ToolTip = 'Specifies the number of the related project. If you fill in this field and the Project Task No. field, then a project ledger entry will be posted together with the sales line.';
                     Visible = false;
 
                     trigger OnValidate()
                     begin
-                        UpdateForm(true);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                     end;
                 }
-                field("Promised Delivery Date"; Rec."Promised Delivery Date")
+                field("Job Task No."; Rec."Job Task No.")
                 {
-                    ApplicationArea = OrderPromising;
-                    ToolTip = 'Specifies the date that you have promised to deliver the order, as a result of the Order Promising function.';
+                    ApplicationArea = Jobs;
+                    Editable = false;
+                    ToolTip = 'Specifies the number of the related project task.';
                     Visible = false;
-
-                    trigger OnValidate()
-                    begin
-                        UpdateForm(true);
-                    end;
                 }
-                field("Planned Delivery Date"; Rec."Planned Delivery Date")
+                field("Job Contract Entry No."; Rec."Job Contract Entry No.")
                 {
-                    ApplicationArea = Planning;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies the planned date that the shipment will be delivered at the customer''s address. If the customer requests a delivery date, the program calculates whether the items will be available for delivery on this date. If the items are available, the planned delivery date will be the same as the requested delivery date. If not, the program calculates the date that the items are available for delivery and enters this date in the Planned Delivery Date field.';
-
-                    trigger OnValidate()
-                    begin
-                        UpdateForm(true);
-                    end;
+                    ApplicationArea = Jobs;
+                    Editable = false;
+                    ToolTip = 'Specifies the entry number of the project planning line that the sales line is linked to.';
+                    Visible = false;
                 }
-                field("Planned Shipment Date"; Rec."Planned Shipment Date")
-                {
-                    ApplicationArea = Planning;
-                    ToolTip = 'Specifies the date that the shipment should ship from the warehouse. If the customer requests a delivery date, the program calculates the planned shipment date by subtracting the shipping time from the requested delivery date. If the customer does not request a delivery date or the requested delivery date cannot be met, the program calculates the content of this field by adding the shipment time to the shipping date.';
-
-                    trigger OnValidate()
-                    begin
-                        UpdateForm(true);
-                    end;
-                }
-                field("Shipment Date"; Rec."Shipment Date")
+                field("Tax Category"; Rec."Tax Category")
                 {
                     ApplicationArea = Basic, Suite;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies when items on the document are shipped or were shipped. A shipment date is usually calculated from a requested delivery date plus lead time.';
-
-                    trigger OnValidate()
-                    begin
-                        ShipmentDateOnAfterValidate();
-                    end;
+                    ToolTip = 'Specifies the VAT category in connection with electronic document sending. For example, when you send sales documents through the PEPPOL service, the value in this field is used to populate several fields, such as the ClassifiedTaxCategory element in the Item group. It is also used to populate the TaxCategory element in both the TaxSubtotal and AllowanceCharge group. The number is based on the UNCL5305 standard.';
+                    Visible = false;
                 }
                 field("Shipping Agent Code"; Rec."Shipping Agent Code")
                 {
@@ -930,46 +710,10 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the code for the service, such as a one-day delivery, that is offered by the shipping agent.';
                     Visible = false;
                 }
-                field("Shipping Time"; Rec."Shipping Time")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies how long it takes from when the items are shipped from the warehouse to when they are delivered.';
-                    Visible = false;
-                }
                 field("Work Type Code"; Rec."Work Type Code")
                 {
                     ApplicationArea = Jobs;
                     ToolTip = 'Specifies which work type the resource applies to when the sale is related to a project.';
-                    Visible = false;
-                }
-                field("Whse. Outstanding Qty."; Rec."Whse. Outstanding Qty.")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies how many units on the sales order line remain to be handled in warehouse documents.';
-                    Visible = false;
-                }
-                field("Whse. Outstanding Qty. (Base)"; Rec."Whse. Outstanding Qty. (Base)")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies how many units on the sales order line remain to be handled in warehouse documents.';
-                    Visible = false;
-                }
-                field("ATO Whse. Outstanding Qty."; Rec."ATO Whse. Outstanding Qty.")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies how many assemble-to-order units on the sales order line need to be assembled and handled in warehouse documents.';
-                    Visible = false;
-                }
-                field("ATO Whse. Outstd. Qty. (Base)"; Rec."ATO Whse. Outstd. Qty. (Base)")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies how many assemble-to-order units on the sales order line remain to be assembled and handled in warehouse documents.';
-                    Visible = false;
-                }
-                field("Outbound Whse. Handling Time"; Rec."Outbound Whse. Handling Time")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies a date formula for the time it takes to get items ready to ship from this location. The time element is used in the calculation of the delivery date as follows: Shipment Date + Outbound Warehouse Handling Time = Planned Shipment Date + Shipping Time = Planned Delivery Date.';
                     Visible = false;
                 }
                 field("Blanket Order No."; Rec."Blanket Order No.")
@@ -1030,7 +774,6 @@ page 72107 "LFS Export Sales OrderSubform"
                 {
                     ApplicationArea = Suite;
                     Enabled = (Rec.Type <> Rec.Type::"Fixed Asset") and (Rec.Type <> Rec.Type::" ");
-                    TableRelation = "Deferral Template"."Deferral Code";
                     ToolTip = 'Specifies the deferral template that governs how revenue earned with this sales document is deferred to the different accounting periods when the good or service was delivered.';
                     Visible = false;
 
@@ -1056,7 +799,7 @@ page 72107 "LFS Export Sales OrderSubform"
                 field(ShortcutDimCode3; ShortcutDimCode[3])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 3, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 3, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
                     CaptionClass = '1,2,3';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1065,13 +808,15 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(3);
+                        Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 3);
                     end;
                 }
                 field(ShortcutDimCode4; ShortcutDimCode[4])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 4, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 4, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
                     CaptionClass = '1,2,4';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(4),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1080,13 +825,15 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(4);
+                        Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 4);
                     end;
                 }
                 field(ShortcutDimCode5; ShortcutDimCode[5])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 5, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 5, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
                     CaptionClass = '1,2,5';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(5),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1095,13 +842,15 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(5);
+                        Rec.ValidateShortcutDimCode(5, ShortcutDimCode[5]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 5);
                     end;
                 }
                 field(ShortcutDimCode6; ShortcutDimCode[6])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 6, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 6';
                     CaptionClass = '1,2,6';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(6),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1110,13 +859,15 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(6);
+                        Rec.ValidateShortcutDimCode(6, ShortcutDimCode[6]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 6);
                     end;
                 }
                 field(ShortcutDimCode7; ShortcutDimCode[7])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 7, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 7';
                     CaptionClass = '1,2,7';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(7),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1125,13 +876,15 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(7);
+                        Rec.ValidateShortcutDimCode(7, ShortcutDimCode[7]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 7);
                     end;
                 }
                 field(ShortcutDimCode8; ShortcutDimCode[8])
                 {
                     ApplicationArea = Dimensions;
-                    ToolTip = 'Specifies the code for Shortcut Dimension 8, which is one of the eight shortcut dimension codes that you set up in the General Ledger Setup window.';
+                    ToolTip = 'Specifies the code for Shortcut Dimension 8';
                     CaptionClass = '1,2,8';
                     TableRelation = "Dimension Value".Code where("Global Dimension No." = const(8),
                                                                   "Dimension Value Type" = const(Standard),
@@ -1140,7 +893,9 @@ page 72107 "LFS Export Sales OrderSubform"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimension(8);
+                        Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
+
+                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 8);
                     end;
                 }
                 field("Document No."; Rec."Document No.")
@@ -1183,23 +938,11 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the number of units per parcel of the item. In the sales statistics window, the number of units per parcel on the line helps to determine the total number of units for all the lines for the particular sales document.';
                     Visible = false;
                 }
-                field("Attached to Line No."; Rec."Attached to Line No.")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the line number to which this sales line is attached.';
-                    Visible = false;
-                }
-                field("Attached Lines Count"; Rec."Attached Lines Count")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the number of non-inventory product lines attached to the sales line.';
-                    Visible = AttachingLinesEnabled;
-                }
             }
-            group(Control51)
+            group(Control39)
             {
                 ShowCaption = false;
-                group(Control45)
+                group(Control33)
                 {
                     ShowCaption = false;
 #pragma warning disable AA0100
@@ -1249,7 +992,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         end;
                     }
                 }
-                group(Control28)
+                group(Control15)
                 {
                     ShowCaption = false;
                     field("Total Amount Excl. VAT"; TotalSalesLine.Amount)
@@ -1314,49 +1057,11 @@ page 72107 "LFS Export Sales OrderSubform"
                 {
                     Caption = 'F&unctions';
                     Image = "Action";
-#if not CLEAN25
                     action(GetPrice)
-                    {
-                        AccessByPermission = TableData "Sales Price" = R;
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Get Price';
-                        Ellipsis = true;
-                        Image = Price;
-                        ToolTip = 'Insert the lowest possible price in the Unit Price field according to any special price that you have set up.';
-                        Visible = not ExtendedPriceEnabled;
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation.';
-                        ObsoleteTag = '17.0';
-
-                        trigger OnAction()
-                        begin
-                            ShowPrices();
-                        end;
-                    }
-                    action("Get Li&ne Discount")
-                    {
-                        AccessByPermission = TableData "Sales Line Discount" = R;
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Get Li&ne Discount';
-                        Ellipsis = true;
-                        Image = LineDiscount;
-                        ToolTip = 'Insert the best possible discount in the Line Discount field according to any special discounts that you have set up.';
-                        Visible = not ExtendedPriceEnabled;
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation.';
-                        ObsoleteTag = '17.0';
-
-                        trigger OnAction()
-                        begin
-                            ShowLineDisc();
-                        end;
-                    }
-#endif
-                    action(GetPrices)
                     {
                         AccessByPermission = TableData "Sales Price Access" = R;
                         ApplicationArea = Basic, Suite;
-                        Caption = 'Get Price';
+                        Caption = 'Get &Price';
                         Ellipsis = true;
                         Image = Price;
                         Visible = ExtendedPriceEnabled;
@@ -1364,7 +1069,7 @@ page 72107 "LFS Export Sales OrderSubform"
 
                         trigger OnAction()
                         begin
-                            ShowPrices();
+                            ShowPrices()
                         end;
                     }
                     action(GetLineDiscount)
@@ -1379,10 +1084,10 @@ page 72107 "LFS Export Sales OrderSubform"
 
                         trigger OnAction()
                         begin
-                            ShowLineDisc();
+                            ShowLineDisc()
                         end;
                     }
-                    action(ExplodeBOM_Functions)
+                    action("E&xplode BOM")
                     {
                         AccessByPermission = TableData "BOM Component" = R;
                         ApplicationArea = Suite;
@@ -1396,12 +1101,13 @@ page 72107 "LFS Export Sales OrderSubform"
                             ExplodeBOM();
                         end;
                     }
-                    action("Insert Ext. Texts")
+                    action(InsertExtTexts)
                     {
                         AccessByPermission = TableData "Extended Text Header" = R;
-                        ApplicationArea = Basic, Suite;
+                        ApplicationArea = Suite;
                         Caption = 'Insert &Ext. Texts';
                         Image = Text;
+                        Scope = Repeater;
                         ToolTip = 'Insert the extended item description that is set up for the item that is being processed on the line.';
 
                         trigger OnAction()
@@ -1409,62 +1115,34 @@ page 72107 "LFS Export Sales OrderSubform"
                             InsertExtendedText(true);
                         end;
                     }
-                    action("Attach to Inventory Item Line")
+                    action(GetShipmentLines)
                     {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Attach to inventory item line';
-                        Image = Allocations;
-                        Visible = AttachingLinesEnabled;
-                        Enabled = AttachToInvtItemEnabled;
-                        ToolTip = 'Attach the selected non-inventory product lines to a inventory item line in this sales order.';
-
-                        trigger OnAction()
-                        var
-                            SelectedSalesLine: Record "Sales Line";
-                        begin
-                            CurrPage.SetSelectionFilter(SelectedSalesLine);
-                            Rec.AttachToInventoryItemLine(SelectedSalesLine);
-                        end;
-                    }
-                    action(Reserve)
-                    {
-                        ApplicationArea = Reservation;
-                        Caption = '&Reserve';
+                        AccessByPermission = TableData "Sales Shipment Header" = R;
+                        ApplicationArea = Suite;
+                        Caption = 'Get &Shipment Lines';
                         Ellipsis = true;
-                        Image = Reserve;
-                        Enabled = Rec.Type = Rec.Type::Item;
-                        ToolTip = 'Reserve the quantity of the selected item that is required on the document line from which you opened this page. This action is available only for lines that contain an item.';
+                        Image = Shipment;
+                        ToolTip = 'Select multiple shipments to the same customer because you want to combine them on one invoice.';
 
                         trigger OnAction()
                         begin
-                            Rec.Find();
-                            Rec.ShowReservation();
+                            GetShipment();
+                            RedistributeTotalsOnAfterValidate();
                         end;
                     }
-                    action(OrderTracking)
+                    action(GetJobPlanningLines)
                     {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Order &Tracking';
-                        Image = OrderTracking;
-                        Enabled = Rec.Type = Rec.Type::Item;
-                        ToolTip = 'Track the connection of a supply to its corresponding demand for the selected item. This can help you find the original demand that created a specific production order or purchase order. This action is available only for lines that contain an item.';
+                        AccessByPermission = TableData "Job Planning Line" = R;
+                        ApplicationArea = Jobs;
+                        Caption = 'Get &Project Planning Lines';
+                        Ellipsis = true;
+                        Image = JobLines;
+                        ToolTip = 'Select multiple planning lines to the same customer because you want to combine them on one invoice.';
 
                         trigger OnAction()
                         begin
-                            Rec.ShowOrderTracking();
-                        end;
-                    }
-                    action("Select Nonstoc&k Items")
-                    {
-                        AccessByPermission = TableData "Nonstock Item" = R;
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Select Ca&talog Items';
-                        Image = NonStockItem;
-                        ToolTip = 'View the list of catalog items that exist in the system. ';
-
-                        trigger OnAction()
-                        begin
-                            ShowNonstockItems();
+                            GetJobLines();
+                            RedistributeTotalsOnAfterValidate();
                         end;
                     }
                     action("Explode Charge Group")
@@ -1478,10 +1156,10 @@ page 72107 "LFS Export Sales OrderSubform"
                 }
                 group("Item Availability by")
                 {
-                    Enabled = Rec.Type = Rec.Type::Item;
                     Caption = 'Item Availability by';
                     Image = ItemAvailability;
-                    action("<Action3>")
+                    Enabled = Rec.Type = Rec.Type::Item;
+                    action("Event")
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Event';
@@ -1490,10 +1168,10 @@ page 72107 "LFS Export Sales OrderSubform"
 
                         trigger OnAction()
                         begin
-                            SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::"Event");
+                            SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::Period);
                         end;
                     }
-                    action(ItemAvailabilityByPeriod)
+                    action(Period)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Period';
@@ -1505,7 +1183,7 @@ page 72107 "LFS Export Sales OrderSubform"
                             SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::Period);
                         end;
                     }
-                    action(ItemAvailabilityByVariant)
+                    action(Variant)
                     {
                         ApplicationArea = Planning;
                         Caption = 'Variant';
@@ -1517,7 +1195,7 @@ page 72107 "LFS Export Sales OrderSubform"
                             SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::Variant);
                         end;
                     }
-                    action(ItemAvailabilityByLocation)
+                    action(Location)
                     {
                         AccessByPermission = TableData Location = R;
                         ApplicationArea = Location;
@@ -1537,9 +1215,9 @@ page 72107 "LFS Export Sales OrderSubform"
                         Image = LotInfo;
                         RunObject = Page "Item Availability by Lot No.";
                         RunPageLink = "No." = field("No."),
-                                      "Location Filter" = field("Location Code"),
-                                      "Variant Filter" = field("Variant Code");
-                        ToolTip = 'View the current and projected quantity of the item for each lot.';
+                            "Location Filter" = field("Location Code"),
+                            "Variant Filter" = field("Variant Code");
+                        ToolTip = 'View the current and projected quantity of the item in each lot.';
                     }
                     action("BOM Level")
                     {
@@ -1554,75 +1232,17 @@ page 72107 "LFS Export Sales OrderSubform"
                             SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::BOM);
                         end;
                     }
-                    action(ItemAvailabilityByUnitOfMeasure)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Unit of Measure';
-                        Image = UnitOfMeasure;
-                        ToolTip = 'View the item''s availability by a unit of measure.';
-
-                        trigger OnAction()
-                        begin
-                            SalesAvailabilityMgt.ShowItemAvailabilityFromSalesLine(Rec, "Item Availability Type"::UOM);
-                        end;
-                    }
                 }
                 group("Related Information")
                 {
                     Caption = 'Related Information';
-                    action("Reservation Entries")
-                    {
-                        AccessByPermission = TableData Item = R;
-                        ApplicationArea = Reservation;
-                        Caption = 'Reservation Entries';
-                        Image = ReservationLedger;
-                        Enabled = Rec.Type = Rec.Type::Item;
-                        ToolTip = 'View all reservation entries for the selected item. This action is available only for lines that contain an item.';
-
-                        trigger OnAction()
-                        begin
-                            Rec.ShowReservationEntries(true);
-                        end;
-                    }
-                    action(ItemTrackingLines)
-                    {
-                        ApplicationArea = ItemTracking;
-                        Caption = 'Item &Tracking Lines';
-                        Image = ItemTrackingLines;
-                        ShortCutKey = 'Ctrl+Alt+I';
-                        Enabled = Rec.Type = Rec.Type::Item;
-                        ToolTip = 'View or edit serial, lot and package numbers for the selected item. This action is available only for lines that contain an item.';
-
-                        trigger OnAction()
-                        begin
-                            Rec.OpenItemTrackingLines();
-                        end;
-                    }
-                    action(SelectItemSubstitution)
-                    {
-                        AccessByPermission = TableData "Item Substitution" = R;
-                        ApplicationArea = Suite;
-                        Caption = 'Select Item Substitution';
-                        Image = SelectItemSubstitution;
-                        ToolTip = 'Select another item that has been set up to be sold instead of the original item if it is unavailable.';
-
-                        trigger OnAction()
-                        begin
-                            CurrPage.SaveRecord();
-                            Rec.ShowItemSub();
-                            CurrPage.Update(true);
-                            if (Rec.Reserve = Rec.Reserve::Always) and (Rec."No." <> xRec."No.") then begin
-                                Rec.AutoReserve();
-                                CurrPage.Update(false);
-                            end;
-                        end;
-                    }
                     action(Dimensions)
                     {
                         AccessByPermission = TableData Dimension = R;
                         ApplicationArea = Dimensions;
                         Caption = 'Dimensions';
                         Image = Dimensions;
+                        Scope = Repeater;
                         ShortCutKey = 'Alt+D';
                         ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
 
@@ -1648,27 +1268,28 @@ page 72107 "LFS Export Sales OrderSubform"
                         AccessByPermission = TableData "Item Charge" = R;
                         ApplicationArea = ItemCharges;
                         Caption = 'Item Charge &Assignment';
-                        Image = ItemCosts;
                         Enabled = Rec.Type = Rec.Type::"Charge (Item)";
+                        Image = ItemCosts;
                         ToolTip = 'Record additional direct costs, for example for freight. This action is available only for Charge (Item) line types.';
 
                         trigger OnAction()
                         begin
-                            ItemChargeAssgnt();
+                            Rec.ShowItemChargeAssgnt();
                             SetItemChargeFieldsStyle();
                         end;
                     }
-                    action(OrderPromising)
+                    action("Item &Tracking Lines")
                     {
-                        AccessByPermission = TableData "Order Promising Line" = R;
-                        ApplicationArea = OrderPromising;
-                        Caption = 'Order &Promising';
-                        Image = OrderPromising;
-                        ToolTip = 'Calculate the shipment and delivery dates based on the item''s known and expected availability dates, and then promise the dates to the customer.';
+                        ApplicationArea = ItemTracking;
+                        Caption = 'Item &Tracking Lines';
+                        Image = ItemTrackingLines;
+                        ShortCutKey = 'Ctrl+Alt+I';
+                        Enabled = Rec.Type = Rec.Type::Item;
+                        ToolTip = 'View or edit serial, lot and package numbers for the selected item. This action is available only for lines that contain an item.';
 
                         trigger OnAction()
                         begin
-                            OrderPromisingLine();
+                            Rec.OpenItemTrackingLines();
                         end;
                     }
                     action(DocAttach)
@@ -1686,66 +1307,6 @@ page 72107 "LFS Export Sales OrderSubform"
                             RecRef.GetTable(Rec);
                             DocumentAttachmentDetails.OpenForRecRef(RecRef);
                             DocumentAttachmentDetails.RunModal();
-                        end;
-                    }
-                    group("Assemble to Order")
-                    {
-                        Caption = 'Assemble to Order';
-                        Image = AssemblyBOM;
-                        action(AssembleToOrderLines)
-                        {
-                            AccessByPermission = TableData "BOM Component" = R;
-                            Image = AssemblyOrder;
-                            ApplicationArea = Assembly;
-                            Caption = 'Assemble-to-Order Lines';
-                            ToolTip = 'View any linked assembly order lines if the documents represents an assemble-to-order sale.';
-
-                            trigger OnAction()
-                            begin
-                                Rec.ShowAsmToOrderLines();
-                            end;
-                        }
-                        action("Roll Up &Price")
-                        {
-                            AccessByPermission = TableData "BOM Component" = R;
-                            ApplicationArea = Assembly;
-                            Image = Price;
-                            Caption = 'Roll Up &Price';
-                            Ellipsis = true;
-                            ToolTip = 'Update the unit price of the assembly item according to any changes that you have made to the assembly components.';
-
-                            trigger OnAction()
-                            begin
-                                Rec.RollupAsmPrice();
-                                CalculateTotals();
-                            end;
-                        }
-                        action("Roll Up &Cost")
-                        {
-                            AccessByPermission = TableData "BOM Component" = R;
-                            ApplicationArea = Assembly;
-                            Image = Cost;
-                            Caption = 'Roll Up &Cost';
-                            Ellipsis = true;
-                            ToolTip = 'Update the unit cost of the assembly item according to any changes that you have made to the assembly components.';
-
-                            trigger OnAction()
-                            begin
-                                Rec.RollUpAsmCost();
-                                CalculateTotals();
-                            end;
-                        }
-                    }
-                    action(DocumentLineTracking)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Document &Line Tracking';
-                        Image = Navigate;
-                        ToolTip = 'View related open, posted, or archived documents or document lines. ';
-
-                        trigger OnAction()
-                        begin
-                            ShowDocumentLineTracking();
                         end;
                     }
                     action(DeferralSchedule)
@@ -1805,68 +1366,6 @@ page 72107 "LFS Export Sales OrderSubform"
                     }
                 }
             }
-            group("O&rder")
-            {
-                Caption = 'O&rder';
-                Image = "Order";
-                group("Dr&op Shipment")
-                {
-                    Caption = 'Dr&op Shipment';
-                    Image = Delivery;
-                    action("Purchase &Order")
-                    {
-                        AccessByPermission = TableData "Purch. Rcpt. Header" = R;
-                        ApplicationArea = Suite;
-                        Caption = 'Purchase &Order';
-                        Image = Document;
-                        ToolTip = 'View the purchase order that is linked to the sales order, for drop shipment or special order.';
-
-                        trigger OnAction()
-                        begin
-                            OpenPurchOrderForm();
-                        end;
-                    }
-                }
-                group("Speci&al Order")
-                {
-                    Caption = 'Speci&al Order';
-                    Image = SpecialOrder;
-                    action(OpenSpecialPurchaseOrder)
-                    {
-                        AccessByPermission = TableData "Purch. Rcpt. Header" = R;
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Purchase &Order';
-                        Image = Document;
-                        ToolTip = 'View the purchase order that is linked to the sales order, for drop shipment or special order.';
-
-                        trigger OnAction()
-                        begin
-                            OpenSpecialPurchOrderForm();
-                        end;
-                    }
-                }
-                action(BlanketOrder)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Blanket Order';
-                    Image = BlanketOrder;
-                    ToolTip = 'View the blanket sales order.';
-
-                    trigger OnAction()
-                    var
-                        SalesHeader: Record "Sales Header";
-                        BlanketSalesOrder: Page "Blanket Sales Order";
-                    begin
-                        Rec.TestField("Blanket Order No.");
-                        SalesHeader.SetRange("No.", Rec."Blanket Order No.");
-                        if not SalesHeader.IsEmpty() then begin
-                            BlanketSalesOrder.SetTableView(SalesHeader);
-                            BlanketSalesOrder.Editable := false;
-                            BlanketSalesOrder.Run();
-                        end;
-                    end;
-                }
-            }
             group(Errors)
             {
                 Caption = 'Issues';
@@ -1924,8 +1423,8 @@ page 72107 "LFS Export Sales OrderSubform"
                         EditinExcelFilters.AddFieldV2('Document_No', Enum::"Edit in Excel Filter Type"::Equal, Rec."Document No.", Enum::"Edit in Excel Edm Type"::"Edm.String");
 
                         EditinExcel.EditPageInExcel(
-                            'Sales_Order_Line',
-                            page::"Sales Order Subform",
+                            'Sales_InvoiceSalesLines',
+                            page::"Sales Invoice Subform",
                             EditinExcelFilters,
                             StrSubstNo(ExcelFileNameTxt, Rec."Document No."));
                     end;
@@ -1936,17 +1435,9 @@ page 72107 "LFS Export Sales OrderSubform"
     }
 
     trigger OnAfterGetCurrRecord()
-    var
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeAfterGetCurrRecord(Rec, IsHandled, TotalSalesHeader, Currency);
-        if IsHandled then
-            exit;
-
         GetTotalSalesHeader();
         CalculateTotals();
-        SetLocationCodeMandatory();
         UpdateEditableOnRow();
         UpdateTypeText();
         SetItemChargeFieldsStyle();
@@ -1955,10 +1446,9 @@ page 72107 "LFS Export Sales OrderSubform"
 
     trigger OnAfterGetRecord()
     var
-        Item: Record "Item";
+        Item: Record Item;
     begin
         Rec.ShowShortcutDimCode(ShortcutDimCode);
-        UpdateEditableOnRow();
         UpdateTypeText();
         SetItemChargeFieldsStyle();
         if Rec."Variant Code" = '' then
@@ -1968,13 +1458,18 @@ page 72107 "LFS Export Sales OrderSubform"
     trigger OnDeleteRecord(): Boolean
     var
         SalesLineReserve: Codeunit "Sales Line-Reserve";
+        IsHandled: Boolean;
+        Result: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeOnDeleteRecord(Rec, DocumentTotals, Result, IsHandled);
+        if IsHandled then
+            exit(Result);
+
         if (Rec.Quantity <> 0) and Rec.ItemExists(Rec."No.") then begin
             Commit();
             if not SalesLineReserve.DeleteLineConfirm(Rec) then
                 exit(false);
-
-            OnBeforeDeleteReservationEntries(Rec);
             SalesLineReserve.DeleteLine(Rec);
         end;
         DocumentTotals.SalesDocTotalsNotUpToDate();
@@ -1992,8 +1487,6 @@ page 72107 "LFS Export Sales OrderSubform"
     end;
 
     trigger OnInit()
-    var
-        ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
     begin
         SalesSetup.Get();
         Currency.InitRoundingPrecision();
@@ -2024,48 +1517,40 @@ page 72107 "LFS Export Sales OrderSubform"
 
         SetDimensionsVisibility();
         SetItemReferenceVisibility();
-        VisibleSustainabilityControls();
     end;
 
     var
         SalesSetup: Record "Sales & Receivables Setup";
         TempOptionLookupBuffer: Record "Option Lookup Buffer" temporary;
+        ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         SalesAvailabilityMgt: Codeunit "Sales Availability Mgt.";
-        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
-        // TCSSalesManagement: Codeunit "TCS Sales Management";
+        SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
         AmountWithDiscountAllowed: Decimal;
+        UpdateAllowedVar: Boolean;
 #pragma warning disable AA0074
-        Text001: Label 'You cannot use the Explode BOM function because a prepayment of the sales order has been invoiced.';
+        Text000: Label 'Unable to run this function while in View mode.';
 #pragma warning restore AA0074
         VariantCodeMandatory: Boolean;
-        LocationCodeVisible: Boolean;
         CurrPageIsEditable: Boolean;
-        BackgroundErrorCheck: Boolean;
-        ShowAllLinesEnabled: Boolean;
         IsSaaSExcelAddinEnabled: Boolean;
         ExtendedPriceEnabled: Boolean;
-        AttachingLinesEnabled: Boolean;
-        UpdateInvDiscountQst: Label 'One or more lines have been invoiced. The discount distributed to invoiced lines will not be taken into account.\\Do you want to update the invoice discount?';
+        IsHSNSACEditable: Boolean;
         ItemChargeStyleExpression: Text;
-        ItemChargeToHandleStyleExpression: Text;
         TypeAsText: Text[30];
         TypeAsTextFieldVisible: Boolean;
         UseAllocationAccountNumber: Boolean;
-        IsHSNSACEditable: Boolean;
         ActionOnlyAllowedForAllocationAccountsErr: Label 'This action is only available for lines that have Allocation Account set as Type.';
-        ExcelFileNameTxt: Label 'Sales Order %1 - Lines', Comment = '%1 = document number, ex. 10000';
+        ExcelFileNameTxt: Label 'Sales Invoice %1 - Lines', Comment = '%1 = document number, ex. 10000';
 
     protected var
         Currency: Record Currency;
         TotalSalesHeader: Record "Sales Header";
         TotalSalesLine: Record "Sales Line";
-        SustainabilitySetup: Record "Sustainability Setup";
         DocumentTotals: Codeunit "Document Totals";
         ShortcutDimCode: array[8] of Code[20];
         DimVisible1: Boolean;
         DimVisible2: Boolean;
-        SustainabilityVisible: Boolean;
         DimVisible3: Boolean;
         DimVisible4: Boolean;
         DimVisible5: Boolean;
@@ -2075,39 +1560,21 @@ page 72107 "LFS Export Sales OrderSubform"
         InvDiscAmountEditable: Boolean;
         InvoiceDiscountAmount: Decimal;
         InvoiceDiscountPct: Decimal;
-        IsCommentLine: Boolean;
         IsBlankNumber: Boolean;
-        ItemReferenceVisible: Boolean;
-        LocationCodeMandatory: Boolean;
+        BackgroundErrorCheck: Boolean;
+        ShowAllLinesEnabled: Boolean;
+        IsCommentLine: Boolean;
         SuppressTotals: Boolean;
+        ItemReferenceVisible: Boolean;
+        LocationCodeVisible: Boolean;
         UnitofMeasureCodeIsChangeable: Boolean;
-        AttachToInvtItemEnabled: Boolean;
         VATAmount: Decimal;
-
-    local procedure SetOpenPage()
-    var
-        Location: Record Location;
-        ServerSetting: Codeunit "Server Setting";
-        PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
-        DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
-    begin
-        OnBeforeSetOpenPage();
-
-        if Location.ReadPermission then
-            LocationCodeVisible := not Location.IsEmpty();
-
-        IsSaaSExcelAddinEnabled := ServerSetting.GetIsSaasExcelAddinEnabled();
-        SuppressTotals := CurrentClientType() = ClientType::ODataV4;
-        ExtendedPriceEnabled := PriceCalculationMgt.IsExtendedPriceCalculationEnabled();
-        BackgroundErrorCheck := DocumentErrorsMgt.BackgroundValidationEnabled();
-        AttachingLinesEnabled :=
-            SalesSetup."Auto Post Non-Invt. via Whse." = SalesSetup."Auto Post Non-Invt. via Whse."::"Attached/Assigned";
-    end;
 
     local Procedure SaveRecords()
     begin
         CurrPage.SaveRecord();
     end;
+
 
     local procedure FormatLine()
     var
@@ -2122,37 +1589,6 @@ page 72107 "LFS Export Sales OrderSubform"
     begin
         CurrPage.SaveRecord();
         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
-    end;
-
-    local procedure VisibleSustainabilityControls()
-    begin
-        SustainabilitySetup.GetRecordOnce();
-
-        SustainabilityVisible := SustainabilitySetup."Enable Value Chain Tracking";
-    end;
-
-    procedure ApproveCalcInvDisc()
-    begin
-        CODEUNIT.Run(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
-        DocumentTotals.SalesDocTotalsNotUpToDate();
-    end;
-
-    local procedure ValidateInvoiceDiscountAmount()
-    var
-        SalesHeader: Record "Sales Header";
-        ConfirmManagement: Codeunit "Confirm Management";
-    begin
-        if SuppressTotals then
-            exit;
-
-        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
-        if SalesHeader.InvoicedLineExists() then
-            if not ConfirmManagement.GetResponseOrDefault(UpdateInvDiscountQst, true) then
-                exit;
-
-        SalesCalcDiscountByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount, SalesHeader);
-        DocumentTotals.SalesDocTotalsNotUpToDate();
-        CurrPage.Update(false);
     end;
 
     procedure UpdateTaxAmountOnSalesLine(SalesLine: Record "Sales Line")
@@ -2178,6 +1614,53 @@ page 72107 "LFS Export Sales OrderSubform"
         end;
     end;
 
+    local procedure SetOpenPage()
+    var
+        Locations: Record Location;
+        ServerSetting: Codeunit "Server Setting";
+        PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
+        DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
+    begin
+        OnBeforeSetOpenPage();
+
+        if Locations.ReadPermission then
+            LocationCodeVisible := not Locations.IsEmpty();
+
+        IsSaaSExcelAddinEnabled := ServerSetting.GetIsSaasExcelAddinEnabled();
+        SuppressTotals := CurrentClientType() = ClientType::ODataV4;
+        ExtendedPriceEnabled := PriceCalculationMgt.IsExtendedPriceCalculationEnabled();
+        BackgroundErrorCheck := DocumentErrorsMgt.BackgroundValidationEnabled();
+    end;
+
+    procedure ApproveCalcInvDisc()
+    begin
+        CODEUNIT.Run(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
+        DocumentTotals.SalesDocTotalsNotUpToDate();
+    end;
+
+    local procedure ValidateInvoiceDiscountAmount()
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        if SuppressTotals then
+            exit;
+
+        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
+        SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount, SalesHeader);
+        DocumentTotals.SalesDocTotalsNotUpToDate();
+        CurrPage.Update(false);
+    end;
+
+    protected procedure QuantityOnAfterValidate()
+    begin
+        OnBeforeQuantityOnAfterValidate(Rec, xRec);
+
+        ValidateAutoReserve();
+        DeltaUpdateTotals();
+
+        OnAfterQuantityOnAfterValidate(Rec, xRec);
+    end;
+
     procedure CalcInvDisc()
     var
         SalesCalcDiscount: Codeunit "Sales-Calc. Discount";
@@ -2188,57 +1671,18 @@ page 72107 "LFS Export Sales OrderSubform"
 
     procedure ExplodeBOM()
     begin
-        if Rec."Prepmt. Amt. Inv." <> 0 then
-            Error(Text001);
         CODEUNIT.Run(CODEUNIT::"Sales-Explode BOM", Rec);
         DocumentTotals.SalesDocTotalsNotUpToDate();
     end;
 
-    procedure OpenPurchOrderForm()
-    var
-        PurchHeader: Record "Purchase Header";
-        PurchOrder: Page "Purchase Order";
-        IsHandled: Boolean;
-        PageEditable: Boolean;
+    procedure GetShipment()
     begin
-        IsHandled := false;
-        OnBeforeOpenPurchOrderForm(Rec, PageEditable, IsHandled);
-        if IsHandled then
-            exit;
-
-        Rec.TestField("Purchase Order No.");
-        PurchHeader.SetRange("No.", Rec."Purchase Order No.");
-        PurchOrder.SetTableView(PurchHeader);
-        PurchOrder.Editable := PageEditable;
-        PurchOrder.Run();
+        CODEUNIT.Run(CODEUNIT::"Sales-Get Shipment", Rec);
     end;
 
-    procedure OpenSpecialPurchOrderForm()
-    var
-        PurchHeader: Record "Purchase Header";
-        PurchRcptHeader: Record "Purch. Rcpt. Header";
-        PurchOrder: Page "Purchase Order";
-        IsHandled: Boolean;
-        PageEditable: Boolean;
+    local procedure GetJobLines()
     begin
-        IsHandled := false;
-        OnBeforeOpenSpecialPurchOrderForm(Rec, PageEditable, IsHandled);
-        if IsHandled then
-            exit;
-
-        Rec.TestField("Special Order Purchase No.");
-        PurchHeader.SetRange("No.", Rec."Special Order Purchase No.");
-        if not PurchHeader.IsEmpty() then begin
-            PurchOrder.SetTableView(PurchHeader);
-            PurchOrder.Editable := PageEditable;
-            PurchOrder.Run();
-        end else begin
-            PurchRcptHeader.SetRange("Order No.", Rec."Special Order Purchase No.");
-            if PurchRcptHeader.Count = 1 then
-                PAGE.Run(PAGE::"Posted Purchase Receipt", PurchRcptHeader)
-            else
-                PAGE.Run(PAGE::"Posted Purchase Receipts", PurchRcptHeader);
-        end;
+        Codeunit.Run(Codeunit::"Job-Process Plan. Lines", Rec);
     end;
 
     procedure InsertExtendedText(Unconditionally: Boolean)
@@ -2249,28 +1693,11 @@ page 72107 "LFS Export Sales OrderSubform"
             Commit();
             TransferExtendedText.InsertSalesExtText(Rec);
         end;
-        OnInsertExtendedTextOnAfterInsertSalesExtText(Rec);
-
         if TransferExtendedText.MakeUpdate() then
-            UpdateForm(true);
+            UpdatePage(true);
     end;
 
-    procedure ShowNonstockItems()
-    begin
-        Rec.ShowNonstock();
-    end;
-
-    procedure ShowTracking()
-    begin
-        Rec.ShowOrderTracking();
-    end;
-
-    procedure ItemChargeAssgnt()
-    begin
-        Rec.ShowItemChargeAssgnt();
-    end;
-
-    procedure UpdateForm(SetSaveRecord: Boolean)
+    procedure UpdatePage(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
     end;
@@ -2278,7 +1705,6 @@ page 72107 "LFS Export Sales OrderSubform"
     procedure ShowPrices()
     begin
         Rec.PickPrice();
-        UpdateForm(true);
     end;
 
     procedure ShowLineDisc()
@@ -2286,18 +1712,18 @@ page 72107 "LFS Export Sales OrderSubform"
         Rec.PickDiscount();
     end;
 
-    procedure OrderPromisingLine()
-    var
-        TempOrderPromisingLine: Record "Order Promising Line" temporary;
-        OrderPromisingLines: Page "Order Promising Lines";
+    procedure SetUpdateAllowed(UpdateAlloweds: Boolean)
     begin
-        TempOrderPromisingLine.SetRange("Source Type", Rec."Document Type");
-        TempOrderPromisingLine.SetRange("Source ID", Rec."Document No.");
-        TempOrderPromisingLine.SetRange("Source Line No.", Rec."Line No.");
+        UpdateAllowedVar := UpdateAlloweds;
+    end;
 
-        OrderPromisingLines.SetSource(TempOrderPromisingLine."Source Type"::Sales);
-        OrderPromisingLines.SetTableView(TempOrderPromisingLine);
-        OrderPromisingLines.RunModal();
+    procedure UpdateAllowed(): Boolean
+    begin
+        if UpdateAllowedVar = false then begin
+            Message(Text000);
+            exit(false);
+        end;
+        exit(true);
     end;
 
     procedure NoOnAfterValidate()
@@ -2305,139 +1731,35 @@ page 72107 "LFS Export Sales OrderSubform"
         OnBeforeNoOnAfterValidate(Rec, xRec);
 
         InsertExtendedText(false);
-        if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
-           (xRec."No." <> '')
-        then
+
+        if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and (xRec."No." <> '') then
             CurrPage.SaveRecord();
-
-        OnNoOnAfterValidateOnBeforeSaveAndAutoAsmToOrder();
-
-        SaveAndAutoAsmToOrder();
-
-        OnNoOnAfterValidateOnAfterSaveAndAutoAsmToOrder(Rec);
-
-        if Rec.Reserve = Rec.Reserve::Always then begin
-            CurrPage.SaveRecord();
-            if (Rec."Outstanding Qty. (Base)" <> 0) and (Rec."No." <> xRec."No.") then begin
-                Rec.AutoReserve();
-                CurrPage.Update(false);
-            end;
-        end;
 
         OnAfterNoOnAfterValidate(Rec, xRec);
     end;
 
-    protected procedure VariantCodeOnAfterValidate()
+    procedure UpdateEditableOnRow()
     begin
-        OnBeforeVariantCodeOnAfterValidate(Rec, xRec);
-        SaveAndAutoAsmToOrder();
+        IsCommentLine := not Rec.HasTypeToFillMandatoryFields();
+        IsBlankNumber := IsCommentLine;
+        UnitofMeasureCodeIsChangeable := not IsCommentLine;
+
+        CurrPageIsEditable := CurrPage.Editable();
+        InvDiscAmountEditable :=
+            CurrPageIsEditable and not SalesSetup."Calc. Inv. Discount" and
+            (TotalSalesHeader.Status = TotalSalesHeader.Status::Open);
+
+        OnAfterUpdateEditableOnRow(Rec, IsCommentLine, IsBlankNumber);
     end;
 
-    procedure LocationCodeOnAfterValidate()
+    protected procedure ValidateAutoReserve()
     begin
-        SaveAndAutoAsmToOrder();
-
-        if (Rec.Reserve = Rec.Reserve::Always) and
-           (Rec."Outstanding Qty. (Base)" <> 0) and
-           (Rec."Location Code" <> xRec."Location Code")
-        then begin
-            CurrPage.SaveRecord();
-            Rec.AutoReserve();
-            CurrPage.Update(false);
-        end;
-
-        OnAfterLocationCodeOnAfterValidate(Rec, xRec);
-    end;
-
-    protected procedure ReserveOnAfterValidate()
-    begin
-        if (Rec.Reserve = Rec.Reserve::Always) and (Rec."Outstanding Qty. (Base)" <> 0) then begin
-            CurrPage.SaveRecord();
-            Rec.AutoReserve();
-        end;
-    end;
-
-    protected procedure QuantityOnAfterValidate()
-    begin
-        OnBeforeQuantityOnAfterValidate(Rec, xRec);
-
-        if Rec.Type = Rec.Type::Item then begin
-            CurrPage.SaveRecord();
-            case Rec.Reserve of
-                Rec.Reserve::Always:
-                    Rec.AutoReserve();
-            end;
-        end;
-
-        OnAfterQuantityOnAfterValidate(Rec, xRec);
-    end;
-
-    protected procedure QtyToAsmToOrderOnAfterValidate()
-    var
-        IsHandled: Boolean;
-    begin
-        IsHandled := false;
-        OnBeforeQtyToAsmToOrderOnAfterValidate(Rec, IsHandled);
-        if IsHandled then
-            exit;
-
-        CurrPage.SaveRecord();
-        if Rec.Reserve = Rec.Reserve::Always then
-            Rec.AutoReserve();
-        CurrPage.Update(true);
-    end;
-
-    protected procedure UnitofMeasureCodeOnAfterValidate()
-    begin
-        OnBeforeUnitofMeasureCodeOnAfterValidate(Rec, xRec);
-
-        DeltaUpdateTotals();
         if Rec.Reserve = Rec.Reserve::Always then begin
             CurrPage.SaveRecord();
             Rec.AutoReserve();
-            CurrPage.Update(false);
         end;
 
-        OnAfterUnitofMeasureCodeOnAfterValidate(Rec, xRec);
-    end;
-
-    protected procedure ShipmentDateOnAfterValidate()
-    begin
-        if (Rec.Reserve = Rec.Reserve::Always) and
-           (Rec."Outstanding Qty. (Base)" <> 0) and
-           (Rec."Shipment Date" <> xRec."Shipment Date")
-        then begin
-            CurrPage.SaveRecord();
-            Rec.AutoReserve();
-            CurrPage.Update(false);
-        end else
-            CurrPage.Update(true);
-    end;
-
-    protected procedure SaveAndAutoAsmToOrder()
-    begin
-        if (Rec.Type = Rec.Type::Item) and Rec.IsAsmToOrderRequired() then begin
-            CurrPage.SaveRecord();
-            Rec.AutoAsmToOrder();
-            CurrPage.Update(false);
-        end;
-    end;
-
-    procedure ShowDocumentLineTracking()
-    var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
-    begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Sales Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
-    end;
-
-    local procedure SetLocationCodeMandatory()
-    var
-        InventorySetup: Record "Inventory Setup";
-    begin
-        LocationCodeMandatory := InventorySetup."Location Mandatory" and (Rec.Type = Rec.Type::Item);
+        OnAfterValidateAutoReserve(Rec, xRec);
     end;
 
     local procedure GetTotalSalesHeader()
@@ -2451,14 +1773,8 @@ page 72107 "LFS Export Sales OrderSubform"
     end;
 
     procedure CalculateTotals()
-    var
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeCalculateTotals(Rec, IsHandled, DocumentTotals, SuppressTotals);
-        if IsHandled then
-            exit;
-
+        OnBeforeCalculateTotals(TotalSalesLine, SuppressTotals);
         if SuppressTotals then
             exit;
 
@@ -2471,12 +1787,12 @@ page 72107 "LFS Export Sales OrderSubform"
     var
         IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeDeltaUpdateTotals(Rec, IsHandled, xRec, SuppressTotals);
-        if IsHandled then
+        if SuppressTotals then
             exit;
 
-        if SuppressTotals then
+        IsHandled := false;
+        OnBeforeDeltaUpdateTotals(Rec, xRec, SuppressTotals, IsHandled);
+        if IsHandled then
             exit;
 
         DocumentTotals.SalesDeltaUpdateTotals(Rec, xRec, TotalSalesLine, VATAmount, InvoiceDiscountAmount, InvoiceDiscountPct);
@@ -2503,29 +1819,10 @@ page 72107 "LFS Export Sales OrderSubform"
         CurrPage.Update(false);
     end;
 
-    procedure UpdateEditableOnRow()
-    begin
-        IsCommentLine := not Rec.HasTypeToFillMandatoryFields();
-        IsBlankNumber := IsCommentLine;
-        UnitofMeasureCodeIsChangeable := not IsCommentLine;
-        if AttachingLinesEnabled then
-            AttachToInvtItemEnabled := not Rec.IsInventoriableItem();
-
-        CurrPageIsEditable := CurrPage.Editable;
-        InvDiscAmountEditable :=
-            CurrPageIsEditable and not SalesSetup."Calc. Inv. Discount" and
-            (TotalSalesHeader.Status = TotalSalesHeader.Status::Open);
-
-        OnAfterUpdateEditableOnRow(Rec, IsCommentLine, IsBlankNumber);
-    end;
-
     procedure UpdateTypeText()
     var
         RecRef: RecordRef;
     begin
-        if not TypeAsTextFieldVisible then
-            exit;
-
         OnBeforeUpdateTypeText(Rec);
 
         RecRef.GetTable(Rec);
@@ -2535,13 +1832,8 @@ page 72107 "LFS Export Sales OrderSubform"
     local procedure SetItemChargeFieldsStyle()
     begin
         ItemChargeStyleExpression := '';
-        ItemChargeToHandleStyleExpression := '';
-        if Rec.AssignedItemCharge() then begin
-            if Rec."Qty. To Assign" <> (Rec.Quantity - Rec."Qty. Assigned") then
-                ItemChargeStyleExpression := 'Unfavorable';
-            if Rec."Item Charge Qty. to Handle" <> Rec."Qty. to Invoice" then
-                ItemChargeToHandleStyleExpression := 'Unfavorable';
-        end;
+        if Rec.AssignedItemCharge() then
+            ItemChargeStyleExpression := 'Unfavorable';
     end;
 
     local procedure SetDimensionsVisibility()
@@ -2585,28 +1877,8 @@ page 72107 "LFS Export Sales OrderSubform"
             Rec.Type := Rec.GetDefaultLineType();
     end;
 
-    local procedure ValidateShortcutDimension(DimIndex: Integer)
-    var
-        AssembleToOrderLink: Record "Assemble-to-Order Link";
-    begin
-        Rec.ValidateShortcutDimCode(DimIndex, ShortcutDimCode[DimIndex]);
-        AssembleToOrderLink.UpdateAsmDimFromSalesLine(Rec);
-
-        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, DimIndex);
-    end;
-
     [IntegrationEvent(true, false)]
     local procedure OnAfterNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnAfterQuantityOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnAfterLocationCodeOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
     begin
     end;
 
@@ -2616,17 +1888,12 @@ page 72107 "LFS Export Sales OrderSubform"
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnAfterValidateDescription(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
+    local procedure OnAfterValidateAutoReserve(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
     begin
     end;
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterValidateShortcutDimCode(var SalesLine: Record "Sales Line"; var ShortcutDimCode: array[8] of Code[20]; DimIndex: Integer)
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeDeleteReservationEntries(var SalesLine: Record "Sales Line");
     begin
     end;
 
@@ -2651,42 +1918,12 @@ page 72107 "LFS Export Sales OrderSubform"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnReferenceNoOnAfterLookup(var SalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnNoOnAfterValidateOnAfterSaveAndAutoAsmToOrder(var SalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnNoOnAfterValidateOnBeforeSaveAndAutoAsmToOrder()
+    local procedure OnBeforeCalculateTotals(var TotalSalesLine: Record "Sales Line"; var SuppressTotals: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeQtyToAsmToOrderOnAfterValidate(var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeAfterGetCurrRecord(var SalesLine: Record "Sales Line"; var IsHandled: Boolean; var TotalSalesHeader: Record "Sales Header"; var Currency: Record Currency)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCalculateTotals(var SalesLine: Record "Sales Line"; var IsHandled: Boolean; var DocumentTotals: Codeunit "Document Totals"; var SuppressTotals: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeOpenPurchOrderForm(SalesOrderLine: Record "Sales Line"; var PageEditable: Boolean; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeOpenSpecialPurchOrderForm(SalesOrderLine: Record "Sales Line"; var PageEditable: Boolean; var IsHandled: Boolean)
+    local procedure OnItemReferenceNoOnLookup(var SalesLine: Record "Sales Line")
     begin
     end;
 
@@ -2701,37 +1938,22 @@ page 72107 "LFS Export Sales OrderSubform"
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnBeforeDeltaUpdateTotals(var SalesLine: Record "Sales Line"; var IsHandled: Boolean; xSalesLine: Record "Sales Line"; SuppressTotals: Boolean)
+    local procedure OnBeforeDeltaUpdateTotals(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line"; SuppressTotals: Boolean; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnBeforeQuantityOnAfterValidate(var SalesLine: Record "Sales Line"; var xSalesLine: Record "Sales Line")
+    local procedure OnBeforeOnDeleteRecord(var SalesLine: Record "Sales Line"; var DocumentTotals: Codeunit "Document Totals"; var Result: Boolean; var IsHandled: Boolean);
     begin
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnBeforeVariantCodeOnAfterValidate(var SalesLine: Record "Sales Line"; var xSalesLine: Record "Sales Line")
+    local procedure OnBeforeQuantityOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
     begin
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnBeforeUnitofMeasureCodeOnAfterValidate(var SalesLine: Record "Sales Line"; var xSalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnAfterUnitofMeasureCodeOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnInsertExtendedTextOnAfterInsertSalesExtText(SalesLine: Record "Sales Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeValidateNo(var SalesLine: Record "Sales Line"; var xSalesLine: Record "Sales Line"; var IsHandled: Boolean)
+    local procedure OnAfterQuantityOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
     begin
     end;
 }

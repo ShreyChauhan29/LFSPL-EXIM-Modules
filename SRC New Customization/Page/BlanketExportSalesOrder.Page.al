@@ -12,7 +12,6 @@ using Microsoft.Sales.Comment;
 using Microsoft.Sales.Customer;
 using Microsoft.Finance.GST.Sales;
 using Microsoft.Finance.TaxEngine.TaxTypeHandler;
-using LFSEximModule.LFSPLEXIMModule;
 using Microsoft.Sales.Pricing;
 using Microsoft.Utilities;
 using System.Automation;
