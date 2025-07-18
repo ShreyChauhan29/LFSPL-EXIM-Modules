@@ -86,34 +86,40 @@ page 72048 "LFS Posted Export Information"
                     ToolTip = 'Specifies the ETA';
                 }
             }
-            // group("Other Information")
-            // {
-            //     field("LFS HS Code"; Rec."LFS HS Code")
-            //     {
-            //         Caption = 'Party HS Code';
-            //         ApplicationArea = All;
-            //         ToolTip = 'Specifies the Party HS Code';
-            //     }
-            // field("Description of Goods"; Rec."LFS Description of Goods")
-            // {
-            //     ApplicationArea = all;
-            //     Caption = 'Container Details';
-            //     ToolTip = 'Specifies the Container Details';
-            // }
-            // field("Sp Notes"; Rec."LFS Sp Notes")
-            // {
-            //     ApplicationArea = all;
-            //     ToolTip = 'Specifies the Sp Notes';
-            // }
-            //     field("LFS Palletization"; Rec."LFS Palletization")
-            //     {
-            //         ToolTip = 'Specifies the value of the Palletization (If Required) field.', Comment = '%';
-            //     }
-            //     field("LFS Pre-Shipment Sample"; Rec."LFS Pre-Shipment Sample")
-            //     {
-            //         ToolTip = 'Specifies the value of the Pre-Shipment Sample Required field.', Comment = '%';
-            //     }
-            // }
+            group("Other Information")
+            {
+                //     field("LFS HS Code"; Rec."LFS HS Code")
+                //     {
+                //         Caption = 'Party HS Code';
+                //         ApplicationArea = All;
+                //         ToolTip = 'Specifies the Party HS Code';
+                //     }
+                field("Description of Goods"; Rec."LFS Description of Goods")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Description of Goods';
+                    MultiLine = true;
+                }
+                // field("Sp Notes"; Rec."LFS Sp Notes")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Sp Notes';
+                // }
+                //     field("LFS Palletization"; Rec."LFS Palletization")
+                //     {
+                //         ToolTip = 'Specifies the value of the Palletization (If Required) field.', Comment = '%';
+                //     }
+                //     field("LFS Pre-Shipment Sample"; Rec."LFS Pre-Shipment Sample")
+                //     {
+                //         ToolTip = 'Specifies the value of the Pre-Shipment Sample Required field.', Comment = '%';
+                //     }
+                field("Shipping Marks"; Rec."LFS Shipping Marks")
+                {
+                    ToolTip = 'Specifies the Shipping Marks';
+                    MultiLine = true;
+                    ApplicationArea = all;
+                }
+            }
             group(Agent)
             {
                 field("Agent Code"; Rec."LFS Agent Code")
@@ -218,10 +224,7 @@ page 72048 "LFS Posted Export Information"
             //     {
             //         ToolTip = 'Specifies the Shipping Period';
             //     }
-            //     field("Shipping Marks"; Rec."LFS Shipping Marks")
-            //     {
-            //         ToolTip = 'Specifies the Shipping Marks';
-            //     }
+            //     
             // }
             group("Information")
             {
@@ -342,6 +345,14 @@ page 72048 "LFS Posted Export Information"
                 field("LFS Notify Party"; Rec."LFS Notify Party")
                 {
                     ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                    ApplicationArea = All;
+                    MultiLine = true;
+                }
+                field("LFS Consignee Address"; Rec."LFS Consignee Address")
+                {
+                    ToolTip = 'Specifies the value of the Consignee Address field.', Comment = '%';
+                    MultiLine = true;
+                    ApplicationArea = All;
                 }
                 //     field("LFS Receiver Code"; Rec."LFS Receiver Code")
                 //     {

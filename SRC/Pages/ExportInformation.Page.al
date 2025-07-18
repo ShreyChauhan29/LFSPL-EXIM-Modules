@@ -88,48 +88,75 @@ page 72040 "LFS Export Information"
                     ToolTip = 'Specifies the ETA';
                 }
             }
-            // group("Other Information")
-            // {
-            // field("LFS HS Code"; Rec."LFS HS Code")
-            // {
-            //     Caption = 'Party HS Code';
-            //     ToolTip = 'Specifies the Party HS Code';
-            //     ApplicationArea = All;
-            // }
-            // field("Description of Goods"; Rec."LFS Description of Goods")
-            // {
-            //     ApplicationArea = all;
-            //     Caption = 'Container Details';
-            //     ToolTip = 'Specifies the Container Details';
-            // }
-            // field("Sp Notes"; Rec."LFS Sp Notes")
-            // {
-            //     ApplicationArea = all;
-            //     ToolTip = 'Specifies the Sp Notes';
-            // }
-            // field("LFS Palletization"; Rec."LFS Palletization")
-            // {
-            //     ToolTip = 'Specifies the value of the Palletization (If Required) field.', Comment = '%';
-            // }
-            // field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
-            // {
-            //     ApplicationArea = all;
-            //     Caption = 'Forms Requirement';
-            //     ToolTip = 'Specifies the Forms Requirement';
-            // }
-            // field("LFS Pre-Shipment Sample"; Rec."LFS Pre-Shipment Sample")
-            // {
-            //     ToolTip = 'Specifies the value of the Pre-Shipment Sample Required field.', Comment = '%';
-            // }
-            // field("LFS Shipping Marks"; Rec."LFS Shipping Marks")
-            // {
-            //     ToolTip = 'Specifies the value of the EX_Shipping Marks Required field.', Comment = '%';
-            // }
-            // field("LFS Notes"; Rec."LFS Notes")
-            // {
-            //     ToolTip = 'Specifies the value of the Notes field.', Comment = '%';
-            // }
-            // }
+            group("Other Information")
+            {
+                // field("LFS HS Code"; Rec."LFS HS Code")
+                // {
+                //     Caption = 'Party HS Code';
+                //     ToolTip = 'Specifies the Party HS Code';
+                //     ApplicationArea = All;
+                // }
+                // field("LFS Description of Goods"; Rec."LFS Description of Goods")
+                // {
+                //     MultiLine = true;
+                //     ToolTip = 'Specifies the Description of Goods';
+                //     ApplicationArea = All;
+                // }
+                field("LFS Description of Goods"; "LFS Description of Goods")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    Caption = 'Description of Goods';
+                    ToolTip = 'Specifies the products or service being offered.';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetLFSDescriptionofGoods("LFS Description of Goods");
+                    end;
+                }
+                // field("Sp Notes"; Rec."LFS Sp Notes")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Sp Notes';
+                // }
+                // field("LFS Palletization"; Rec."LFS Palletization")
+                // {
+                //     ToolTip = 'Specifies the value of the Palletization (If Required) field.', Comment = '%';
+                // }
+                // field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
+                // {
+                //     ApplicationArea = all;
+                //     Caption = 'Forms Requirement';
+                //     ToolTip = 'Specifies the Forms Requirement';
+                // }
+                // field("LFS Pre-Shipment Sample"; Rec."LFS Pre-Shipment Sample")
+                // {
+                //     ToolTip = 'Specifies the value of the Pre-Shipment Sample Required field.', Comment = '%';
+                // }
+                // field("LFS Shipping Marks"; Rec."LFS Shipping Marks")
+                // {
+                //     MultiLine = true;
+                //     ToolTip = 'Specifies the value of the EX_Shipping Marks Required field.', Comment = '%';
+                // }
+                field("LFS Shipping Marks"; "LFS Shipping Marks")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    Caption = 'Shipping Marks';
+                    ToolTip = 'Specifies the products or service being offered.';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetLFSShippingMarks("LFS Shipping Marks");
+                    end;
+                }
+                // field("LFS Notes"; Rec."LFS Notes")
+                // {
+                //     ToolTip = 'Specifies the value of the Notes field.', Comment = '%';
+                // }
+            }
             group(Agent)
             {
                 Editable = IsEditable;
@@ -375,9 +402,40 @@ page 72040 "LFS Export Information"
                     ToolTip = 'Specifies the value of the Consignee Name & Address field.', Comment = '%';
                     ApplicationArea = All;
                 }
-                field("LFS Notify Party"; Rec."LFS Notify Party")
+                // field("LFS Notify Party"; Rec."LFS Notify Party")
+                // {
+                //     ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                // }
+                // field("LFS Consignee Address";Rec."LFS Consignee Address")
+                // {
+                //     ToolTip = 'Specifies the value of the Consignee Address field.', Comment = '%';
+                //     ApplicationArea = All;
+                // }
+                field("LFS Notify Party"; "LFS Notify Party")
                 {
-                    ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    Caption = 'Notify Party';
+                    ToolTip = 'Specifies the products or service being offered.';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetLFSNotifyParty("LFS Notify Party");
+                    end;
+                }
+                field("LFS Consignee Address"; "LFS Consignee Address")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    Caption = 'Consignee Address';
+                    ToolTip = 'Specifies the products or service being offered.';
+
+                    trigger OnValidate()
+                    begin
+                        Rec.SetLFSConsigneeAddress("LFS Consignee Address");
+                    end;
                 }
                 //     field("LFS Receiver Code"; Rec."LFS Receiver Code")
                 //     {
@@ -736,4 +794,5 @@ page 72040 "LFS Export Information"
 
     var
         IsEditable: Boolean;
+        "LFS Description of Goods", "LFS Shipping Marks", "LFS Notify Party", "LFS Consignee Address" : Text;
 }

@@ -146,7 +146,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Shipping Period';
         // }
-        field(25; "LFS Shipping Marks"; Text[1000])
+        field(25; "LFS Shipping Marks"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Shipping Marks';
@@ -234,7 +234,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Our Bank';
         // }
-        field(45; "LFS Description of Goods"; Text[100])
+        field(45; "LFS Description of Goods"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Description of Goods';
@@ -289,7 +289,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'No. & Kind Of PKDG';
         // }
-        field(56; "LFS Notify Party"; Text[50])
+        field(56; "LFS Notify Party"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Notify Party';
@@ -429,11 +429,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Terms of Delivery';
         // }
-        // field(82; "LFS Notes"; Text[50])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Notes';
-        // }
+        field(82; "LFS Notes"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Notes';
+        }
         // field(83; "LFS Bank Details"; Text[50])
         // {
         //     DataClassification = CustomerContent;
@@ -740,6 +740,11 @@ table 72032 "LFS Posted Export Information"
         field(144; "LFS Consignee Name & Address"; Text[2000])
         {
             Caption = 'Consignee Name & Address';
+            DataClassification = CustomerContent;
+        }
+        field(145; "LFS Consignee Address"; Blob)
+        {
+            Caption = 'Consignee Address';
             DataClassification = CustomerContent;
         }
     }

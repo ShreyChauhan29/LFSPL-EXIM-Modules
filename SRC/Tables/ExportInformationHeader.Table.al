@@ -157,7 +157,7 @@ table 72026 "LFS Export Information Header"
         //     DataClassification = CustomerContent;
         //     Caption = 'Shipping Period';
         // }
-        field(25; "LFS Shipping Marks"; Text[1000])
+        field(25; "LFS Shipping Marks"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Shipping Marks';
@@ -245,7 +245,7 @@ table 72026 "LFS Export Information Header"
         //     DataClassification = CustomerContent;
         //     Caption = 'Our Bank';
         // }
-        field(45; "LFS Description of Goods"; Text[100])
+        field(45; "LFS Description of Goods"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Description of Goods';
@@ -300,7 +300,7 @@ table 72026 "LFS Export Information Header"
         //     DataClassification = CustomerContent;
         //     Caption = 'No. & Kind Of PKDG';
         // }
-        field(56; "LFS Notify Party"; Text[50])
+        field(56; "LFS Notify Party"; Blob)
         {
             DataClassification = CustomerContent;
             Caption = 'Notify Party';
@@ -431,11 +431,11 @@ table 72026 "LFS Export Information Header"
         //     DataClassification = CustomerContent;
         //     Caption = 'Terms of Delivery';
         // }
-        // field(82; "LFS Notes"; Text[250])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Carton Dimensions';
-        // }
+        field(82; "LFS Notes"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Notes';
+        }
         // field(83; "LFS Bank Details"; Text[50])
         // {
         //     DataClassification = CustomerContent;
@@ -743,6 +743,11 @@ table 72026 "LFS Export Information Header"
             Caption = 'Consignee Name & Address';
             DataClassification = CustomerContent;
         }
+        field(145; "LFS Consignee Address"; Blob)
+        {
+            Caption = 'Consignee Address';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys
@@ -762,4 +767,45 @@ table 72026 "LFS Export Information Header"
             exit;
         MailManagement.CheckValidEmailAddresses("LFS Email");
     end;
+
+    procedure SetLFSDescriptionofGoods(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("LFS Description of Goods");
+        "LFS Description of Goods".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
+    end;
+
+    procedure SetLFSShippingMarks(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("LFS Shipping Marks");
+        "LFS Shipping Marks".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
+    end;
+
+    procedure SetLFSConsigneeAddress(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("LFS Consignee Address");
+        "LFS Consignee Address".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
+    end;
+
+    procedure SetLFSNotifyParty(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("LFS Notify Party");
+        "LFS Notify Party".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
+    end;
+
 }
