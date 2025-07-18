@@ -18,6 +18,7 @@ page 72073 "LFS Posted Export Invoices"
     SourceTableView = where("LFS EXIM Type" = const(Export));
     InsertAllowed = false;
     DeleteAllowed = false;
+    CardPageId = "LFS Posted Export Invoice";
 
     layout
     {

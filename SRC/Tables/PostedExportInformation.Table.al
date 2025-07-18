@@ -146,11 +146,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Shipping Period';
         // }
-        // field(25; "LFS Shipping Marks"; Text[1000])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Shipping Marks';
-        // }
+        field(25; "LFS Shipping Marks"; Text[1000])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Shipping Marks';
+        }
         // field(26; "LFS Your Ref No."; Text[80])
         // {
         //     DataClassification = CustomerContent;
@@ -234,11 +234,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Our Bank';
         // }
-        // field(45; "LFS Description of Goods"; Text[100])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Description of Goods';
-        // }
+        field(45; "LFS Description of Goods"; Text[100])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Description of Goods';
+        }
         // field(46; "LFS Customer (Bank Details)"; Text[50])
         // {
         //     DataClassification = CustomerContent;
@@ -274,11 +274,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Doc Remarks';
         // }
-        // field(53; "LFS Container No."; Code[50])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Container No.';
-        // }
+        field(53; "LFS Container No."; Code[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Container No.';
+        }
         // field(54; "LFS Seller Name & Address"; Text[200])
         // {
         //     DataClassification = CustomerContent;
@@ -289,11 +289,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'No. & Kind Of PKDG';
         // }
-        // field(56; "LFS Notify Party"; Text[50])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Notify Party';
-        // }
+        field(56; "LFS Notify Party"; Text[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Notify Party';
+        }
         // field(57; "LFS Receiver Code"; Code[20])
         // {
         //     DataClassification = CustomerContent;
@@ -319,11 +319,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'HS Code';
         // }
-        // field(62; "LFS Seal Code"; Code[20])
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Seal Code';
-        // }
+        field(62; "LFS Seal Code"; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Seal Code';
+        }
         // field(63; "LFS Tare"; Text[50])
         // {
         //     DataClassification = CustomerContent;
@@ -727,6 +727,21 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Customer Order Date 2';
         // }
+        field(142; "LFS Container Size"; Code[50])
+        {
+            Caption = 'Container Size';
+            DataClassification = CustomerContent;
+        }
+        field(143; "LFS RFID Seal No."; Code[50])
+        {
+            Caption = 'RFID Seal No.';
+            DataClassification = CustomerContent;
+        }
+        field(144; "LFS Consignee Name & Address"; Text[2000])
+        {
+            Caption = 'Consignee Name & Address';
+            DataClassification = CustomerContent;
+        }
     }
 
     keys

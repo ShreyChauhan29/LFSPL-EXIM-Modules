@@ -7,6 +7,9 @@ using Microsoft.Finance.AllocationAccount.Sales;
 using Microsoft.Finance.Currency;
 using Microsoft.Finance.Deferral;
 using Microsoft.Finance.Dimension;
+using Microsoft.Finance.GST.Sales;
+using Microsoft.Finance.TaxBase;
+using Microsoft.Finance.ChargeGroup.ChargeOnSales;
 using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Foundation.Navigate;
@@ -17,6 +20,7 @@ using Microsoft.Inventory.Item.Catalog;
 using Microsoft.Inventory.Item.Substitution;
 using Microsoft.Inventory.Location;
 using Microsoft.Inventory.Setup;
+using Microsoft.Sustainability.Setup;
 using Microsoft.Pricing.Calculation;
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.History;
@@ -60,6 +64,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         UpdateEditableOnRow();
                         UpdateTypeText();
                         DeltaUpdateTotals();
+                        FormatLine();
                     end;
                 }
                 field(FilteredTypeField; TypeAsText)
@@ -105,7 +110,8 @@ page 72107 "LFS Export Sales OrderSubform"
                         QuantityOnAfterValidate();
                         UpdateTypeText();
                         DeltaUpdateTotals();
-
+                        SaveRecords();
+                        FormatLine();
                         CurrPage.Update();
                     end;
                 }
@@ -306,9 +312,30 @@ page 72107 "LFS Export Sales OrderSubform"
                     Visible = LocationCodeVisible;
 
                     trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
                     begin
                         LocationCodeOnAfterValidate();
                         DeltaUpdateTotals();
+
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                        UpdateTaxAmount();
+                    end;
+                }
+                field("TCS Nature of Collection"; Rec."TCS Nature of Collection")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the TCS Nature of collection on which the TCS will be calculated for the Sales Order.';
+                    trigger OnLookup(var Text: Text): Boolean
+                    begin
+                        Rec.AllowedNocLookup(Rec, Rec."Sell-to Customer No.");
+                        UpdateTaxAmount();
+                    end;
+
+                    trigger OnValidate()
+                    begin
+                        UpdateTaxAmount();
                     end;
                 }
                 field("Bin Code"; Rec."Bin Code")
@@ -316,6 +343,12 @@ page 72107 "LFS Export Sales OrderSubform"
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies the bin where the items are picked or put away.';
                     Visible = false;
+                }
+                field("Sust. Account No."; Rec."Sust. Account No.")
+                {
+                    Visible = SustainabilityVisible;
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the value of the Sustainability Account No. field.';
                 }
                 field(Control50; Rec.Reserve)
                 {
@@ -347,6 +380,8 @@ page 72107 "LFS Export Sales OrderSubform"
                         SetItemChargeFieldsStyle();
                         if SalesSetup."Calc. Inv. Discount" and (Rec.Quantity = 0) then
                             CurrPage.Update(false);
+                        SaveRecords();
+                        UpdateTaxAmount();
                     end;
                 }
                 field("Qty. to Assemble to Order"; Rec."Qty. to Assemble to Order")
@@ -418,6 +453,7 @@ page 72107 "LFS Export Sales OrderSubform"
                     trigger OnValidate()
                     begin
                         DeltaUpdateTotals();
+                        UpdateTaxAmount();
                     end;
                 }
                 field("Tax Liable"; Rec."Tax Liable")
@@ -459,8 +495,23 @@ page 72107 "LFS Export Sales OrderSubform"
                     ToolTip = 'Specifies the discount percentage that is granted for the item on the line.';
 
                     trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
                     begin
                         DeltaUpdateTotals();
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field(FOC; Rec.FOC)
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if FOC is applicable on Current Line.';
+
+                    trigger OnValidate()
+                    begin
+                        if Rec.FOC then
+                            Rec.Validate("Line Discount %", 100);
                     end;
                 }
                 field("Line Amount"; Rec."Line Amount")
@@ -475,6 +526,124 @@ page 72107 "LFS Export Sales OrderSubform"
                     trigger OnValidate()
                     begin
                         DeltaUpdateTotals();
+                    end;
+                }
+                field("GST Group Code"; Rec."GST Group Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = IsHSNSACEditable;
+                    ToolTip = 'Specifies an identifier for the GST group used to calculate and post GST.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        Rec.Validate("GST Place Of Supply");
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("HSN/SAC Code"; Rec."HSN/SAC Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = IsHSNSACEditable;
+                    ToolTip = 'Specifies the HSN/SAC code for the calculation of GST on Sales line.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("GST on Assessable Value"; Rec."GST on Assessable Value")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if GST is applicable on assessable value.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("GST Assessable Value (LCY)"; Rec."GST Assessable Value (LCY)")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the GST Assessable value of the line.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("Unit Price Incl. of Tax"; Rec."Unit Price Incl. of Tax")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies unit prices are inclusive of tax on the line.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("GST Place Of Supply"; Rec."GST Place Of Supply")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the GST Place of Supply. For example Bill-to Address, Ship-to Address, Location Address etc.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("Price Exclusive of Tax"; Rec."Price Inclusive of Tax")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies if the price in inclusive of tax for the line.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                    end;
+                }
+                field("GST Jurisdiction Type"; Rec."GST Jurisdiction Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the type related to GST jurisdiction. For example, interstate/intrastate.';
+                }
+                field("GST Group Type"; Rec."GST Group Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if the GST group is assigned for goods or service.';
+
+                }
+                field(Exempted; Rec.Exempted)
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies if the current line is exempted of GST Calculation.';
+
+                    trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                     end;
                 }
                 field("Allocation Account No."; Rec."Selected Alloc. Account No.")
@@ -505,8 +674,12 @@ page 72107 "LFS Export Sales OrderSubform"
                     Visible = false;
 
                     trigger OnValidate()
+                    var
+                        CalculateTax: Codeunit "Calculate Tax";
                     begin
                         DeltaUpdateTotals();
+                        CurrPage.SaveRecord();
+                        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                     end;
                 }
                 field("Prepayment %"; Rec."Prepayment %")
@@ -624,6 +797,12 @@ page 72107 "LFS Export Sales OrderSubform"
                         SalesInvoiceLine.SetFilter(Quantity, '<>%1', 0);
                         Page.RunModal(0, SalesInvoiceLine);
                     end;
+                }
+                field("Total CO2e"; Rec."Total CO2e")
+                {
+                    Visible = SustainabilityVisible;
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the value of the Total CO2e field.';
                 }
                 field("Prepmt Amt to Deduct"; Rec."Prepmt Amt to Deduct")
                 {
@@ -1049,6 +1228,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         begin
                             DocumentTotals.SalesDocTotalsNotUpToDate();
                             ValidateInvoiceDiscountAmount();
+                            // TCSSalesManagement.UpdateTaxAmountOnSalesLine(Rec);
                         end;
                     }
                     field("Invoice Disc. Pct."; InvoiceDiscountPct)
@@ -1065,6 +1245,7 @@ page 72107 "LFS Export Sales OrderSubform"
                             AmountWithDiscountAllowed := DocumentTotals.CalcTotalSalesAmountOnlyDiscountAllowed(Rec);
                             InvoiceDiscountAmount := Round(AmountWithDiscountAllowed * InvoiceDiscountPct / 100, Currency."Amount Rounding Precision");
                             ValidateInvoiceDiscountAmount();
+                            // TCSSalesManagement.UpdateTaxAmountOnSalesLine(Rec);
                         end;
                     }
                 }
@@ -1285,6 +1466,14 @@ page 72107 "LFS Export Sales OrderSubform"
                         begin
                             ShowNonstockItems();
                         end;
+                    }
+                    action("Explode Charge Group")
+                    {
+                        Caption = 'Explode Charge Group';
+                        ApplicationArea = Basic, Suite;
+                        Image = Insert;
+                        ToolTip = 'Insert the charge group lines.';
+                        RunObject = codeunit "Sales Charge Group Management";
                     }
                 }
                 group("Item Availability by")
@@ -1761,6 +1950,7 @@ page 72107 "LFS Export Sales OrderSubform"
         UpdateEditableOnRow();
         UpdateTypeText();
         SetItemChargeFieldsStyle();
+        FormatLine();
     end;
 
     trigger OnAfterGetRecord()
@@ -1834,6 +2024,7 @@ page 72107 "LFS Export Sales OrderSubform"
 
         SetDimensionsVisibility();
         SetItemReferenceVisibility();
+        VisibleSustainabilityControls();
     end;
 
     var
@@ -1842,6 +2033,7 @@ page 72107 "LFS Export Sales OrderSubform"
         TransferExtendedText: Codeunit "Transfer Extended Text";
         SalesAvailabilityMgt: Codeunit "Sales Availability Mgt.";
         SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
+        // TCSSalesManagement: Codeunit "TCS Sales Management";
         AmountWithDiscountAllowed: Decimal;
 #pragma warning disable AA0074
         Text001: Label 'You cannot use the Explode BOM function because a prepayment of the sales order has been invoiced.';
@@ -1860,6 +2052,7 @@ page 72107 "LFS Export Sales OrderSubform"
         TypeAsText: Text[30];
         TypeAsTextFieldVisible: Boolean;
         UseAllocationAccountNumber: Boolean;
+        IsHSNSACEditable: Boolean;
         ActionOnlyAllowedForAllocationAccountsErr: Label 'This action is only available for lines that have Allocation Account set as Type.';
         ExcelFileNameTxt: Label 'Sales Order %1 - Lines', Comment = '%1 = document number, ex. 10000';
 
@@ -1867,10 +2060,12 @@ page 72107 "LFS Export Sales OrderSubform"
         Currency: Record Currency;
         TotalSalesHeader: Record "Sales Header";
         TotalSalesLine: Record "Sales Line";
+        SustainabilitySetup: Record "Sustainability Setup";
         DocumentTotals: Codeunit "Document Totals";
         ShortcutDimCode: array[8] of Code[20];
         DimVisible1: Boolean;
         DimVisible2: Boolean;
+        SustainabilityVisible: Boolean;
         DimVisible3: Boolean;
         DimVisible4: Boolean;
         DimVisible5: Boolean;
@@ -1907,6 +2102,33 @@ page 72107 "LFS Export Sales OrderSubform"
         BackgroundErrorCheck := DocumentErrorsMgt.BackgroundValidationEnabled();
         AttachingLinesEnabled :=
             SalesSetup."Auto Post Non-Invt. via Whse." = SalesSetup."Auto Post Non-Invt. via Whse."::"Attached/Assigned";
+    end;
+
+    local Procedure SaveRecords()
+    begin
+        CurrPage.SaveRecord();
+    end;
+
+    local procedure FormatLine()
+    var
+        GSTSalesValidation: Codeunit "GST Sales Validation";
+    begin
+        GSTSalesValidation.SetHSNSACEditable(Rec, IsHSNSACEditable);
+    end;
+
+    local procedure UpdateTaxAmount()
+    var
+        CalculateTax: Codeunit "Calculate Tax";
+    begin
+        CurrPage.SaveRecord();
+        CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+    end;
+
+    local procedure VisibleSustainabilityControls()
+    begin
+        SustainabilitySetup.GetRecordOnce();
+
+        SustainabilityVisible := SustainabilitySetup."Enable Value Chain Tracking";
     end;
 
     procedure ApproveCalcInvDisc()

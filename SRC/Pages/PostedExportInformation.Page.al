@@ -223,217 +223,181 @@ page 72048 "LFS Posted Export Information"
             //         ToolTip = 'Specifies the Shipping Marks';
             //     }
             // }
-            // group("Information")
-            // {
-            //     field("Your Ref No."; Rec."LFS Your Ref No.")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Your Ref No.';
-            //         Visible = false;
-            //     }
-            //     field("Your Ref Date"; Rec."LFS Your Ref Date")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Your Ref Date';
-            //         Visible = false;
-            //     }
-            //     field("P.O Receive Date"; Rec."LFS P.O Receive Date")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the P.O Receive Date';
-            //     }
-            //     field("Delivery Terms"; Rec."LFS Delivery Terms")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Delivery Terms';
-            //         Visible = false;
-            //     }
-            //     field("Dispatch Mode"; Rec."LFS Dispatch Mode")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Dispatch Mode';
-            //         Visible = false;
-            //     }
-            //     field("Delivery Address"; Rec."LFS Delivery Address")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Delivery Address';
-            //         Visible = false;
-            //     }
-            //     field("Buyer(if other then Consignee)"; Rec."LFS BuyerotherthanConsignee")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Buyer(if other then Consignee)';
-            //         Visible = false;
-            //     }
-            //     field("Payment Terms"; Rec."LFS Payment Terms")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Payment Terms';
-            //         Visible = false;
-            //     }
-            //     field("Contact Person1"; Rec."LFS Contact Person1")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Contact Person';
-            //         Visible = false;
-            //     }
-
-            //     field("Port of Loading"; Rec."LFS Port of Loading")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Port of Loading';
-            //         Visible = false;
-            //     }
-            //     field("Port of Discharge"; Rec."LFS Port of Discharge")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Port of Discharge';
-            //         Visible = false;
-            //     }
-            //     field("Ship By"; Rec."LFS Ship By")
-            //     {
-            //         ToolTip = 'Specifies the Ship By';
-            //         ApplicationArea = all;
-            //         Visible = false;
-            //     }
-            //     field("Paying Agent"; Rec."LFS Paying Agent")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Paying Agent';
-            //     }
-            //     field("Our Bank"; Rec."LFS Our Bank")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Our Bank';
-            //     }
-            //     field("Customer (Bank Details)"; Rec."LFS Customer (Bank Details)")
-            //     {
-            //         ApplicationArea = ALL;
-            //         ToolTip = 'Specifies the Customer (Bank Details)';
-            //         Visible = false;
-            //     }
-            //     field("Dispatch Instruction"; Rec."LFS Dispatch Instruction")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Dispatch Instruction';
-            //     }
-            //     field("Carrier Name"; Rec."LFS Carrier Name")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Carrier Name';
-            //     }
-            //     field("S.B. No"; Rec."LFS S.B. No")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the S.B. No';
-            //         Visible = false;
-            //     }
-            //     field("S.B. Date"; Rec."LFS S.B. Date")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the S.B. Date';
-            //         Visible = false;
-            //     }
-            //     field("Trade Benefit"; rec."LFS Trade Benefit")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Trade Benefit';
-            //     }
-            //     field("Doc Remarks"; rec."LFS Doc Remarks")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Doc Remarks';
-            //         Visible = false;
-            //     }
-            //     field("Container No."; rec."LFS Container No.")
-            //     {
-            //         ToolTip = 'Specifies the Container No.';
-            //         ApplicationArea = all;
-            //     }
-            //     field("Seller Name & Address"; rec."LFS Seller Name & Address")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Seller Name & Address';
-            //         Visible = false;
-            //     }
-            //     field("No. & Kind Of PKDG"; rec."LFS No. & Kind Of PKDG")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the No. & Kind Of PKDG';
-            //     }
-            //     field("Notify Party"; rec."LFS Notify Party")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Notify Party';
-            //     }
-            //     field("Receiver Code"; rec."LFS Receiver Code")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Receiver Code';
-            //         Visible = false;
-            //     }
-            //     field("Tarrif No."; rec."LFS Tarrif No.")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Tarrif No.';
-            //         Visible = false;
-            //     }
-            //     field("Agreement No."; rec."LFS Agreement No.")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Agreement No.';
-            //         Visible = false;
-            //     }
-            //     field("ISO Code"; rec."LFS ISO Code")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the ISO Code';
-            //         Visible = false;
-            //     }
-            //     field("HS Code"; rec."LFS HS Code")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the HS Code';
-            //         Visible = false;
-            //     }
-            //     field("Seal Code"; rec."LFS Seal Code")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Seal Code';
-            //         Visible = false;
-            //     }
-            //     field(Tare; rec."LFS Tare")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Tare ';
-            //         Visible = false;
-            //     }
-            //     field("Packed in"; rec."LFS Packed in")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Packed in';
-            //         Visible = false;
-            //     }
-            //     field("Consignment ID"; rec."LFS Consignment ID")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the Consignment ID';
-            //         Visible = false;
-            //     }
-            //     field("CP Week"; rec."LFS CP Week")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the CP Week';
-            //         Visible = false;
-            //     }
-            //     field("BRC No."; rec."LFS BRC No.")
-            //     {
-            //         ApplicationArea = all;
-            //         ToolTip = 'Specifies the BRC No.';
-            //     }
-
-            // }
+            group("Information")
+            {
+                //     field("LFS Your Ref No."; Rec."LFS Your Ref No.")
+                //     {
+                //         ToolTip = 'Specifies the value of the Your Ref No. field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Your Ref Date"; Rec."LFS Your Ref Date")
+                //     {
+                //         ToolTip = 'Specifies the value of the Your Ref Date field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS P.O Receive Date"; Rec."LFS P.O Receive Date")
+                //     {
+                //         ToolTip = 'Specifies the value of the P.O Receive Date field.', Comment = '%';
+                //     }
+                //     field("LFS Delivery Terms"; Rec."LFS Delivery Terms")
+                //     {
+                //         ToolTip = 'Specifies the value of the Delivery Terms field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Delivery Address"; Rec."LFS Delivery Address")
+                //     {
+                //         ToolTip = 'Specifies the value of the Delivery Address field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Dispatch Mode"; Rec."LFS Dispatch Mode")
+                //     {
+                //         ToolTip = 'Specifies the value of the Dispatch Mode field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS BuyerOtherthanConsignee"; Rec."LFS BuyerOtherthanConsignee")
+                //     {
+                //         ToolTip = 'Specifies the value of the Buyer(if other than Consignee) field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Payment Terms"; Rec."LFS Payment Terms")
+                //     {
+                //         ToolTip = 'Specifies the value of the Payment Terms field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Contact Person1"; Rec."LFS Contact Person1")
+                //     {
+                //         ToolTip = 'Specifies the value of the Contact Person1 field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Ship By"; Rec."LFS Ship By")
+                //     {
+                //         ToolTip = 'Specifies the value of the Ship By field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Paying Agent"; Rec."LFS Paying Agent")
+                //     {
+                //         ToolTip = 'Specifies the value of the Paying Agent field.', Comment = '%';
+                //     }
+                //     field("LFS Our Bank"; Rec."LFS Our Bank")
+                //     {
+                //         ToolTip = 'Specifies the value of the Our Bank field.', Comment = '%';
+                //     }
+                //     field("LFS Customer (Bank Details)"; Rec."LFS Customer (Bank Details)")
+                //     {
+                //         ToolTip = 'Specifies the value of the Customer (Bank Details) field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Carrier Name"; Rec."LFS Carrier Name")
+                //     {
+                //         ToolTip = 'Specifies the value of the Carrier Name field.', Comment = '%';
+                //     }
+                //     field("LFS S.B. No"; Rec."LFS S.B. No")
+                //     {
+                //         ToolTip = 'Specifies the value of the S.B. No. field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS S.B. Date"; Rec."LFS S.B. Date")
+                //     {
+                //         ToolTip = 'Specifies the value of the S.B. Date field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Trade Benefit"; Rec."LFS Trade Benefit")
+                //     {
+                //         ToolTip = 'Specifies the value of the Trade Benefit field.', Comment = '%';
+                //     }
+                //     field("LFS Doc Remarks"; Rec."LFS Doc Remarks")
+                //     {
+                //         ToolTip = 'Specifies the value of the Doc Remarks field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                field("LFS Container No."; Rec."LFS Container No.")
+                {
+                    ToolTip = 'Specifies the value of the Container No. field.', Comment = '%';
+                }
+                field("LFS Container Size"; Rec."LFS Container Size")
+                {
+                    ToolTip = 'Specifies the value of the Container Size field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                field("LFS RFID Seal No."; Rec."LFS RFID Seal No.")
+                {
+                    ToolTip = 'Specifies the value of the RFID Seal No. field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                //     field("LFS Seller Name & Address"; Rec."LFS Seller Name & Address")
+                //     {
+                //         ToolTip = 'Specifies the value of the No. & Kind Of PKDG field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS No. & Kind Of PKDG"; Rec."LFS No. & Kind Of PKDG")
+                //     {
+                //         ToolTip = 'Specifies the value of the No. & Kind Of PKDG field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                field("LFS Consignee Name & Address"; Rec."LFS Consignee Name & Address")
+                {
+                    ToolTip = 'Specifies the value of the Consignee Name & Address field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                field("LFS Notify Party"; Rec."LFS Notify Party")
+                {
+                    ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                }
+                //     field("LFS Receiver Code"; Rec."LFS Receiver Code")
+                //     {
+                //         ToolTip = 'Specifies the value of the Receiver Code field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Tarrif No."; Rec."LFS Tarrif No.")
+                //     {
+                //         ToolTip = 'Specifies the value of the Tarrif No. field.', Comment = '%';
+                //     }
+                //     field("LFS Agreement No."; Rec."LFS Agreement No.")
+                //     {
+                //         ToolTip = 'Specifies the value of the Agreement No. field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS ISO Code"; Rec."LFS ISO Code")
+                //     {
+                //         ToolTip = 'Specifies the value of the ISO Code field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("HS Code"; rec."LFS HS Code")
+                //     {
+                //         ApplicationArea = all;
+                //         ToolTip = 'Specifies the value of the HS Code field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                field("LFS Seal Code"; Rec."LFS Seal Code")
+                {
+                    ToolTip = 'Specifies the value of the Seal Code field.', Comment = '%';
+                    Visible = false;
+                }
+                //     field("LFS Tare"; Rec."LFS Tare")
+                //     {
+                //         ToolTip = 'Specifies the value of the Tare field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Packed in"; Rec."LFS Packed in")
+                //     {
+                //         ToolTip = 'Specifies the value of the Packed in field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS Consignment ID"; Rec."LFS Consignment ID")
+                //     {
+                //         ToolTip = 'Specifies the value of the Consignment ID field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS CP Week"; Rec."LFS CP Week")
+                //     {
+                //         ToolTip = 'Specifies the value of the CP Week field.', Comment = '%';
+                //         Visible = false;
+                //     }
+                //     field("LFS BRC No."; Rec."LFS BRC No.")
+                //     {
+                //         ToolTip = 'Specifies the value of the BRC No. field.', Comment = '%';
+                //     }
+            }
             // group("Shipping Details")
             // {
             //     field("LFS Price Term"; Rec."LFS Price Term")
