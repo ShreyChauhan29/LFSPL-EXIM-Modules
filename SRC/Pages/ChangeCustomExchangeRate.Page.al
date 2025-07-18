@@ -188,7 +188,7 @@ page 72088 "LFSChange Custom Exchange Rate"
         Date3 := Date;
         UseExchRate := FALSE;
         FAUsed := FALSE;
-        EximType := EType;
+        EximType := EType.AsInteger();
     end;
 
     procedure GetParameter(): Decimal
