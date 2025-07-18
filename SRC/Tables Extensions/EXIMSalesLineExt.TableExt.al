@@ -458,19 +458,42 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
         modify(Quantity)
         {
             trigger OnAfterValidate()
+            var
+                SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
                 CalculateRoDTEPandDDB();
+
+                SalesHeader.Reset();
+                SalesHeader.SetRange("No.", Rec."Document No.");
+                SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
+                if not SalesHeader.IsEmpty() then begin
+                    if (Rec."LFS FOB Currency Factor" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                end else
+                    if (Rec."LFS FOB Currency Factor" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
             end;
         }
 
         modify("Unit Price")
         {
             trigger OnAfterValidate()
+            var
+                SalesHeader: Record "Sales Header";
             begin
-                // Details(Rec."No.");
                 FOBvalue();
                 CalculateRoDTEPandDDB();
+
+                SalesHeader.Reset();
+                SalesHeader.SetRange("No.", Rec."Document No.");
+                SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
+                if not SalesHeader.IsEmpty() then begin
+                    if (Rec."LFS FOB Currency Factor" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                end else
+                    if (Rec."LFS FOB Currency Factor" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
             end;
         }
         modify("Line Amount")

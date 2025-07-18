@@ -137,6 +137,27 @@ table 72020 "LFS EXIM License Lines"
             Caption = 'Exim Group No.';
             Editable = true;
         }
+        field(26; "LFS FOB in USD"; decimal)
+        {
+            Caption = 'FOB in USD';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 2;
+            Editable = false;
+        }
+        field(27; "LFS FOB Currency Code"; Code[10])
+        {
+            Caption = 'FOB Currency Code';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "LFSEXIM Currency Exchange Rate";
+        }
+        field(28; "LFS FOB Currency Factor"; Decimal)
+        {
+            Caption = 'FOB Currency Factor';
+            DataClassification = CustomerContent;
+            DecimalPlaces = 0 : 15;
+            MinValue = 0;
+        }
     }
 
     keys

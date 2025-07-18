@@ -93,6 +93,18 @@ page 72026 "LFS EXIM License Line Subpage"
                     ToolTip = 'Specifies the value of the FOB LCY Value field.';
                     ApplicationArea = All;
                 }
+                field("LFS FOB in USD"; Rec."LFS FOB in USD")
+                {
+                    ToolTip = 'Specifies the value of the FOB in USD field.', Comment = '%';
+                }
+                field("LFS FOB Currency Code"; Rec."LFS FOB Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
+                }
+                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
                 field("CIF LCY Value"; Rec."LFS CIF LCY Value")
                 {
                     ToolTip = 'Specifies the value of the CIF LCY Value field.';
