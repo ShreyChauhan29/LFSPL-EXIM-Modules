@@ -1228,7 +1228,7 @@ page 72107 "LFS Export Sales OrderSubform"
                         begin
                             DocumentTotals.SalesDocTotalsNotUpToDate();
                             ValidateInvoiceDiscountAmount();
-                            // TCSSalesManagement.UpdateTaxAmountOnSalesLine(Rec);
+                            UpdateTaxAmountOnSalesLine(Rec);
                         end;
                     }
                     field("Invoice Disc. Pct."; InvoiceDiscountPct)
@@ -1245,7 +1245,7 @@ page 72107 "LFS Export Sales OrderSubform"
                             AmountWithDiscountAllowed := DocumentTotals.CalcTotalSalesAmountOnlyDiscountAllowed(Rec);
                             InvoiceDiscountAmount := Round(AmountWithDiscountAllowed * InvoiceDiscountPct / 100, Currency."Amount Rounding Precision");
                             ValidateInvoiceDiscountAmount();
-                            // TCSSalesManagement.UpdateTaxAmountOnSalesLine(Rec);
+                            UpdateTaxAmountOnSalesLine(Rec);
                         end;
                     }
                 }
@@ -2153,6 +2153,29 @@ page 72107 "LFS Export Sales OrderSubform"
         SalesCalcDiscountByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountAmount, SalesHeader);
         DocumentTotals.SalesDocTotalsNotUpToDate();
         CurrPage.Update(false);
+    end;
+
+    procedure UpdateTaxAmountOnSalesLine(SalesLine: Record "Sales Line")
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
+        UpdateTaxAmount(SalesHeader);
+    end;
+
+    procedure UpdateTaxAmount(SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+        CalculateTax: Codeunit "Calculate Tax";
+    begin
+        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        if SalesLine.FindSet() then begin
+            SalesHeader.Modify();
+            repeat
+                CalculateTax.CallTaxEngineOnSalesLine(SalesLine, SalesLine);
+            until SalesLine.Next() = 0;
+        end;
     end;
 
     procedure CalcInvDisc()
