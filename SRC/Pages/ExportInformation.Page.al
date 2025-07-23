@@ -1,6 +1,7 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 using Microsoft.Purchases.Vendor;
 using Microsoft.Sales.Document;
+using System.Reflection;
 
 page 72040 "LFS Export Information"
 {
@@ -112,7 +113,7 @@ page 72040 "LFS Export Information"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetLFSDescriptionofGoods("LFS Description of Goods");
+                        SetLFSDescriptionofGoods("LFS Description of Goods");
                     end;
                 }
                 // field("Sp Notes"; Rec."LFS Sp Notes")
@@ -149,7 +150,7 @@ page 72040 "LFS Export Information"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetLFSShippingMarks("LFS Shipping Marks");
+                        SetLFSShippingMarks("LFS Shipping Marks");
                     end;
                 }
                 // field("LFS Notes"; Rec."LFS Notes")
@@ -406,10 +407,17 @@ page 72040 "LFS Export Information"
                 // {
                 //     ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
                 // }
-                // field("LFS Consignee Address";Rec."LFS Consignee Address")
+                // field("LFS Consignee Address"; Rec."LFS Consignee Address")
                 // {
+                //     MultiLine = true;
                 //     ToolTip = 'Specifies the value of the Consignee Address field.', Comment = '%';
                 //     ApplicationArea = All;
+                // }
+                // field("LFS Notify Party"; Rec."LFS Notify Party")
+                // {
+                //     MultiLine = true;
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
                 // }
                 field("LFS Notify Party"; "LFS Notify Party")
                 {
@@ -421,7 +429,7 @@ page 72040 "LFS Export Information"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetLFSNotifyParty("LFS Notify Party");
+                        SetLFSNotifyParty("LFS Notify Party");
                     end;
                 }
                 field("LFS Consignee Address"; "LFS Consignee Address")
@@ -434,7 +442,7 @@ page 72040 "LFS Export Information"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetLFSConsigneeAddress("LFS Consignee Address");
+                        SetLFSConsigneeAddress("LFS Consignee Address");
                     end;
                 }
                 //     field("LFS Receiver Code"; Rec."LFS Receiver Code")
@@ -778,6 +786,10 @@ page 72040 "LFS Export Information"
     var
         SalesHeader: Record "Sales Header";
     begin
+        "LFS Description of Goods" := GetLFSDescriptionofGoods();
+        "LFS Consignee Address" := GetLFSConsigneeAddress();
+        "LFS Notify Party" := GetLFSNotifyParty();
+        "LFS Shipping Marks" := GetLFSShippingMarks();
         IsEditable := true;
         salesheader.SetRange("No.", Rec."LFS Document No.");
         if salesheader.FindFirst() then begin
@@ -795,4 +807,84 @@ page 72040 "LFS Export Information"
     var
         IsEditable: Boolean;
         "LFS Description of Goods", "LFS Shipping Marks", "LFS Notify Party", "LFS Consignee Address" : Text;
+
+    procedure GetLFSDescriptionofGoods() NewLargeText: Text;
+    var
+        TypeHelper: Codeunit "Type Helper";
+        DescriptionofGoodsTextInS: InStream;
+    begin
+        Rec.CalcFields("LFS Description of Goods");
+        Rec."LFS Description of Goods".CreateInStream(DescriptionofGoodsTextInS, TextEncoding::UTF8);
+        // DescriptionofGoodsTextInS.Read("LFS Description of Goods");
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(DescriptionofGoodsTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Description of Goods")));
+    end;
+
+    procedure GetLFSShippingMarks() NewLargeText: Text;
+    var
+        TypeHelper: Codeunit "Type Helper";
+        ShippingMarksTextInS: InStream;
+    begin
+        Rec.CalcFields("LFS Shipping Marks");
+        Rec."LFS Shipping Marks".CreateInStream(ShippingMarksTextInS, TextEncoding::UTF8);
+        // ShippingMarksTextInS.Read("LFS Shipping Marks");
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ShippingMarksTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Shipping Marks")));
+    end;
+
+    procedure GetLFSConsigneeAddress() NewLargeText: Text;
+    var
+        TypeHelper: Codeunit "Type Helper";
+        ConsigneeAddressTextInS: InStream;
+    begin
+        Rec.CalcFields("LFS Consignee Address");
+        Rec."LFS Consignee Address".CreateInStream(ConsigneeAddressTextInS, TextEncoding::UTF8);
+        // ConsigneeAddressTextInS.Read("LFS Consignee Address");
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ConsigneeAddressTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Consignee Address")));
+    end;
+
+    procedure GetLFSNotifyParty() NewLargeText: Text;
+    var
+        TypeHelper: Codeunit "Type Helper";
+        NotifyPartyTextInS: InStream;
+    begin
+        Rec.CalcFields("LFS Notify Party");
+        Rec."LFS Notify Party".CreateInStream(NotifyPartyTextInS, TextEncoding::UTF8);
+        // NotifyPartyTextInS.Read("LFS Notify Party");
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(NotifyPartyTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Notify Party")));
+    end;
+
+    procedure SetLFSDescriptionofGoods(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Rec."LFS Description of Goods".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Rec.Modify(true);
+    end;
+
+    procedure SetLFSShippingMarks(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Rec."LFS Shipping Marks".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Rec.Modify(true);
+    end;
+
+    procedure SetLFSConsigneeAddress(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Rec."LFS Consignee Address".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Rec.Modify(true);
+    end;
+
+    procedure SetLFSNotifyParty(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Rec."LFS Notify Party".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Rec.Modify(true);
+    end;
 }

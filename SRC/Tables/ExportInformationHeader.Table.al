@@ -768,44 +768,4 @@ table 72026 "LFS Export Information Header"
         MailManagement.CheckValidEmailAddresses("LFS Email");
     end;
 
-    procedure SetLFSDescriptionofGoods(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Clear("LFS Description of Goods");
-        "LFS Description of Goods".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Modify();
-    end;
-
-    procedure SetLFSShippingMarks(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Clear("LFS Shipping Marks");
-        "LFS Shipping Marks".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Modify();
-    end;
-
-    procedure SetLFSConsigneeAddress(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Clear("LFS Consignee Address");
-        "LFS Consignee Address".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Modify();
-    end;
-
-    procedure SetLFSNotifyParty(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Clear("LFS Notify Party");
-        "LFS Notify Party".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Modify();
-    end;
-
 }
