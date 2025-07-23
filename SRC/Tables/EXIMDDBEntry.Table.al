@@ -256,20 +256,20 @@ table 72005 "LFS EXIM DDB Entry"
             Editable = false;
             Caption = 'BL Date/ AWB Date';
         }
-        field(46; "LFS Shipping Bill No."; Code[50])
-        {
-            FieldClass = FlowField;
-            CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill No." where("LFS Document No." = field("LFS Document No.")));
-            Editable = false;
-            Caption = 'Shipping Bill No.';
-        }
-        field(47; "LFS Shipping Bill Date"; Date)
-        {
-            FieldClass = FlowField;
-            CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill Date" where("LFS Document No." = field("LFS Document No.")));
-            Editable = false;
-            Caption = 'Shipping Bill Date';
-        }
+        // field(46; "LFS Shipping Bill No."; Code[50])
+        // {
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill No." where("LFS Document No." = field("LFS Document No.")));
+        //     Editable = false;
+        //     Caption = 'Shipping Bill No.';
+        // }
+        // field(47; "LFS Shipping Bill Date"; Date)
+        // {
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill Date" where("LFS Document No." = field("LFS Document No.")));
+        //     Editable = false;
+        //     Caption = 'Shipping Bill Date';
+        // }
         field(48; "LFS HSN No."; Code[10])
         {
             DataClassification = CustomerContent;

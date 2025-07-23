@@ -319,10 +319,10 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'HS Code';
         // }
-        field(62; "LFS Seal Code"; Code[20])
+        field(62; "LFS Container Seal No."; Code[50])
         {
             DataClassification = CustomerContent;
-            Caption = 'Seal Code';
+            Caption = 'Container Seal No.';
         }
         // field(63; "LFS Tare"; Text[50])
         // {
@@ -520,16 +520,16 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Bank Ref No.';
         // }
-        field(101; "LFS Shipping Bill No."; Code[50])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Shipping Bill No.';
-        }
-        field(102; "LFS Shipping Bill Date"; Date)
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Shipping Bill Date';
-        }
+        // field(101; "LFS Shipping Bill No."; Code[50])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Shipping Bill No.';
+        // }
+        // field(102; "LFS Shipping Bill Date"; Date)
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Shipping Bill Date';
+        // }
         field(103; "LFS Insurance No."; Code[50])
         {
             DataClassification = CustomerContent;

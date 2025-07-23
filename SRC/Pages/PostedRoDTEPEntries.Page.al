@@ -132,16 +132,16 @@ page 72038 "LFS Posted RoDTEP Entries"
                     ToolTip = 'Specifies the value of the RoDTEP Consumed Amount (LCY) field.';
                     ApplicationArea = All;
                 }
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill No.';
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                }
+                // field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill No.';
+                // }
+                // field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill Date';
+                // }
                 field("Select License"; Rec."LFS Select License")
                 {
                     ApplicationArea = All;

@@ -279,20 +279,20 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             Caption = 'RoDTEP Rebate Value FCY';
             DataClassification = CustomerContent;
         }
-        field(59; "LFS Shipping Bill No."; Code[50])
-        {
-            Caption = 'Shipping Bill No.';
-            FieldClass = FlowField;
-            CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill No." where("LFS Document No." = field("LFS Document No.")));
-            Editable = false;
-        }
-        field(60; "LFS Shipping Bill Date"; Date)
-        {
-            Caption = 'Shipping Bill Date';
-            FieldClass = FlowField;
-            CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill Date" where("LFS Document No." = field("LFS Document No.")));
-            Editable = false;
-        }
+        // field(59; "LFS Shipping Bill No."; Code[50])
+        // {
+        //     Caption = 'Shipping Bill No.';
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill No." where("LFS Document No." = field("LFS Document No.")));
+        //     Editable = false;
+        // }
+        // field(60; "LFS Shipping Bill Date"; Date)
+        // {
+        //     Caption = 'Shipping Bill Date';
+        //     FieldClass = FlowField;
+        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill Date" where("LFS Document No." = field("LFS Document No.")));
+        //     Editable = false;
+        // }
         field(61; "LFS Rebate Value"; Decimal)
         {
             Caption = 'Rebate Value';

@@ -30,18 +30,18 @@ page 72040 "LFS Export Information"
                 // {
                 //     ToolTip = 'Specifies the value of the Customer Order Date 2 field.', Comment = '%';
                 // }
-                field("LFS Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    Caption = 'Shipping Bill No.';
-                    ToolTip = 'Specifies the Shipping Bill No.';
-                    ApplicationArea = All;
-                }
-                field("LFS Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    Caption = 'Shipping Bill Date';
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                    ApplicationArea = All;
-                }
+                // field("LFS Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                // {
+                //     Caption = 'Shipping Bill No.';
+                //     ToolTip = 'Specifies the Shipping Bill No.';
+                //     ApplicationArea = All;
+                // }
+                // field("LFS Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                // {
+                //     Caption = 'Shipping Bill Date';
+                //     ToolTip = 'Specifies the Shipping Bill Date';
+                //     ApplicationArea = All;
+                // }
                 field("BL No/ AWB No."; Rec."LFS BL No/ AWB No.")
                 {
                     ApplicationArea = all;
@@ -462,7 +462,7 @@ page 72040 "LFS Export Information"
                 //         ToolTip = 'Specifies the value of the HS Code field.', Comment = '%';
                 //         Visible = false;
                 //     }
-                field("LFS Seal Code"; Rec."LFS Seal Code")
+                field("LFS Container Seal No."; Rec."LFS Container Seal No.")
                 {
                     ToolTip = 'Specifies the value of the Seal Code field.', Comment = '%';
                     Visible = false;
@@ -625,18 +625,18 @@ page 72040 "LFS Export Information"
                 // {
                 //     ToolTip = 'Specifies the value of the Bank Ref No. field.', Comment = '%';
                 // }
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the value of the Shipping Bill No. field.', Comment = '%';
-                    Visible = false;
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the value of the Shipping Bill Date field.', Comment = '%';
-                    Visible = false;
-                }
+                // field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the value of the Shipping Bill No. field.', Comment = '%';
+                //     Visible = false;
+                // }
+                // field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the value of the Shipping Bill Date field.', Comment = '%';
+                //     Visible = false;
+                // }
                 field("LFS Insurance No."; Rec."LFS Insurance No.")
                 {
                     ToolTip = 'Specifies the value of the Insurance No. field.', Comment = '%';

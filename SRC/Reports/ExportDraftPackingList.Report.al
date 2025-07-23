@@ -890,8 +890,8 @@ report 72002 "LFS Export Draft Packing List"
                     paymenttermname := RecPaymentTerms.Description;
                 ExportInformation.SetRange("LFS Document No.", SalesHeader."No.");
                 if ExportInformation.FindFirst() then begin
-                    ShipBillNo := ExportInformation."LFS Shipping Bill No.";
-                    ShipBillDate := ExportInformation."LFS Shipping Bill Date";
+                    // ShipBillNo := ExportInformation."LFS Shipping Bill No.";
+                    // ShipBillDate := ExportInformation."LFS Shipping Bill Date";
                     BOLNo := ExportInformation."LFS BL No/ AWB No.";
                     BOLDate := ExportInformation."LFS BL Date/ AWB Date";
                     // DescOfGoods := ExportInformation."LFS Description of Goods";

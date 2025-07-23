@@ -163,18 +163,18 @@ page 72005 "LFS EXIM DDB Entries"
                 {
                     ToolTip = 'Specifies the value of the Actual DDB Value field.', Comment = '%';
                 }
-                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill No.';
-                    Editable = false;
-                }
-                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Shipping Bill Date';
-                    Editable = false;
-                }
+                // field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill No.';
+                //     Editable = false;
+                // }
+                // field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Shipping Bill Date';
+                //     Editable = false;
+                // }
                 // field("Late export order No."; Rec."LFS Late export order No.")
                 // {
                 //     ApplicationArea = All;

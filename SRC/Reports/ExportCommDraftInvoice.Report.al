@@ -930,8 +930,8 @@ report 72005 "LFS Export Comm. Draft Invoice"
                     paymenttermname := RecPaymentTerms.Description;
                 PostedExportInformation.SetRange("LFS Document No.", SalesHeader."No.");
                 if PostedExportInformation.FindFirst() then begin
-                    ShipBillNo := PostedExportInformation."LFS Shipping Bill No.";
-                    ShipBillDate := PostedExportInformation."LFS Shipping Bill Date";
+                    // ShipBillNo := PostedExportInformation."LFS Shipping Bill No.";
+                    // ShipBillDate := PostedExportInformation."LFS Shipping Bill Date";
                     BOLNo := PostedExportInformation."LFS BL No/ AWB No.";
                     BOLDate := PostedExportInformation."LFS BL Date/ AWB Date";
                     // DescOfGoods := PostedExportInformation."LFS Description of Goods";
