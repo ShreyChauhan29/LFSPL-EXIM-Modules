@@ -172,18 +172,18 @@ page 72039 "LFS EXIM RoDTEP Rebate Entries"
                     ApplicationArea = All;
                     Editable = false;
                 }
-                // field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Shipping Bill No.';
-                //     Editable = false;
-                // }
-                // field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
-                // {
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the Shipping Bill Date';
-                //     Editable = false;
-                // }
+                field("Shipping Bill No."; Rec."LFS Shipping Bill No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill No.';
+                    Editable = false;
+                }
+                field("Shipping Bill Date"; Rec."LFS Shipping Bill Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Shipping Bill Date';
+                    Editable = false;
+                }
                 field("Bill No."; Rec."LFS bill No.")
                 {
                     ApplicationArea = All;

@@ -105,7 +105,7 @@ page 72048 "LFS Posted Export Information"
                     ApplicationArea = Basic, Suite;
                     MultiLine = true;
                     Caption = 'Description of Goods';
-                    Editable = false;
+                    // Editable = false;
                     ToolTip = 'Specifies the description of goods included in the export document.';
                 }
                 // field("Sp Notes"; Rec."LFS Sp Notes")
@@ -132,7 +132,7 @@ page 72048 "LFS Posted Export Information"
                     ApplicationArea = Basic, Suite;
                     MultiLine = true;
                     Caption = 'Shipping Marks';
-                    Editable = false;
+                    // Editable = false;
                     ToolTip = 'Specifies the shipping marks and identifying symbols on the export packages.';
                 }
             }
@@ -375,7 +375,7 @@ page 72048 "LFS Posted Export Information"
                     ApplicationArea = Basic, Suite;
                     MultiLine = true;
                     Caption = 'Notify Party';
-                    Editable = false;
+                    // Editable = false;
                     ToolTip = 'Specifies the party to be notified upon the shipment’s arrival.';
                 }
                 field("Consignee Address"; ConsigneeAddressTxt)
@@ -383,7 +383,7 @@ page 72048 "LFS Posted Export Information"
                     ApplicationArea = Basic, Suite;
                     MultiLine = true;
                     Caption = 'Consignee Address';
-                    Editable = false;
+                    // Editable = false;
                     ToolTip = 'Specifies the full address of the consignee receiving the shipment.';
                 }
                 //     field("LFS Receiver Code"; Rec."LFS Receiver Code")

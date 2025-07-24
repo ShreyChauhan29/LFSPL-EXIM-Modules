@@ -279,20 +279,20 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             Caption = 'RoDTEP Rebate Value FCY';
             DataClassification = CustomerContent;
         }
-        // field(59; "LFS Shipping Bill No."; Code[50])
-        // {
-        //     Caption = 'Shipping Bill No.';
-        //     FieldClass = FlowField;
-        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill No." where("LFS Document No." = field("LFS Document No.")));
-        //     Editable = false;
-        // }
-        // field(60; "LFS Shipping Bill Date"; Date)
-        // {
-        //     Caption = 'Shipping Bill Date';
-        //     FieldClass = FlowField;
-        //     CalcFormula = lookup("LFS Posted Export Information"."LFS Shipping Bill Date" where("LFS Document No." = field("LFS Document No.")));
-        //     Editable = false;
-        // }
+        field(59; "LFS Shipping Bill No."; Code[50])
+        {
+            Caption = 'Shipping Bill No.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Invoice Header"."Bill Of Export No." where("No." = field("LFS Document No.")));
+            Editable = false;
+        }
+        field(60; "LFS Shipping Bill Date"; Date)
+        {
+            Caption = 'Shipping Bill Date';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Invoice Header"."Bill Of Export Date" where("No." = field("LFS Document No.")));
+            Editable = false;
+        }
         field(61; "LFS Rebate Value"; Decimal)
         {
             Caption = 'Rebate Value';
@@ -333,14 +333,14 @@ table 72025 "LFS EXIM RoDTEP Rebate Entry"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(44; "LFS bill No."; code[20])
+        field(44; "LFS Bill No."; code[20])
         {
             FieldClass = FlowField;
             CalcFormula = lookup("LFS Posted Export Information"."LFS BL No/ AWB No." where("LFS Document No." = field("LFS Document No.")));
             Editable = false;
             Caption = 'BL No/ AWB No.';
         }
-        field(45; "LFS bill Date"; Date)
+        field(45; "LFS Bill Date"; Date)
         {
             FieldClass = FlowField;
             CalcFormula = lookup("LFS Posted Export Information"."LFS BL Date/ AWB Date" where("LFS Document No." = field("LFS Document No.")));
