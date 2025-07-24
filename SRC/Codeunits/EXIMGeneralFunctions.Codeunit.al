@@ -482,7 +482,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS Incentive Type" := SalesInvLine."LFS Incentive Type";
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesInvLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesInvLine."LFS CIF Amount (FCY)";
-        EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."Line Amount";
+        if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)" * SalesInvLine.Quantity
+        else
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB in USD" * SalesInvLine."LFS FOB Currency Factor";
         EXIMDDBEntry."LFS Claim DDB" := SalesInvLine."LFS Claim DDB";
         // if EXIMDDBRateSetup."LFS DDB Rate" <> 0 then
         //     EXIMDDBEntry."LFS DDB %" := EXIMDDBRateSetup."LFS DDB Rate"
@@ -552,7 +555,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS Incentive Type" := SalesCrMemoLine."LFS Incentive Type";
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesCrMemoLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesCrMemoLine."LFS CIF Amount (FCY)";
-        EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)";
+        if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)" * SalesCrMemoLine.Quantity
+        else
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB in USD" * SalesCrMemoLine."LFS FOB Currency Factor";
         EXIMDDBEntry."LFS Claim DDB" := SalesCrMemoLine."LFS Claim DDB";
         if EXIMDDBRateSetup."LFS DDB Rate" <> 0 then
             EXIMDDBEntry."LFS DDB %" := EXIMDDBRateSetup."LFS DDB Rate"
