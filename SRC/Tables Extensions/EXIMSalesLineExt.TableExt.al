@@ -567,7 +567,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         ddbSetup.SetCurrentKey("LFS Starting Date");
                         if ddbSetup.FindLast() then begin
                             rec."LFS DDB Rate" := ddbSetup."LFS DDB Rate";
-                            Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100;
+                            if Rec."LFS Currency Exch. Rate" <> 0 then
+                                Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
+                            else
+                                rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
                             // Commit();
                             // Rec.Modify();
                         end
@@ -585,7 +588,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                 if ddbSetup.FindLast() then begin
                                     rec."LFS Claim DDB" := true;
                                     Rec."LFS DDB Rate" := ddbSetup."LFS DDB Rate";
-                                    Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100;
+                                    if Rec."LFS Currency Exch. Rate" <> 0 then
+                                        Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
+                                    else
+                                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
                                     // Commit();
                                     // Rec.Modify();
                                 end
@@ -618,7 +624,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     EXIMRoDTEP.SetFilter("LFS Block", '%1', False);
                     if EXIMRoDTEP.FindFirst() then begin
                         Rec."LFS RoDTEP Rebate Rate %" := EXIMRoDTEP."LFS RoDTEP Rebate Rate %";
-                        Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * EXIMRoDTEP."LFS RoDTEP Rebate Rate %" / 100;
+                        if Rec."LFS Currency Exch. Rate" <> 0 then
+                            Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
+                        else
+                            Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                         // Commit();
                         // Rec.Modify();
                     end
@@ -634,7 +643,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                             EXIMRoDTEP.SetFilter("LFS Block", '%1', False);
                             if EXIMRoDTEP.FindFirst() then begin
                                 Rec."LFS RoDTEP Rebate Rate %" := EXIMRoDTEP."LFS RoDTEP Rebate Rate %";
-                                Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * EXIMRoDTEP."LFS RoDTEP Rebate Rate %" / 100;
+                                if Rec."LFS Currency Exch. Rate" <> 0 then
+                                    Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
+                                else
+                                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                                 // Commit();
                                 // Rec.Modify();
                             end
@@ -663,7 +675,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                             ddbSetup.setfilter("LFS block", '<>%1', true);
                             if ddbSetup.FindLast() then begin
                                 rec."LFS DDB Rate" := ddbSetup."LFS DDB Rate";
-                                Rec."LFS DDB Value (LCY)" := -(Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100);
+                                if Rec."LFS Currency Exch. Rate" <> 0 then
+                                    Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
+                                else
+                                    rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
                                 // Commit();
                                 // Rec.Modify();
                             end
@@ -682,7 +697,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                     if ddbSetup.FindLast() then begin
                                         rec."LFS Claim DDB" := true;
                                         Rec."LFS DDB Rate" := ddbSetup."LFS DDB Rate";
-                                        Rec."LFS DDB Value (LCY)" := -(Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100);
+                                        if Rec."LFS Currency Exch. Rate" <> 0 then
+                                            Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
+                                        else
+                                            rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
                                         Commit();
                                         // Rec.Modify();
                                     end else begin
@@ -714,7 +732,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         EXIMRoDTEP.SetFilter("LFS Block", '%1', False);
                         if EXIMRoDTEP.FindFirst() then begin
                             Rec."LFS RoDTEP Rebate Rate %" := EXIMRoDTEP."LFS RoDTEP Rebate Rate %";
-                            Rec."LFS RoDTEP Rebate Value" := -(Rec."LFS FOB Amount (LCY)" * EXIMRoDTEP."LFS RoDTEP Rebate Rate %" / 100);
+                            if Rec."LFS Currency Exch. Rate" <> 0 then
+                                Rec."LFS RoDTEP Rebate Value" := -Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
+                            else
+                                Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                             // Commit();
                             // Rec.Modify();
                         end
@@ -730,7 +751,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                 EXIMRoDTEP.SetFilter("LFS Block", '%1', False);
                                 if EXIMRoDTEP.FindFirst() then begin
                                     Rec."LFS RoDTEP Rebate Rate %" := EXIMRoDTEP."LFS RoDTEP Rebate Rate %";
-                                    Rec."LFS RoDTEP Rebate Value" := -(Rec."LFS FOB Amount (LCY)" * EXIMRoDTEP."LFS RoDTEP Rebate Rate %" / 100);
+                                    if Rec."LFS Currency Exch. Rate" <> 0 then
+                                        Rec."LFS RoDTEP Rebate Value" := -Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
+                                    else
+                                        Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                                     // Commit();
                                     // Rec.Modify();
                                 end else begin
@@ -803,8 +827,14 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         end;
                     end;
                 if Rec."LFS Incentive Type" = Rec."LFS Incentive Type"::DDB then
-                    Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * (rec."LFS DDB Rate" / 100);
-                Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                    if Rec."LFS Currency Exch. Rate" <> 0 then
+                        Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
+                    else
+                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                if Rec."LFS Currency Exch. Rate" <> 0 then
+                    Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
+                else
+                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
             end;
     end;
 
