@@ -483,7 +483,7 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesInvLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesInvLine."LFS CIF Amount (FCY)";
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
-            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)" * SalesInvLine.Quantity
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)"
         else
             EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB in USD" * SalesInvLine."LFS FOB Currency Factor";
         EXIMDDBEntry."LFS Claim DDB" := SalesInvLine."LFS Claim DDB";
@@ -509,7 +509,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
         EXIMDDBEntry."LFS Currency Exch. Rate" := SalesInvLine."LFS Currency Exch. Rate";
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesInvLine."LFS Custom Exch. Rate";
-        EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate";
+        if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
+        else
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY";
         EXIMDDBEntry.Insert();
     end;
 
@@ -556,7 +559,7 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesCrMemoLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesCrMemoLine."LFS CIF Amount (FCY)";
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
-            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)" * SalesCrMemoLine.Quantity
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)"
         else
             EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB in USD" * SalesCrMemoLine."LFS FOB Currency Factor";
         EXIMDDBEntry."LFS Claim DDB" := SalesCrMemoLine."LFS Claim DDB";
@@ -569,7 +572,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
         EXIMDDBEntry."LFS Currency Exch. Rate" := SalesCrMemoLine."LFS Currency Exch. Rate";
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
-        EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate";
+        if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
+        else
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY";
         EXIMDDBEntry.Insert();
     end;
 

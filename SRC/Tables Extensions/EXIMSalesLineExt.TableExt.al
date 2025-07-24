@@ -136,6 +136,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
+                CalculateRoDTEPandDDB();
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
@@ -169,6 +170,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
+                CalculateRoDTEPandDDB();
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
@@ -808,10 +810,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     Rec."LFS Insurance Value (LCY)" := Rec."LFS Insurance Value (FCY)" * exchRate;
                     Rec."LFS CIF Value (FCY)" := Rec."LFS Freight Value (FCY)" + Rec."LFS Insurance Value (FCY)" + Rec."LFS FOB Amount (FCY)";
                     Rec."LFS CIF Value (LCY)" := Rec."LFS CIF Value (FCY)" * exchRate;
-                    if Rec.Quantity <> 0 then begin
-                        Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
-                        Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF value (FCY)" / Rec.Quantity;
-                    end;
+                    // if Rec.Quantity <> 0 then begin
+                    //     Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
+                    //     Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF value (FCY)" / Rec.Quantity;
+                    // end;
                 end
                 else
                     if SalesHeader."LFS FOB CIF Calc. Type" = SalesHeader."LFS FOB CIF Calc. Type"::CIF then begin
@@ -821,10 +823,10 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         Rec."LFS CIF Value (LCY)" := Rec."Line Amount" * exchRate;
                         Rec."LFS FOB Amount (FCY)" := rec."LFS CIF Value (FCY)" - Rec."LFS Freight Value (FCY)" - Rec."LFS Insurance Value (FCY)";
                         Rec."LFS FOB Amount (LCY)" := Rec."LFS FOB Amount (FCY)" * exchRate;
-                        if Rec.Quantity <> 0 then begin
-                            Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
-                            Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF Value (FCY)" / Rec.Quantity;
-                        end;
+                        // if Rec.Quantity <> 0 then begin
+                        //     Rec."LFS FOB Amount (FCY)" := Rec."LFS FOB Amount (FCY)" / rec.quantity;
+                        //     Rec."LFS CIF Amount (FCY)" := Rec."LFS CIF Value (FCY)" / Rec.Quantity;
+                        // end;
                     end;
                 if Rec."LFS Incentive Type" = Rec."LFS Incentive Type"::DDB then
                     if Rec."LFS Currency Exch. Rate" <> 0 then
