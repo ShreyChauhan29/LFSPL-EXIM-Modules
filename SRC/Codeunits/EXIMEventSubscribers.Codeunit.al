@@ -610,29 +610,29 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     EXIMMngt."LFS InsertLicenseDtlFromDomesticPostedSalesCreditDocToRodtepLicense"(SalesCrMemoLine);
                 if SalesCrMemoLine.Type = SalesCrMemoLine.Type::Item then begin
                     EXIMMngt."LFS InsertLicenseDtlFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine);
-                    AdvLicense.Reset();
-                    AdvLicense.SetRange("LFS Source No.", SalesCrMemoLine."Document No.");
-                    AdvLicense.SetRange("LFS Source line No.", SalesCrMemoLine."Line No.");
-                    if AdvLicense.Isempty() then begin
-                        RodtepRatesetup.Reset();
-                        RodtepRatesetup.SetRange("LFS Item Code", SalesCrMemoLine."No.");
-                        RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesCrMemoLine."Posting Date");
-                        if RodtepRatesetup.FindLast() then
-                            EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
-                        else
-                            if SalesCrMemoLine."HSN/SAC Code" <> '' then begin
-                                RodtepRatesetup.Reset();
-                                RodtepRatesetup.SetRange("LFS HSN No.", SalesCrMemoLine."HSN/SAC Code");
-                                RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesCrMemoLine."Posting Date");
-                                if RodtepRatesetup.FindLast() then
-                                    EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
-                            end
-                            else begin
-                                EXIMSetup.Get();
-                                if eximsetup."LFS RoDTEP %" <> 0 then
-                                    EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
-                            end;
-                    end;
+                    // AdvLicense.Reset();
+                    // AdvLicense.SetRange("LFS Source No.", SalesCrMemoLine."Document No.");
+                    // AdvLicense.SetRange("LFS Source line No.", SalesCrMemoLine."Line No.");
+                    // if AdvLicense.Isempty() then begin
+                    RodtepRatesetup.Reset();
+                    RodtepRatesetup.SetRange("LFS Item Code", SalesCrMemoLine."No.");
+                    RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesCrMemoLine."Posting Date");
+                    if RodtepRatesetup.FindLast() then
+                        EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
+                    else
+                        if SalesCrMemoLine."HSN/SAC Code" <> '' then begin
+                            RodtepRatesetup.Reset();
+                            RodtepRatesetup.SetRange("LFS HSN No.", SalesCrMemoLine."HSN/SAC Code");
+                            RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesCrMemoLine."Posting Date");
+                            if RodtepRatesetup.FindLast() then
+                                EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
+                        end
+                        else begin
+                            EXIMSetup.Get();
+                            if eximsetup."LFS RoDTEP %" <> 0 then
+                                EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, SalesCrMemoHeader, RodtepRatesetup)
+                        end;
+                    // end;
                     EXIMDDBRateSetup.SETfilter("LFS Starting Date", '<=%1', SalesCrMemoHeader."Posting Date");
                     EXIMDDBRateSetup.SETRANGE("LFS Item Code", SalesCrMemoLine."No.");
                     // EXIMDDBRateSetup.SETRANGE("LFS Unit of Measure Code", SalesCrMemoLine."Unit of Measure Code");
