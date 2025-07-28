@@ -556,29 +556,29 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     EXIMMngt."LFS InsertLicenseDtlFromDomesticPostedSalesInvDocToRodtepLicense"(SalesInvLine);
                 if SalesInvLine.Type = SalesInvLine.Type::Item then begin
                     EXIMMngt."LFS InsertLicenseDtlFromExportPostedSalesInvDoc"(SalesInvLine, SalesInvoiceHeader);
-                    AdvLicense.Reset();
-                    AdvLicense.SetRange("LFS Source No.", SalesInvLine."Document No.");
-                    AdvLicense.SetRange("LFS Source line No.", SalesInvLine."Line No.");
-                    if not AdvLicense.FindFirst() then begin
-                        RodtepRatesetup.Reset();
-                        RodtepRatesetup.SetRange("LFS Item Code", SalesInvLine."No.");
-                        RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesInvoiceHeader."Posting Date");
-                        if RodtepRatesetup.FindLast() then
-                            EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup)
-                        else
-                            if SalesInvLine."HSN/SAC Code" <> '' then begin
-                                RodtepRatesetup.Reset();
-                                RodtepRatesetup.SetRange("LFS HSN No.", SalesInvLine."HSN/SAC Code");
-                                RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesInvoiceHeader."Posting Date");
-                                if RodtepRatesetup.FindLast() then
-                                    EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup)
-                            end
-                            else begin
-                                EXIMSetup.Get();
-                                if eximsetup."LFS RoDTEP %" <> 0 then
-                                    EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup);
-                            end;
-                    end;
+                    // AdvLicense.Reset();
+                    // AdvLicense.SetRange("LFS Source No.", SalesInvLine."Document No.");
+                    // AdvLicense.SetRange("LFS Source line No.", SalesInvLine."Line No.");
+                    // if not AdvLicense.FindFirst() then begin
+                    RodtepRatesetup.Reset();
+                    RodtepRatesetup.SetRange("LFS Item Code", SalesInvLine."No.");
+                    RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesInvoiceHeader."Posting Date");
+                    if RodtepRatesetup.FindLast() then
+                        EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup)
+                    else
+                        if SalesInvLine."HSN/SAC Code" <> '' then begin
+                            RodtepRatesetup.Reset();
+                            RodtepRatesetup.SetRange("LFS HSN No.", SalesInvLine."HSN/SAC Code");
+                            RodtepRatesetup.Setfilter("LFS Starting Date", '<=%1', SalesInvoiceHeader."Posting Date");
+                            if RodtepRatesetup.FindLast() then
+                                EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup)
+                        end
+                        else begin
+                            EXIMSetup.Get();
+                            if eximsetup."LFS RoDTEP %" <> 0 then
+                                EXIMMngt."LFS InsertRoDTEPEntryFromExportPostedSalesDoc"(SalesInvLine, SalesInvoiceHeader, RodtepRatesetup);
+                        end;
+                    // end;
 
                     EXIMDDBRateSetup.SETfilter("LFS Starting Date", '<=%1', SalesInvoiceHeader."Posting Date");
                     EXIMDDBRateSetup.SETRANGE("LFS Item Code", SalesInvLine."No.");
