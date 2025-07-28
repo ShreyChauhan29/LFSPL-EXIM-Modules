@@ -424,12 +424,12 @@ page 72009 "Blanket Export Sales Order Sub"
                     Visible = false;
                     ToolTip = 'Specifies the Claim DDB';
                 }
-                field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Currency Exch. Rate';
-                }
+                // field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
+                // {
+                //     Visible = false;
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Currency Exch. Rate';
+                // }
                 field("Custom Exch. Rate"; Rec."LFS Custom Exch. Rate")
                 {
                     ApplicationArea = all;

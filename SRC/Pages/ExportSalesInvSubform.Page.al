@@ -591,12 +591,12 @@ page 72056 "LFS Export Sales Inv. Subform"
                 //     Visible = false;
                 //     ToolTip = 'Specifies the Packing List No.';
                 // }
-                field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
-                {
-                    Visible = false;
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Currency Exch. Rate';
-                }
+                // field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
+                // {
+                //     Visible = false;
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Currency Exch. Rate';
+                // }
                 field("Custom Exch. Rate"; Rec."LFS Custom Exch. Rate")
                 {
                     ApplicationArea = all;

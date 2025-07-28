@@ -99,10 +99,10 @@ codeunit 72001 "LFS EXIM General Functions"
                 EXIMAdvLicenseLines.VALIDATE("LFS Item No.", SalesLine."No.");
                 EXIMAdvLicenseLines."LFS UOM" := SalesLine."Unit of Measure Code";
                 EXIMAdvLicenseLines."LFS Currency Code" := SalesLine."Currency Code";
-                if EXIMSetup."LFS Advance Lic Calc. Type" = EXIMSetup."LFS Advance Lic Calc. Type"::"Currency Exch." then
-                    EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesLine."LFS Currency Exch. Rate"
-                else
-                    EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesLine."LFS Custom Exch. Rate";
+                // if EXIMSetup."LFS Advance Lic Calc. Type" = EXIMSetup."LFS Advance Lic Calc. Type"::"Currency Exch." then
+                EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesLine."LFS Custom Exch. Rate";
+                // else
+                //     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesLine."LFS Custom Exch. Rate";
                 EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                 EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                 // Item.GET(EXIMAdvLicenseLines."LFS Item No.");

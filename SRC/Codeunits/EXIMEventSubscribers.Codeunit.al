@@ -1037,10 +1037,11 @@ codeunit 72002 "LFS EXIM Event Subscribers"
             RecEXIMCustCurr.Reset();
             RecEXIMCustCurr.SetRange("LFS Currency Code", SalesHeader."LFS Custom Currency Code");
             RecEXIMCustCurr.SetRange("LFS Starting Date", 0D, SalesHeader."Posting Date");
-            if RecEXIMCustCurr.FindLast() then begin
+            if RecEXIMCustCurr.FindLast() then
+                // begin
                 SalesLine."LFS Custom Exch. Rate" := RecEXIMCustCurr."LFS Exch Rate Amount (Exp)" / SalesHeader."Currency Factor";
-                SalesLine."LFS Currency Exch. Rate" := RecEXIMCustCurr."LFS Exch Rate Amount (Exp)" / SalesHeader."Currency Factor";
-            end;
+            // SalesLine."LFS Currency Exch. Rate" := RecEXIMCustCurr."LFS Exch Rate Amount (Exp)" / SalesHeader."Currency Factor";
+            // end;
         end;
     end;
 

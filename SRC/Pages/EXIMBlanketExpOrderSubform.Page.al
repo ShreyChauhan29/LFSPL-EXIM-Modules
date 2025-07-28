@@ -340,11 +340,11 @@ page 72089 "LFSEXIMBlanketExp.OrderSubform"
                     ToolTip = 'Specifies the value of the Claim DDB field.';
                     ApplicationArea = All;
                 }
-                field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
-                {
-                    ToolTip = 'Specifies the value of the Currency Exch. Rate field.';
-                    ApplicationArea = All;
-                }
+                // field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
+                // {
+                //     ToolTip = 'Specifies the value of the Currency Exch. Rate field.';
+                //     ApplicationArea = All;
+                // }
                 field("Custom Exch. Rate"; Rec."LFS Custom Exch. Rate")
                 {
                     ToolTip = 'Specifies the value of the Custom Exch. Rate field.';

@@ -4,6 +4,8 @@ using Microsoft.Sales.Document;
 using Microsoft.Sales.Customer;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Finance.Currency;
+using Microsoft.Utilities;
 using Microsoft.Finance.GST.Sales;
 using Microsoft.Sales.Setup;
 using Microsoft.Bank.BankAccount;
@@ -78,6 +80,36 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             Caption = 'Custom Currency Code';
             TableRelation = "LFSEXIM Currency Exchange Rate";
             DataClassification = CustomerContent;
+            trigger OnValidate()
+            var
+                StandardCodesMgt: Codeunit "Standard Codes Mgt.";
+            begin
+                if not (CurrFieldNo in [0, FieldNo("Posting Date")]) or ("LFS Custom Currency Code" <> xRec."LFS Custom Currency Code") then
+                    TestStatusOpen();
+
+                ResetInvoiceDiscountValue();
+
+                if (CurrFieldNo <> FieldNo("LFS Custom Currency Code")) and ("LFS Custom Currency Code" = xRec."LFS Custom Currency Code") then
+                    UpdateCurrencyFactorNew()
+                else
+                    if "LFS Custom Currency Code" <> xRec."LFS Custom Currency Code" then
+                        UpdateCurrencyFactorNew()
+                    else
+                        if "LFS Custom Currency Code" <> '' then begin
+                            UpdateCurrencyFactorNew();
+                            if "LFS Custom Currency Factor" <> xRec."LFS Custom Currency Factor" then
+                                ConfirmCurrencyFactorUpdateNew();
+                        end;
+
+                if ShouldCheckShowRecurringSalesLines(xRec, Rec) then
+                    StandardCodesMgt.CheckShowSalesRecurringLinesNotification(Rec);
+
+                if "LFS Custom Currency Code" <> xRec."LFS Custom Currency Code" then
+                    SalesCalcDiscountByType.ApplyDefaultInvoiceDiscount(0, Rec);
+
+                if Status = Status::Open then
+                    SetCompanyBankAccount();
+            end;
         }
         field(72009; "LFS Custom Currency Factor"; Decimal)
         {
@@ -315,7 +347,7 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
                         salesline."LFS FOB CIF Calc. Type" := Rec."LFS FOB CIF Calc. Type";
                         if rec."Currency Factor" <> 0 then begin
                             exchRate := 1 / rec."Currency Factor";
-                            SalesLine."LFS Currency Exch. Rate" := exchRate;
+                            SalesLine."LFS Custom Exch. Rate" := exchRate;
                             if rec."LFS FOB CIF Calc. Type" = rec."LFS FOB CIF Calc. Type"::FOB then begin
                                 SalesLine."LFS FOB Amount (FCY)" := SalesLine."Line Amount";
                                 SalesLine."LFS FOB Amount (LCY)" := SalesLine."Line Amount" * exchRate;
@@ -495,6 +527,7 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
         EximSetup: Record "LFS EXIM Setup";
         SalesSetup: Record "Sales & Receivables Setup";
         NoSeriesMgt: Codeunit "No. Series";
+        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
     // NoSeries: Codeunit "No. Series";
 
 
@@ -556,5 +589,101 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             "Document Type"::"Blanket Order":
                 EximSetup.TESTFIELD("LFS Blanket Exp Order No.");
         end;
+    end;
+
+    local procedure ResetInvoiceDiscountValue()
+    // var
+    //     IsHandled: Boolean;
+    begin
+        // IsHandled := false;
+        // // OnBeforeResetInvoiceDiscountValue(Rec, IsHandled);
+        // if IsHandled then
+        //     exit;
+
+        if "Invoice Discount Value" <> 0 then begin
+            CalcFields("Invoice Discount Amount");
+            if "Invoice Discount Amount" = 0 then
+                "Invoice Discount Value" := 0;
+        end;
+    end;
+
+    procedure UpdateCurrencyFactorNew()
+    var
+        CurrExchRate: Record "Currency Exchange Rate";
+        UpdateCurrencyExchangeRates: Codeunit "Update Currency Exchange Rates";
+        CurrencyDate: Date;
+    // Updated: Boolean;
+    begin
+        // OnBeforeUpdateCurrencyFactor(Rec, Updated, CurrExchRate, xRec);
+        // if Updated then
+        //     exit;
+
+        if "LFS Custom Currency Code" <> '' then begin
+            if Rec."Posting Date" <> 0D then
+                CurrencyDate := Rec."Posting Date"
+            else
+                CurrencyDate := WorkDate();
+
+            if UpdateCurrencyExchangeRates.ExchangeRatesForCurrencyExist(CurrencyDate, "LFS Custom Currency Code") then begin
+                "LFS Custom Currency Factor" := CurrExchRate.ExchangeRate(CurrencyDate, "LFS Custom Currency Code");
+                if ("LFS Custom Currency Code" <> xRec."LFS Custom Currency Code") and (xRec."No." <> '') then
+                    RecreateSalesLines(FieldCaption("LFS Custom Currency Code"));
+            end else
+                UpdateCurrencyExchangeRates.ShowMissingExchangeRatesNotification("LFS Custom Currency Code");
+        end else begin
+            "LFS Custom Currency Factor" := 0;
+            if "LFS Custom Currency Code" <> xRec."LFS Custom Currency Code" then
+                RecreateSalesLines(FieldCaption("LFS Custom Currency Code"));
+        end;
+
+        // OnAfterUpdateCurrencyFactor(Rec, GetHideValidationDialog());
+    end;
+
+    procedure ConfirmCurrencyFactorUpdateNew()
+    var
+        ForceConfirm: Boolean;
+        IsHandled: Boolean;
+        Confirmed: Boolean;
+        // CurrencyDate: Date;
+        Text021Lbl: Label 'Do you want to update the exchange rate?';
+
+    begin
+        IsHandled := false;
+        ForceConfirm := false;
+        // OnBeforeConfirmUpdateCurrencyFactor(Rec, HideValidationDialog, xRec, IsHandled, ForceConfirm);
+        if IsHandled then
+            exit;
+
+        if GetHideValidationDialog() or not GuiAllowed() or ForceConfirm then
+            Confirmed := true
+        else
+            Confirmed := Confirm(Text021Lbl, false);
+        if Confirmed then
+            Validate("LFS Custom Currency Factor")
+        else
+            "LFS Custom Currency Factor" := xRec."LFS Custom Currency Factor";
+
+        // OnAfterConfirmCurrencyFactorUpdate(Rec, Confirmed);
+    end;
+
+    local procedure ShouldCheckShowRecurringSalesLines(var xHeader: Record "Sales Header"; var Header: Record "Sales Header"): Boolean
+    begin
+        exit(
+            (xHeader."Bill-to Customer No." <> '') and
+            (Header."No." <> '') and
+            (Header."LFS Custom Currency Code" <> xHeader."LFS Custom Currency Code")
+        );
+    end;
+
+    local procedure SetCompanyBankAccount()
+    var
+        BankAccount: Record "Bank Account";
+    // IsHandled: Boolean;
+    begin
+        // IsHandled := false;
+        // OnBeforeSetCompanyBankAccount(Rec, IsHandled);
+        // if not IsHandled then
+        Validate("Company Bank Account Code", BankAccount.GetDefaultBankAccountNoForCurrency("LFS Custom Currency Code"));
+        // OnAfterSetCompanyBankAccount(Rec, xRec);
     end;
 }

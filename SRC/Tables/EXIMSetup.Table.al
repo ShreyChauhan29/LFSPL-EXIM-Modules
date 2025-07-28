@@ -54,7 +54,7 @@ table 72000 "LFS EXIM Setup"
         {
             Caption = 'Advance License Calc. Type';
             OptionMembers = " ","Currency Exch.","Custom Exch.";
-            OptionCaption = 'Currency Exch.,Custom Exch.';
+            OptionCaption = ' ,Currency Exch.,Custom Exch.';
             DataClassification = CustomerContent;
         }
         field(18; "LFS Export Invoice Nos."; Code[20])
