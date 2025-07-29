@@ -371,32 +371,6 @@ page 72030 "Pstd. Export Sales Credit Memo"
                     Editable = false;
                     ToolTip = 'Specifies the ETD';
                 }
-                // field("FTT No."; Rec."LFS FTT No.")
-                // {
-                //     ApplicationArea = all;
-                //     Editable = false;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the FTT No.';
-                // }
-                // field("FTT Date"; Rec."LFS FTT Date")
-                // {
-                //     ApplicationArea = all;
-                //     Editable = false;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the FTT Date';
-                // }
-                // field("BIN No."; Rec."LFS BIN No.")
-                // {
-                //     ApplicationArea = all;
-                //     Editable = false;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the BIN No.';
-                // }
-                // field("Additional Information"; Rec."LFS Additional Information")
-                // {
-                //     ApplicationArea = all;
-                //     ToolTip = 'Specifies the Additional Information';
-                // }
             }
             part(SalesCrMemoLines; "Pstd Export Sales Cr. Memo Sub")
             {
@@ -1290,6 +1264,12 @@ page 72030 "Pstd. Export Sales Credit Memo"
                 actionref(SendCustom_Promoted; SendCustom)
                 {
                 }
+            }
+            group(Category_Category8)
+            {
+                Caption = 'EXIM';
+                actionref(Export_Information_Promoted; Export_Information)
+                { }
             }
             group(Category_Category4)
             {

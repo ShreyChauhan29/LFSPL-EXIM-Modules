@@ -620,8 +620,8 @@ page 72031 "Pstd Export Sales Cr. Memo Sub"
                         postedPacking: Record "LFS EXIM Posted Packing Table";
                         PostedPackingList: Page "LFS Posted Packing List";
                     begin
-                        // postedPacking.SetRange("LFS Posted Export Shipment", Rec."Shipment No.");
-                        // postedPacking.SetRange("LFS PostExShipmentLineNo.", Rec."Shipment Line No.");
+                        postedPacking.SetRange("LFS Source Document No.", Rec."Document No.");
+                        postedPacking.SetRange("LFS Source Doc. Line No.", Rec."Line No.");
                         PostedPackingList.SetTableView(postedPacking);
                         Page.RunModal(page::"LFS Posted Packing List", postedPacking);
                     end;
@@ -641,7 +641,7 @@ page 72031 "Pstd Export Sales Cr. Memo Sub"
 
                     begin
                         EXIM_License2.Reset();
-                        EXIM_License2.SetRange("LFS Source Type", EXIM_License2."LFS Source Type"::Invoice);
+                        EXIM_License2.SetRange("LFS Source Type", EXIM_License2."LFS Source Type"::"Credit Memo");
                         EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
                         EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
                         EXIM_licenseList.SetTableView(EXIM_License2);
