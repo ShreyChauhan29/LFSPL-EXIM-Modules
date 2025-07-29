@@ -355,10 +355,10 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
                                 SalesLine."LFS Insurance Value (LCY)" := SalesLine."LFS Insurance Value (FCY)" * exchRate;
                                 SalesLine."LFS CIF Value (FCY)" := SalesLine."LFS Freight Value (FCY)" + SalesLine."LFS Insurance Value (FCY)" + SalesLine."LFS FOB Amount (FCY)";
                                 SalesLine."LFS CIF Value (LCY)" := SalesLine."LFS CIF Value (FCY)" * exchRate;
-                                if SalesLine.Quantity <> 0 then begin
-                                    SalesLine."LFS FOB Amount (FCY)" := SalesLine."LFS FOB Amount (FCY)" / SalesLine.quantity;
-                                    SalesLine."LFS CIF Amount (FCY)" := SalesLine."LFS CIF Value (FCY)" / SalesLine.Quantity;
-                                end;
+                                // if SalesLine.Quantity <> 0 then begin
+                                //     SalesLine."LFS FOB Amount (FCY)" := SalesLine."LFS FOB Amount (FCY)" / SalesLine.quantity;
+                                //     SalesLine."LFS CIF Amount (FCY)" := SalesLine."LFS CIF Value (FCY)" / SalesLine.Quantity;
+                                // end;
                             end
                             else
                                 if rec."LFS FOB CIF Calc. Type" = rec."LFS FOB CIF Calc. Type"::CIF then begin
@@ -368,10 +368,10 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
                                     SalesLine."LFS CIF Value (LCY)" := SalesLine."Line Amount" * exchRate;
                                     SalesLine."LFS FOB Amount (FCY)" := SalesLine."LFS CIF Value (FCY)" - SalesLine."LFS Freight Value (FCY)" - SalesLine."LFS Insurance Value (FCY)";
                                     SalesLine."LFS FOB Amount (LCY)" := SalesLine."LFS FOB Amount (FCY)" * exchRate;
-                                    if SalesLine.Quantity <> 0 then begin
-                                        SalesLine."LFS FOB Amount (FCY)" := SalesLine."LFS FOB Amount (FCY)" / SalesLine.quantity;
-                                        SalesLine."LFS CIF Amount (FCY)" := SalesLine."LFS CIF Value (FCY)" / SalesLine.Quantity;
-                                    end;
+                                    // if SalesLine.Quantity <> 0 then begin
+                                    //     SalesLine."LFS FOB Amount (FCY)" := SalesLine."LFS FOB Amount (FCY)" / SalesLine.quantity;
+                                    //     SalesLine."LFS CIF Amount (FCY)" := SalesLine."LFS CIF Value (FCY)" / SalesLine.Quantity;
+                                    // end;
                                 end;
                             SalesLine.Modify();
                         end;

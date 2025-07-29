@@ -409,6 +409,8 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             var
                 SalesHeader: Record "Sales Header";
             begin
+                // FOBvalue();
+                CalculateRoDTEPandDDB();
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');

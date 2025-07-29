@@ -639,24 +639,24 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     EXIMDDBRateSetup.SETfilter("LFS Starting Date", '<=%1', SalesCrMemoHeader."Posting Date");
                     EXIMDDBRateSetup.SETRANGE("LFS Item Code", SalesCrMemoLine."No.");
                     // EXIMDDBRateSetup.SETRANGE("LFS Unit of Measure Code", SalesCrMemoLine."Unit of Measure Code");
-                    if EXIMDDBRateSetup.FindLast() then
+                    if EXIMDDBRateSetup.FindLast() then begin
                         if (SalesCrMemoLine."LFS Incentive Type" = SalesCrMemoLine."LFS Incentive Type"::DDB) and (SalesCrMemoLine."LFS Claim DDB") then
                             EXIMMngt."LFS InsertDDBEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, EXIMDDBRateSetup)
-                        else
-                            if SalesCrMemoLine."HSN/SAC Code" <> '' then begin
-                                EXIMDDBRateSetup.Reset();
-                                EXIMDDBRateSetup.SETfilter("LFS Starting Date", '<=%1', SalesCrMemoHeader."Posting Date");
-                                EXIMDDBRateSetup.SETRANGE("LFS HSN No.", SalesCrMemoLine."HSN/SAC Code");
-                                // EXIMDDBRateSetup.SETRANGE("LFS Unit of Measure Code", SalesCrMemoLine."Unit of Measure Code");
-                                if EXIMDDBRateSetup.FindLast() then
-                                    // if (SalesCrMemoLine."LFS Incentive Type" = SalesCrMemoLine."LFS Incentive Type"::DDB) and (SalesCrMemoLine."LFS Claim DDB") then
-                                        EXIMMngt."LFS InsertDDBEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, EXIMDDBRateSetup);
-                            end
-                            else begin
-                                EXIMSetup.Get();
-                                if eximsetup."LFS DDB %" <> 0 then
-                                    EXIMMngt."LFS InsertDDBEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, EXIMDDBRateSetup);
-                            end;
+                    end else
+                        if SalesCrMemoLine."HSN/SAC Code" <> '' then begin
+                            EXIMDDBRateSetup.Reset();
+                            EXIMDDBRateSetup.SETfilter("LFS Starting Date", '<=%1', SalesCrMemoHeader."Posting Date");
+                            EXIMDDBRateSetup.SETRANGE("LFS HSN No.", SalesCrMemoLine."HSN/SAC Code");
+                            // EXIMDDBRateSetup.SETRANGE("LFS Unit of Measure Code", SalesCrMemoLine."Unit of Measure Code");
+                            if EXIMDDBRateSetup.FindLast() then
+                                // if (SalesCrMemoLine."LFS Incentive Type" = SalesCrMemoLine."LFS Incentive Type"::DDB) and (SalesCrMemoLine."LFS Claim DDB") then
+                                EXIMMngt."LFS InsertDDBEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, EXIMDDBRateSetup);
+                        end
+                        else begin
+                            EXIMSetup.Get();
+                            if eximsetup."LFS DDB %" <> 0 then
+                                EXIMMngt."LFS InsertDDBEntryFromExportPostedSalesCrNoteDoc"(SalesCrMemoLine, EXIMDDBRateSetup);
+                        end;
                 end;
             until SalesCrMemoLine.Next() = 0;
         if SalesInvoiceHeader."No." <> '' then begin

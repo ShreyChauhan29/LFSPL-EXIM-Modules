@@ -81,6 +81,7 @@ page 72005 "LFS EXIM DDB Entries"
                 {
                     ToolTip = 'Specifies the value of the FOB (FCY) Per Unit field.', Comment = '%';
                     Editable = false;
+                    Visible = false;
                 }
                 field("CIF FCY Amount"; Rec."LFS CIF FCY Amount")
                 {
