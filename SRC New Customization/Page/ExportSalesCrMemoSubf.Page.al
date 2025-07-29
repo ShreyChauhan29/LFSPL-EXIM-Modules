@@ -320,6 +320,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                             CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
                         end;
                         UpdateTaxAmount();
+                        AllowQuantitytomodify();
                     end;
                 }
                 field("Reserved Quantity"; Rec."Reserved Quantity")
@@ -374,6 +375,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                     begin
                         DeltaUpdateTotals();
                         UpdateTaxAmount();
+                        AllowUnitPricetomodify();
                     end;
                 }
                 field("Tax Liable"; Rec."Tax Liable")
@@ -419,6 +421,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                     trigger OnValidate()
                     begin
                         DeltaUpdateTotals();
+                        AllowLineAmounttomodify();
                     end;
                 }
                 Field("LFS RoDTEP License No."; Rec."LFS RoDTEP License No.")
@@ -557,6 +560,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                     begin
                         CurrPage.SaveRecord();
                         CalculateTax.CallTaxEngineOnSalesLine(Rec, xRec);
+                        AllowUnitPricetomodify();
                     end;
                 }
                 field("LFS HS Code"; Rec."LFS HS Code")
@@ -700,6 +704,26 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                 field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
                 {
                     ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                }
+                field("LFS RoDTEP Rebate Rate %"; Rec."LFS RoDTEP Rebate Rate %")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the RoDTEP Rebate Rate %';
+                }
+                field("LFS RoDTEP Rebate Value"; Rec."LFS RoDTEP Rebate Value")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the RoDTEP Rebate Value';
+                }
+                field("LFS DDB Rate"; Rec."LFS DDB Rate")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the DDB Rate %';
+                }
+                field("LFS DDB Value (LCY)"; Rec."LFS DDB Value (LCY)")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the DDB Value (LCY)';
                 }
                 field("GST Jurisdiction Type"; Rec."GST Jurisdiction Type")
                 {
@@ -1413,6 +1437,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
             }
             group("Exim")
             {
+                Caption = 'EXIM';
                 action("Packing List")
                 {
                     ApplicationArea = all;
@@ -1431,6 +1456,49 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                         PackingList.setrange("LFS Source Document Type", PackingList."LFS Source Document Type"::"Sales Order");
                         PackingListPage.SetTableView(PackingList);
                         Page.RunModal(page::"LFS EXIM Packing List", PackingList);
+                    end;
+                }
+                action(Licenses)
+                {
+                    Caption = 'Multiple License';
+                    ToolTip = 'Specifies the Licenses';
+                    ApplicationArea = all;
+                    Image = Task;
+                    trigger OnAction()
+                    var
+                        EXIM_License2: Record "LFS EXIM Export License";
+                        EXIM_licenseList: Page "LFS EXIM Export License";
+
+                    begin
+                        if rec."LFS Incentive Type" <> Rec."LFS Incentive Type"::DDB then begin
+                            EXIM_License2.Reset();
+                            EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                            EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                            EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
+                            EXIM_licenseList.SetTableView(EXIM_License2);
+                            EXIM_licenseList.SetRecord(EXIM_License2);
+                            EXIM_licenseList.run();
+                        end
+                        else
+                            Error('Incentive type DDB is defined for this invoice line');
+                    end;
+                }
+                action("Calculate RoDTEP & DDB")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Calculate RoDTEP & DDB';
+                    ToolTip = 'It Calculate the RoDTEP and DDB Values and Rate.';
+                    Image = Calculate;
+                    trigger OnAction()
+                    var
+                        SalesLine: Record "Sales Line";
+                    begin
+                        SalesLine.SetRange("Document No.", Rec."Document No.");
+                        SalesLine.SetRange("Document Type", Rec."Document Type");
+                        if SalesLine.FindSet() then
+                            repeat
+                                SalesLine.CalculateRoDTEPandDDB();
+                            until SalesLine.Next() = 0;
                     end;
                 }
             }
@@ -1837,6 +1905,42 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
         Clear(DimMgt);
 
         OnAfterSetDimensionsVisibility();
+    end;
+
+    local procedure AllowLineAmounttomodify()
+    var
+        ExportLicense: Record "LFS EXIM Export License";
+    begin
+        ExportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ExportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if not ExportLicense.IsEmpty() then
+            Error('License is already defined for this line.\Line Amount cannot be edited.');
+    end;
+
+    local procedure AllowQuantitytomodify()
+    var
+        ExportLicense: Record "LFS EXIM Export License";
+        licenseQuantity: Decimal;
+    begin
+        ExportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ExportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if ExportLicense.Findset() then
+            repeat
+                licenseQuantity += ExportLicense."LFS Quantity";
+            until ExportLicense.Next() = 0;
+        if licenseQuantity <> 0 then
+            if (Rec.Quantity < licenseQuantity) or (rec.quantity > xRec.Quantity) then
+                Error('License is already defined for this line.\License quantity is %1.\Line Quantity cannot be edited.', licenseQuantity);
+    end;
+
+    local procedure AllowUnitPricetomodify()
+    var
+        ExportLicense: Record "LFS EXIM Export License";
+    begin
+        ExportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ExportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if not ExportLicense.IsEmpty() then
+            Error('License is already defined for this line.\Unit Price cannot be edited.');
     end;
 
     [IntegrationEvent(true, false)]

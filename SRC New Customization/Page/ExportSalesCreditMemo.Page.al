@@ -405,11 +405,38 @@ page 72017 "LFS Export Sales Credit Memo"
             }
             group(EXIM)
             {
+                field("Currency Code"; Rec."Currency Code")
+                {
+                    ApplicationArea = Suite;
+                    Importance = Promoted;
+                    ToolTip = 'Specifies the currency of amounts on the sales document.';
+
+                    trigger OnAssistEdit()
+                    begin
+                        Clear(ChangeExchangeRate);
+                        if Rec."Posting Date" <> 0D then
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                        else
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
+                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
+                            SaveInvoiceDiscountAmount();
+                        end;
+                        Clear(ChangeExchangeRate);
+                    end;
+
+                    trigger OnValidate()
+                    var
+                        GSTSalesValidation: Codeunit "GST Sales Validation";
+                    begin
+                        CurrPage.Update();
+                        GSTSalesValidation.CallTaxEngineOnSalesHeader(Rec);
+                    end;
+                }
                 field("Custom Currency Code"; Rec."LFS Custom Currency Code")
                 {
                     ApplicationArea = all;
-                    Caption = 'Currency Code';
-                    ToolTip = 'Specifies the Currency Code';
+                    ToolTip = 'Specifies the Custom Currency Code';
                     trigger OnValidate()
                     begin
                         rec.Validate("Currency Code", Rec."LFS Custom Currency Code");
@@ -446,7 +473,7 @@ page 72017 "LFS Export Sales Credit Memo"
                 }
                 field("Final Destination"; Rec."LFS Final Destination")
                 {
-                    ApplicationArea = all;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the Final Destination';
                 }
                 field("Country of Origin of Goods"; Rec."LFS Country Origin Goods")
@@ -459,31 +486,24 @@ page 72017 "LFS Export Sales Credit Memo"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Inco Terms';
                 }
-                field("Shpping Line"; Rec."LFS Shipping Line")
+                field("Shipping Line"; Rec."LFS Shipping Line")
                 {
                     ApplicationArea = all;
-                    Visible = false;
-                    ToolTip = 'Specifies the Shpping Line';
+                    ToolTip = 'Specifies the Shipping Line';
                 }
                 field("Customs Bank Account"; Rec."LFS Customs Bank Account")
                 {
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Customs Bank Account';
                 }
-                field("Commercial  Bank Account"; Rec."LFS Commercial Bank Account")
+                field("Commercial Bank Account"; Rec."LFS Commercial Bank Account")
                 {
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Commercial Bank Account';
                 }
-                // field("Export Remark"; Rec."LFS Export Remark")
-                // {
-                //     ApplicationArea = all;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the Export Remark';
-                // }
                 field("Pre Carriage"; Rec."LFS Pre Carriage")
                 {
-                    ApplicationArea = all;
+                    ApplicationArea = All;
                     ToolTip = 'Specifies the Pre Carriage';
                 }
                 field("LFSPlaceofReceiptPre-Carriage"; Rec."LFSPlaceofReceiptPre-Carriage")
@@ -491,43 +511,17 @@ page 72017 "LFS Export Sales Credit Memo"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Place of Receipt By Pre-Carriage';
                 }
-                // field("FTT No."; Rec."LFS FTT No.")
-                // {
-                //     ApplicationArea = all;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the FTT No.';
-                // }
-                // field("FTT Date"; Rec."LFS FTT Date")
-                // {
-                //     ApplicationArea = all;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the FTT Date';
-                // }
-                // field("BIN No."; Rec."LFS BIN No.")
-                // {
-                //     ApplicationArea = all;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the BIN No.';
-                // }
                 field(ETA; Rec."LFS ETA")
                 {
                     ApplicationArea = all;
-                    Visible = false;
                     ToolTip = 'Specifies the ETA';
                 }
                 field(ETD; Rec."LFS ETD")
                 {
                     ApplicationArea = all;
                     Caption = 'EDD';
-                    Visible = false;
-                    ToolTip = 'Specifies the ETD';
+                    ToolTip = 'Specifies the EDD';
                 }
-                // field("Additional Information"; Rec."LFS Additional Information")
-                // {
-                //     ApplicationArea = all;
-                //     Visible = false;
-                //     ToolTip = 'Specifies the Additional Information';
-                // }
             }
             part(SalesLines; "LFS Export Sales Cr. Memo Subf")
             {
@@ -540,34 +534,34 @@ page 72017 "LFS Export Sales Credit Memo"
             group("Credit Memo Details")
             {
                 Caption = 'Credit Memo Details';
-                field("Currency Code"; Rec."Currency Code")
-                {
-                    ApplicationArea = Suite;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the currency of amounts on the sales document.';
+                // field("Currency Code"; Rec."Currency Code")
+                // {
+                //     ApplicationArea = Suite;
+                //     Importance = Promoted;
+                //     ToolTip = 'Specifies the currency of amounts on the sales document.';
 
-                    trigger OnAssistEdit()
-                    begin
-                        Clear(ChangeExchangeRate);
-                        if Rec."Posting Date" <> 0D then
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
-                        else
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
-                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
-                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
-                            SaveInvoiceDiscountAmount();
-                        end;
-                        Clear(ChangeExchangeRate);
-                    end;
+                //     trigger OnAssistEdit()
+                //     begin
+                //         Clear(ChangeExchangeRate);
+                //         if Rec."Posting Date" <> 0D then
+                //             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                //         else
+                //             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
+                //         if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                //             Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
+                //             SaveInvoiceDiscountAmount();
+                //         end;
+                //         Clear(ChangeExchangeRate);
+                //     end;
 
-                    trigger OnValidate()
-                    var
-                        GSTSalesValidation: Codeunit "GST Sales Validation";
-                    begin
-                        CurrPage.Update();
-                        GSTSalesValidation.CallTaxEngineOnSalesHeader(Rec);
-                    end;
-                }
+                //     trigger OnValidate()
+                //     var
+                //         GSTSalesValidation: Codeunit "GST Sales Validation";
+                //     begin
+                //         CurrPage.Update();
+                //         GSTSalesValidation.CallTaxEngineOnSalesHeader(Rec);
+                //     end;
+                // }
                 field("Company Bank Account Code"; Rec."Company Bank Account Code")
                 {
                     ApplicationArea = Suite;
@@ -871,6 +865,10 @@ page 72017 "LFS Export Sales Credit Memo"
                 {
                     ApplicationArea = BasicEU;
                     ToolTip = 'Specifies the point of exit through which you ship the items out of your country/region, for reporting to Intrastat.';
+                    trigger OnValidate()
+                    begin
+                        Rec."LFS Port of Loading" := Rec."Exit Point";
+                    end;
                 }
                 field("Area"; Rec.Area)
                 {
@@ -1241,6 +1239,28 @@ page 72017 "LFS Export Sales Credit Memo"
                         RecRef.GetTable(Rec);
                         DocumentAttachmentDetails.OpenForRecRef(RecRef);
                         DocumentAttachmentDetails.RunModal();
+                    end;
+                }
+            }
+            group("Exim1")
+            {
+                Caption = 'Exim';
+                Image = Action;
+                action("Export_Information")
+                {
+                    ApplicationArea = all;
+                    Caption = 'Export Information';
+                    ToolTip = 'Export Information';
+                    Image = ViewDetails;
+                    trigger OnAction()
+                    var
+                        Export: Record "LFS Export Information Header";
+                        exportInfor: Page "LFS Export Information";
+                    begin
+                        export.SetRange("LFS Document Type", Rec."Document Type");
+                        Export.SetRange("LFS Document No.", Rec."No.");
+                        exportInfor.SetTableView(Export);
+                        Page.RunModal(Page::"LFS Export Information", Export);
                     end;
                 }
             }
@@ -1696,27 +1716,70 @@ page 72017 "LFS Export Sales Credit Memo"
                     end;
                 }
             }
-            group(Exims)
+            // group(Exims)
+            // {
+            //     Caption = 'EXIM';
+            //     action("Export_Information")
+            //     {
+            //         ApplicationArea = Basic, Suite;
+            //         Caption = 'Export Information';
+            //         ToolTip = 'Specifies the Export Information';
+            //         Image = ViewDetails;
+            //         trigger OnAction()
+            //         var
+            //             Export: Record "LFS Export Information Header";
+            //             exportInfor: Page "LFS Export Information";
+            //         begin
+            //             export.SetRange("LFS Document Type", Rec."Document Type");
+            //             Export.SetRange("LFS Document No.", Rec."No.");
+            //             exportInfor.SetTableView(Export);
+            //             if Page.RunModal(Page::"LFS Export Information", Export) = action::LookupOK then begin
+            //                 Export."LFS Document Type" := rec."Document Type";
+            //                 Export."LFS Document No." := Rec."No.";
+            //             end;
+            //         end;
+            //     }
+            // }
+            group("E-Invoice")
             {
-                Caption = 'EXIM';
-                action("Export_Information")
+                Caption = 'E-Invoice';
+                action("Generate LFS IRN")
                 {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Export Information';
-                    ToolTip = 'Specifies the Export Information';
-                    Image = ViewDetails;
-                    trigger OnAction()
-                    var
-                        Export: Record "LFS Export Information Header";
-                        exportInfor: Page "LFS Export Information";
+                    Caption = 'Generate IRN';
+                    Image = RegisteredDocs;
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Generate IRN';
+                    trigger OnAction();
                     begin
-                        export.SetRange("LFS Document Type", Rec."Document Type");
-                        Export.SetRange("LFS Document No.", Rec."No.");
-                        exportInfor.SetTableView(Export);
-                        if Page.RunModal(Page::"LFS Export Information", Export) = action::LookupOK then begin
-                            Export."LFS Document Type" := rec."Document Type";
-                            Export."LFS Document No." := Rec."No.";
-                        end;
+                        Clear(EInvApi);
+                        Rec.TestField("IRN Hash", '');
+
+                        EInvApi.GenerateIRN(Rec."No.", 6, Rec."Location GST Reg. No.");
+                    end;
+                }
+                action("Cancel IRN")
+                {
+                    Image = Cancel;
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Cancel IRN';
+                    trigger OnAction();
+                    begin
+                        Clear(EInvApi);
+                        rec.TestField("Cancel Reason");
+                        EInvApi.CancelIRN(rec."No.", 4, rec."Location GST Reg. No.", Format(rec."Cancel Reason"));
+                    end;
+                }
+                action("Fetch IRN Details")
+                {
+                    Image = GetSourceDoc;
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Fetch IRN Details';
+                    trigger OnAction();
+                    begin
+                        Clear(EInvApi);
+                        Rec.TestField("IRN Hash", '');
+                        // EInvApi.FetchIRN(rec."No.", 1, rec."Posting Date", Rec."Location GST Reg. No.");
+                        EInvApi.FetchIRNExport(rec."No.", 1, rec."Posting Date", Rec."Location GST Reg. No.", Rec."Posting No.");
                     end;
                 }
             }
@@ -1794,6 +1857,12 @@ page 72017 "LFS Export Sales Credit Memo"
                 actionref("Move Negative Lines_Promoted"; "Move Negative Lines")
                 {
                 }
+            }
+            group(Category_Category13)
+            {
+                Caption = 'EXIM';
+                actionref(Export_Information_promoted; Export_Information)
+                { }
             }
             group(Category_Category4)
             {
@@ -1969,6 +2038,7 @@ page 72017 "LFS Export Sales Credit Memo"
         FormatAddress: Codeunit "Format Address";
         PrivacyNotice: Codeunit "Privacy Notice";
         PrivacyNoticeRegistrations: Codeunit "Privacy Notice Registrations";
+        EInvApi: Codeunit "EXIM EInvoiceAPI";
         ChangeExchangeRate: Page "Change Exchange Rate";
         ChangeCustomExchangeRate: Page "LFSChange Custom Exchange Rate";
         WorkDescription: Text;

@@ -169,6 +169,13 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         ObsoleteTag = '19.0';
                         ToolTip = 'Display export sales invoices generated for foreign trade customers.';
                     }
+                    action("Export Sales Credit Memos")
+                    {
+                        Caption = 'Export Sales Credit Memos';
+                        ApplicationArea = all;
+                        RunObject = page "LFS Export Sales Credit Memos";
+                        ToolTip = 'Display Export Sales Credit Memos generated for foreign trade customers.';
+                    }
                     // action("EXIM Custom Packing List")
                     // {
                     //     Caption = 'EXIM Custom Packing List';
@@ -277,6 +284,13 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         ObsoleteReason = 'Setup is no longer shown in this page.';
                         ObsoleteTag = '19.0';
                         ToolTip = 'View posted export invoices issued to overseas customers.';
+                    }
+                    action("Posted Export Credit Memos")
+                    {
+                        Caption = 'Posted Export Credit Memos';
+                        ApplicationArea = Basic, Suite;
+                        RunObject = page "Pstd Export Sales Credit Memos";
+                        ToolTip = 'View posted export Credit Memos issued to overseas customers.';
                     }
                     // action("EXIM PostedCustom Packing List")
                     // {
