@@ -29,7 +29,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "Sales Line";
-    SourceTableView = where("Document Type" = filter("Credit Memo"), "LFS EXIM Type" = filter(Export));
+    SourceTableView = where("Document Type" = filter("Credit Memo"));
 
     layout
     {
@@ -1301,28 +1301,28 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                         Rec.ShowLineComments();
                     end;
                 }
-                action("LFS Licenses")
-                {
-                    Caption = 'Multiple License';
-                    ToolTip = 'Specifies the Multiple License';
-                    ApplicationArea = all;
-                    Image = Task;
-                    trigger OnAction()
-                    var
-                        EXIM_License2: Record "LFS EXIM Export License";
-                        EXIM_licenseList: Page "LFS EXIM Export License";
+                // action("LFS Licenses")
+                // {
+                //     Caption = 'Multiple License';
+                //     ToolTip = 'Specifies the Multiple License';
+                //     ApplicationArea = all;
+                //     Image = Task;
+                //     trigger OnAction()
+                //     var
+                //         EXIM_License2: Record "LFS EXIM Export License";
+                //         EXIM_licenseList: Page "LFS EXIM Export License";
 
-                    begin
-                        EXIM_License2.Reset();
-                        EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
-                        EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
-                        if Rec."LFS Exim Group No." <> '' then
-                            EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
-                        EXIM_licenseList.SetTableView(EXIM_License2);
-                        EXIM_licenseList.SetRecord(EXIM_License2);
-                        EXIM_licenseList.run();
-                    end;
-                }
+                //     begin
+                //         EXIM_License2.Reset();
+                //         EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                //         EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                //         if Rec."LFS Exim Group No." <> '' then
+                //             EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
+                //         EXIM_licenseList.SetTableView(EXIM_License2);
+                //         EXIM_licenseList.SetRecord(EXIM_License2);
+                //         EXIM_licenseList.run();
+                //     end;
+                // }
                 action("Item Charge &Assignment")
                 {
                     AccessByPermission = TableData "Item Charge" = R;
@@ -1470,17 +1470,14 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                         EXIM_licenseList: Page "LFS EXIM Export License";
 
                     begin
-                        if rec."LFS Incentive Type" <> Rec."LFS Incentive Type"::DDB then begin
-                            EXIM_License2.Reset();
-                            EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
-                            EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                        EXIM_License2.Reset();
+                        EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                        EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                        if Rec."LFS Exim Group No." <> '' then
                             EXIM_License2.SetRange("LFS Exim Group No.", Rec."LFS Exim Group No.");
-                            EXIM_licenseList.SetTableView(EXIM_License2);
-                            EXIM_licenseList.SetRecord(EXIM_License2);
-                            EXIM_licenseList.run();
-                        end
-                        else
-                            Error('Incentive type DDB is defined for this invoice line');
+                        EXIM_licenseList.SetTableView(EXIM_License2);
+                        EXIM_licenseList.SetRecord(EXIM_License2);
+                        EXIM_licenseList.run();
                     end;
                 }
                 action("Calculate RoDTEP & DDB")
@@ -1561,6 +1558,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
         Currency.InitRoundingPrecision();
         TempOptionLookupBuffer.FillLookupBuffer(Enum::"Option Lookup Type"::Sales);
         TypeAsTextFieldVisible := ApplicationAreaMgmtFacade.IsFoundationEnabled() and not ApplicationAreaMgmtFacade.IsAdvancedEnabled();
+        rec."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
     end;
 
     trigger OnModifyRecord(): Boolean
@@ -1575,7 +1573,7 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
 
         Clear(ShortcutDimCode);
         UpdateTypeText();
-
+        rec."LFS EXIM Type" := Rec."LFS EXIM Type"::Export;
         Rec."LFS Source No." := Rec."Document No.";
         Rec."LFS Source Line No." := Rec."Line No.";
     end;

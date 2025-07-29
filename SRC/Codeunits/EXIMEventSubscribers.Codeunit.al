@@ -543,7 +543,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
     local procedure LFS_EX_OnAfterPostSalesLinesSub(var SalesHeader: Record "Sales Header"; var SalesShipmentHeader: Record "Sales Shipment Header"; var SalesInvoiceHeader: Record "Sales Invoice Header"; var SalesCrMemoHeader: Record "Sales Cr.Memo Header"; var ReturnReceiptHeader: Record "Return Receipt Header"; WhseShip: Boolean; WhseReceive: Boolean; var SalesLinesProcessed: Boolean; CommitIsSuppressed: Boolean; EverythingInvoiced: Boolean; var TempSalesLineGlobal: Record "Sales Line" temporary)
     var
         EXIMDDBRateSetup: Record "LFS EXIM DDB Rate Setup";
-        AdvLicense: Record "LFS EXIM Posted Export Licence";
+        // AdvLicense: Record "LFS EXIM Posted Export Licence";
         RodtepRatesetup: Record "LFS EXIM RoDTEP Rate Setup";
         eximsetup: Record "LFS EXIM Setup";
         exportInfo: Record "LFS Export Information Header";
@@ -1180,7 +1180,6 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     SalesLine.Modify();
                 end;
             end;
-
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", OnInsertInvoiceHeaderOnAfterSalesInvHeaderTransferFields, '', false, false)]

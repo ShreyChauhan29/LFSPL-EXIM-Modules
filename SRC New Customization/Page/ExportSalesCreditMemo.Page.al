@@ -241,9 +241,18 @@ page 72017 "LFS Export Sales Credit Memo"
                     trigger OnValidate()
                     var
                         GSTSalesValidation: Codeunit "GST Sales Validation";
+                        SalesLine: Record "Sales Line";
                     begin
                         SaveInvoiceDiscountAmount();
                         GSTSalesValidation.CallTaxEngineOnSalesHeader(Rec);
+
+                        CurrPage.Update(true);
+                        SalesLine.SetRange("Document No.", Rec."No.");
+                        SalesLine.SetRange("Document Type", Rec."Document Type");
+                        if SalesLine.FindSet() then
+                            repeat
+                                SalesLine.CalculateRoDTEPandDDB();
+                            until SalesLine.Next() = 0;
                     end;
                 }
                 field("VAT Reporting Date"; Rec."VAT Reporting Date")
@@ -1418,8 +1427,36 @@ page 72017 "LFS Export Sales Credit Memo"
                     ToolTip = 'Copy one or more posted sales document lines in order to reverse the original order.';
 
                     trigger OnAction()
+                    var
+                        ExportLicense: Record "LFS EXIM Export License";
+                        PostedExportLicences: Record "LFS EXIM Posted Export Licence";
+                        SalesCrMemoLine: Record "Sales Line";
                     begin
                         Rec.GetPstdDocLinesToReverse();
+                        SalesCrMemoLine.SetRange("Document Type", Rec."Document Type");
+                        SalesCrMemoLine.SetRange("Document No.", Rec."No.");
+                        if SalesCrMemoLine.Findset() then
+                            repeat
+                                PostedExportLicences.SetRange("LFS Source No.", SalesCrMemoLine."LFS Source No.");
+                                PostedExportLicences.SetRange("LFS Source line No.", SalesCrMemoLine."LFS Source Line No.");
+                                if PostedExportLicences.Findset() then
+                                    repeat
+                                        ExportLicense."LFS Source No." := SalesCrMemoLine."Document No.";
+                                        ExportLicense."LFS Source line No." := SalesCrMemoLine."Line No.";
+                                        ExportLicense."LFS Line No." := PostedExportLicences."LFS Line No.";
+                                        ExportLicense.Insert();
+                                        ExportLicense."LFS Source Type" := ExportLicense."LFS Source Type"::"Credit Memo";
+                                        ExportLicense."LFS Quantity" := PostedExportLicences."LFS Quantity";
+                                        ExportLicense."LFS License Type" := PostedExportLicences."LFS License Type";
+                                        ExportLicense."LFS License No." := PostedExportLicences."LFS License No.";
+                                        ExportLicense."LFS Item No." := PostedExportLicences."LFS Item No.";
+                                        ExportLicense."LFS FOB (FCY)" := PostedExportLicences."LFS FOB (FCY)";
+                                        ExportLicense."LFS Export Inv Bal Qty" := PostedExportLicences."LFS Export Inv Bal Qty";
+                                        // ExportLicense."LFS EXIM Item Group" := PostedExportLicences."LFS EXIM Item Group";
+                                        ExportLicense."LFS Exim Group No." := SalesCrMemoLine."LFS Exim Group No.";
+                                        ExportLicense.modify();
+                                    until PostedExportLicences.Next() = 0;
+                            until SalesCrMemoLine.Next() = 0;
                     end;
                 }
                 action(CalculateInvoiceDiscount)
@@ -1656,6 +1693,7 @@ page 72017 "LFS Export Sales Credit Memo"
                     var
                         GSTSalesValidation: Codeunit "GST Sales Validation";
                     begin
+                        CheckMultipleLicenseTotalQty();
                         GSTSalesValidation.ValidateGSTWithoutPaymentOfDutyOnPost(Rec);
                         PostDocument(CODEUNIT::"Sales-Post (Yes/No)");
                     end;
@@ -1715,6 +1753,7 @@ page 72017 "LFS Export Sales Credit Memo"
                     var
                         GSTSalesValidation: Codeunit "GST Sales Validation";
                     begin
+                        CheckMultipleLicenseTotalQty();
                         GSTSalesValidation.ValidateGSTWithoutPaymentOfDutyOnPost(Rec);
                         ShowPreview();
                     end;
@@ -2088,6 +2127,30 @@ page 72017 "LFS Export Sales Credit Memo"
     procedure CallPostDocument(PostingCodeunitID: Integer)
     begin
         PostDocument(PostingCodeunitID);
+    end;
+
+    local procedure CheckMultipleLicenseTotalQty()
+    var
+        EXIM_License: Record "LFS EXIM Export License";
+        SalesCrLine: Record "Sales Line";
+        sumQty: Decimal;
+    begin
+
+        SalesCrLine.SetRange("Document No.", Rec."No.");
+        SalesCrLine.SetRange("Document Type", Rec."Document Type");
+        if SalesCrLine.Findset() then
+            repeat
+                sumQty := 0;
+                EXIM_License.SetRange("LFS Source No.", SalesCrLine."Document No.");
+                EXIM_License.SetRange("LFS Source line No.", SalesCrLine."Line No.");
+                if EXIM_License.Findset() then
+                    repeat
+                        sumQty += EXIM_License."LFS Quantity";
+                    until EXIM_License.Next() = 0;
+
+                if (sumQty > SalesCrLine.Quantity) then
+                    Error('Total License quantity should not exceed the Credit line quantity');
+            until SalesCrLine.Next() = 0;
     end;
 
     local procedure PostDocument(PostingCodeunitID: Integer)
