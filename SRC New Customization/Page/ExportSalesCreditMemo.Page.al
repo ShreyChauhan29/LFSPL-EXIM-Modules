@@ -48,11 +48,10 @@ page 72017 "LFS Export Sales Credit Memo"
                     ApplicationArea = All;
                     Importance = Standard;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
-                    Visible = DocNoVisible;
 
                     trigger OnAssistEdit()
                     begin
-                        if Rec.AssistEdit(xRec) then
+                        if Rec.AssistEditExport(xRec) then
                             CurrPage.Update();
                     end;
                 }
@@ -455,6 +454,11 @@ page 72017 "LFS Export Sales Credit Memo"
                         end;
                         CLEAR(ChangeCustomExchangeRate);
                     end;
+                }
+                field("LFS Type"; Rec."LFS FOB CIF Calc. Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the FOB CIF Calculation Type';
                 }
                 field("Port of Loading"; Rec."LFS Port of Loading")
                 {
