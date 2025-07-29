@@ -565,6 +565,10 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
                 EXIT(EximSetup."LFS Export Invoice Nos.");
             "Document Type"::"Blanket Order":
                 EXIT(EximSetup."LFS Blanket Exp Order No.");
+            "Document Type"::Quote:
+                EXIT(EximSetup."LFS Export Sales Quote Nos.");
+            "Document Type"::"Credit Memo":
+                EXIT(EximSetup."LFS Export SalesCreditMemoNos.");
         end;
     end;
 
@@ -573,7 +577,7 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
         EximSetup.Get();
         case "Document Type" of
             "Document Type"::Quote:
-                ERROR('Exim Quote not allowed');
+                EximSetup.TestField("LFS Export Sales Quote Nos.");
             "Document Type"::Order:
                 EximSetup.TESTFIELD("LFS Export Order Nos.");
             "Document Type"::Invoice:
@@ -584,8 +588,10 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             "Document Type"::"Return Order":
                 ERROR('Exim Return Order not allowed');
             "Document Type"::"Credit Memo":
-                ERROR('Exim Credit Memo not allowed');
-
+                begin
+                    EximSetup.TestField("LFS Export SalesCreditMemoNos.");
+                    EximSetup.TestField("LFS Pstd Export SalesCrMemoNos");
+                end;
             "Document Type"::"Blanket Order":
                 EximSetup.TESTFIELD("LFS Blanket Exp Order No.");
         end;

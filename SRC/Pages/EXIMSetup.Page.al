@@ -54,6 +54,10 @@ page 72000 "LFS EXIM Setup"
                     ToolTip = 'Specifies the value of the Remission of Duties and Taxes on Exported Products License No. field.';
                     ApplicationArea = All;
                 }
+                field("LFS Export Sales Quote Nos."; Rec."LFS Export Sales Quote Nos.")
+                {
+                    ToolTip = 'Specifies the value of the Export Sales Quote Nos. field.', Comment = '%';
+                }
                 field("LFS Blanket Exp Order No."; Rec."LFS Blanket Exp Order No.")
                 {
                     ToolTip = 'Specifies the value of the Blanket Export Order No. field.', Comment = '%';
@@ -77,6 +81,10 @@ page 72000 "LFS EXIM Setup"
                     ToolTip = 'Specifies the value of the Export Invoice Nos. field.';
                     ApplicationArea = All;
                 }
+                field("LFS Export SalesCreditMemoNos."; Rec."LFS Export SalesCreditMemoNos.")
+                {
+                    ToolTip = 'Specifies the value of the Export Sales Credit Memo Nos. field.', Comment = '%';
+                }
                 field("Posted Export Shipment Nos."; Rec."LFS Posted Exp Shipment Nos.")
                 {
                     ToolTip = 'Specifies the value of the Posted Export Shipment Nos. field.';
@@ -86,6 +94,10 @@ page 72000 "LFS EXIM Setup"
                 {
                     ToolTip = 'Specifies the value of the Posted Export Invoice Nos. field.';
                     ApplicationArea = All;
+                }
+                field("LFS Pstd Export SalesCrMemoNos"; Rec."LFS Pstd Export SalesCrMemoNos")
+                {
+                    ToolTip = 'Specifies the value of the Posted Export Sales Credit Memo Nos. field.', Comment = '%';
                 }
                 field("Import Invoice Nos."; Rec."LFS Import Invoice Nos.")
                 {

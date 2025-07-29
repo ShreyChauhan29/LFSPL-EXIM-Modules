@@ -19,7 +19,7 @@ using System.Threading;
 
 page 72099 "Import Purchase Credit Memos"
 {
-    // ApplicationArea = All;
+    ApplicationArea = All;
     Caption = 'Import Purchase Credit Memos';
     PageType = List;
     SourceTable = "Purchase Header";

@@ -19,6 +19,8 @@ using Microsoft.Purchases.History;
 using Microsoft.Purchases.Payables;
 using Microsoft.Purchases.Posting;
 using Microsoft.Purchases.Setup;
+using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Purchases.Vendor;
 using Microsoft.Utilities;
 using System.Automation;
@@ -35,6 +37,7 @@ page 72100 "LFS Import Purchase CreditMemo"
     SourceTable = "Purchase Header";
     RefreshOnActivate = true;
     SourceTableView = where("Document Type" = filter("Credit Memo"), "LFS EXIM Type" = const(Import));
+    UsageCategory = None;
 
     layout
     {
@@ -369,6 +372,110 @@ page 72100 "LFS Import Purchase CreditMemo"
                     Visible = DocAmountEnable;
                 }
             }
+            group(EXIM)
+            {
+                field("EXIM Type"; Rec."LFS EXIM Type")
+                {
+                    ToolTip = 'Specifies the value of the EXIM Type field.';
+                    ApplicationArea = All;
+                }
+                field("Currency Code"; Rec."Currency Code")
+                {
+                    ToolTip = 'Specifies the foreign currency code used in the document.';
+                    ApplicationArea = All;
+                    Importance = Promoted;
+                    Visible = false;
+
+                    trigger OnAssistEdit()
+                    begin
+                        CLEAR(ChangeExchangeRate);
+                        if Rec."Posting Date" <> 0D then
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                        else
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE());
+                        if ChangeExchangeRate.RUNMODAL() = ACTION::OK then begin
+                            REc.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter());
+                            CurrPage.UPDATE();
+                        end;
+                        CLEAR(ChangeExchangeRate);
+                    end;
+                }
+                field("Custom Currency Code"; Rec."LFS Custom Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the Custom Currency Code field.';
+                    ApplicationArea = All;
+                    trigger OnValidate()
+                    begin
+                        rec."Currency Code" := Rec."LFS Custom Currency Code";
+                        Rec.Validate("Currency Code");
+                    end;
+
+                    trigger OnAssistEdit()
+                    begin
+                        CLEAR(ChangeCustomExchangeRate);
+                        if Rec."Posting Date" <> 0D then
+                            ChangeCustomExchangeRate.SetParameter(Rec."LFS Custom Currency Code", Rec."LFS Custom Currency Factor", Rec."Posting Date", Rec."LFS EXIM Type")
+                        else
+                            ChangeCustomExchangeRate.SetParameter(Rec."LFS Custom Currency Code", Rec."LFS Custom Currency Factor", WORKDATE(), Rec."LFS EXIM Type");
+                        if ChangeCustomExchangeRate.RUNMODAL() = ACTION::OK then begin
+                            Rec.VALIDATE("LFS Custom Currency Factor", ChangeCustomExchangeRate.GetParameter());
+                            CurrPage.UPDATE();
+                        end;
+                        CLEAR(ChangeCustomExchangeRate);
+                    end;
+                }
+                field("Port of Loading"; Rec."LFS Port of Loading")
+                {
+                    ToolTip = 'Specifies the value of the Port of Loading field.';
+                    ApplicationArea = All;
+                }
+                field("Port of Discharge"; Rec."LFS Port of Discharge")
+                {
+                    ToolTip = 'Specifies the value of the Port of Discharge field.';
+                    ApplicationArea = All;
+                }
+                field("Country of Final Destination"; Rec."LFS Country of Final Dest.")
+                {
+                    ToolTip = 'Specifies the value of the Country of Final Destination field.';
+                    ApplicationArea = All;
+                }
+                field("Final Destination"; Rec."LFS Final Destination")
+                {
+                    ToolTip = 'Specifies the value of the Final Destination field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("Country of Origin of Goods"; Rec."LFS Country Origin Goods")
+                {
+                    ToolTip = 'Specifies the value of the Country of Origin of Goods field.';
+                    ApplicationArea = All;
+                }
+                field("Inco Terms"; Rec."LFS Inco Terms")
+                {
+                    ToolTip = 'Specifies the value of the Inco Terms field.';
+                    ApplicationArea = All;
+                }
+                field("Transport Method"; Rec."Transport Method")
+                {
+                    ToolTip = 'Specifies the transportation method mentioned in the document.';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry No."; Rec."Bill of Entry No.")
+                {
+                    ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry Date"; Rec."Bill of Entry Date")
+                {
+                    ToolTip = 'Specifies the entry date defined in bill of entry document.';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry Value"; Rec."Bill of Entry Value")
+                {
+                    ToolTip = 'Specifies the values as mentioned in bill of entry document.';
+                    ApplicationArea = All;
+                }
+            }
             part(PurchLines; "Import Purch. Cr. Memo Subform")
             {
                 ApplicationArea = Basic, Suite;
@@ -380,43 +487,43 @@ page 72100 "LFS Import Purchase CreditMemo"
             group("Invoice Details")
             {
                 Caption = 'Credit Memo Details';
-                field("Currency Code"; Rec."Currency Code")
-                {
-                    ApplicationArea = Suite;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the currency code for amounts on the purchase lines.';
+                // field("Currency Code"; Rec."Currency Code")
+                // {
+                //     ApplicationArea = Suite;
+                //     Importance = Promoted;
+                //     ToolTip = 'Specifies the currency code for amounts on the purchase lines.';
 
-                    trigger OnAssistEdit()
-                    var
-                        IsHandled: Boolean;
-                    begin
-                        IsHandled := false;
-                        OnBeforeCurrencyCodeOnAssistEdit(Rec, xRec, IsHandled);
-                        if IsHandled then
-                            exit;
+                //     trigger OnAssistEdit()
+                //     var
+                //         IsHandled: Boolean;
+                //     begin
+                //         IsHandled := false;
+                //         OnBeforeCurrencyCodeOnAssistEdit(Rec, xRec, IsHandled);
+                //         if IsHandled then
+                //             exit;
 
-                        Clear(ChangeExchangeRate);
-                        if Rec."Posting Date" <> 0D then
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
-                        else
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
-                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
-                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
-                            SaveInvoiceDiscountAmount();
-                        end;
-                        Clear(ChangeExchangeRate);
-                    end;
+                //         Clear(ChangeExchangeRate);
+                //         if Rec."Posting Date" <> 0D then
+                //             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                //         else
+                //             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
+                //         if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                //             Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
+                //             SaveInvoiceDiscountAmount();
+                //         end;
+                //         Clear(ChangeExchangeRate);
+                //     end;
 
-                    trigger OnValidate()
-                    var
-                        GSTBaseValidation: Codeunit "GST Base Validation";
-                    begin
-                        CurrPage.SaveRecord();
-                        PurchCalcDiscByType.ApplyDefaultInvoiceDiscount(0, Rec);
-                        CurrPage.SaveRecord();
-                        GSTBaseValidation.CallTaxEngineOnPurchHeader(Rec);
-                    end;
-                }
+                //     trigger OnValidate()
+                //     var
+                //         GSTBaseValidation: Codeunit "GST Base Validation";
+                //     begin
+                //         CurrPage.SaveRecord();
+                //         PurchCalcDiscByType.ApplyDefaultInvoiceDiscount(0, Rec);
+                //         CurrPage.SaveRecord();
+                //         GSTBaseValidation.CallTaxEngineOnPurchHeader(Rec);
+                //     end;
+                // }
                 field("Prices Including VAT"; Rec."Prices Including VAT")
                 {
                     ApplicationArea = VAT;
@@ -813,11 +920,11 @@ page 72100 "LFS Import Purchase CreditMemo"
                     ApplicationArea = BasicEU, BasicNO;
                     ToolTip = 'Specifies the type of transaction that the document represents, for the purpose of reporting to INTRASTAT.';
                 }
-                field("Transport Method"; Rec."Transport Method")
-                {
-                    ApplicationArea = BasicEU, BasicNO;
-                    ToolTip = 'Specifies the transport method, for the purpose of reporting to INTRASTAT.';
-                }
+                // field("Transport Method"; Rec."Transport Method")
+                // {
+                //     ApplicationArea = BasicEU, BasicNO;
+                //     ToolTip = 'Specifies the transport method, for the purpose of reporting to INTRASTAT.';
+                // }
                 field("Entry Point"; Rec."Entry Point")
                 {
                     ApplicationArea = BasicEU, BasicNO;
@@ -831,16 +938,16 @@ page 72100 "LFS Import Purchase CreditMemo"
             }
             group("Tax Information ")
             {
-                field("Bill of Entry Date"; Rec."Bill of Entry Date")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the entry date defined in bill of entry document.';
-                }
-                field("Bill of Entry No."; Rec."Bill of Entry No.")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
-                }
+                // field("Bill of Entry Date"; Rec."Bill of Entry Date")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the entry date defined in bill of entry document.';
+                // }
+                // field("Bill of Entry No."; Rec."Bill of Entry No.")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
+                // }
                 field("Without Bill Of Entry"; Rec."Without Bill Of Entry")
                 {
                     ApplicationArea = Basic, Suite;
@@ -854,11 +961,11 @@ page 72100 "LFS Import Purchase CreditMemo"
                         GSTBaseValidation.CallTaxEngineOnPurchHeader(Rec);
                     end;
                 }
-                field("Bill of Entry Value"; Rec."Bill of Entry Value")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the entry date defined in bill of entry document.';
-                }
+                // field("Bill of Entry Value"; Rec."Bill of Entry Value")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the entry date defined in bill of entry document.';
+                // }
                 field("Invoice Type"; Rec."Invoice Type")
                 {
                     ApplicationArea = Basic, Suite;
@@ -1865,7 +1972,7 @@ page 72100 "LFS Import Purchase CreditMemo"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         Rec."Responsibility Center" := UserMgt.GetPurchasesFilter();
-
+        REc."LFS EXIM Type" := Rec."LFS EXIM Type"::Import;
         if (not DocNoVisible) and (Rec."No." = '') then
             Rec.SetBuyFromVendorFromFilter();
     end;
@@ -1924,6 +2031,7 @@ page 72100 "LFS Import Purchase CreditMemo"
         PrivacyNotice: Codeunit "Privacy Notice";
         PrivacyNoticeRegistrations: Codeunit "Privacy Notice Registrations";
         ChangeExchangeRate: Page "Change Exchange Rate";
+        ChangeCustomExchangeRate: Page "LFSChange Custom Exchange Rate";
         JobQueueVisible: Boolean;
         JobQueueUsed: Boolean;
         StatusStyleTxt: Text;
@@ -1954,6 +2062,56 @@ page 72100 "LFS Import Purchase CreditMemo"
 
     protected var
         ShipToOptions: Option "Default (Vendor Address)","Alternate Vendor Address","Custom Address";
+
+    procedure InsertDDBRODTepEntryForImport(var PurchaseCreditMemoHeader: Record "Purch. Cr. Memo Hdr.")
+    var
+        recGenJnlLine: Record "Gen. Journal Line";
+        MultipleLicense: Record "LFS EXIM Posted Import Licence";
+        EximSetup: Record "LFS EXIM Setup";
+        RODTEPAmount: Decimal;
+        GenJnlLineNo: Integer;
+    begin
+        RODTEPAmount := 0;
+        MultipleLicense.Reset();
+        MultipleLicense.SetRange("LFS Source No.", PurchaseCreditMemoHeader."No.");
+        MultipleLicense.SetRange("LFS Source Type", MultipleLicense."LFS Source Type"::Invoice);
+        if MultipleLicense.Findset() then
+            repeat
+                RODTEPAmount += MultipleLicense."LFS RoDTEP Consump Value";
+            until MultipleLicense.Next() = 0;
+        if RODTEPAmount <> 0 then
+            if PurchaseCreditMemoHeader."LFS EXIM Type" = PurchaseCreditMemoHeader."LFS EXIM Type"::Import then begin
+                RODTEPAmount := 0;
+                EximSetup.Get();
+                recGenJnlLine.SetFilter("Journal Batch Name", '%1', EximSetup."LFS Rdp Cons Batch Name");
+                if recGenJnlLine.FindLast() then
+                    GenJnlLineNo := 10000 + recGenJnlLine."Line No.";
+                recGenJnlLine.Reset();
+                recGenJnlLine.Init();
+                recGenJnlLine."Line No." := GenJnlLineNo;
+                recGenJnlLine.Validate("Journal Template Name", EximSetup."LFS Rdp cons. Jour. Temp. Name");
+                recGenJnlLine.Validate("Journal Batch Name", EximSetup."LFS Rdp Cons Batch Name");
+                recGenJnlLine.Validate("Document No.", PurchaseCreditMemoHeader."No." + '_RT');
+                recGenJnlLine.Validate("Posting Date", PurchaseCreditMemoHeader."Posting Date");
+                recGenJnlLine.Validate("Account Type", recGenJnlLine."account type"::"G/L Account");
+                recGenJnlLine.Validate("Account No.", EximSetup."LFS Rdp Cons Account No.");
+                MultipleLicense.Reset();
+                MultipleLicense.SetRange("LFS Source No.", PurchaseCreditMemoHeader."No.");
+                MultipleLicense.SetRange("LFS Source Type", MultipleLicense."LFS Source Type"::Invoice);
+                if MultipleLicense.Findset() then
+                    repeat
+                        RODTEPAmount += MultipleLicense."LFS RoDTEP Consump Value";
+                    until MultipleLicense.Next() = 0;
+                recGenJnlLine.Validate(Amount, RODTEPAmount);
+                recGenJnlLine.Validate("Bal. Account Type", recGenJnlLine."bal. account type"::"G/L Account");
+                recGenJnlLine.Validate("Bal. Account No.", EximSetup."LFS Rdp Cons Bal Acc. Num");
+                recGenJnlLine.Validate("External Document No.", PurchaseCreditMemoHeader."Bill of Entry No.");
+                if recGenJnlLine.Insert() then
+                    Message('The RoDTEP entry is created with Doc. No. %1', PurchaseCreditMemoHeader."No." + '_RT');
+                if EximSetup."LFS Cons GL Ent Auto Post" = true then
+                    recGenJnlLine.SendToPosting(Codeunit::"Gen. Jnl.-Post");
+            end;
+    end;
 
     local procedure ActivateFields()
     begin

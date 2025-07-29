@@ -227,6 +227,16 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         ObsoleteTag = '19.0';
                         ToolTip = 'Review and manage purchase invoices related to imports.';
                     }
+                    action("Import Purchase Credit Memos")
+                    {
+                        Caption = 'Import Purchase Credit Memos';
+                        ApplicationArea = Basic, Suite;
+                        RunObject = page "LFS Import Purchase CreditMemo";
+                        ObsoleteState = Pending;
+                        ObsoleteReason = 'Setup is no longer shown in this page.';
+                        ObsoleteTag = '19.0';
+                        ToolTip = 'Review and manage purchase Credit Memos related to imports.';
+                    }
                 }
                 group("LFS Registers")
                 {

@@ -499,9 +499,12 @@ codeunit 72002 "LFS EXIM Event Subscribers"
     local procedure LFS_EX_OnAfterFinalizePostingPurch(var PurchHeader: Record "Purchase Header"; var PurchRcptHeader: Record "Purch. Rcpt. Header"; var PurchInvHeader: Record "Purch. Inv. Header"; var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."; var ReturnShptHeader: Record "Return Shipment Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; PreviewMode: Boolean; CommitIsSupressed: Boolean);
     var
         ImportPurchaseInvoice: Page "LFS Import Purchase Invoice";
+        ImportPurchaseCreditMemo: Page "LFS Import Purchase CreditMemo";
     begin
         if PurchHeader."LFS EXIM Type" = PurchHeader."LFS EXIM Type"::Import then
             ImportPurchaseInvoice.InsertDDBRODTepEntryForImport(PurchInvHeader);
+        if PurchHeader."LFS EXIM Type" = PurchHeader."LFS EXIM Type"::Import then
+            ImportPurchaseCreditMemo.InsertDDBRODTepEntryForImport(PurchCrMemoHdr);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Post Receipt", OnAfterPostedWhseRcptHeaderInsert, '', false, false)]

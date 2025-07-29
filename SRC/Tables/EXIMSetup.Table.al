@@ -297,6 +297,24 @@ table 72000 "LFS EXIM Setup"
             Caption = 'Group Wise License';
             DataClassification = CustomerContent;
         }
+        field(67; "LFS Export SalesCreditMemoNos."; Code[20])
+        {
+            Caption = 'Export Sales Credit Memo Nos.';
+            TableRelation = "No. Series";
+            DataClassification = CustomerContent;
+        }
+        field(68; "LFS Pstd Export SalesCrMemoNos"; Code[20])
+        {
+            Caption = 'Posted Export Sales Credit Memo Nos.';
+            TableRelation = "No. Series";
+            DataClassification = CustomerContent;
+        }
+        field(69; "LFS Export Sales Quote Nos."; Code[20])
+        {
+            Caption = 'Export Sales Quote Nos.';
+            TableRelation = "No. Series";
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

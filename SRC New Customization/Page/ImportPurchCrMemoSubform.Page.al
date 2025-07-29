@@ -90,6 +90,8 @@ page 72101 "Import Purch. Cr. Memo Subform"
                         NoOnAfterValidate();
                         UpdateEditableOnRow();
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
+                        Allowitemtomodify();
+                        EximCodeunit."LFS UpdateCustExhRatePurchase"(Rec);
                         UpdateTypeText();
                         DeltaUpdateTotals();
                         if Rec."Variant Code" = '' then
@@ -295,6 +297,7 @@ page 72101 "Import Purch. Cr. Memo Subform"
                         if PurchasesPayablesSetup."Calc. Inv. Discount" and (Rec.Quantity = 0) then
                             CurrPage.Update(false);
                         SaveRecords();
+                        AllowQuantitytomodify();
                     end;
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
@@ -327,6 +330,8 @@ page 72101 "Import Purch. Cr. Memo Subform"
                     trigger OnValidate()
                     begin
                         DeltaUpdateTotals();
+                        Rec.Validate("LFS FOB Amount (FCY)", Rec."Line Amount");
+                        AllowUnitCosttomodify();
                     end;
                 }
                 field("Indirect Cost %"; Rec."Indirect Cost %")
@@ -420,6 +425,18 @@ page 72101 "Import Purch. Cr. Memo Subform"
                     begin
                         DeltaUpdateTotals();
                         SaveRecords();
+                        AllowLineAmounttomodify();
+                    end;
+                }
+                field("GST Assesable Value INR"; rec."LFS GST Assesable Value INR")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the GST Assesable Value INR';
+                    trigger OnValidate()
+                    begin
+                        exhchangeRateCalculation();
+                        Rec."GST Assessable Value" := Rec."LFS GST Assesable Value INR" / ExchRate;
+                        Rec.Validate("GST Assessable Value");
                     end;
                 }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
@@ -564,6 +581,19 @@ page 72101 "Import Purch. Cr. Memo Subform"
                         CalculateTax.CallTaxEngineOnPurchaseLine(Rec, xRec);
                     end;
                 }
+                field("Import Duties LCY Per Unit"; Rec."LFS Import Duties Amt. (LCY)")
+                {
+                    ToolTip = 'Specifies the value of the Import Duties LCY Per Unit field.';
+                    ApplicationArea = All;
+                    trigger OnValidate()
+                    // var
+                    //     myInt: Integer;
+                    begin
+                        exhchangeRateCalculation();
+                        rec."Custom Duty Amount" := Rec."LFS Import Duties Amt. (LCY)" / ExchRate;
+                        Rec.Validate("Custom Duty Amount");
+                    end;
+                }
                 field("Custom Duty Amount"; Rec."Custom Duty Amount")
                 {
                     ApplicationArea = Basic, Suite;
@@ -575,6 +605,9 @@ page 72101 "Import Purch. Cr. Memo Subform"
                     begin
                         CurrPage.SaveRecord();
                         CalculateTax.CallTaxEngineOnPurchaseLine(Rec, xRec);
+                        Rec."LFS Import Duties Amt. (LCY)" := Rec."Custom Duty Amount" * Rec."LFS Custom Exch. Rate";
+                        Rec.Validate("GST Assessable Value");
+                        CalculateTAX();
                     end;
                 }
                 field("Qty. Assigned"; Rec."Qty. Assigned")
@@ -879,6 +912,77 @@ page 72101 "Import Purch. Cr. Memo Subform"
 
                         OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 8);
                     end;
+                }
+                field("EXIM Type"; Rec."LFS EXIM Type")
+                {
+                    ToolTip = 'Specifies the value of the EXIM Type field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("License Type"; Rec."LFS License Type")
+                {
+                    ToolTip = 'Specifies the value of the License Type field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("License No."; Rec."LFS License No.")
+                {
+                    ToolTip = 'Specifies the value of the License No. field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
+                field("RoDTEP Value (LCY)"; Rec."LFS RoDTEP Value (LCY)")
+                {
+                    ApplicationArea = all;
+                    Visible = false;
+                    ToolTip = 'Specifies the RoDTEP Value (LCY)';
+                }
+                field("CIF (FCY)"; Rec."LFS CIF Amount (FCY)")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
+                    Caption = 'CIF (FCY)';
+                    ToolTip = 'Specifies the CIF (FCY)';
+                }
+                field("CIF (LC)"; Rec."LFS CIF Amount (LCY)")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
+                    Caption = 'CIF (LCY)';
+                    ToolTip = 'Specifies the CIF (LCY)';
+                }
+                field("FOB (FCY) Per Unit"; Rec."LFS FOB Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the FOB (FCY) Per Unit field.';
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field("CIF (FCY) Per Unit"; Rec."LFS CIF Amount (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the CIF (FCY) Per Unit field.';
+                    ApplicationArea = All;
+                    Editable = false;
+                    trigger OnValidate()
+                    begin
+                        Rec.Validate("GST Assessable Value", Rec."LFS CIF Amount (FCY)");
+                    end;
+                }
+                field("Freight Amt. FCY Per Unit"; Rec."LFS Freight Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the Freight Amt. FCY Per Unit field.';
+                    ApplicationArea = All;
+                }
+                field("Insurance Amt FCY Per Unit"; Rec."LFS Insurance Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the Insurance Amt FCY Per Unit field.';
+                    ApplicationArea = All;
                 }
                 field("Gross Weight"; Rec."Gross Weight")
                 {
@@ -1293,6 +1397,32 @@ page 72101 "Import Purch. Cr. Memo Subform"
                     end;
                 }
             }
+            group(Exim)
+            {
+                action(Licenses)
+                {
+                    Caption = 'Multiple License';
+                    ToolTip = 'Specifies the Multiple Licenses';
+                    ApplicationArea = all;
+                    Image = Task;
+                    trigger OnAction()
+                    var
+                        EXIM_License2: Record "LFS EXIM Import License";
+                        EXIM_licenseList: Page "LFS Import Licenses";
+                    begin
+                        if Rec."LFS License Type" <> Rec."LFS License Type"::RoDTEP then begin
+                            EXIM_License2.Reset();
+                            EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                            EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                            EXIM_licenseList.SetTableView(EXIM_License2);
+                            EXIM_licenseList.SetRecord(EXIM_License2);
+                            EXIM_licenseList.run();
+                        end
+                        else
+                            Message('License Type RoDTEP is selected for this import line');
+                    end;
+                }
+            }
         }
     }
 
@@ -1316,6 +1446,10 @@ page 72101 "Import Purch. Cr. Memo Subform"
         SetItemChargeFieldsStyle();
         if Rec."Variant Code" = '' then
             VariantCodeMandatory := Item.IsVariantMandatory(Rec.Type = Rec.Type::Item, Rec."No.");
+
+        Rec."LFS EXIM Type" := Rec."LFS EXIM Type"::Import;
+        CLEAR(DocumentTotals);
+        EximCodeunit."LFS UpdateCustExhRatePurchase"(Rec);
     end;
 
     trigger OnDeleteRecord(): Boolean
@@ -1371,6 +1505,7 @@ page 72101 "Import Purch. Cr. Memo Subform"
     end;
 
     var
+        PurchHeader: Record "Purchase Header";
         Currency: Record Currency;
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
         TempOptionLookupBuffer: Record "Option Lookup Buffer" temporary;
@@ -1379,10 +1514,11 @@ page 72101 "Import Purch. Cr. Memo Subform"
         PurchCalcDiscByType: Codeunit "Purch - Calc Disc. By Type";
         DocumentTotals: Codeunit "Document Totals";
         ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
+        eximcodeunit: Codeunit "LFS EXIM General Functions";
 #pragma warning disable AA0074
         Text000: Label 'Unable to run this function while in View mode.';
 #pragma warning restore AA0074
-        AmountWithDiscountAllowed: Decimal;
+        AmountWithDiscountAllowed, ExchRate : Decimal;
         VariantCodeMandatory: Boolean;
         InvDiscAmountEditable: Boolean;
         UpdateAllowedVar: Boolean;
@@ -1421,6 +1557,80 @@ page 72101 "Import Purch. Cr. Memo Subform"
     local Procedure SaveRecords()
     begin
         CurrPage.SaveRecord();
+    end;
+
+    procedure CalculateTAX()
+    var
+        CalculateTaxVar: Codeunit "Calculate Tax";
+    begin
+        CurrPage.SaveRecord();
+        CalculateTaxVar.CallTaxEngineOnPurchaseLine(Rec, xRec);
+    end;
+
+    procedure ClearTotalPurchaseHeader();
+    begin
+        Clear(TotalPurchaseHeader);
+    end;
+
+    procedure exhchangeRateCalculation(): Decimal
+    begin
+        ExchRate := 0;
+        PurchHeader.SetRange("Document Type", Rec."Document Type");
+        PurchHeader.SetRange("No.", Rec."Document No.");
+        if PurchHeader.FindFirst() then
+            if PurchHeader."Currency Factor" <> 0 then
+                ExchRate := 1 / PurchHeader."Currency Factor"
+            else
+                if PurchHeader."Currency Factor" = 0 then
+                    ExchRate := 1;
+        exit(ExchRate);
+    end;
+
+    local procedure Allowitemtomodify()
+    var
+        ImportLicense: Record "LFS EXIM Import License";
+    begin
+        ImportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ImportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if not ImportLicense.IsEmpty() then
+            Error('License is already defined for this line.\Item cannot be edited.');
+    end;
+
+    local procedure AllowLineAmounttomodify()
+    var
+        ImportLicense: Record "LFS EXIM Import License";
+    begin
+        ImportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ImportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if not ImportLicense.IsEmpty() then
+            Error('License is already defined for this line.\Line Amount cannot be edited.');
+    end;
+
+    local procedure AllowQuantitytomodify()
+    var
+        ImportLicense: Record "LFS EXIM Import License";
+        licenseQuantity: Decimal;
+    begin
+        ImportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ImportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if ImportLicense.Findset() then
+            repeat
+                licenseQuantity += ImportLicense."LFS Quantity";
+            until ImportLicense.Next() = 0;
+        if licenseQuantity <> 0 then
+            if (Rec.Quantity < licenseQuantity) or (rec.quantity > xRec.Quantity) then
+                Error('License is already defined for this line.\License Quantity is %1. \Quantity cannot be edited.', licenseQuantity);
+
+    end;
+
+    local procedure AllowUnitCosttomodify()
+    var
+        ImportLicense: Record "LFS EXIM Import License";
+    begin
+        ImportLicense.SetRange("LFS Source No.", Rec."Document No.");
+        ImportLicense.SetRange("LFS Source line No.", Rec."Line No.");
+        if not ImportLicense.IsEmpty() then
+            Error('License is already defined for this line.\Direct Unit cost cannot be edited.');
     end;
 
     local procedure FormatLine()
@@ -1537,11 +1747,6 @@ page 72101 "Import Purch. Cr. Memo Subform"
     local procedure GetTotalPurchHeader()
     begin
         DocumentTotals.GetTotalPurchaseHeaderAndCurrency(Rec, TotalPurchaseHeader, Currency);
-    end;
-
-    procedure ClearTotalPurchaseHeader();
-    begin
-        Clear(TotalPurchaseHeader);
     end;
 
     procedure CalculateTotals()
