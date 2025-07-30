@@ -550,14 +550,18 @@ codeunit 72001 "LFS EXIM General Functions"
         Qty := SalesCrMemoLine.Quantity;
         EXIMDDBEntry."LFS Quantity" := -Qty;
         EXIMDDBEntry."LFS Rate" := SalesCrMemoLine."Unit Price";
-        EXIMDDBEntry."LFS FCY Amount" := -SalesCrMemoLine."Line Amount";
-        EXIMDDBEntry."LFS LCY Amount" := -SalesCrMemoLine.Amount;
+        EXIMDDBEntry."LFS FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)";
+        EXIMDDBEntry."LFS LCY Amount" := SalesCrMemoLine."LFS FOB Amount (LCY)";
         EXIMDDBEntry."LFS Exchange Rate" := SalesCrMemoLine."LFS Currency Exch. Rate";
         EXIMDDBEntry."LFS Custom Exchange Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
         EXIMDDBEntry."LFS EXIM Type" := SalesCrMemoLine."LFS EXIM Type";
         EXIMDDBEntry."LFS Incentive Type" := SalesCrMemoLine."LFS Incentive Type";
         EXIMDDBEntry."LFS FOB Amount (FCY)" := SalesCrMemoLine."LFS FOB Amount (FCY)";
         EXIMDDBEntry."LFS CIF Amount (FCY)" := SalesCrMemoLine."LFS CIF Amount (FCY)";
+        EXIMDDBEntry."LFS Insurance Value (FCY)" := -SalesCrMemoLine."LFS Insurance Value (FCY)";
+        EXIMDDBEntry."LFS Insurance Value (LCY)" := -SalesCrMemoLine."LFS Insurance Value (LCY)";
+        EXIMDDBEntry."LFS Freight Value (FCY)" := -SalesCrMemoLine."LFS Freight Value (FCY)";
+        EXIMDDBEntry."LFS Freight Value (LCY)" := -SalesCrMemoLine."LFS Freight Value (LCY)";
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
             EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)"
         else
@@ -569,13 +573,13 @@ codeunit 72001 "LFS EXIM General Functions"
             EXIMSetup.Get();
             EXIMDDBEntry."LFS DDB %" := EXIMSetup."LFS DDB %";
         end;
-        EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
+        EXIMDDBEntry."LFS DDB Value FCY" := -(EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
         EXIMDDBEntry."LFS Currency Exch. Rate" := SalesCrMemoLine."LFS Currency Exch. Rate";
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
-            EXIMDDBEntry."LFS DDB Value LCY" := -EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
         else
-            EXIMDDBEntry."LFS DDB Value LCY" := -EXIMDDBEntry."LFS DDB Value FCY";
+            EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY";
         EXIMDDBEntry.Insert();
     end;
 
@@ -830,13 +834,13 @@ codeunit 72001 "LFS EXIM General Functions"
             RodtepRate := EXIMRoDTEPEntry."LFS RoDTEP Rebate Rate %";
             if EXIMRoDTEPEntry."LFS Exchange Rate" <> 0 then begin
                 EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := -RodtepRate / 100 * EXIMRoDTEPEntry."LFS FCY Amount";
-                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := -EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * EXIMRoDTEPEntry."LFS Exchange Rate";
-                EXIMRoDTEPEntry."LFS Claim Amount" := -EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * EXIMRoDTEPEntry."LFS Exchange Rate";
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * EXIMRoDTEPEntry."LFS Exchange Rate";
+                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * EXIMRoDTEPEntry."LFS Exchange Rate";
             end
             else begin
                 EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := -RodtepRate / 100 * SalesCrMemoLine."LFS FOB in USD";
-                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := -EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
-                EXIMRoDTEPEntry."LFS Claim Amount" := -EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
+                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
             end;
             EXIMRoDTEPEntry.Insert();
         end;
