@@ -658,6 +658,22 @@ page 72070 "LFS ImportPurch.InvoiceSubform"
                     Visible = false;
                     ToolTip = 'Specifies the RoDTEP Value (LCY)';
                 }
+                field("LFS CIF Currency Code"; Rec."LFS CIF Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the CIF Currency Code field.', Comment = '%';
+                }
+                field("LFS CIF Currency Factor"; Rec."LFS CIF Currency Factor")
+                {
+                    ToolTip = 'Specifies the value of the CIF Currency Factor field.', Comment = '%';
+                }
+                field("LFS USD CIF (FCY)"; Rec."LFS USD CIF (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the USD CIF (FCY) field.', Comment = '%';
+                }
+                field("LFS USD CIF (LCY)"; Rec."LFS USD CIF (LCY)")
+                {
+                    ToolTip = 'Specifies the value of the USD CIF (LCY) field.', Comment = '%';
+                }
                 field("CIF (FCY)"; Rec."LFS CIF Amount (FCY)")
                 {
                     ApplicationArea = all;

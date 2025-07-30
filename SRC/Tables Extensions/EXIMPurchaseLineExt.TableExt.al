@@ -127,6 +127,34 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             Editable = false;
             TableRelation = "EXIM Group Master"."LFS Group No.";
         }
+        field(72033; "LFS CIF Currency Code"; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'CIF Currency Code';
+            Editable = false;
+        }
+        field(72034; "LFS CIF Currency Factor"; Decimal)
+        {
+            Caption = 'CIF Currency Factor';
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                Rec."LFS USD CIF (LCY)" := Rec."LFS CIF Amount (LCY)";
+                Rec."LFS USD CIF (FCY)" := Rec."LFS USD CIF (LCY)" / "LFS CIF Currency Factor";
+            end;
+        }
+        field(72035; "LFS USD CIF (FCY)"; Decimal)
+        {
+            Caption = 'USD CIF (FCY)';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(72036; "LFS USD CIF (LCY)"; Decimal)
+        {
+            Caption = 'USD CIF (LCY)';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
         modify("No.")
         {
             trigger OnAfterValidate()
@@ -165,8 +193,12 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                 CIFvalue();
             end;
         }
-
     }
+    trigger OnAfterInsert()
+    begin
+        Rec."LFS CIF Currency Code" := 'USD';
+    end;
+
     trigger OnDelete()
     var
         ImportLicense: record "LFS EXIM Import License";

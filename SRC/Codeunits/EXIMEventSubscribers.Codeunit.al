@@ -209,6 +209,11 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     SalesHeader."Shipping No. Series" := EximSetup."LFS Posted Exp Shipment Nos.";
                     IsHandled := true;
                 end;
+            SalesHeader."Document Type"::"Credit Memo":
+                begin
+                    SalesHeader."Posting No. Series" := EximSetup."LFS Pstd Export SalesCrMemoNos";
+                    IsHandled := true;
+                end;
         end;
     end;
 
@@ -229,6 +234,11 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     PurchaseHeader."Receiving No. Series" := EximSetup."LFS Posted Imp Receipt Nos.";
                     // NoSeriesMgt.SetDefaultSeries(PurchaseHeader."Posting No. Series", EximSetup."LFS_EX_Posted Imp Invoice No.");
                     // NoSeriesMgt.SetDefaultSeries(PurchaseHeader."Receiving No. Series", EximSetup."LFS_EX_Posted Imp Receipt No.");
+                    IsHandled := true;
+                end;
+            PurchaseHeader."Document Type"::"Credit Memo":
+                begin
+                    PurchaseHeader."Posting No. Series" := EximSetup."LFS Pstd Import PurchCrMemoNos";
                     IsHandled := true;
                 end;
         end;

@@ -140,9 +140,11 @@ page 72013 "LFS Import Licenses"
                             importPurchLine.Reset();
                             importPurchLine.SetRange("Document No.", Rec."LFS Source No.");
                             importPurchLine.SetRange("Line No.", Rec."LFS Source line No.");
-                            if importPurchLine.FindFirst() then
+                            if importPurchLine.FindFirst() then begin
+                                Rec."LFS Unit Cost" := importPurchLine."LFS USD CIF (FCY)" / importPurchLine.Quantity;
                                 if (sumQty > importPurchLine.Quantity) or (Rec."LFS Quantity" > importPurchLine.Quantity) then
                                     Error('Quantity should not exceed the document line quantity %1.', importPurchLine.Quantity);
+                            end;
                         end;
                     end;
                 }

@@ -8,6 +8,22 @@ pageextension 72017 "LFS Purch. Cr. Memo Sub. Ext." extends "Purch. Cr. Memo Sub
     {
         addafter("Qty. Assigned")
         {
+            field("LFS CIF Currency Code"; Rec."LFS CIF Currency Code")
+            {
+                ToolTip = 'Specifies the value of the CIF Currency Code field.', Comment = '%';
+            }
+            field("LFS CIF Currency Factor"; Rec."LFS CIF Currency Factor")
+            {
+                ToolTip = 'Specifies the value of the CIF Currency Factor field.', Comment = '%';
+            }
+            field("LFS USD CIF (FCY)"; Rec."LFS USD CIF (FCY)")
+            {
+                ToolTip = 'Specifies the value of the USD CIF (FCY) field.', Comment = '%';
+            }
+            field("LFS USD CIF (LCY)"; Rec."LFS USD CIF (LCY)")
+            {
+                ToolTip = 'Specifies the value of the USD CIF (LCY) field.', Comment = '%';
+            }
             field("LFS CIF Amount (FCY)"; Rec."LFS CIF Amount (FCY)")
             {
                 ApplicationArea = all;

@@ -315,6 +315,18 @@ table 72000 "LFS EXIM Setup"
             TableRelation = "No. Series";
             DataClassification = CustomerContent;
         }
+        field(70; "LFS Import Purchase CreditNos"; Code[10])
+        {
+            Caption = 'Import Purchase Credit Memo Nos.';
+            TableRelation = "No. Series";
+            DataClassification = CustomerContent;
+        }
+        field(71; "LFS Pstd Import PurchCrMemoNos"; Code[10])
+        {
+            DataClassification = CustomerContent;
+            TableRelation = "No. Series";
+            Caption = 'Posted Import Purchase Credit Memo Nos.';
+        }
     }
     keys
     {

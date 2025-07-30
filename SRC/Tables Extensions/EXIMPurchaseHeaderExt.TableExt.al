@@ -176,6 +176,8 @@ tableextension 72008 "LFS EXIM Purchase Header Ext." extends "Purchase Header"
                 EXIT(EximSetup."LFS Import Invoice Nos.");
             "Document Type"::"Blanket Order":
                 EXIT(EximSetup."LFS Blanket Imp Order No.");
+            "Document Type"::"Credit Memo":
+                EXIT(EximSetup."LFS Import Purchase CreditNos");
         end;
     end;
 
@@ -195,7 +197,10 @@ tableextension 72008 "LFS EXIM Purchase Header Ext." extends "Purchase Header"
             "Document Type"::"Return Order":
                 ERROR('Exim Return Order not allowed');
             "Document Type"::"Credit Memo":
-                ERROR('Exim Credit Memo not allowed');
+                begin
+                    EximSetup.TestField("LFS Pstd Import PurchCrMemoNos");
+                    EximSetup.TestField("LFS Import Purchase CreditNos");
+                end;
             "Document Type"::"Blanket Order":
                 EximSetup.TESTFIELD("LFS Blanket Imp Order No.");
         end;

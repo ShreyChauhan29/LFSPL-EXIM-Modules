@@ -105,5 +105,29 @@ tableextension 72035 "LFS Purchase Line Archive Ext" extends "Purchase Line Arch
             Caption = 'RoDTEP Value (LCY)';
             DataClassification = CustomerContent;
         }
+        field(72033; "LFS CIF Currency Code"; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'CIF Currency Code';
+            Editable = false;
+        }
+        field(72034; "LFS CIF Currency Factor"; Decimal)
+        {
+            Caption = 'CIF Currency Factor';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(72035; "LFS USD CIF (FCY)"; Decimal)
+        {
+            Caption = 'USD CIF (FCY)';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(72036; "LFS USD CIF (LCY)"; Decimal)
+        {
+            Caption = 'USD CIF (LCY)';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 }

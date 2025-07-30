@@ -114,6 +114,14 @@ page 72000 "LFS EXIM Setup"
                     ToolTip = 'Specifies the value of the Posted Import Receipt Nos. field.';
                     ApplicationArea = All;
                 }
+                field("LFS Import Purchase CreditNos"; Rec."LFS Import Purchase CreditNos")
+                {
+                    ToolTip = 'Specifies the value of the Import Purchase Credit Memo Nos. field.', Comment = '%';
+                }
+                field("LFS Pstd Import PurchCrMemoNos"; Rec."LFS Pstd Import PurchCrMemoNos")
+                {
+                    ToolTip = 'Specifies the value of the Posted Import Purchase Credit Memo Nos. field.', Comment = '%';
+                }
                 field("Custom Packing List Nos."; Rec."LFS Custom Packing List Nos.")
                 {
                     ToolTip = 'Specifies the value of the Custom Packing List No. field.';
