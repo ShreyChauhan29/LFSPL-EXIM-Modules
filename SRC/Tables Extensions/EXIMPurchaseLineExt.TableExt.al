@@ -225,8 +225,8 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                     Rec."Custom Duty Amount" := Rec."LFS Import Duties Amt. (LCY)" / ExchRate;
                 end;
         end;
-        if Rec.Quantity <> 0 then
-            rec."LFS CIF Amount (FCY)" := rec."LFS CIF Amount (FCY)" / Rec.Quantity;
+        // if Rec.Quantity <> 0 then
+        //     rec."LFS CIF Amount (FCY)" := rec."LFS CIF Amount (FCY)" / Rec.Quantity;
     end;
 
     [IntegrationEvent(false, false)]
