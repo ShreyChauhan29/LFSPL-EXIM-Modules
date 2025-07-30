@@ -167,9 +167,12 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                         Item.Get(Rec."No.");
                         Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
                     end;
+                    Rec."LFS CIF Currency Code" := 'USD';
                 end
-                else
+                else begin
                     Rec."LFS Exim Group No." := '';
+                    Rec."LFS CIF Currency Code" := '';
+                end;
             end;
         }
         modify(Quantity)
@@ -194,10 +197,6 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             end;
         }
     }
-    trigger OnAfterInsert()
-    begin
-        Rec."LFS CIF Currency Code" := 'USD';
-    end;
 
     trigger OnDelete()
     var

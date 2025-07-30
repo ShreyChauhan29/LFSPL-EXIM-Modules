@@ -140,11 +140,10 @@ page 72013 "LFS Import Licenses"
                             importPurchLine.Reset();
                             importPurchLine.SetRange("Document No.", Rec."LFS Source No.");
                             importPurchLine.SetRange("Line No.", Rec."LFS Source line No.");
-                            if importPurchLine.FindFirst() then begin
-                                Rec."LFS Unit Cost" := importPurchLine."LFS USD CIF (FCY)" / importPurchLine.Quantity;
+                            if importPurchLine.FindFirst() then
+                                // Rec."LFS Unit Cost" := importPurchLine."LFS USD CIF (FCY)" / importPurchLine.Quantity;
                                 if (sumQty > importPurchLine.Quantity) or (Rec."LFS Quantity" > importPurchLine.Quantity) then
                                     Error('Quantity should not exceed the document line quantity %1.', importPurchLine.Quantity);
-                            end;
                         end;
                     end;
                 }
@@ -251,7 +250,8 @@ page 72013 "LFS Import Licenses"
         ImportPurchOrder.SetRange("Document No.", Rec."LFS Source No.");
         ImportPurchOrder.SetRange("Line No.", Rec."LFS Source line No.");
         if ImportPurchOrder.FindFirst() then begin
-            rec.Validate("LFS Unit Cost", ImportPurchOrder."Unit Cost");
+            // rec.Validate("LFS Unit Cost", ImportPurchOrder."Unit Cost");
+            rec.Validate("LFS Unit Cost", ImportPurchOrder."LFS USD CIF (FCY)" / ImportPurchOrder.Quantity);
             Rec.Validate("LFS Item No.", ImportPurchOrder."No.");
             Rec.Validate("LFS Variant Code", ImportPurchOrder."Variant Code");
         end;
@@ -277,7 +277,8 @@ page 72013 "LFS Import Licenses"
         ImportPurchOrder.SetRange("Line No.", Rec."LFS Source line No.");
         if ImportPurchOrder.FindFirst() then begin
             Rec.Validate("LFS Source Type", ImportPurchOrder."Document Type");
-            rec.Validate("LFS Unit Cost", ImportPurchOrder."Unit Cost");
+            // rec.Validate("LFS Unit Cost", ImportPurchOrder."Unit Cost");
+            rec.Validate("LFS Unit Cost", ImportPurchOrder."LFS USD CIF (FCY)" / ImportPurchOrder.Quantity);
             Rec.Validate("LFS Item No.", ImportPurchOrder."No.");
             Rec.Validate("LFS Variant Code", ImportPurchOrder."Variant Code");
         end;
