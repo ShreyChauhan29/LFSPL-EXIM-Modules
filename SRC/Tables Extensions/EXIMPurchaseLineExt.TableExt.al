@@ -160,6 +160,8 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             trigger OnAfterValidate()
             var
                 Item: Record Item;
+                EXIMCurrExRate: Record "LFSEXIM Currency Exchange Rate";
+                Exc_Rate: Decimal;
             begin
                 if (Rec."No." <> '') then begin
                     Clear(Rec."LFS Exim Group No.");
@@ -168,6 +170,13 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                         Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
                     end;
                     Rec."LFS CIF Currency Code" := 'USD';
+                    EXIMCurrExRate.Reset();
+                    EXIMCurrExRate.SetRange("LFS Currency Code", Rec."LFS CIF Currency Code");
+                    EXIMCurrExRate.SetAscending("LFS Starting Date", true);
+                    if EXIMCurrExRate.FindLast() then begin
+                        Exc_Rate := 1 / EXIMCurrExRate.ExchangeRate(EXIMCurrExRate."LFS Starting Date", Rec."LFS CIF Currency Code", 1);
+                        Rec.Validate("LFS CIF Currency Factor", Exc_Rate);
+                    end;
                 end
                 else begin
                     Rec."LFS Exim Group No." := '';
