@@ -146,7 +146,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Shipping Period';
         // }
-        field(25; "LFS Shipping Marks"; Blob)
+        field(25; "LFS Shipping Marks"; Text[2000])
         {
             DataClassification = CustomerContent;
             Caption = 'Shipping Marks';
@@ -234,7 +234,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Our Bank';
         // }
-        field(45; "LFS Description of Goods"; Blob)
+        field(45; "LFS Description of Goods"; Text[2000])
         {
             DataClassification = CustomerContent;
             Caption = 'Description of Goods';
@@ -289,7 +289,7 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'No. & Kind Of PKDG';
         // }
-        field(56; "LFS Notify Party"; Blob)
+        field(56; "LFS Notify Party"; Text[2000])
         {
             DataClassification = CustomerContent;
             Caption = 'Notify Party';
@@ -742,11 +742,11 @@ table 72032 "LFS Posted Export Information"
             Caption = 'Consignee Name & Address';
             DataClassification = CustomerContent;
         }
-        field(145; "LFS Consignee Address"; Blob)
-        {
-            Caption = 'Consignee Address';
-            DataClassification = CustomerContent;
-        }
+        // field(145; "LFS Consignee Address"; Blob)
+        // {
+        //     Caption = 'Consignee Address';
+        //     DataClassification = CustomerContent;
+        // }
     }
 
     keys

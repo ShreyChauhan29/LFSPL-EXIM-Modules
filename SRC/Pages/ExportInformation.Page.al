@@ -97,25 +97,25 @@ page 72040 "LFS Export Information"
                 //     ToolTip = 'Specifies the Party HS Code';
                 //     ApplicationArea = All;
                 // }
-                // field("LFS Description of Goods"; Rec."LFS Description of Goods")
-                // {
-                //     MultiLine = true;
-                //     ToolTip = 'Specifies the Description of Goods';
-                //     ApplicationArea = All;
-                // }
-                field("LFS Description of Goods"; "LFS Description of Goods")
+                field("LFS Description of Goods"; Rec."LFS Description of Goods")
                 {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
                     MultiLine = true;
-                    Caption = 'Description of Goods';
-                    ToolTip = 'Specifies the products or service being offered.';
-
-                    trigger OnValidate()
-                    begin
-                        SetLFSDescriptionofGoods("LFS Description of Goods");
-                    end;
+                    ToolTip = 'Specifies the Description of Goods';
+                    ApplicationArea = All;
                 }
+                // field("LFS Description of Goods"; "LFS Description of Goods")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Importance = Additional;
+                //     MultiLine = true;
+                //     Caption = 'Description of Goods';
+                //     ToolTip = 'Specifies the products or service being offered.';
+
+                //     trigger OnValidate()
+                //     begin
+                //         SetLFSDescriptionofGoods("LFS Description of Goods");
+                //     end;
+                // }
                 // field("Sp Notes"; Rec."LFS Sp Notes")
                 // {
                 //     ApplicationArea = all;
@@ -135,24 +135,24 @@ page 72040 "LFS Export Information"
                 // {
                 //     ToolTip = 'Specifies the value of the Pre-Shipment Sample Required field.', Comment = '%';
                 // }
-                // field("LFS Shipping Marks"; Rec."LFS Shipping Marks")
-                // {
-                //     MultiLine = true;
-                //     ToolTip = 'Specifies the value of the EX_Shipping Marks Required field.', Comment = '%';
-                // }
-                field("LFS Shipping Marks"; "LFS Shipping Marks")
+                field("LFS Shipping Marks"; Rec."LFS Shipping Marks")
                 {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
                     MultiLine = true;
-                    Caption = 'Shipping Marks';
-                    ToolTip = 'Specifies the products or service being offered.';
-
-                    trigger OnValidate()
-                    begin
-                        SetLFSShippingMarks("LFS Shipping Marks");
-                    end;
+                    ToolTip = 'Specifies the value of the EX_Shipping Marks Required field.', Comment = '%';
                 }
+                // field("LFS Shipping Marks"; "LFS Shipping Marks")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Importance = Additional;
+                //     MultiLine = true;
+                //     Caption = 'Shipping Marks';
+                //     ToolTip = 'Specifies the products or service being offered.';
+
+                //     trigger OnValidate()
+                //     begin
+                //         SetLFSShippingMarks("LFS Shipping Marks");
+                //     end;
+                // }
                 // field("LFS Notes"; Rec."LFS Notes")
                 // {
                 //     ToolTip = 'Specifies the value of the Notes field.', Comment = '%';
@@ -402,6 +402,7 @@ page 72040 "LFS Export Information"
                 {
                     ToolTip = 'Specifies the value of the Consignee Name & Address field.', Comment = '%';
                     ApplicationArea = All;
+                    MultiLine = true;
                 }
                 // field("LFS Notify Party"; Rec."LFS Notify Party")
                 // {
@@ -413,38 +414,38 @@ page 72040 "LFS Export Information"
                 //     ToolTip = 'Specifies the value of the Consignee Address field.', Comment = '%';
                 //     ApplicationArea = All;
                 // }
-                // field("LFS Notify Party"; Rec."LFS Notify Party")
+                field("LFS Notify Party"; Rec."LFS Notify Party")
+                {
+                    MultiLine = true;
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                }
+                // field("LFS Notify Party"; "LFS Notify Party")
                 // {
+                //     ApplicationArea = Basic, Suite;
+                //     Importance = Additional;
                 //     MultiLine = true;
-                //     ApplicationArea = All;
-                //     ToolTip = 'Specifies the value of the Notify Party field.', Comment = '%';
+                //     Caption = 'Notify Party';
+                //     ToolTip = 'Specifies the products or service being offered.';
+
+                //     trigger OnValidate()
+                //     begin
+                //         SetLFSNotifyParty("LFS Notify Party");
+                //     end;
                 // }
-                field("LFS Notify Party"; "LFS Notify Party")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    MultiLine = true;
-                    Caption = 'Notify Party';
-                    ToolTip = 'Specifies the products or service being offered.';
+                // field("LFS Consignee Address"; "LFS Consignee Address")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Importance = Additional;
+                //     MultiLine = true;
+                //     Caption = 'Consignee Address';
+                //     ToolTip = 'Specifies the products or service being offered.';
 
-                    trigger OnValidate()
-                    begin
-                        SetLFSNotifyParty("LFS Notify Party");
-                    end;
-                }
-                field("LFS Consignee Address"; "LFS Consignee Address")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    MultiLine = true;
-                    Caption = 'Consignee Address';
-                    ToolTip = 'Specifies the products or service being offered.';
-
-                    trigger OnValidate()
-                    begin
-                        SetLFSConsigneeAddress("LFS Consignee Address");
-                    end;
-                }
+                //     trigger OnValidate()
+                //     begin
+                //         SetLFSConsigneeAddress("LFS Consignee Address");
+                //     end;
+                // }
                 //     field("LFS Receiver Code"; Rec."LFS Receiver Code")
                 //     {
                 //         ToolTip = 'Specifies the value of the Receiver Code field.', Comment = '%';
@@ -473,7 +474,6 @@ page 72040 "LFS Export Information"
                 field("LFS Container Seal No."; Rec."LFS Container Seal No.")
                 {
                     ToolTip = 'Specifies the value of the Seal Code field.', Comment = '%';
-                    Visible = false;
                 }
                 //     field("LFS Tare"; Rec."LFS Tare")
                 //     {
@@ -786,10 +786,10 @@ page 72040 "LFS Export Information"
     var
         SalesHeader: Record "Sales Header";
     begin
-        "LFS Description of Goods" := GetLFSDescriptionofGoods();
-        "LFS Consignee Address" := GetLFSConsigneeAddress();
-        "LFS Notify Party" := GetLFSNotifyParty();
-        "LFS Shipping Marks" := GetLFSShippingMarks();
+        // "LFS Description of Goods" := GetLFSDescriptionofGoods();
+        // "LFS Consignee Address" := GetLFSConsigneeAddress();
+        // "LFS Notify Party" := GetLFSNotifyParty();
+        // "LFS Shipping Marks" := GetLFSShippingMarks();
         IsEditable := true;
         salesheader.SetRange("No.", Rec."LFS Document No.");
         if salesheader.FindFirst() then begin
@@ -806,85 +806,85 @@ page 72040 "LFS Export Information"
 
     var
         IsEditable: Boolean;
-        "LFS Description of Goods", "LFS Shipping Marks", "LFS Notify Party", "LFS Consignee Address" : Text;
+    // "LFS Description of Goods", "LFS Shipping Marks", "LFS Notify Party", "LFS Consignee Address" : Text;
 
-    procedure GetLFSDescriptionofGoods() NewLargeText: Text;
-    var
-        TypeHelper: Codeunit "Type Helper";
-        DescriptionofGoodsTextInS: InStream;
-    begin
-        Rec.CalcFields("LFS Description of Goods");
-        Rec."LFS Description of Goods".CreateInStream(DescriptionofGoodsTextInS, TextEncoding::UTF8);
-        // DescriptionofGoodsTextInS.Read("LFS Description of Goods");
-        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(DescriptionofGoodsTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Description of Goods")));
-    end;
+    // procedure GetLFSDescriptionofGoods() NewLargeText: Text;
+    // var
+    //     TypeHelper: Codeunit "Type Helper";
+    //     DescriptionofGoodsTextInS: InStream;
+    // begin
+    //     Rec.CalcFields("LFS Description of Goods");
+    //     Rec."LFS Description of Goods".CreateInStream(DescriptionofGoodsTextInS, TextEncoding::UTF8);
+    //     // DescriptionofGoodsTextInS.Read("LFS Description of Goods");
+    //     exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(DescriptionofGoodsTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Description of Goods")));
+    // end;
 
-    procedure GetLFSShippingMarks() NewLargeText: Text;
-    var
-        TypeHelper: Codeunit "Type Helper";
-        ShippingMarksTextInS: InStream;
-    begin
-        Rec.CalcFields("LFS Shipping Marks");
-        Rec."LFS Shipping Marks".CreateInStream(ShippingMarksTextInS, TextEncoding::UTF8);
-        // ShippingMarksTextInS.Read("LFS Shipping Marks");
-        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ShippingMarksTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Shipping Marks")));
-    end;
+    // procedure GetLFSShippingMarks() NewLargeText: Text;
+    // var
+    //     TypeHelper: Codeunit "Type Helper";
+    //     ShippingMarksTextInS: InStream;
+    // begin
+    //     Rec.CalcFields("LFS Shipping Marks");
+    //     Rec."LFS Shipping Marks".CreateInStream(ShippingMarksTextInS, TextEncoding::UTF8);
+    //     // ShippingMarksTextInS.Read("LFS Shipping Marks");
+    //     exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ShippingMarksTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Shipping Marks")));
+    // end;
 
-    procedure GetLFSConsigneeAddress() NewLargeText: Text;
-    var
-        TypeHelper: Codeunit "Type Helper";
-        ConsigneeAddressTextInS: InStream;
-    begin
-        Rec.CalcFields("LFS Consignee Address");
-        Rec."LFS Consignee Address".CreateInStream(ConsigneeAddressTextInS, TextEncoding::UTF8);
-        // ConsigneeAddressTextInS.Read("LFS Consignee Address");
-        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ConsigneeAddressTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Consignee Address")));
-    end;
+    // procedure GetLFSConsigneeAddress() NewLargeText: Text;
+    // var
+    //     TypeHelper: Codeunit "Type Helper";
+    //     ConsigneeAddressTextInS: InStream;
+    // begin
+    //     Rec.CalcFields("LFS Consignee Address");
+    //     Rec."LFS Consignee Address".CreateInStream(ConsigneeAddressTextInS, TextEncoding::UTF8);
+    //     // ConsigneeAddressTextInS.Read("LFS Consignee Address");
+    //     exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(ConsigneeAddressTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Consignee Address")));
+    // end;
 
-    procedure GetLFSNotifyParty() NewLargeText: Text;
-    var
-        TypeHelper: Codeunit "Type Helper";
-        NotifyPartyTextInS: InStream;
-    begin
-        Rec.CalcFields("LFS Notify Party");
-        Rec."LFS Notify Party".CreateInStream(NotifyPartyTextInS, TextEncoding::UTF8);
-        // NotifyPartyTextInS.Read("LFS Notify Party");
-        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(NotifyPartyTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Notify Party")));
-    end;
+    // procedure GetLFSNotifyParty() NewLargeText: Text;
+    // var
+    //     TypeHelper: Codeunit "Type Helper";
+    //     NotifyPartyTextInS: InStream;
+    // begin
+    //     Rec.CalcFields("LFS Notify Party");
+    //     Rec."LFS Notify Party".CreateInStream(NotifyPartyTextInS, TextEncoding::UTF8);
+    //     // NotifyPartyTextInS.Read("LFS Notify Party");
+    //     exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(NotifyPartyTextInS, TypeHelper.LFSeparator(), Rec.FieldName("LFS Notify Party")));
+    // end;
 
-    procedure SetLFSDescriptionofGoods(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Rec."LFS Description of Goods".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Rec.Modify(true);
-    end;
+    // procedure SetLFSDescriptionofGoods(NewWorkDescription: Text)
+    // var
+    //     OutStream: OutStream;
+    // begin
+    //     Rec."LFS Description of Goods".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+    //     OutStream.WriteText(NewWorkDescription);
+    //     Rec.Modify(true);
+    // end;
 
-    procedure SetLFSShippingMarks(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Rec."LFS Shipping Marks".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Rec.Modify(true);
-    end;
+    // procedure SetLFSShippingMarks(NewWorkDescription: Text)
+    // var
+    //     OutStream: OutStream;
+    // begin
+    //     Rec."LFS Shipping Marks".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+    //     OutStream.WriteText(NewWorkDescription);
+    //     Rec.Modify(true);
+    // end;
 
-    procedure SetLFSConsigneeAddress(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Rec."LFS Consignee Address".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Rec.Modify(true);
-    end;
+    // procedure SetLFSConsigneeAddress(NewWorkDescription: Text)
+    // var
+    //     OutStream: OutStream;
+    // begin
+    //     Rec."LFS Consignee Address".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+    //     OutStream.WriteText(NewWorkDescription);
+    //     Rec.Modify(true);
+    // end;
 
-    procedure SetLFSNotifyParty(NewWorkDescription: Text)
-    var
-        OutStream: OutStream;
-    begin
-        Rec."LFS Notify Party".CreateOutStream(OutStream, TEXTENCODING::UTF8);
-        OutStream.WriteText(NewWorkDescription);
-        Rec.Modify(true);
-    end;
+    // procedure SetLFSNotifyParty(NewWorkDescription: Text)
+    // var
+    //     OutStream: OutStream;
+    // begin
+    //     Rec."LFS Notify Party".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+    //     OutStream.WriteText(NewWorkDescription);
+    //     Rec.Modify(true);
+    // end;
 }

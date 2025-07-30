@@ -550,8 +550,8 @@ codeunit 72001 "LFS EXIM General Functions"
         Qty := SalesCrMemoLine.Quantity;
         EXIMDDBEntry."LFS Quantity" := -Qty;
         EXIMDDBEntry."LFS Rate" := SalesCrMemoLine."Unit Price";
-        EXIMDDBEntry."LFS FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)";
-        EXIMDDBEntry."LFS LCY Amount" := SalesCrMemoLine."LFS FOB Amount (LCY)";
+        EXIMDDBEntry."LFS FCY Amount" := -SalesCrMemoLine."LFS FOB Amount (FCY)";
+        EXIMDDBEntry."LFS LCY Amount" := -SalesCrMemoLine."LFS FOB Amount (LCY)";
         EXIMDDBEntry."LFS Exchange Rate" := SalesCrMemoLine."LFS Currency Exch. Rate";
         EXIMDDBEntry."LFS Custom Exchange Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
         EXIMDDBEntry."LFS EXIM Type" := SalesCrMemoLine."LFS EXIM Type";

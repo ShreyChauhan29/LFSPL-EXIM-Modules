@@ -465,7 +465,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
             OnMyCustomEvent(exportInfo, PostedExport);
             // PostedExport.Modify();
 
-            CopyBlobField(exportInfo, PostedExport);
+            // CopyBlobField(exportInfo, PostedExport);
 
             PostedExport.Modify();
         end;
@@ -670,7 +670,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 PostedExport.TransferFields(exportInfo, false);
                 OnMyCustomEvent(exportInfo, PostedExport);
                 // PostedExport.Modify();
-                CopyBlobField(exportInfo, PostedExport);
+                // CopyBlobField(exportInfo, PostedExport);
                 PostedExport.Modify();
             end;
         end;
@@ -714,7 +714,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
             PostedExport.TransferFields(exportInfo, false);
             OnMyCustomEvent(exportInfo, PostedExport);
             // PostedExport.Modify();
-            CopyBlobField(exportInfo, PostedExport);
+            // CopyBlobField(exportInfo, PostedExport);
             PostedExport.Modify();
         end;
     end;
@@ -833,7 +833,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 exportInformation.Insert();
                 exportInformation.TransferFields(PostedExport, false);
                 exportInformation.Modify();
-                CopyBlobField(exportInfo, PostedExport);
+                // CopyBlobField(exportInfo, PostedExport);
                 PostedExport.Modify();
             end;
         end;
@@ -1241,48 +1241,48 @@ codeunit 72002 "LFS EXIM Event Subscribers"
     //         IsHandled := true;
     // end;
 
-    local procedure CopyBlobField(var SourceRec: Record "LFS Export Information Header"; var DestRec: Record "LFS Posted Export Information")
-    var
-        InS: InStream;
-        OutS: OutStream;
-        TempText: Text;
-    begin
-        // LFS Description of Goods
-        SourceRec.CalcFields("LFS Description of Goods");
-        if SourceRec."LFS Description of Goods".HasValue then begin
-            SourceRec."LFS Description of Goods".CreateInStream(InS, TEXTENCODING::UTF8);
-            InS.ReadText(TempText);
+    // local procedure CopyBlobField(var SourceRec: Record "LFS Export Information Header"; var DestRec: Record "LFS Posted Export Information")
+    // var
+    //     InS: InStream;
+    //     OutS: OutStream;
+    //     TempText: Text;
+    // begin
+    //     // LFS Description of Goods
+    //     SourceRec.CalcFields("LFS Description of Goods");
+    //     if SourceRec."LFS Description of Goods".HasValue then begin
+    //         SourceRec."LFS Description of Goods".CreateInStream(InS, TEXTENCODING::UTF8);
+    //         InS.ReadText(TempText);
 
-            DestRec."LFS Description of Goods".CreateOutStream(OutS, TEXTENCODING::UTF8);
-            OutS.WriteText(TempText);
-        end;
+    //         DestRec."LFS Description of Goods".CreateOutStream(OutS, TEXTENCODING::UTF8);
+    //         OutS.WriteText(TempText);
+    //     end;
 
-        SourceRec.CalcFields("LFS Shipping Marks");
-        if SourceRec."LFS Shipping Marks".HasValue then begin
-            SourceRec."LFS Shipping Marks".CreateInStream(InS, TEXTENCODING::UTF8);
-            InS.ReadText(TempText);
+    //     SourceRec.CalcFields("LFS Shipping Marks");
+    //     if SourceRec."LFS Shipping Marks".HasValue then begin
+    //         SourceRec."LFS Shipping Marks".CreateInStream(InS, TEXTENCODING::UTF8);
+    //         InS.ReadText(TempText);
 
-            DestRec."LFS Shipping Marks".CreateOutStream(OutS, TEXTENCODING::UTF8);
-            OutS.WriteText(TempText);
-        end;
+    //         DestRec."LFS Shipping Marks".CreateOutStream(OutS, TEXTENCODING::UTF8);
+    //         OutS.WriteText(TempText);
+    //     end;
 
-        SourceRec.CalcFields("LFS Notify Party");
-        if SourceRec."LFS Notify Party".HasValue then begin
-            SourceRec."LFS Notify Party".CreateInStream(InS, TEXTENCODING::UTF8);
-            InS.ReadText(TempText);
+    //     SourceRec.CalcFields("LFS Notify Party");
+    //     if SourceRec."LFS Notify Party".HasValue then begin
+    //         SourceRec."LFS Notify Party".CreateInStream(InS, TEXTENCODING::UTF8);
+    //         InS.ReadText(TempText);
 
-            DestRec."LFS Notify Party".CreateOutStream(OutS, TEXTENCODING::UTF8);
-            OutS.WriteText(TempText);
-        end;
+    //         DestRec."LFS Notify Party".CreateOutStream(OutS, TEXTENCODING::UTF8);
+    //         OutS.WriteText(TempText);
+    //     end;
 
-        SourceRec.CalcFields("LFS Consignee Address");
-        if SourceRec."LFS Consignee Address".HasValue then begin
-            SourceRec."LFS Consignee Address".CreateInStream(InS, TEXTENCODING::UTF8);
-            InS.ReadText(TempText);
+    //     SourceRec.CalcFields("LFS Consignee Address");
+    //     if SourceRec."LFS Consignee Address".HasValue then begin
+    //         SourceRec."LFS Consignee Address".CreateInStream(InS, TEXTENCODING::UTF8);
+    //         InS.ReadText(TempText);
 
-            DestRec."LFS Consignee Address".CreateOutStream(OutS, TEXTENCODING::UTF8);
-            OutS.WriteText(TempText);
-        end;
-    end;
+    //         DestRec."LFS Consignee Address".CreateOutStream(OutS, TEXTENCODING::UTF8);
+    //         OutS.WriteText(TempText);
+    //     end;
+    // end;
 
 }
