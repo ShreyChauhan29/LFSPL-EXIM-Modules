@@ -32,7 +32,7 @@ using System.Security.User;
 page 72100 "LFS Import Purchase CreditMemo"
 {
     ApplicationArea = All;
-    Caption = 'Import Purchase CreditMemo';
+    Caption = 'Import Purchase Credit Memo';
     PageType = Document;
     SourceTable = "Purchase Header";
     RefreshOnActivate = true;
@@ -1540,6 +1540,7 @@ page 72100 "LFS Import Purchase CreditMemo"
                                         ImportLicense."LFS Import Inv Bal Qty" := PostedImportLicences."LFS Import Inv Bal Qty";
                                         ImportLicense."LFS CIF Value (FCY)" := PostedImportLicences."LFS CIF Value (FCY)";
                                         ImportLicense."LFS EXIM Group No." := PostedImportLicences."LFS Exim Group No.";
+                                        ImportLicense."LFS RoDTEP Consump Value" := ImportLicense."LFS Quantity" * (PurchCrMemoLine."LFS Import Duties Amt. (LCY)" / PurchCrMemoLine.Quantity);
                                         // ImportLicense."LFS EXIM Item Group" := PostedImportLicences."LFS EXIM Item Group";
                                         ImportLicense.Insert();
                                     until PostedImportLicences.Next() = 0;

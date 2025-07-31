@@ -978,48 +978,48 @@ codeunit 72001 "LFS EXIM General Functions"
     end;
 
 
-    procedure "LFS InsertRodtepLicenseLines"(PurchInvLine: Record "Purch. Inv. Line"; PurchInvHeader: record "Purch. Inv. Header")
-    begin
-        if (PurchInvLine."LFS EXIM Type" <> PurchInvLine."LFS EXIM Type"::Import) then
-            EXIT;
-        "LFS InsertRodtepLicenseLineDtlsfromPostedPurchInvoice"(PurchInvLine)
-    end;
+    // procedure "LFS InsertRodtepLicenseLines"(PurchInvLine: Record "Purch. Inv. Line"; PurchInvHeader: record "Purch. Inv. Header")
+    // begin
+    //     if (PurchInvLine."LFS EXIM Type" <> PurchInvLine."LFS EXIM Type"::Import) then
+    //         EXIT;
+    //     "LFS InsertRodtepLicenseLineDtlsfromPostedPurchInvoice"(PurchInvLine)
+    // end;
 
-    procedure "LFS InsertRodtepLicenseLineDtlsfromPostedPurchInvoice"(PurchInvLine: Record "Purch. Inv. Line")
-    var
-        rodtepLicenseHeader: Record "LFS Rodtep License Header";
-        RodtepLicenseLines: Record "LFS Rodtep License Lines";
-        LineNo: Integer;
-    begin
-        if PurchInvLine."LFS License Type" = PurchInvLine."LFS License Type"::RoDTEP then begin
-            rodtepLicenseHeader.SetRange("LFS No.", PurchInvLine."LFS License No.");
-            if rodtepLicenseHeader.FindFirst() then begin
-                RodtepLicenseLines.SETRANGE(RodtepLicenseLines."LFS License No.", rodtepLicenseHeader."LFS No.");
-                RodtepLicenseLines.SetCurrentKey("LFS Line No.");
-                if RodtepLicenseLines.FindLast() then
-                    LineNo := RodtepLicenseLines."LFS Line No." + 10000
-                else
-                    LineNo := 10000;
+    // procedure "LFS InsertRodtepLicenseLineDtlsfromPostedPurchInvoice"(PurchInvLine: Record "Purch. Inv. Line")
+    // var
+    //     rodtepLicenseHeader: Record "LFS Rodtep License Header";
+    //     RodtepLicenseLines: Record "LFS Rodtep License Lines";
+    //     LineNo: Integer;
+    // begin
+    //     if PurchInvLine."LFS License Type" = PurchInvLine."LFS License Type"::RoDTEP then begin
+    //         rodtepLicenseHeader.SetRange("LFS No.", PurchInvLine."LFS License No.");
+    //         if rodtepLicenseHeader.FindFirst() then begin
+    //             RodtepLicenseLines.SETRANGE(RodtepLicenseLines."LFS License No.", rodtepLicenseHeader."LFS No.");
+    //             RodtepLicenseLines.SetCurrentKey("LFS Line No.");
+    //             if RodtepLicenseLines.FindLast() then
+    //                 LineNo := RodtepLicenseLines."LFS Line No." + 10000
+    //             else
+    //                 LineNo := 10000;
 
-                RodtepLicenseLines."LFS License No." := PurchInvLine."LFS License No.";
-                RodtepLicenseLines."LFS Line No." := LineNo;
-                RodtepLicenseLines."LFS Type" := RodtepLicenseLines."LFS type"::Import;
-                RodtepLicenseLines."LFS Entry Type" := RodtepLicenseLines."LFS Entry Type"::Utilization;
-                RodtepLicenseLines."LFS Document Type" := RodtepLicenseLines."LFS Document Type"::"Posted Invoice";
-                RodtepLicenseLines."LFS Document No." := PurchInvLine."Document No.";
-                RodtepLicenseLines."LFS Line No." := PurchInvLine."Line No.";
-                RodtepLicenseLines."LFS Item No." := PurchInvLine."No.";
-                RodtepLicenseLines."LFS Variant Code" := PurchInvLine."Variant Code";
-                RodtepLicenseLines."LFS Description" := PurchInvLine.Description;
-                RodtepLicenseLines."LFS UOM" := Format(PurchInvLine."Unit of Measure");
-                RodtepLicenseLines."LFS Qty." := PurchInvLine.Quantity;
-                RodtepLicenseLines."LFS CIF Value(FC)" := PurchInvLine."LFS CIF Amount (FCY)";
-                RodtepLicenseLines."LFS CIF Value (LCY)" := PurchInvLine."LFS CIF Amount (FCY)" * PurchInvLine."LFS Custom Exch. Rate";
-                RodtepLicenseLines."LFS RoDTEP Value (LCY)" := PurchInvLine."LFS RoDTEP Value (LCY)";
-                RodtepLicenseLines.Insert();
-            end;
-        end;
-    end;
+    //             RodtepLicenseLines."LFS License No." := PurchInvLine."LFS License No.";
+    //             RodtepLicenseLines."LFS Line No." := LineNo;
+    //             RodtepLicenseLines."LFS Type" := RodtepLicenseLines."LFS type"::Import;
+    //             RodtepLicenseLines."LFS Entry Type" := RodtepLicenseLines."LFS Entry Type"::Utilization;
+    //             RodtepLicenseLines."LFS Document Type" := RodtepLicenseLines."LFS Document Type"::"Posted Invoice";
+    //             RodtepLicenseLines."LFS Document No." := PurchInvLine."Document No.";
+    //             RodtepLicenseLines."LFS Line No." := PurchInvLine."Line No.";
+    //             RodtepLicenseLines."LFS Item No." := PurchInvLine."No.";
+    //             RodtepLicenseLines."LFS Variant Code" := PurchInvLine."Variant Code";
+    //             RodtepLicenseLines."LFS Description" := PurchInvLine.Description;
+    //             RodtepLicenseLines."LFS UOM" := Format(PurchInvLine."Unit of Measure");
+    //             RodtepLicenseLines."LFS Qty." := PurchInvLine.Quantity;
+    //             RodtepLicenseLines."LFS CIF Value(FC)" := PurchInvLine."LFS CIF Amount (FCY)";
+    //             RodtepLicenseLines."LFS CIF Value (LCY)" := PurchInvLine."LFS CIF Amount (FCY)" * PurchInvLine."LFS Custom Exch. Rate";
+    //             RodtepLicenseLines."LFS RoDTEP Value (LCY)" := PurchInvLine."LFS RoDTEP Value (LCY)";
+    //             RodtepLicenseLines.Insert();
+    //         end;
+    //     end;
+    // end;
 
     procedure "LFS InsertLicenseDtlFromImportPostedPurchCrNoteDoc"(PurchCrMemoLine: Record "Purch. Cr. Memo Line")
     begin
@@ -1034,7 +1034,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMAdvLicenseLines: Record "LFS EXIM License Lines";
         EXIMLicenseMultiple: Record "LFS EXIM Posted Import Licence";
         PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
+        rodtepLicenseHeader: Record "LFS Rodtep License Header";
+        RodtepLicenseLines: Record "LFS Rodtep License Lines";
         LineNo: Integer;
+        RoDTEPLineNo: Integer;
     begin
         EXIMAdvLicenseLines.Init();
         EXIMLicenseMultiple.SetRange("LFS Source No.", PurchCrMemoLine."Document No.");
@@ -1076,6 +1079,42 @@ codeunit 72001 "LFS EXIM General Functions"
                     PurchCrMemoHdr.GET(PurchCrMemoLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := PurchCrMemoHdr."Currency Code";
                     EXIMAdvLicenseLines.insert();
+                end;
+            until EXIMLicenseMultiple.Next() = 0;
+
+        RodtepLicenseLines.Init();
+        EXIMLicenseMultiple.Reset();
+        EXIMLicenseMultiple.SetRange("LFS Source No.", PurchCrMemoLine."Document No.");
+        EXIMLicenseMultiple.SetRange("LFS Source line No.", PurchCrMemoLine."Line No.");
+        EXIMLicenseMultiple.SetRange("LFS License Type", EXIMLicenseMultiple."LFS License Type"::RoDTEP);
+        if EXIMLicenseMultiple.Findset() then
+            repeat
+                rodtepLicenseHeader.SetRange("LFS No.", EXIMLicenseMultiple."LFS License No.");
+                if rodtepLicenseHeader.FindFirst() then begin
+                    RoDTEPLineNo := 0;
+                    RodtepLicenseLines.SETRANGE(RodtepLicenseLines."LFS License No.", rodtepLicenseHeader."LFS No.");
+                    RodtepLicenseLines.SetCurrentKey("LFS Line No.");
+                    if RodtepLicenseLines.FindLast() then
+                        RoDTEPLineNo := RodtepLicenseLines."LFS Line No." + 10000
+                    else
+                        RoDTEPLineNo := 10000;
+
+                    RodtepLicenseLines."LFS License No." := EXIMLicenseMultiple."LFS License No.";
+                    RodtepLicenseLines."LFS Line No." := RoDTEPLineNo;
+                    RodtepLicenseLines."LFS Type" := RodtepLicenseLines."LFS type"::Import;
+                    RodtepLicenseLines."LFS Entry Type" := RodtepLicenseLines."LFS Entry Type"::Utilization;
+                    RodtepLicenseLines."LFS Document Type" := RodtepLicenseLines."LFS Document Type"::"Posted Invoice";
+                    RodtepLicenseLines."LFS Document No." := EXIMLicenseMultiple."LFS Source No.";
+                    RodtepLicenseLines."LFS Document Line No." := EXIMLicenseMultiple."LFS Source line No.";
+                    RodtepLicenseLines."LFS Item No." := EXIMLicenseMultiple."LFS Item No.";
+                    RodtepLicenseLines."LFS Variant Code" := EXIMLicenseMultiple."LFS Variant Code";
+                    RodtepLicenseLines."LFS Description" := PurchCrMemoLine.Description;
+                    RodtepLicenseLines."LFS UOM" := Format(PurchCrMemoLine."Unit of Measure");
+                    RodtepLicenseLines."LFS Qty." := PurchCrMemoLine.Quantity;
+                    RodtepLicenseLines."LFS CIF Value(FC)" := -PurchCrMemoLine."LFS CIF Amount (FCY)";
+                    RodtepLicenseLines."LFS CIF Value (LCY)" := -PurchCrMemoLine."LFS CIF Amount (FCY)" * PurchCrMemoLine."LFS Custom Exch. Rate";
+                    RodtepLicenseLines."LFS RoDTEP Value (LCY)" := -EXIMLicenseMultiple."LFS RoDTEP Consump Value";
+                    RodtepLicenseLines.Insert();
                 end;
             until EXIMLicenseMultiple.Next() = 0;
     end;
