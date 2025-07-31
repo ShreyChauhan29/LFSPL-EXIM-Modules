@@ -136,7 +136,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
-                CalculateRoDTEPandDDB();
+
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
@@ -146,6 +146,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 end else
                     if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
                         Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
+                CalculateRoDTEPandDDB();
             end;
         }
         // field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
@@ -170,7 +171,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
-                CalculateRoDTEPandDDB();
+
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
@@ -180,6 +181,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 end else
                     if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
                         Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
+                CalculateRoDTEPandDDB();
             end;
         }
         // field(72018; "LFS Category Type"; Enum "LFS Category Type")
@@ -467,7 +469,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
-                CalculateRoDTEPandDDB();
+
 
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
@@ -478,6 +480,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 end else
                     if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
                         Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
+                CalculateRoDTEPandDDB();
             end;
         }
 
@@ -488,7 +491,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader: Record "Sales Header";
             begin
                 FOBvalue();
-                CalculateRoDTEPandDDB();
+
 
                 SalesHeader.Reset();
                 SalesHeader.SetRange("No.", Rec."Document No.");
@@ -499,6 +502,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 end else
                     if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
                         Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
+                CalculateRoDTEPandDDB();
             end;
         }
         modify("Line Amount")
