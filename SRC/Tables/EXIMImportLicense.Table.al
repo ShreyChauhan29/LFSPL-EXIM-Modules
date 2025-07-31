@@ -51,6 +51,7 @@ table 72012 "LFS EXIM Import License"
             trigger OnValidate()
             var
                 EXIMiodetails: Record "LFS EXIM License IO Details";
+                PurchaseLine: Record "Purchase Line";
                 Text001Lbl: Label 'Quantity should not exceed the Import Balance Qty. of the license.';
             begin
                 EXIMiodetails.setrange("LFS Adv. License No.", Rec."LFS License No.");
@@ -62,6 +63,13 @@ table 72012 "LFS EXIM Import License"
                 if Rec."LFS Source Type" <> Rec."LFS Source Type"::"Credit Memo" then
                     CheckTotalQty();
                 Rec."LFS CIF Value (FCY)" := Rec."LFS Quantity" * Rec."LFS Unit Cost";
+                if Rec."LFS License Type" = Rec."LFS License Type"::RoDTEP then begin
+                    PurchaseLine.Reset();
+                    PurchaseLine.SetRange("Document No.", Rec."LFS Source No.");
+                    PurchaseLine.SetRange("Line No.", Rec."LFS Source line No.");
+                    if PurchaseLine.FindFirst() then
+                        Rec."LFS RoDTEP Consump Value" := Rec."LFS Quantity" * (PurchaseLine."LFS Import Duties Amt. (LCY)" / PurchaseLine.Quantity);
+                end;
             end;
         }
         // field(10; "LFS EXIM Item Group"; Code[20])
