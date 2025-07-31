@@ -575,9 +575,9 @@ codeunit 72001 "LFS EXIM General Functions"
         // EXIMDDBEntry."LFS DDB Value FCY" := -(EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
         EXIMDDBEntry."LFS Currency Exch. Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
-        EXIMDDBEntry."LFS DDB Value LCY" := SalesCrMemoLine."LFS DDB Value (LCY)";
+        EXIMDDBEntry."LFS DDB Value LCY" := -SalesCrMemoLine."LFS DDB Value (LCY)";
         // EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
-        EXIMDDBEntry."LFS DDB Value FCY" := SalesCrMemoLine."LFS DDB Value (LCY)" / SalesCrMemoLine."LFS Custom Exch. Rate";
+        EXIMDDBEntry."LFS DDB Value FCY" := -SalesCrMemoLine."LFS DDB Value (LCY)" / SalesCrMemoLine."LFS Custom Exch. Rate";
         // EXIMDDBEntry."LFS Currency Exch. Rate" := SalesInvLine."LFS Custom Exch. Rate";
         // if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
         //     EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
@@ -829,9 +829,9 @@ codeunit 72001 "LFS EXIM General Functions"
             EXIMRoDTEPEntry."LFS LCY Amount" := -SalesCrMemoLine."LFS FOB Amount (LCY)";
             EXIMRoDTEPEntry."LFS EXIM Type" := SalesCrMemoLine."LFS EXIM Type";
             EXIMRoDTEPEntry."LFS Incentive Type" := SalesCrMemoLine."LFS Incentive Type";
-            EXIMRoDTEPEntry."LFS FOB Amount (FCY)" := SalesCrMemoLine."LFS FOB Amount (FCY)";
-            EXIMRoDTEPEntry."LFS CIF Amount (FCY)" := SalesCrMemoLine."LFS CIF Amount (FCY)";
-            EXIMRoDTEPEntry."LFS No. of Container" := SalesCrMemoLine."LFS No. of Container";
+            EXIMRoDTEPEntry."LFS FOB Amount (FCY)" := -SalesCrMemoLine."LFS FOB Amount (FCY)";
+            EXIMRoDTEPEntry."LFS CIF Amount (FCY)" := -SalesCrMemoLine."LFS CIF Amount (FCY)";
+            EXIMRoDTEPEntry."LFS No. of Container" := -SalesCrMemoLine."LFS No. of Container";
             // if RodtepSetup."LFS RoDTEP Rebate Rate %" <> 0 then
             //     EXIMRoDTEPEntry."LFS RoDTEP Rebate Rate %" := RodtepSetup."LFS RoDTEP Rebate Rate %"
             // else begin
