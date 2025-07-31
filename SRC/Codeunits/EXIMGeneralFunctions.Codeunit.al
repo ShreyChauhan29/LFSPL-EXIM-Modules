@@ -927,10 +927,11 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines.Validate("LFS Item Description", PurchInvLine.Description);
                     EXIMAdvLicenseLines.Validate("LFS Variant Code", EXIMLicenseMultiple."LFS Variant Code");
                     EXIMAdvLicenseLines."LFS UOM" := PurchInvLine."Unit of Measure Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchInvLine."LFS CIF Currency Exchange Rate";
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := PurchInvLine."LFS Custom Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate";
                     EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := PurchInvLine."LFS CIF Currency Code";
-                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchInvLine."LFS CIF Currency Exchange Rate";
+
                     // EXIMAdvLicenseLines."LFS FOB CIF in USD" := -PurchInvLine."LFS USD CIF (FCY)";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS Exim Group No." := PurchInvLine."LFS Exim Group No.";
@@ -1065,11 +1066,12 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines.Validate("LFS Variant Code", EXIMLicenseMultiple."LFS Variant Code");
                     EXIMAdvLicenseLines.Validate("LFS Item Description", PurchCrMemoLine.Description);
                     EXIMAdvLicenseLines."LFS UOM" := PurchCrMemoLine."Unit of Measure Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchCrMemoLine."LFS CIF Currency Exchange Rate";
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := PurchCrMemoLine."LFS Custom Exch. Rate";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := PurchCrMemoLine."LFS CIF Currency Code";
-                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchCrMemoLine."LFS CIF Currency Exchange Rate";
+
                     // EXIMAdvLicenseLines."LFS FOB CIF in USD" := PurchCrMemoLine."LFS USD CIF (FCY)";
                     PurchCrMemoHdr.GET(PurchCrMemoLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := PurchCrMemoHdr."Currency Code";

@@ -254,6 +254,8 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
         PurchHeader.SetRange("Document Type", Rec."Document Type");
         PurchHeader.SetRange("No.", Rec."Document No.");
         if PurchHeader.FindFirst() then begin
+            if Rec."Currency Code" = Rec."LFS CIF Currency Code" then
+                Rec."LFS CIF Currency Exchange Rate" := Rec."LFS Custom Exch. Rate";
             Rec."LFS CIF Amount (FCY)" := Rec."Line Amount";
             if PurchHeader."Currency Factor" <> 0 then begin
                 ExchRate := 1 / PurchHeader."Currency Factor";
