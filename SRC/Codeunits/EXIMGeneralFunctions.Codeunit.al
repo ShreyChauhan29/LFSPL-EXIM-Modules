@@ -509,7 +509,10 @@ codeunit 72001 "LFS EXIM General Functions"
         // EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
         EXIMDDBEntry."LFS DDB Value LCY" := SalesInvLine."LFS DDB Value (LCY)";
         // EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
-        EXIMDDBEntry."LFS DDB Value FCY" := SalesInvLine."LFS DDB Value (LCY)" / SalesInvLine."LFS Custom Exch. Rate";
+        if SalesInvLine."LFS Custom Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS DDB Value FCY" := SalesInvLine."LFS DDB Value (LCY)" / SalesInvLine."LFS Custom Exch. Rate"
+        else
+            EXIMDDBEntry."LFS DDB Value FCY" := SalesInvLine."LFS DDB Value (LCY)";
         EXIMDDBEntry."LFS Currency Exch. Rate" := SalesInvLine."LFS Custom Exch. Rate";
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesInvLine."LFS Custom Exch. Rate";
         EXIMDDBEntry.Insert();
@@ -577,7 +580,10 @@ codeunit 72001 "LFS EXIM General Functions"
         EXIMDDBEntry."LFS Custom Exch. Rate" := SalesCrMemoLine."LFS Custom Exch. Rate";
         EXIMDDBEntry."LFS DDB Value LCY" := -SalesCrMemoLine."LFS DDB Value (LCY)";
         // EXIMDDBEntry."LFS DDB Value FCY" := (EXIMDDBEntry."LFS FOB FCY Amount" * EXIMDDBEntry."LFS DDB %") / 100;
-        EXIMDDBEntry."LFS DDB Value FCY" := -SalesCrMemoLine."LFS DDB Value (LCY)" / SalesCrMemoLine."LFS Custom Exch. Rate";
+        if SalesCrMemoLine."LFS Custom Exch. Rate" <> 0 then
+            EXIMDDBEntry."LFS DDB Value FCY" := -SalesCrMemoLine."LFS DDB Value (LCY)" / SalesCrMemoLine."LFS Custom Exch. Rate"
+        else
+            EXIMDDBEntry."LFS DDB Value FCY" := -SalesCrMemoLine."LFS DDB Value (LCY)";
         // EXIMDDBEntry."LFS Currency Exch. Rate" := SalesInvLine."LFS Custom Exch. Rate";
         // if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
         //     EXIMDDBEntry."LFS DDB Value LCY" := EXIMDDBEntry."LFS DDB Value FCY" * EXIMDDBEntry."LFS Currency Exch. Rate"
@@ -698,7 +704,10 @@ codeunit 72001 "LFS EXIM General Functions"
             // if RodtepSetup."LFS RoDTEP Rebate Rate %" <> 0 then
             EXIMRoDTEPEntry."LFS RoDTEP Rebate Rate %" := SalesInvLine."LFS RoDTEP Rebate Rate %";
             EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := SalesInvLine."LFS RoDTEP Rebate Value";
-            EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesInvLine."LFS RoDTEP Rebate Value" / SalesInvLine."LFS Custom Exch. Rate";
+            if SalesInvLine."LFS Custom Exch. Rate" <> 0 then
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesInvLine."LFS RoDTEP Rebate Value" / SalesInvLine."LFS Custom Exch. Rate"
+            else
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesInvLine."LFS RoDTEP Rebate Value";
             EXIMRoDTEPEntry."LFS Claim Amount" := SalesInvLine."LFS RoDTEP Rebate Value";
             // 
             // else begin
@@ -851,7 +860,10 @@ codeunit 72001 "LFS EXIM General Functions"
             // end;
             EXIMRoDTEPEntry."LFS RoDTEP Rebate Rate %" := SalesCrMemoLine."LFS RoDTEP Rebate Rate %";
             EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := SalesCrMemoLine."LFS RoDTEP Rebate Value";
-            EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesCrMemoLine."LFS RoDTEP Rebate Value" / SalesCrMemoLine."LFS Custom Exch. Rate";
+            if SalesCrMemoLine."LFS Custom Exch. Rate" <> 0 then
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesCrMemoLine."LFS RoDTEP Rebate Value" / SalesCrMemoLine."LFS Custom Exch. Rate"
+            else
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := SalesCrMemoLine."LFS RoDTEP Rebate Value";
             EXIMRoDTEPEntry."LFS Claim Amount" := SalesCrMemoLine."LFS RoDTEP Rebate Value";
             EXIMRoDTEPEntry.Insert();
         end;
