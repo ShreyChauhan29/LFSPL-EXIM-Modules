@@ -1103,14 +1103,14 @@ codeunit 72001 "LFS EXIM General Functions"
                     RodtepLicenseLines."LFS Line No." := RoDTEPLineNo;
                     RodtepLicenseLines."LFS Type" := RodtepLicenseLines."LFS type"::Import;
                     RodtepLicenseLines."LFS Entry Type" := RodtepLicenseLines."LFS Entry Type"::Utilization;
-                    RodtepLicenseLines."LFS Document Type" := RodtepLicenseLines."LFS Document Type"::"Posted Invoice";
+                    RodtepLicenseLines."LFS Document Type" := RodtepLicenseLines."LFS Document Type"::"Posted Credit Memo";
                     RodtepLicenseLines."LFS Document No." := EXIMLicenseMultiple."LFS Source No.";
                     RodtepLicenseLines."LFS Document Line No." := EXIMLicenseMultiple."LFS Source line No.";
                     RodtepLicenseLines."LFS Item No." := EXIMLicenseMultiple."LFS Item No.";
                     RodtepLicenseLines."LFS Variant Code" := EXIMLicenseMultiple."LFS Variant Code";
                     RodtepLicenseLines."LFS Description" := PurchCrMemoLine.Description;
                     RodtepLicenseLines."LFS UOM" := Format(PurchCrMemoLine."Unit of Measure");
-                    RodtepLicenseLines."LFS Qty." := PurchCrMemoLine.Quantity;
+                    RodtepLicenseLines."LFS Qty." := -PurchCrMemoLine.Quantity;
                     RodtepLicenseLines."LFS CIF Value(FC)" := -PurchCrMemoLine."LFS CIF Amount (FCY)";
                     RodtepLicenseLines."LFS CIF Value (LCY)" := -PurchCrMemoLine."LFS CIF Amount (FCY)" * PurchCrMemoLine."LFS Custom Exch. Rate";
                     RodtepLicenseLines."LFS RoDTEP Value (LCY)" := -EXIMLicenseMultiple."LFS RoDTEP Consump Value";
