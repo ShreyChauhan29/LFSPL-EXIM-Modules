@@ -288,9 +288,9 @@ tableextension 72024 "LFS Sales Invoice Line Ext." extends "Sales Invoice Line"
             Editable = false;
             TableRelation = "LFSEXIM Currency Exchange Rate";
         }
-        field(72060; "LFS FOB Currency Factor"; Decimal)
+        field(72060; "LFS FOB Currency Exchange Rate"; Decimal)
         {
-            Caption = 'FOB Currency Factor';
+            Caption = 'FOB Currency Exchange Rate';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 15;
             MinValue = 0;

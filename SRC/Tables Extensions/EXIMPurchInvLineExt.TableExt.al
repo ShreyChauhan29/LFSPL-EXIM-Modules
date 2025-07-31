@@ -126,15 +126,15 @@ tableextension 72013 "LFS EXIM Purch. Inv. Line Ext." extends "Purch. Inv. Line"
             Editable = false;
             TableRelation = "EXIM Group Master"."LFS Group No.";
         }
-        field(72033; "LFS CIF Currency Code"; Code[20])
+        field(72033; "LFS CIF Currency Code"; Code[10])
         {
             DataClassification = CustomerContent;
             Caption = 'CIF Currency Code';
             Editable = false;
         }
-        field(72034; "LFS CIF Currency Factor"; Decimal)
+        field(72034; "LFS CIF Currency Exchange Rate"; Decimal)
         {
-            Caption = 'CIF Currency Factor';
+            Caption = 'CIF Currency Exchange Rate';
             DataClassification = CustomerContent;
             Editable = false;
         }

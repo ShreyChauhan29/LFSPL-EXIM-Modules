@@ -109,6 +109,13 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
         {
             Caption = 'CIF Amount (LCY)';
             DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                if "LFS CIF Amount (LCY)" <> 0 then begin
+                    Rec."LFS USD CIF (LCY)" := Rec."LFS CIF Amount (LCY)";
+                    Rec."LFS USD CIF (FCY)" := Rec."LFS USD CIF (LCY)" / "LFS CIF Currency Exchange Rate";
+                end;
+            end;
         }
         // field(72019; "LFS CIF Amount (FCY)"; Decimal)
         // {
@@ -127,20 +134,20 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             Editable = false;
             TableRelation = "EXIM Group Master"."LFS Group No.";
         }
-        field(72033; "LFS CIF Currency Code"; Code[20])
+        field(72033; "LFS CIF Currency Code"; Code[10])
         {
             DataClassification = CustomerContent;
             Caption = 'CIF Currency Code';
             Editable = false;
         }
-        field(72034; "LFS CIF Currency Factor"; Decimal)
+        field(72034; "LFS CIF Currency Exchange Rate"; Decimal)
         {
-            Caption = 'CIF Currency Factor';
+            Caption = 'CIF Currency Exchange Rate';
             DataClassification = CustomerContent;
             trigger OnValidate()
             begin
                 Rec."LFS USD CIF (LCY)" := Rec."LFS CIF Amount (LCY)";
-                Rec."LFS USD CIF (FCY)" := Rec."LFS USD CIF (LCY)" / "LFS CIF Currency Factor";
+                Rec."LFS USD CIF (FCY)" := Rec."LFS USD CIF (LCY)" / "LFS CIF Currency Exchange Rate";
             end;
         }
         field(72035; "LFS USD CIF (FCY)"; Decimal)
@@ -169,13 +176,14 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                         Item.Get(Rec."No.");
                         Rec."LFS Exim Group No." := Item."LFS Exim Group No.";
                     end;
+                    Exc_Rate := 0;
                     Rec."LFS CIF Currency Code" := 'USD';
                     EXIMCurrExRate.Reset();
                     EXIMCurrExRate.SetRange("LFS Currency Code", Rec."LFS CIF Currency Code");
                     EXIMCurrExRate.SetAscending("LFS Starting Date", true);
                     if EXIMCurrExRate.FindLast() then begin
                         Exc_Rate := 1 / EXIMCurrExRate.ExchangeRate(EXIMCurrExRate."LFS Starting Date", Rec."LFS CIF Currency Code", 1);
-                        Rec.Validate("LFS CIF Currency Factor", Exc_Rate);
+                        Rec.Validate("LFS CIF Currency Exchange Rate", Exc_Rate);
                     end;
                 end
                 else begin
@@ -250,7 +258,7 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             if PurchHeader."Currency Factor" <> 0 then begin
                 ExchRate := 1 / PurchHeader."Currency Factor";
                 Rec."LFS Currency Exch. Rate" := ExchRate;
-                rec."LFS CIF Amount (LCY)" := Rec."Line Amount" * ExchRate;
+                rec.Validate("LFS CIF Amount (LCY)", Rec."Line Amount" * ExchRate);
                 Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * ExchRate;
                 Rec."GST Assessable Value" := Rec."LFS GST Assesable Value INR" / ExchRate;
                 Rec."Custom Duty Amount" := Rec."LFS Import Duties Amt. (LCY)" / ExchRate;
@@ -259,7 +267,7 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
                 if PurchHeader."Currency Factor" = 0 then begin
                     ExchRate := 1;
                     Rec."LFS Currency Exch. Rate" := ExchRate;
-                    rec."LFS CIF Amount (LCY)" := Rec."Line Amount" * ExchRate;
+                    rec.Validate("LFS CIF Amount (LCY)", Rec."Line Amount" * ExchRate);
                     Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * ExchRate;
                     Rec."GST Assessable Value" := Rec."LFS GST Assesable Value INR" / ExchRate;
                     Rec."Custom Duty Amount" := Rec."LFS Import Duties Amt. (LCY)" / ExchRate;

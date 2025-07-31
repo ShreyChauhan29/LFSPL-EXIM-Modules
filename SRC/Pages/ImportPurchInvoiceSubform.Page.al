@@ -662,9 +662,9 @@ page 72070 "LFS ImportPurch.InvoiceSubform"
                 {
                     ToolTip = 'Specifies the value of the CIF Currency Code field.', Comment = '%';
                 }
-                field("LFS CIF Currency Factor"; Rec."LFS CIF Currency Factor")
+                field("LFS CIF Currency Exchange Rate"; Rec."LFS CIF Currency Exchange Rate")
                 {
-                    ToolTip = 'Specifies the value of the CIF Currency Factor field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the CIF Currency Exchange Rate field.', Comment = '%';
                 }
                 field("LFS USD CIF (FCY)"; Rec."LFS USD CIF (FCY)")
                 {

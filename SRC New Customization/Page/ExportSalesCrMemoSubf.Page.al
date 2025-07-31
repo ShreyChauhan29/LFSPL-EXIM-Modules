@@ -701,9 +701,9 @@ page 72028 "LFS Export Sales Cr. Memo Subf"
                 {
                     ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
                 }
-                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                field("LFS FOB Currency Exchange Rate"; Rec."LFS FOB Currency Exchange Rate")
                 {
-                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the FOB Currency Exchange Rate field.', Comment = '%';
                 }
                 field("LFS RoDTEP Rebate Rate %"; Rec."LFS RoDTEP Rebate Rate %")
                 {

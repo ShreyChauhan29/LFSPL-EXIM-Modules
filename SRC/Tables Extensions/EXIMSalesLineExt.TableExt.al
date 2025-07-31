@@ -141,11 +141,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
                 if not SalesHeader.IsEmpty() then begin
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Exchange Rate";
                 end else
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
             end;
         }
         // field(72015; "LFS Insurance Type"; Enum "LFS Insurance Type")
@@ -175,11 +175,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
                 if not SalesHeader.IsEmpty() then begin
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Exchange Rate";
                 end else
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
             end;
         }
         // field(72018; "LFS Category Type"; Enum "LFS Category Type")
@@ -399,9 +399,9 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             Editable = false;
             TableRelation = "LFSEXIM Currency Exchange Rate";
         }
-        field(72060; "LFS FOB Currency Factor"; Decimal)
+        field(72060; "LFS FOB Currency Exchange Rate"; Decimal)
         {
-            Caption = 'FOB Currency Factor';
+            Caption = 'FOB Currency Exchange Rate';
             DataClassification = CustomerContent;
             DecimalPlaces = 0 : 15;
             MinValue = 0;
@@ -415,11 +415,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
                 if not SalesHeader.IsEmpty() then begin
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Exchange Rate";
                 end else
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
             end;
         }
         modify("No.")
@@ -451,7 +451,8 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     EXIMCurrExRate.SetAscending("LFS Starting Date", true);
                     if EXIMCurrExRate.FindLast() then begin
                         Exc_Rate := 1 / EXIMCurrExRate.ExchangeRate(EXIMCurrExRate."LFS Starting Date", Rec."LFS FOB Currency Code", 1);
-                        Rec.Validate("LFS FOB Currency Factor", Exc_Rate);
+                        if Rec."LFS FOB Currency Exchange Rate" = 0 then
+                            Rec.Validate("LFS FOB Currency Exchange Rate", Exc_Rate);
                     end;
                 end
                 else
@@ -471,11 +472,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
                 if not SalesHeader.IsEmpty() then begin
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Exchange Rate";
                 end else
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
             end;
         }
 
@@ -492,11 +493,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                 SalesHeader.SetRange("No.", Rec."Document No.");
                 SalesHeader.SetFilter("LFS Custom Currency Code", '<>%1', '');
                 if not SalesHeader.IsEmpty() then begin
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."LFS FOB Amount (LCY)") / Rec."LFS FOB Currency Exchange Rate";
                 end else
-                    if (Rec."LFS FOB Currency Factor" <> 0) then
-                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Factor";
+                    if (Rec."LFS FOB Currency Exchange Rate" <> 0) then
+                        Rec."LFS FOB in USD" := (Rec."Line Amount" - Rec."LFS Insurance Value (FCY)" - Rec."LFS Freight Value (FCY)") / Rec."LFS FOB Currency Exchange Rate";
             end;
         }
         modify("Line Amount")
@@ -573,7 +574,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                             if Rec."LFS Custom Exch. Rate" <> 0 then
                                 Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
                             else
-                                rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                                rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * rec."LFS DDB Rate" / 100;
                             // Commit();
                             // Rec.Modify();
                         end
@@ -594,7 +595,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                     if Rec."LFS Custom Exch. Rate" <> 0 then
                                         Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
                                     else
-                                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * rec."LFS DDB Rate" / 100;
                                     // Commit();
                                     // Rec.Modify();
                                 end
@@ -630,7 +631,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                         if Rec."LFS Custom Exch. Rate" <> 0 then
                             Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
                         else
-                            Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                            Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                         // Commit();
                         // Rec.Modify();
                     end
@@ -649,7 +650,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                 if Rec."LFS Custom Exch. Rate" <> 0 then
                                     Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
                                 else
-                                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                                 // Commit();
                                 // Rec.Modify();
                             end
@@ -681,7 +682,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                 if Rec."LFS Custom Exch. Rate" <> 0 then
                                     Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
                                 else
-                                    rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                                    rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * rec."LFS DDB Rate" / 100;
                                 // Commit();
                                 // Rec.Modify();
                             end
@@ -703,7 +704,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                         if Rec."LFS Custom Exch. Rate" <> 0 then
                                             Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
                                         else
-                                            rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                                            rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * rec."LFS DDB Rate" / 100;
                                         Commit();
                                         // Rec.Modify();
                                     end else begin
@@ -738,7 +739,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                             if Rec."LFS Custom Exch. Rate" <> 0 then
                                 Rec."LFS RoDTEP Rebate Value" := -Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
                             else
-                                Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                                Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                             // Commit();
                             // Rec.Modify();
                         end
@@ -757,7 +758,7 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                                     if Rec."LFS Custom Exch. Rate" <> 0 then
                                         Rec."LFS RoDTEP Rebate Value" := -Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
                                     else
-                                        Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                                        Rec."LFS RoDTEP Rebate Value" := -("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * (rec."LFS RoDTEP Rebate Rate %" / 100);
                                     // Commit();
                                     // Rec.Modify();
                                 end else begin
@@ -804,6 +805,8 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
             if SalesHeader."Currency Factor" <> 0 then begin
                 exchRate := 1 / SalesHeader."Currency Factor";
                 Rec."LFS Custom Exch. Rate" := exchRate;
+                if Rec."Currency Code" = Rec."LFS FOB Currency Code" then
+                    Rec."LFS FOB Currency Exchange Rate" := Rec."LFS Custom Exch. Rate";
                 if SalesHeader."LFS FOB CIF Calc. Type" = SalesHeader."LFS FOB CIF Calc. Type"::FOB then begin
                     Rec."LFS FOB Amount (FCY)" := Rec."Line Amount";
                     Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * exchRate;
@@ -833,11 +836,11 @@ tableextension 72018 "LFS EXIM Sales Line Ext." extends "Sales Line"
                     if Rec."LFS Custom Exch. Rate" <> 0 then
                         Rec."LFS DDB Value (LCY)" := Rec."LFS FOB Amount (LCY)" * rec."LFS DDB Rate" / 100
                     else
-                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * rec."LFS DDB Rate" / 100;
+                        rec."LFS DDB Value (LCY)" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * rec."LFS DDB Rate" / 100;
                 if Rec."LFS Custom Exch. Rate" <> 0 then
                     Rec."LFS RoDTEP Rebate Value" := Rec."LFS FOB Amount (LCY)" * (rec."LFS RoDTEP Rebate Rate %" / 100)
                 else
-                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Factor") * (rec."LFS RoDTEP Rebate Rate %" / 100);
+                    Rec."LFS RoDTEP Rebate Value" := ("LFS FOB in USD" * Rec."LFS FOB Currency Exchange Rate") * (rec."LFS RoDTEP Rebate Rate %" / 100);
             end;
     end;
 

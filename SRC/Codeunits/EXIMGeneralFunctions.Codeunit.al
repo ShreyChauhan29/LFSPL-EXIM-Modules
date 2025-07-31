@@ -186,10 +186,10 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := SalesInvoiceLine."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS Exim Group No." := SalesInvoiceLine."LFS Exim Group No.";
-                    EXIMAdvLicenseLines."LFS FOB in USD" := SalesInvoiceLine."LFS FOB in USD";
-                    EXIMAdvLicenseLines."LFS FOB Currency Code" := SalesInvoiceLine."LFS FOB Currency Code";
-                    EXIMAdvLicenseLines."LFS FOB Currency Factor" := SalesInvoiceLine."LFS FOB Currency Factor";
-                    EXIMAdvLicenseLines."LFS FOB LCY Value" := (EXIMAdvLicenseLines."LFS FOB Value" * SalesInvoiceLine."LFS FOB Currency Factor");
+                    // EXIMAdvLicenseLines."LFS FOB CIF in USD" := SalesInvoiceLine."LFS FOB in USD";
+                    EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := SalesInvoiceLine."LFS FOB Currency Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := SalesInvoiceLine."LFS FOB Currency Exchange Rate";
+                    EXIMAdvLicenseLines."LFS FOB LCY Value" := (EXIMAdvLicenseLines."LFS FOB Value" * SalesInvoiceLine."LFS FOB Currency Exchange Rate");
                     SalesInvoiceHeader.GET(SalesInvoiceLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := SalesInvoiceHeader."Currency Code";
                     EXIMAdvLicenseLines.insert();
@@ -242,10 +242,10 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := salesCrMemoLine."LFS Currency Exch. Rate";
                     // EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
-                    EXIMAdvLicenseLines."LFS FOB in USD" := -salesCrMemoLine."LFS FOB in USD";
-                    EXIMAdvLicenseLines."LFS FOB Currency Code" := salesCrMemoLine."LFS FOB Currency Code";
-                    EXIMAdvLicenseLines."LFS FOB Currency Factor" := salesCrMemoLine."LFS FOB Currency Factor";
-                    EXIMAdvLicenseLines."LFS FOB LCY Value" := (EXIMAdvLicenseLines."LFS FOB Value" * salesCrMemoLine."LFS FOB Currency Factor");
+                    // EXIMAdvLicenseLines."LFS FOB CIF in USD" := -salesCrMemoLine."LFS FOB in USD";
+                    EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := salesCrMemoLine."LFS FOB Currency Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := salesCrMemoLine."LFS FOB Currency Exchange Rate";
+                    EXIMAdvLicenseLines."LFS FOB LCY Value" := (EXIMAdvLicenseLines."LFS FOB Value" * salesCrMemoLine."LFS FOB Currency Exchange Rate");
                     SalesCrMemoHeader.GET(salesCrMemoLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := SalesCrMemoHeader."Currency Code";
                     EXIMAdvLicenseLines.insert();
@@ -485,7 +485,7 @@ codeunit 72001 "LFS EXIM General Functions"
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
             EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB Amount (FCY)"
         else
-            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB in USD" * SalesInvLine."LFS FOB Currency Factor";
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesInvLine."LFS FOB in USD" * SalesInvLine."LFS FOB Currency Exchange Rate";
         EXIMDDBEntry."LFS Claim DDB" := SalesInvLine."LFS Claim DDB";
         // if EXIMDDBRateSetup."LFS DDB Rate" <> 0 then
         //     EXIMDDBEntry."LFS DDB %" := EXIMDDBRateSetup."LFS DDB Rate"
@@ -565,7 +565,7 @@ codeunit 72001 "LFS EXIM General Functions"
         if EXIMDDBEntry."LFS Currency Exch. Rate" <> 0 then
             EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB Amount (FCY)"
         else
-            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB in USD" * SalesCrMemoLine."LFS FOB Currency Factor";
+            EXIMDDBEntry."LFS FOB FCY Amount" := SalesCrMemoLine."LFS FOB in USD" * SalesCrMemoLine."LFS FOB Currency Exchange Rate";
         EXIMDDBEntry."LFS Claim DDB" := SalesCrMemoLine."LFS Claim DDB";
         if EXIMDDBRateSetup."LFS DDB Rate" <> 0 then
             EXIMDDBEntry."LFS DDB %" := EXIMDDBRateSetup."LFS DDB Rate"
@@ -706,8 +706,8 @@ codeunit 72001 "LFS EXIM General Functions"
             end
             else begin
                 EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := RodtepRate / 100 * SalesInvLine."LFS FOB in USD";
-                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesInvLine."LFS FOB Currency Factor";
-                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesInvLine."LFS FOB Currency Factor";
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesInvLine."LFS FOB Currency Exchange Rate";
+                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesInvLine."LFS FOB Currency Exchange Rate";
             end;
             EXIMRoDTEPEntry.Insert();
         end;
@@ -839,8 +839,8 @@ codeunit 72001 "LFS EXIM General Functions"
             end
             else begin
                 EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" := -RodtepRate / 100 * SalesCrMemoLine."LFS FOB in USD";
-                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
-                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Factor";
+                EXIMRoDTEPEntry."LFS RoDTEP Rebate Value LCY" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Exchange Rate";
+                EXIMRoDTEPEntry."LFS Claim Amount" := EXIMRoDTEPEntry."LFS RoDTEP Rebate Value FCY" * SalesCrMemoLine."LFS FOB Currency Exchange Rate";
             end;
             EXIMRoDTEPEntry.Insert();
         end;
@@ -905,7 +905,10 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines.Validate("LFS Variant Code", EXIMLicenseMultiple."LFS Variant Code");
                     EXIMAdvLicenseLines."LFS UOM" := PurchInvLine."Unit of Measure Code";
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := PurchInvLine."LFS Currency Exch. Rate";
-                    EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
+                    EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate";
+                    EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := PurchInvLine."LFS CIF Currency Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchInvLine."LFS CIF Currency Exchange Rate";
+                    // EXIMAdvLicenseLines."LFS FOB CIF in USD" := -PurchInvLine."LFS USD CIF (FCY)";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS Exim Group No." := PurchInvLine."LFS Exim Group No.";
                     PurchInvHeader.GET(PurchInvLine."Document No.");
@@ -1042,6 +1045,9 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines."LFS Currency Exch. Rate" := PurchCrMemoLine."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS CIF LCY Value" := EXIMAdvLicenseLines."LFS CIF Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
+                    EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := PurchCrMemoLine."LFS CIF Currency Code";
+                    EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchCrMemoLine."LFS CIF Currency Exchange Rate";
+                    // EXIMAdvLicenseLines."LFS FOB CIF in USD" := PurchCrMemoLine."LFS USD CIF (FCY)";
                     PurchCrMemoHdr.GET(PurchCrMemoLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := PurchCrMemoHdr."Currency Code";
                     EXIMAdvLicenseLines.insert();

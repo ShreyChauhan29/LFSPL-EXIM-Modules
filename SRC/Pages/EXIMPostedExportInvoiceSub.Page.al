@@ -139,9 +139,9 @@ page 72092 "LFS EXIMPostedExportInvoiceSub"
                 {
                     ToolTip = 'Specifies the value of the FOB Currency Code field.', Comment = '%';
                 }
-                field("LFS FOB Currency Factor"; Rec."LFS FOB Currency Factor")
+                field("LFS FOB Currency Exchange Rate"; Rec."LFS FOB Currency Exchange Rate")
                 {
-                    ToolTip = 'Specifies the value of the FOB Currency Factor field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the FOB Currency Exchange Rate field.', Comment = '%';
                 }
                 field("FOB (FCY) Per Unit"; Rec."LFS FOB Amount (FCY)")
                 {
