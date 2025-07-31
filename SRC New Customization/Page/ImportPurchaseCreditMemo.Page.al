@@ -1514,8 +1514,36 @@ page 72100 "LFS Import Purchase CreditMemo"
                     ToolTip = 'Copy one or more posted purchase document lines in order to reverse the original order.';
 
                     trigger OnAction()
+                    var
+                        ImportLicense: Record "LFS EXIM Import License";
+                        PostedImportLicences: Record "LFS EXIM Posted Import Licence";
+                        PurchCrMemoLine: Record "Purchase Line";
                     begin
                         Rec.GetPstdDocLinesToReverse();
+
+                        PurchCrMemoLine.SetRange("Document No.", Rec."No.");
+                        PurchCrMemoLine.SetRange("Document Type", Rec."Document Type");
+                        if PurchCrMemoLine.Findset() then
+                            repeat
+                                PostedImportLicences.SetRange("LFS Source No.", PurchCrMemoLine."LFS Source No.");
+                                PostedImportLicences.SetRange("LFS Source line No.", PurchCrMemoLine."LFS Source Line No.");
+                                if PostedImportLicences.Findset() then
+                                    repeat
+                                        ImportLicense."LFS Source Type" := ImportLicense."LFS Source Type"::"Credit Memo";
+                                        ImportLicense."LFS Source No." := PurchCrMemoLine."Document No.";
+                                        ImportLicense."LFS Source line No." := PurchCrMemoLine."Line No.";
+                                        ImportLicense."LFS Line No." := PostedImportLicences."LFS Line No.";
+                                        ImportLicense."LFS Quantity" := PostedImportLicences."LFS Quantity";
+                                        ImportLicense."LFS License Type" := PostedImportLicences."LFS License Type";
+                                        ImportLicense."LFS License No." := PostedImportLicences."LFS License No.";
+                                        ImportLicense."LFS Item No." := PostedImportLicences."LFS Item No.";
+                                        ImportLicense."LFS Import Inv Bal Qty" := PostedImportLicences."LFS Import Inv Bal Qty";
+                                        ImportLicense."LFS CIF Value (FCY)" := PostedImportLicences."LFS CIF Value (FCY)";
+                                        ImportLicense."LFS EXIM Group No." := PostedImportLicences."LFS Exim Group No.";
+                                        // ImportLicense."LFS EXIM Item Group" := PostedImportLicences."LFS EXIM Item Group";
+                                        ImportLicense.Insert();
+                                    until PostedImportLicences.Next() = 0;
+                            until PurchCrMemoLine.Next() = 0;
                     end;
                 }
                 action("Get Return &Shipment Lines")

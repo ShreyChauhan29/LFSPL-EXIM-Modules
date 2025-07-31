@@ -32,7 +32,7 @@ page 72101 "Import Purch. Cr. Memo Subform"
     DelayedInsert = true;
     LinksAllowed = false;
     MultipleNewLines = true;
-    SourceTableView = where("Document Type" = filter("Credit Memo"), "LFS EXIM Type" = const(Import));
+    SourceTableView = where("Document Type" = filter("Credit Memo"));
 
     layout
     {
