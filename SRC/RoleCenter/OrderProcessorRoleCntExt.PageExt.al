@@ -231,7 +231,7 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                     {
                         Caption = 'Import Purchase Credit Memos';
                         ApplicationArea = Basic, Suite;
-                        RunObject = page "LFS Import Purchase CreditMemo";
+                        RunObject = page "Import Purchase Credit Memos";
                         ObsoleteState = Pending;
                         ObsoleteReason = 'Setup is no longer shown in this page.';
                         ObsoleteTag = '19.0';

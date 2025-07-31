@@ -51,11 +51,11 @@ page 72100 "LFS Import Purchase CreditMemo"
                     ApplicationArea = All;
                     Importance = Standard;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
-                    Visible = DocNoVisible;
+                    // Visible = DocNoVisible;
 
                     trigger OnAssistEdit()
                     begin
-                        if Rec.AssistEdit(xRec) then
+                        if Rec.AssistEditImport(xRec) then
                             CurrPage.Update();
                     end;
                 }
