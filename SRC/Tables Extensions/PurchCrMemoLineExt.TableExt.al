@@ -55,11 +55,11 @@ tableextension 72011 "LFS Purch. Cr. Memo Line Ext." extends "Purch. Cr. Memo Li
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72011; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-        }
+        // field(72011; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        // }
         field(72012; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

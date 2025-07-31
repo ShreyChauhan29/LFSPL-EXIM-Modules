@@ -308,12 +308,12 @@ page 72031 "Pstd Export Sales Cr. Memo Sub"
                     ApplicationArea = All;
                 }
 
-                field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
-                {
-                    ToolTip = 'Specifies the value of the Currency Exch. Rate field.';
-                    ApplicationArea = All;
-                    Visible = false;
-                }
+                // field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
+                // {
+                //     ToolTip = 'Specifies the value of the Currency Exch. Rate field.';
+                //     ApplicationArea = All;
+                //     Visible = false;
+                // }
                 field("Custom Exch. Rate"; Rec."LFS Custom Exch. Rate")
                 {
                     ToolTip = 'Specifies the value of the Custom Exch. Rate field.';

@@ -61,12 +61,12 @@ tableextension 72035 "LFS Purchase Line Archive Ext" extends "Purchase Line Arch
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72011; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+        // field(72011; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
         field(72012; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

@@ -62,11 +62,11 @@ tableextension 72013 "LFS EXIM Purch. Inv. Line Ext." extends "Purch. Inv. Line"
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72011; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-        }
+        // field(72011; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        // }
         field(72012; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

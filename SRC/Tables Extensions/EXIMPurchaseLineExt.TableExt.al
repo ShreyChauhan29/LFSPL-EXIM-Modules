@@ -66,12 +66,12 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
         //     Caption = 'EXIM Remark';
         //     DataClassification = CustomerContent;
         // }
-        field(72011; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+        // field(72011; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
         field(72012; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';
@@ -257,7 +257,7 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             Rec."LFS CIF Amount (FCY)" := Rec."Line Amount";
             if PurchHeader."Currency Factor" <> 0 then begin
                 ExchRate := 1 / PurchHeader."Currency Factor";
-                Rec."LFS Currency Exch. Rate" := ExchRate;
+                Rec."LFS Custom Exch. Rate" := ExchRate;
                 rec.Validate("LFS CIF Amount (LCY)", Rec."Line Amount" * ExchRate);
                 Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * ExchRate;
                 Rec."GST Assessable Value" := Rec."LFS GST Assesable Value INR" / ExchRate;
@@ -266,7 +266,7 @@ tableextension 72009 "LFS EXIM Purchase Line Ext." extends "Purchase Line"
             else
                 if PurchHeader."Currency Factor" = 0 then begin
                     ExchRate := 1;
-                    Rec."LFS Currency Exch. Rate" := ExchRate;
+                    Rec."LFS Custom Exch. Rate" := ExchRate;
                     rec.Validate("LFS CIF Amount (LCY)", Rec."Line Amount" * ExchRate);
                     Rec."LFS FOB Amount (LCY)" := Rec."Line Amount" * ExchRate;
                     Rec."GST Assessable Value" := Rec."LFS GST Assesable Value INR" / ExchRate;

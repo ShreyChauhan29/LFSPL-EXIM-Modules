@@ -313,11 +313,11 @@ page 72063 "LFSExportWhse. ShipmentSubform"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Claim DDB';
                 }
-                field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Currency Exch. Rate';
-                }
+                // field("Currency Exch. Rate"; Rec."LFS Currency Exch. Rate")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Currency Exch. Rate';
+                // }
                 field("Custom Exch. Rate"; Rec."LFS Custom Exch. Rate")
                 {
                     ApplicationArea = All;

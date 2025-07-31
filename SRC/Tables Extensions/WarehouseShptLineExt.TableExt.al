@@ -99,12 +99,12 @@ tableextension 72032 "LFS Warehouse Shpt. Line Ext." extends "Warehouse Shipment
             Caption = 'Claim DDB';
             DataClassification = CustomerContent;
         }
-        field(72022; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+        // field(72022; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
         field(72023; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

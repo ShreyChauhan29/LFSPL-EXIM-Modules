@@ -97,12 +97,12 @@ tableextension 72007 "LFS Posted Whse. Shipment Line" extends "Posted Whse. Ship
             Caption = 'Claim DDB';
             DataClassification = CustomerContent;
         }
-        field(72022; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-            Editable = false;
-        }
+        // field(72022; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
         field(72023; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

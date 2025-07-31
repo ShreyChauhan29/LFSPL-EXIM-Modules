@@ -133,12 +133,12 @@ tableextension 72025 "LFS Sales Line Archive Ext." extends "Sales Line Archive"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(72027; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            Editable = false;
-            DataClassification = CustomerContent;
-        }
+        // field(72027; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     Editable = false;
+        //     DataClassification = CustomerContent;
+        // }
         field(72028; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';

@@ -119,11 +119,11 @@ tableextension 72028 "LFS Sales Shipment Line Ext." extends "Sales Shipment Line
             Caption = 'Claim DDB';
             DataClassification = CustomerContent;
         }
-        field(72027; "LFS Currency Exch. Rate"; Decimal)
-        {
-            Caption = 'Currency Exch. Rate';
-            DataClassification = CustomerContent;
-        }
+        // field(72027; "LFS Currency Exch. Rate"; Decimal)
+        // {
+        //     Caption = 'Currency Exch. Rate';
+        //     DataClassification = CustomerContent;
+        // }
         field(72028; "LFS Custom Exch. Rate"; Decimal)
         {
             Caption = 'Custom Exch. Rate';
