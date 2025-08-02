@@ -177,7 +177,7 @@ page 72010 "Blanket Export Sales Orders"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -189,7 +189,7 @@ page 72010 "Blanket Export Sales Orders"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -231,7 +231,7 @@ page 72010 "Blanket Export Sales Orders"
             {
                 Caption = 'O&rder';
                 Image = "Order";
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Suite;
@@ -248,7 +248,7 @@ page 72010 "Blanket Export Sales Orders"
                 //                         Rec.OpenSalesOrderStatistics();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(SalesOrderStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -484,7 +484,7 @@ page 72010 "Blanket Export Sales Orders"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';

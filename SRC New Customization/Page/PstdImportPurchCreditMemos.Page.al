@@ -247,7 +247,7 @@ page 72102 "Pstd Import Purch Credit Memos"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -259,7 +259,7 @@ page 72102 "Pstd Import Purch Credit Memos"
                 SubPageLink = "Table ID" = const(Database::"Purch. Cr. Memo Hdr."),
                               "No." = field("No.");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;

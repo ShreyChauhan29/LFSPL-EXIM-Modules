@@ -1238,7 +1238,7 @@ page 72109 "LFS Export Sales InvoiceNew"
                 SubPageLink = "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -1251,7 +1251,7 @@ page 72109 "LFS Export Sales InvoiceNew"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -1358,7 +1358,7 @@ page 72109 "LFS Export Sales InvoiceNew"
             {
                 Caption = '&Invoice';
                 Image = Invoice;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Basic, Suite;
@@ -1384,7 +1384,7 @@ page 72109 "LFS Export Sales InvoiceNew"
                 //                         CurrPage.SalesLines.Page.ForceTotalsCalculation();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(SalesStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -2097,7 +2097,7 @@ page 72109 "LFS Export Sales InvoiceNew"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
@@ -2510,13 +2510,13 @@ page 72109 "LFS Export Sales InvoiceNew"
     begin
     end;
 
-#if not CLEAN26
+
     [Obsolete('The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.', '26.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeStatisticsAction(var SalesHeader: Record "Sales Header"; var Handled: Boolean)
     begin
     end;
-#endif
+
     [IntegrationEvent(false, false)]
     local procedure OnPostOnAfterSetDocumentIsPosted(SalesHeader: Record "Sales Header"; var IsScheduledPosting: Boolean; var DocumentIsPosted: Boolean)
     begin

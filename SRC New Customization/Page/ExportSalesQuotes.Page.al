@@ -243,7 +243,7 @@ page 72011 "LFS Export Sales Quotes"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -255,7 +255,7 @@ page 72011 "LFS Export Sales Quotes"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -368,7 +368,7 @@ page 72011 "LFS Export Sales Quotes"
             {
                 Caption = '&Quote';
                 Image = Quote;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Suite;
@@ -393,7 +393,7 @@ page 72011 "LFS Export Sales Quotes"
                 //                         Rec.OpenDocumentStatistics();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(SalesStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -683,7 +683,7 @@ page 72011 "LFS Export Sales Quotes"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
@@ -798,11 +798,11 @@ page 72011 "LFS Export Sales Quotes"
         exit('');
     end;
 
-#if not CLEAN26
+
     [Obsolete('The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.', '26.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeStatisticsAction(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
     begin
     end;
-#endif
+
 }

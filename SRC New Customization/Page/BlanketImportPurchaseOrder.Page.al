@@ -719,7 +719,7 @@ page 72033 "Blanket Import Purchase Order"
                 SubPageLink = "Table ID Filter" = const(39), "Document Type Filter" = field("Document Type"), "Document No. Filter" = field("Document No."), "Line No. Filter" = field("Line No.");
                 ApplicationArea = Basic, Suite;
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -732,7 +732,7 @@ page 72033 "Blanket Import Purchase Order"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -805,7 +805,7 @@ page 72033 "Blanket Import Purchase Order"
             {
                 Caption = 'O&rder';
                 Image = "Order";
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Suite;
@@ -822,7 +822,7 @@ page 72033 "Blanket Import Purchase Order"
                 //                         Rec.OpenPurchaseOrderStatistics();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(PurchaseOrderStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1265,7 +1265,7 @@ page 72033 "Blanket Import Purchase Order"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';

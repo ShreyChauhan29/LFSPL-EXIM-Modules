@@ -1066,7 +1066,7 @@ page 72009 "Blanket Export Sales Order Sub"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-#if not CLEAN25
+
                 action("Get &Price")
                 {
                     AccessByPermission = TableData "Sales Price" = R;
@@ -1103,7 +1103,7 @@ page 72009 "Blanket Export Sales Order Sub"
                         Rec.PickDiscount();
                     end;
                 }
-#endif
+
                 action(GetPrice)
                 {
                     AccessByPermission = TableData "Sales Price Access" = R;

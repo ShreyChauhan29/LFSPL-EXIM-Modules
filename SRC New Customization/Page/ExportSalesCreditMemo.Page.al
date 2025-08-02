@@ -240,8 +240,8 @@ page 72017 "LFS Export Sales Credit Memo"
 
                     trigger OnValidate()
                     var
-                        GSTSalesValidation: Codeunit "GST Sales Validation";
                         SalesLine: Record "Sales Line";
+                        GSTSalesValidation: Codeunit "GST Sales Validation";
                     begin
                         SaveInvoiceDiscountAmount();
                         GSTSalesValidation.CallTaxEngineOnSalesHeader(Rec);
@@ -1036,7 +1036,7 @@ page 72017 "LFS Export Sales Credit Memo"
                 SubPageLink = "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -1049,7 +1049,7 @@ page 72017 "LFS Export Sales Credit Memo"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -1149,7 +1149,7 @@ page 72017 "LFS Export Sales Credit Memo"
             {
                 Caption = '&Credit Memo';
                 Image = CreditMemo;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Basic, Suite;
@@ -1175,7 +1175,7 @@ page 72017 "LFS Export Sales Credit Memo"
                 //                         CurrPage.SalesLines.Page.ForceTotalsCalculation();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(SalesStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1939,7 +1939,7 @@ page 72017 "LFS Export Sales Credit Memo"
             {
                 Caption = 'Credit Memo', Comment = 'Generated from the PromotedActionCategories property index 7.';
 
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
@@ -2163,9 +2163,9 @@ page 72017 "LFS Export Sales Credit Memo"
         xLastPostingNo: Code[20];
         IsScheduledPosting: Boolean;
         IsHandled: Boolean;
-    // #if not CLEAN24
+    // 
     //         NotSkipped: Boolean;
-    // #endif
+    // 
     begin
         CheckSalesCheckAllLinesHaveQuantityAssigned();
         PreAssignedNo := Rec."No.";
@@ -2189,12 +2189,12 @@ page 72017 "LFS Export Sales Credit Memo"
         if PostingCodeunitID <> CODEUNIT::"Sales-Post (Yes/No)" then
             exit;
 
-        // #if not CLEAN24
+        // 
         //         NotSkipped := false;
         //         OnPostDocumentOnBeforeSetTrackInfoForCancellation(Rec, NotSkipped);
         //         if NotSkipped then
         //             Rec.SetTrackInfoForCancellation();
-        // #endif
+        // 
         Rec.UpdateSalesOrderLineIfExist();
 
         if OfficeMgt.IsAvailable() then begin
@@ -2348,13 +2348,13 @@ page 72017 "LFS Export Sales Credit Memo"
     begin
     end;
 
-#if not CLEAN26
+
     [Obsolete('The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.', '26.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeStatisticsAction(var SalesHeader: Record "Sales Header"; var Handled: Boolean)
     begin
     end;
-#endif
+
     [IntegrationEvent(false, false)]
     local procedure OnPostOnAfterSetDocumentIsPosted(SalesHeader: Record "Sales Header"; var IsScheduledPosting: Boolean; var DocumentIsPosted: Boolean)
     begin
@@ -2380,11 +2380,11 @@ page 72017 "LFS Export Sales Credit Memo"
     begin
     end;
 
-#if not CLEAN24
+
     [IntegrationEvent(false, false)]
     [Obsolete('This event is obsolete. SetTrackInfoForCancellation procedure is planned to be removed.', '24.0')]
     local procedure OnPostDocumentOnBeforeSetTrackInfoForCancellation(var SalesHeader: Record "Sales Header"; var NotSkipped: Boolean)
     begin
     end;
-#endif
+
 }

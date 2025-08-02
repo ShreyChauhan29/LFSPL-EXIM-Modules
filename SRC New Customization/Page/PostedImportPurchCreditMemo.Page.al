@@ -653,7 +653,7 @@ page 72103 "Posted ImportPurch Credit Memo"
                 SubPageLink = "Table ID Filter" = const(125), "Document No. Filter" = field("Document No."), "Line No. Filter" = field("Line No.");
                 ApplicationArea = Basic, Suite;
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -665,7 +665,7 @@ page 72103 "Posted ImportPurch Credit Memo"
                 SubPageLink = "Table ID" = const(Database::"Purch. Cr. Memo Hdr."),
                               "No." = field("No.");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;

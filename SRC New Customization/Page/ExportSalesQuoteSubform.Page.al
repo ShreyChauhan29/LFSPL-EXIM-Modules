@@ -1219,7 +1219,7 @@ page 72015 "LFS Export Sales Quote Subform"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-#if not CLEAN25
+
                 action("Get &Price")
                 {
                     AccessByPermission = TableData "Sales Price" = R;
@@ -1256,7 +1256,7 @@ page 72015 "LFS Export Sales Quote Subform"
                         Rec.PickDiscount();
                     end;
                 }
-#endif
+
                 action(GetPrice)
                 {
                     AccessByPermission = TableData "Sales Price Access" = R;

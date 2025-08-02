@@ -249,7 +249,7 @@ page 72029 "Pstd Export Sales Credit Memos"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -260,7 +260,7 @@ page 72029 "Pstd Export Sales Credit Memos"
                 Caption = 'Attachments';
                 SubPageLink = "Table ID" = const(Database::"Sales Cr.Memo Header"), "No." = field("No.");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;

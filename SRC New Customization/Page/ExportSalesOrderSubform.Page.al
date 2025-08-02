@@ -1315,7 +1315,7 @@ page 72107 "LFS Export Sales OrderSubform"
                 {
                     Caption = 'F&unctions';
                     Image = "Action";
-#if not CLEAN25
+
                     action(GetPrice)
                     {
                         AccessByPermission = TableData "Sales Price" = R;
@@ -1352,7 +1352,7 @@ page 72107 "LFS Export Sales OrderSubform"
                             ShowLineDisc();
                         end;
                     }
-#endif
+
                     action(GetPrices)
                     {
                         AccessByPermission = TableData "Sales Price Access" = R;

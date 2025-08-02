@@ -1203,7 +1203,7 @@ page 72115 "LFS Import Purchases Invoice"
                               "Document Type" = field("Document Type");
             }
 
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -1216,7 +1216,7 @@ page 72115 "LFS Import Purchases Invoice"
                               "Document Type" = field("Document Type"),
                               "No." = field("No.");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -1310,7 +1310,7 @@ page 72115 "LFS Import Purchases Invoice"
             {
                 Caption = '&Invoice';
                 Image = Invoice;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Basic, Suite;
@@ -1328,7 +1328,7 @@ page 72115 "LFS Import Purchases Invoice"
                 //                         CurrPage.PurchLines.Page.ForceTotalsCalculation();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(PurchaseStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1985,7 +1985,7 @@ page 72115 "LFS Import Purchases Invoice"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';

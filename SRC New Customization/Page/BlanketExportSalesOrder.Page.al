@@ -1004,7 +1004,7 @@ page 72008 "Blanket Export Sales Order"
                 SubPageLink = "Table ID Filter" = const(37), "Document Type Filter" = field("Document Type"), "Document No. Filter" = field("Document No."), "Line No. Filter" = field("Line No.");
                 ApplicationArea = Basic, Suite;
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -1017,7 +1017,7 @@ page 72008 "Blanket Export Sales Order"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -1098,7 +1098,7 @@ page 72008 "Blanket Export Sales Order"
             {
                 Caption = 'O&rder';
                 Image = "Order";
-#if not CLEAN26
+
                 // action(Statistics)
                 // {
                 //     ApplicationArea = Suite;
@@ -1122,7 +1122,7 @@ page 72008 "Blanket Export Sales Order"
                 //         Rec.OpenSalesOrderStatistics();
                 //     end;
                 // }
-#endif
+
                 action(SalesOrderStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1731,13 +1731,13 @@ page 72008 "Blanket Export Sales Order"
         CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
-#if not CLEAN26
+
     // [Obsolete('The statistics action will be replaced with the SalesOrderStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.', '26.0')]
     // [IntegrationEvent(false, false)]
     // local procedure OnBeforeStatisticsAction(var SalesHeader: Record "Sales Header"; var Handled: Boolean)
     // begin
     // end;
-#endif
+
     [IntegrationEvent(false, false)]
     local procedure OnBeforeValidateShipToOptions(var SalesHeader: Record "Sales Header"; ShipToOptions: Option)
     begin

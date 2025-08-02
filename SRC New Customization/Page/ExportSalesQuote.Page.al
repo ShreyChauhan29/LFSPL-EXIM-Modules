@@ -1218,7 +1218,7 @@ page 72014 "LFS Export Sales Quote"
                 SubPageLink = "Table ID Filter" = const(37), "Document Type Filter" = field("Document Type"), "Document No. Filter" = field("Document No."), "Line No. Filter" = field("Line No.");
                 ApplicationArea = Basic, Suite;
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -1230,7 +1230,7 @@ page 72014 "LFS Export Sales Quote"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -1427,7 +1427,7 @@ page 72014 "LFS Export Sales Quote"
             {
                 Caption = '&Quote';
                 Image = Quote;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Basic, Suite;
@@ -1452,7 +1452,7 @@ page 72014 "LFS Export Sales Quote"
                 //                         CurrPage.SalesLines.Page.ForceTotalsCalculation();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(SalesStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -2052,7 +2052,7 @@ page 72014 "LFS Export Sales Quote"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';
@@ -2317,13 +2317,13 @@ page 72014 "LFS Export Sales Quote"
         EnableNewSellToCustomerTemplateCode := Rec."Sell-to Customer No." = '';
     end;
 
-#if not CLEAN26
+
     [Obsolete('The statistics action will be replaced with the SalesStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.', '26.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeStatisticsAction(var SalesHeader: Record "Sales Header"; var Handled: Boolean)
     begin
     end;
-#endif
+
     [IntegrationEvent(false, false)]
     local procedure OnBeforeValidateShipToOptions(var SalesHeader: Record "Sales Header"; ShipToOptions: Option; var IsHandled: Boolean)
     begin

@@ -182,7 +182,7 @@ page 72032 "Blanket Import Purchase Orders"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -194,7 +194,7 @@ page 72032 "Blanket Import Purchase Orders"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -230,7 +230,7 @@ page 72032 "Blanket Import Purchase Orders"
             {
                 Caption = 'O&rder';
                 Image = "Order";
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Suite;
@@ -247,7 +247,7 @@ page 72032 "Blanket Import Purchase Orders"
                 //                         Rec.OpenPurchaseOrderStatistics();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(PurchaseOrderStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -522,7 +522,7 @@ page 72032 "Blanket Import Purchase Orders"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';

@@ -249,7 +249,7 @@ page 72099 "Import Purchase Credit Memos"
         }
         area(factboxes)
         {
-#if not CLEAN25
+
             part(AttachedDocuments; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -261,7 +261,7 @@ page 72099 "Import Purchase Credit Memos"
                               "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
@@ -302,7 +302,7 @@ page 72099 "Import Purchase Credit Memos"
             {
                 Caption = '&Credit Memo';
                 Image = CreditMemo;
-                // #if not CLEAN26
+                // 
                 //                 action(Statistics)
                 //                 {
                 //                     ApplicationArea = Suite;
@@ -319,7 +319,7 @@ page 72099 "Import Purchase Credit Memos"
                 //                         Rec.OpenDocumentStatistics();
                 //                     end;
                 //                 }
-                // #endif
+                // 
                 action(PurchaseStatistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -708,7 +708,7 @@ page 72099 "Import Purchase Credit Memos"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                // #if not CLEAN26
+                // 
                 //                 actionref(Statistics_Promoted; Statistics)
                 //                 {
                 //                     ObsoleteReason = 'The statistics action will be replaced with the PurchaseStatistics action. The new action uses RunObject and does not run the action trigger. Use a page extension to modify the behaviour.';

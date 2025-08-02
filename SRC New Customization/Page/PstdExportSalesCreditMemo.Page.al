@@ -858,7 +858,7 @@ page 72030 "Pstd. Export Sales Credit Memo"
                 SubPageLink = "Table ID Filter" = const(115), "Document No. Filter" = field("Document No."), "Line No. Filter" = field("Line No.");
                 ApplicationArea = Basic, Suite;
             }
-#if not CLEAN25
+
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ObsoleteTag = '25.0';
@@ -870,7 +870,7 @@ page 72030 "Pstd. Export Sales Credit Memo"
                 SubPageLink = "Table ID" = const(Database::"Sales Cr.Memo Header"),
                               "No." = field("No.");
             }
-#endif
+
             part("Attached Documents List"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
