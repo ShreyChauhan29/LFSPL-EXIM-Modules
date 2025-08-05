@@ -510,6 +510,7 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
         {
             Caption = 'LUT Date';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {

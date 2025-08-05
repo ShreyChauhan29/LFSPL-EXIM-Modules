@@ -771,6 +771,14 @@ page 72058 "LFS Export Sales Order"
                             Importance = Additional;
                             ToolTip = 'Specifies the shipping agent''s package number.';
                         }
+                        field("LFS LUT No."; Rec."LFS LUT No.")
+                        {
+                            ToolTip = 'Specifies the value of the LUT No. field.', Comment = '%';
+                        }
+                        field("LFS LUT Date"; Rec."LFS LUT Date")
+                        {
+                            ToolTip = 'Specifies the value of the LUT Date field.', Comment = '%';
+                        }
                     }
                 }
             }
