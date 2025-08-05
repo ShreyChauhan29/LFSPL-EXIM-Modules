@@ -927,6 +927,7 @@ codeunit 72001 "LFS EXIM General Functions"
                     EXIMAdvLicenseLines.Validate("LFS Item Description", PurchInvLine.Description);
                     EXIMAdvLicenseLines.Validate("LFS Variant Code", EXIMLicenseMultiple."LFS Variant Code");
                     EXIMAdvLicenseLines."LFS UOM" := PurchInvLine."Unit of Measure Code";
+                    PurchInvHeader.GET(PurchInvLine."Document No.");
                     EXIMAdvLicenseLines."LFS Currency Code" := PurchInvHeader."Currency Code";
                     EXIMAdvLicenseLines."LFS FOB CIF Currency Code" := PurchInvLine."LFS CIF Currency Code";
                     EXIMAdvLicenseLines."LFS FOBCIFCurrencyExchangeRate" := PurchInvLine."LFS CIF Currency Exchange Rate";
@@ -936,7 +937,6 @@ codeunit 72001 "LFS EXIM General Functions"
                     // EXIMAdvLicenseLines."LFS FOB CIF in USD" := -PurchInvLine."LFS USD CIF (FCY)";
                     EXIMAdvLicenseLines."LFS FOB LCY Value" := EXIMAdvLicenseLines."LFS FOB Value" * EXIMAdvLicenseLines."LFS Currency Exch. Rate";
                     EXIMAdvLicenseLines."LFS Exim Group No." := PurchInvLine."LFS Exim Group No.";
-                    PurchInvHeader.GET(PurchInvLine."Document No.");
                     EXIMAdvLicenseLines.insert();
                 end;
             until EXIMLicenseMultiple.Next() = 0;

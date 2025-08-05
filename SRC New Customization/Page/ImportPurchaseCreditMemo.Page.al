@@ -1529,6 +1529,7 @@ page 72100 "LFS Import Purchase CreditMemo"
                                 PostedImportLicences.SetRange("LFS Source line No.", PurchCrMemoLine."LFS Source Line No.");
                                 if PostedImportLicences.Findset() then
                                     repeat
+                                        ImportLicense.Init();
                                         ImportLicense."LFS Source Type" := ImportLicense."LFS Source Type"::"Credit Memo";
                                         ImportLicense."LFS Source No." := PurchCrMemoLine."Document No.";
                                         ImportLicense."LFS Source line No." := PurchCrMemoLine."Line No.";
@@ -1537,10 +1538,13 @@ page 72100 "LFS Import Purchase CreditMemo"
                                         ImportLicense."LFS License Type" := PostedImportLicences."LFS License Type";
                                         ImportLicense."LFS License No." := PostedImportLicences."LFS License No.";
                                         ImportLicense."LFS Item No." := PostedImportLicences."LFS Item No.";
-                                        ImportLicense."LFS Import Inv Bal Qty" := PostedImportLicences."LFS Import Inv Bal Qty";
+                                        ImportLicense."LFS EXIM Group No." := PostedImportLicences."LFS Exim Group No.";
                                         ImportLicense."LFS CIF Value (FCY)" := PostedImportLicences."LFS CIF Value (FCY)";
                                         ImportLicense."LFS EXIM Group No." := PostedImportLicences."LFS Exim Group No.";
-                                        ImportLicense."LFS RoDTEP Consump Value" := ImportLicense."LFS Quantity" * (PurchCrMemoLine."LFS Import Duties Amt. (LCY)" / PurchCrMemoLine.Quantity);
+                                        if ImportLicense."LFS License Type" = ImportLicense."LFS License Type"::RoDTEP then
+                                            ImportLicense."LFS RoDTEP Consump Value" := ImportLicense."LFS Quantity" * (PurchCrMemoLine."LFS Import Duties Amt. (LCY)" / PurchCrMemoLine.Quantity)
+                                        else
+                                            ImportLicense."LFS Import Inv Bal Qty" := PostedImportLicences."LFS Import Inv Bal Qty";
                                         // ImportLicense."LFS EXIM Item Group" := PostedImportLicences."LFS EXIM Item Group";
                                         ImportLicense.Insert();
                                     until PostedImportLicences.Next() = 0;

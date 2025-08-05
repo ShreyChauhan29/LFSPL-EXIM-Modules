@@ -313,6 +313,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                 EXIMpostedLicense."LFS RoDTEP Balance" := eximLicense."LFS RoDTEP Balance";
                 EXIMpostedLicense."LFS RoDTEP Consump Value" := eximLicense."LFS RoDTEP Consump Value";
+                EXIMpostedLicense."LFS Exim Group No." := EximLicense."LFS Exim Group No.";
                 EXIMpostedLicense.Insert();
             until eximLicense.Next() = 0;
         //end;
@@ -343,6 +344,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                 EXIMpostedLicense."LFS RoDTEP Balance" := eximLicense."LFS RoDTEP Balance";
                 EXIMpostedLicense."LFS RoDTEP Consump Value" := eximLicense."LFS RoDTEP Consump Value";
+                EXIMpostedLicense."LFS Exim Group No." := EximLicense."LFS Exim Group No.";
                 EXIMpostedLicense.Insert();
             until eximLicense.Next() = 0;
     end;
@@ -383,6 +385,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                     EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                     EXIMpostedLicense."LFS RoDTEP Balance" := eximLicense."LFS RoDTEP Balance";
                     EXIMpostedLicense."LFS RoDTEP Consump Value" := eximLicense."LFS RoDTEP Consump Value";
+                    EXIMpostedLicense."LFS Exim Group No." := EximLicense."LFS Exim Group No.";
                     EXIMpostedLicense.Insert();
                 until eximLicense.Next() = 0;
                 eximLicense.DeleteAll();
@@ -429,6 +432,7 @@ codeunit 72002 "LFS EXIM Event Subscribers"
                 EXIMpostedLicense."LFS Variant Code" := eximLicense."LFS Variant Code";
                 EXIMpostedLicense."LFS RoDTEP Balance" := EximLicense."LFS RoDTEP Balance";
                 EXIMpostedLicense."LFS RoDTEP Consump Value" := EximLicense."LFS RoDTEP Consump Value";
+                EXIMpostedLicense."LFS Exim Group No." := EximLicense."LFS Exim Group No.";
                 EXIMpostedLicense.Insert();
             until eximLicense.Next() = 0;
             EximLicense.DeleteAll();
