@@ -84,16 +84,16 @@ page 72047 "LFS EXIM Packing List"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Lot No.';
                 }
-                field("Seal No."; Rec."LFS Serial No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Seal No.';
-                }
-                field("LFS Custom_Serial No."; Rec."LFS Custom_Serial No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Custom_Serial No.';
-                }
+                // field("Seal No."; Rec."LFS Serial No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Seal No.';
+                // }
+                // field("LFS Custom_Serial No."; Rec."LFS Custom_Serial No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Custom_Serial No.';
+                // }
                 // field("Packing Type"; Rec."LFS Packing Type")
                 // {
                 //     ApplicationArea = all;
@@ -265,7 +265,7 @@ page 72047 "LFS EXIM Packing List"
                 LineNo += 10000;
                 Rec."LFS Line No." := LineNo;
                 Rec."LFS Lot No." := ItemTrackingLines."Lot No.";
-                Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
+                // Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
                 Rec."LFS Total Quantity in Pack" := Abs(ItemTrackingLines."Qty. to Handle (Base)");
                 Rec."LFS Net Weight of Pack" := Abs(ItemTrackingLines."Qty. to Handle (Base)");
                 Rec."LFS Packing No." := ItemTrackingLines."Package No.";
@@ -315,7 +315,7 @@ page 72047 "LFS EXIM Packing List"
                 LineNo += 10000;
                 Rec."LFS Line No." := LineNo;
                 Rec."LFS Lot No." := ItemTrackingLines."Lot No.";
-                Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
+                // Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
                 Rec."LFS Total Quantity in Pack" := Abs(ItemTrackingLines."Quantity (Base)");
                 Rec."LFS Net Weight of Pack" := Abs(ItemTrackingLines."Qty. to Handle (Base)");
                 Rec."LFS Packing No." := ItemTrackingLines."Package No.";

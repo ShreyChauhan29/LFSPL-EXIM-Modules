@@ -89,16 +89,16 @@ page 72049 "LFS Posted Packing List"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Lot No.';
                 }
-                field("Seal No."; Rec."LFS Serial No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Seal No.';
-                }
-                field("LFS Custom_Serial No."; Rec."LFS Custom_Serial No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Custom_Serial No.';
-                }
+                // field("Seal No."; Rec."LFS Serial No.")
+                // {
+                //     ApplicationArea = all;
+                //     ToolTip = 'Specifies the Seal No.';
+                // }
+                // field("LFS Custom_Serial No."; Rec."LFS Custom_Serial No.")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the Custom_Serial No.';
+                // }
                 // field("Packing Type"; Rec."LFS Packing Type")
                 // {
                 //     ApplicationArea = all;

@@ -657,10 +657,10 @@ report 72010 "LFS Export Custom Packing List"
                     column(LFS_EX_UOM; "LFS UOM")
                     {
                     }
-                    column(LFS_EX_Serial_No_; "LFS Serial No.")
+                    column(LFS_EX_Serial_No_; '')
                     {
                     }
-                    column(LFS_EX_Custom_Serial_No_; "LFS Custom_Serial No.")
+                    column(LFS_EX_Custom_Serial_No_; '')
                     {
                     }
                     column(LFS_Remarks; "LFS Remarks")

@@ -76,11 +76,11 @@ table 72033 "LFS EXIM Posted Packing Table"
             DataClassification = CustomerContent;
             Caption = 'Lot No.';
         }
-        field(12; "LFS Serial No."; Code[50])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Seal No.';
-        }
+        // field(12; "LFS Serial No."; Code[50])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Seal No.';
+        // }
         field(13; "LFS Location Code"; code[10])
         {
             DataClassification = CustomerContent;
@@ -306,11 +306,11 @@ table 72033 "LFS EXIM Posted Packing Table"
             Caption = 'Pallet Dimension';
         }
 
-        field(39; "LFS Custom_Serial No."; Code[50])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Custom Seal No.';
-        }
+        // field(39; "LFS Custom_Serial No."; Code[50])
+        // {
+        //     DataClassification = CustomerContent;
+        //     Caption = 'Custom Seal No.';
+        // }
         field(40; "LFS Remarks"; Text[250])
         {
             DataClassification = CustomerContent;
