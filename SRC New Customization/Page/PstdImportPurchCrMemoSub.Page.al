@@ -153,6 +153,11 @@ page 72104 "Pstd ImportPurch. Cr. Memo Sub"
                     BlankZero = true;
                     ToolTip = 'Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.';
                 }
+                field("GST Assesable Value INR"; rec."LFS GST Assesable Value INR")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the GST Assesable Value INR';
+                }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
                 {
                     ApplicationArea = Basic, Suite;
@@ -241,6 +246,93 @@ page 72104 "Pstd ImportPurch. Cr. Memo Sub"
                     ApplicationArea = Dimensions;
                     ToolTip = 'Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
                     Visible = false;
+                }
+                field("EXIM Type"; Rec."LFS EXIM Type")
+                {
+                    ToolTip = 'Specifies the value of the EXIM Type field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("License Type"; Rec."LFS License Type")
+                {
+                    ToolTip = 'Specifies the value of the License Type field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("License No."; Rec."LFS License No.")
+                {
+                    ToolTip = 'Specifies the value of the License No. field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("LFS Exim Group No."; Rec."LFS Exim Group No.")
+                {
+                    ToolTip = 'Specifies the value of the Exim Group No. field.', Comment = '%';
+                }
+                field("RoDTEP Value (LCY)"; Rec."LFS RoDTEP Value (LCY)")
+                {
+                    ApplicationArea = all;
+                    Visible = false;
+                    ToolTip = 'Specifies the RoDTEP Value (LCY)';
+                }
+                field("LFS CIF Currency Code"; Rec."LFS CIF Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the CIF Currency Code field.', Comment = '%';
+                }
+                field("LFS CIF Currency Exchange Rate"; Rec."LFS CIF Currency Exchange Rate")
+                {
+                    ToolTip = 'Specifies the value of the CIF Currency Exchange Rate field.', Comment = '%';
+                }
+                field("LFS USD CIF (FCY)"; Rec."LFS USD CIF (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the USD CIF (FCY) field.', Comment = '%';
+                }
+                field("LFS USD CIF (LCY)"; Rec."LFS USD CIF (LCY)")
+                {
+                    ToolTip = 'Specifies the value of the USD CIF (LCY) field.', Comment = '%';
+                }
+                field("CIF (FCY)"; Rec."LFS CIF Amount (FCY)")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
+                    Caption = 'CIF (FCY)';
+                    ToolTip = 'Specifies the CIF (FCY)';
+                }
+                field("CIF (LC)"; Rec."LFS CIF Amount (LCY)")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
+                    Caption = 'CIF (LCY)';
+                    ToolTip = 'Specifies the CIF (LCY)';
+                }
+                field("FOB (FCY) Per Unit"; Rec."LFS FOB Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the FOB (FCY) Per Unit field.';
+                    ApplicationArea = All;
+                    Editable = false;
+                }
+                field("CIF (FCY) Per Unit"; Rec."LFS CIF Amount (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the CIF (FCY) Per Unit field.';
+                    ApplicationArea = All;
+                    Editable = false;
+                    trigger OnValidate()
+                    begin
+                        Rec.Validate("GST Assessable Value", Rec."LFS CIF Amount (FCY)");
+                    end;
+                }
+                field("Freight Amt. FCY Per Unit"; Rec."LFS Freight Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the Freight Amt. FCY Per Unit field.';
+                    ApplicationArea = All;
+                }
+                field("Insurance Amt FCY Per Unit"; Rec."LFS Insurance Amount (FCY)")
+                {
+                    Visible = false;
+                    ToolTip = 'Specifies the value of the Insurance Amt FCY Per Unit field.';
+                    ApplicationArea = All;
                 }
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
@@ -487,6 +579,28 @@ page 72104 "Pstd ImportPurch. Cr. Memo Sub"
                     trigger OnAction()
                     begin
                         ShowDocumentLineTracking();
+                    end;
+                }
+            }
+            group(Exim)
+            {
+                action(Licenses)
+                {
+                    Caption = 'Multiple License';
+                    ToolTip = 'Specifies the Multiple Licenses';
+                    ApplicationArea = all;
+                    Image = Task;
+                    trigger OnAction()
+                    var
+                        EXIM_License2: Record "LFS EXIM Posted Import Licence";
+                        EXIM_licenseList: Page "LFS Posted Import Licence List";
+                    begin
+                        EXIM_License2.setrange("LFS Source No.", Rec."Document No.");
+                        EXIM_License2.setrange("LFS Source line No.", Rec."Line No.");
+                        EXIM_License2.SetRange("LFS Source Type", EXIM_License2."LFS Source Type"::"Credit Memo");
+                        EXIM_licenseList.SetTableView(EXIM_License2);
+                        EXIM_licenseList.SetRecord(EXIM_License2);
+                        EXIM_licenseList.run();
                     end;
                 }
             }

@@ -247,28 +247,132 @@ page 72103 "Posted ImportPurch Credit Memo"
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "Document No." = field("No.");
             }
+            group(EXIM)
+            {
+                field("EXIM Type"; Rec."LFS EXIM Type")
+                {
+                    ToolTip = 'Specifies the value of the EXIM Type field.';
+                    ApplicationArea = All;
+                }
+                field("Currency Code"; Rec."Currency Code")
+                {
+                    ToolTip = 'Specifies the foreign currency code used in the document.';
+                    ApplicationArea = All;
+                    Importance = Promoted;
+                    Visible = false;
+
+                    trigger OnAssistEdit()
+                    begin
+                        CLEAR(ChangeExchangeRate);
+                        if Rec."Posting Date" <> 0D then
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                        else
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE());
+                        if ChangeExchangeRate.RUNMODAL() = ACTION::OK then begin
+                            REc.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter());
+                            CurrPage.UPDATE();
+                        end;
+                        CLEAR(ChangeExchangeRate);
+                    end;
+                }
+                field("Custom Currency Code"; Rec."LFS Custom Currency Code")
+                {
+                    ToolTip = 'Specifies the value of the Custom Currency Code field.';
+                    ApplicationArea = All;
+                    trigger OnValidate()
+                    begin
+                        rec."Currency Code" := Rec."LFS Custom Currency Code";
+                        Rec.Validate("Currency Code");
+                    end;
+
+                    trigger OnAssistEdit()
+                    begin
+                        CLEAR(ChangeCustomExchangeRate);
+                        if Rec."Posting Date" <> 0D then
+                            ChangeCustomExchangeRate.SetParameter(Rec."LFS Custom Currency Code", Rec."LFS Custom Currency Factor", Rec."Posting Date", Rec."LFS EXIM Type")
+                        else
+                            ChangeCustomExchangeRate.SetParameter(Rec."LFS Custom Currency Code", Rec."LFS Custom Currency Factor", WORKDATE(), Rec."LFS EXIM Type");
+                        if ChangeCustomExchangeRate.RUNMODAL() = ACTION::OK then begin
+                            Rec.VALIDATE("LFS Custom Currency Factor", ChangeCustomExchangeRate.GetParameter());
+                            CurrPage.UPDATE();
+                        end;
+                        CLEAR(ChangeCustomExchangeRate);
+                    end;
+                }
+                field("Port of Loading"; Rec."LFS Port of Loading")
+                {
+                    ToolTip = 'Specifies the value of the Port of Loading field.';
+                    ApplicationArea = All;
+                }
+                field("Port of Discharge"; Rec."LFS Port of Discharge")
+                {
+                    ToolTip = 'Specifies the value of the Port of Discharge field.';
+                    ApplicationArea = All;
+                }
+                field("Country of Final Destination"; Rec."LFS Country of Final Dest.")
+                {
+                    ToolTip = 'Specifies the value of the Country of Final Destination field.';
+                    ApplicationArea = All;
+                }
+                field("Final Destination"; Rec."LFS Final Destination")
+                {
+                    ToolTip = 'Specifies the value of the Final Destination field.';
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field("Country of Origin of Goods"; Rec."LFS Country Origin Goods")
+                {
+                    ToolTip = 'Specifies the value of the Country of Origin of Goods field.';
+                    ApplicationArea = All;
+                }
+                field("Inco Terms"; Rec."LFS Inco Terms")
+                {
+                    ToolTip = 'Specifies the value of the Inco Terms field.';
+                    ApplicationArea = All;
+                }
+                field("Transport Method"; Rec."Transport Method")
+                {
+                    ToolTip = 'Specifies the transportation method mentioned in the document.';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry No."; Rec."Bill of Entry No.")
+                {
+                    ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry Date"; Rec."Bill of Entry Date")
+                {
+                    ToolTip = 'Specifies the entry date defined in bill of entry document.';
+                    ApplicationArea = All;
+                }
+                field("Bill of Entry Value"; Rec."Bill of Entry Value")
+                {
+                    ToolTip = 'Specifies the values as mentioned in bill of entry document.';
+                    ApplicationArea = All;
+                }
+            }
             group("Invoice Details")
             {
                 Caption = 'Credit Memo Details';
-                field("Currency Code"; Rec."Currency Code")
-                {
-                    ApplicationArea = Suite;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the currency code used to calculate the amounts on the credit memo.';
+                // field("Currency Code"; Rec."Currency Code")
+                // {
+                //     ApplicationArea = Suite;
+                //     Importance = Promoted;
+                //     ToolTip = 'Specifies the currency code used to calculate the amounts on the credit memo.';
 
-                    trigger OnAssistEdit()
-                    var
-                        UpdateCurrencyFactor: Codeunit "Update Currency Factor";
-                    begin
-                        ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date");
-                        ChangeExchangeRate.Editable(false);
-                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
-                            Rec."Currency Factor" := ChangeExchangeRate.GetParameter();
-                            UpdateCurrencyFactor.ModifyPostedPurchaseCreditMemo(Rec);
-                        end;
-                        Clear(ChangeExchangeRate);
-                    end;
-                }
+                //     trigger OnAssistEdit()
+                //     var
+                //         UpdateCurrencyFactor: Codeunit "Update Currency Factor";
+                //     begin
+                //         ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date");
+                //         ChangeExchangeRate.Editable(false);
+                //         if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                //             Rec."Currency Factor" := ChangeExchangeRate.GetParameter();
+                //             UpdateCurrencyFactor.ModifyPostedPurchaseCreditMemo(Rec);
+                //         end;
+                //         Clear(ChangeExchangeRate);
+                //     end;
+                // }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     ApplicationArea = Dimensions;
@@ -500,30 +604,30 @@ page 72103 "Posted ImportPurch Credit Memo"
             }
             group("Tax Information")
             {
-                field("Bill of Entry Date"; Rec."Bill of Entry Date")
-                {
-                    Editable = false;
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the entry date defined in bill of entry document.';
-                }
-                field("Bill of Entry No."; Rec."Bill of Entry No.")
-                {
-                    Editable = false;
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
-                }
+                // field("Bill of Entry Date"; Rec."Bill of Entry Date")
+                // {
+                //     Editable = false;
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the entry date defined in bill of entry document.';
+                // }
+                // field("Bill of Entry No."; Rec."Bill of Entry No.")
+                // {
+                //     Editable = false;
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the bill of entry number. It is a document number which is submitted to custom department .';
+                // }
                 field("Without Bill Of Entry"; Rec."Without Bill Of Entry")
                 {
                     Editable = false;
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether the invoice is with or without bill of entry.';
                 }
-                field("Bill of Entry Value"; Rec."Bill of Entry Value")
-                {
-                    Editable = false;
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the values as mentioned in bill of entry document.';
-                }
+                // field("Bill of Entry Value"; Rec."Bill of Entry Value")
+                // {
+                //     Editable = false;
+                //     ApplicationArea = Basic, Suite;
+                //     ToolTip = 'Specifies the values as mentioned in bill of entry document.';
+                // }
                 field("Invoice Type"; Rec."Invoice Type")
                 {
                     Editable = false;
@@ -1038,6 +1142,7 @@ page 72103 "Posted ImportPurch Credit Memo"
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
         FormatAddress: Codeunit "Format Address";
+        ChangeCustomExchangeRate: Page "LFSChange Custom Exchange Rate";
         ChangeExchangeRate: Page "Change Exchange Rate";
         HasIncomingDocument: Boolean;
         IsOfficeAddin: Boolean;
