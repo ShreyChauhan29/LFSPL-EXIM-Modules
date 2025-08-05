@@ -11,7 +11,7 @@ using Microsoft.Purchases.Vendor;
 
 page 72102 "Pstd Import Purch Credit Memos"
 {
-    // ApplicationArea = All;
+    ApplicationArea = All;
     Caption = 'Posted Import Purchase Credit Memos';
     PageType = List;
     SourceTable = "Purch. Cr. Memo Hdr.";

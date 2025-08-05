@@ -335,13 +335,12 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                     }
                     action("Posted Purch Import Cr Memos")
                     {
-                        Caption = 'Posted Purch Import Cr Memos';
+                        Caption = 'Posted Import Purchase Credit Memos';
                         ApplicationArea = Basic, Suite;
-                        RunObject = page "LFS PostedPurch.ImportCr.Memos";
+                        RunObject = page "Pstd Import Purch Credit Memos";
                         ObsoleteState = Pending;
                         ObsoleteReason = 'Setup is no longer shown in this page.';
                         ObsoleteTag = '19.0';
-                        Visible = false;
                         ToolTip = 'View posted credit memos issued for import purchase returns or adjustments.';
                     }
                     action("EXIM Closed Adv. License List")
