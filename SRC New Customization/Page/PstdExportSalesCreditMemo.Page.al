@@ -800,6 +800,14 @@ page 72030 "Pstd. Export Sales Credit Memo"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the merchant ID provided to customers by their payment processor.';
                 }
+                field("LFS LUT No."; Rec."LFS LUT No.")
+                {
+                    ToolTip = 'Specifies the value of the LUT No. field.', Comment = '%';
+                }
+                field("LFS LUT Date"; Rec."LFS LUT Date")
+                {
+                    ToolTip = 'Specifies the value of the LUT Date field.', Comment = '%';
+                }
                 field("Distance (Km)"; Rec."Distance (Km)")
                 {
                     ApplicationArea = Basic, Suite;

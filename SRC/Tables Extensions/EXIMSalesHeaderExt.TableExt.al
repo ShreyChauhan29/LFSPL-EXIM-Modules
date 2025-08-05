@@ -487,6 +487,30 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(72070; "LFS LUT No."; Code[30])
+        {
+            Caption = 'LUT No.';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS LUT Master Table"."LFS LUT No.";
+            trigger OnValidate()
+            var
+                LUTMaster: Record "LFS LUT Master Table";
+            begin
+                if LUTMaster.get("LFS LUT No.") then begin
+                    Rec."GST Without Payment of Duty" := true;
+                    Rec."LFS LUT Date" := LUTMaster."LFS LUT Expiry Date";
+                end
+                else begin
+                    Rec."GST Without Payment of Duty" := false;
+                    Rec."LFS LUT Date" := 0D;
+                end;
+            end;
+        }
+        field(72071; "LFS LUT Date"; Date)
+        {
+            Caption = 'LUT Date';
+            DataClassification = CustomerContent;
+        }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {
         //     DataClassification = CustomerContent;

@@ -203,6 +203,17 @@ tableextension 72031 "LFS Warehouse Shpt. Header Ext" extends "Warehouse Shipmen
             DataClassification = CustomerContent;
             Caption = 'Place of Receipt By Pre-Carriage';
         }
+        field(72070; "LFS LUT No."; Code[30])
+        {
+            Caption = 'LUT No.';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS LUT Master Table"."LFS LUT No.";
+        }
+        field(72071; "LFS LUT Date"; Date)
+        {
+            Caption = 'LUT Date';
+            DataClassification = CustomerContent;
+        }
     }
     trigger OnDelete()
     var

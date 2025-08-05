@@ -350,6 +350,17 @@ tableextension 72027 "LFS Sales Shipment Header Ext." extends "Sales Shipment He
             DataClassification = CustomerContent;
             Caption = 'Place of Receipt By Pre-Carriage';
         }
+        field(72070; "LFS LUT No."; Code[30])
+        {
+            Caption = 'LUT No.';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS LUT Master Table"."LFS LUT No.";
+        }
+        field(72071; "LFS LUT Date"; Date)
+        {
+            Caption = 'LUT Date';
+            DataClassification = CustomerContent;
+        }
     }
     // var
     //     EXIMPackingHeader: Record "LFS EXIM Packing Header";

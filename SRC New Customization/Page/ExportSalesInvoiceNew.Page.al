@@ -1012,6 +1012,14 @@ page 72109 "LFS Export Sales InvoiceNew"
                     ApplicationArea = BasicEU;
                     ToolTip = 'Specifies the transport method, for the purpose of reporting to INTRASTAT.';
                 }
+                field("LFS LUT No."; Rec."LFS LUT No.")
+                {
+                    ToolTip = 'Specifies the value of the LUT No. field.', Comment = '%';
+                }
+                field("LFS LUT Date"; Rec."LFS LUT Date")
+                {
+                    ToolTip = 'Specifies the value of the LUT Date field.', Comment = '%';
+                }
                 field("Exit Point"; Rec."Exit Point")
                 {
                     ApplicationArea = BasicEU;

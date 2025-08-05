@@ -555,6 +555,14 @@ page 72072 "LFS Posted Export Invoice"
                     ApplicationArea = all;
                     ToolTip = 'Specifies the Transport Method';
                 }
+                field("LFS LUT No."; Rec."LFS LUT No.")
+                {
+                    ToolTip = 'Specifies the value of the LUT No. field.', Comment = '%';
+                }
+                field("LFS LUT Date"; Rec."LFS LUT Date")
+                {
+                    ToolTip = 'Specifies the value of the LUT Date field.', Comment = '%';
+                }
                 field("Vehicle No."; Rec."Vehicle No.")
                 {
                     ToolTip = 'Specifies the vehicle number on the sales document.';

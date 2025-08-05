@@ -324,5 +324,16 @@ tableextension 72020 "LFS Sales Cr.Memo Header Ext." extends "Sales Cr.Memo Head
             Caption = 'Lodgement Ref No';
             DataClassification = CustomerContent;
         }
+        field(72070; "LFS LUT No."; Code[30])
+        {
+            Caption = 'LUT No.';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS LUT Master Table"."LFS LUT No.";
+        }
+        field(72071; "LFS LUT Date"; Date)
+        {
+            Caption = 'LUT Date';
+            DataClassification = CustomerContent;
+        }
     }
 }

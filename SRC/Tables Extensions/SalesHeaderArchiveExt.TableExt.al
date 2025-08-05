@@ -396,6 +396,17 @@ tableextension 72021 "LFS Sales Header Archive Ext." extends "Sales Header Archi
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(72070; "LFS LUT No."; Code[30])
+        {
+            Caption = 'LUT No.';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS LUT Master Table"."LFS LUT No.";
+        }
+        field(72071; "LFS LUT Date"; Date)
+        {
+            Caption = 'LUT Date';
+            DataClassification = CustomerContent;
+        }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {
         //     DataClassification = CustomerContent;
