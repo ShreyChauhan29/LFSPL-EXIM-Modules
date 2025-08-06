@@ -194,5 +194,8 @@ permissionset 72000 GeneratedPermission
         page "LFS Import Purchases Order" = X,
         page "Posted ImportPurch Credit Memo" = X,
         page "Pstd Import Purch Credit Memos" = X,
-        page "Pstd ImportPurch. Cr. Memo Sub" = X;
+        page "Pstd ImportPurch. Cr. Memo Sub" = X,
+        tabledata "LFS LUT Master Table" = RIMD,
+        table "LFS LUT Master Table" = X,
+        page "LFS LUT Master List" = X;
 }
