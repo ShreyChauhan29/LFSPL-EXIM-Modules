@@ -81,6 +81,13 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         Visible = false;
                         ToolTip = 'View or manage the terms and conditions for Letters of Credit (LC) in EXIM operations.';
                     }
+                    action("LUT Master List")
+                    {
+                        Caption = 'LUT Master List';
+                        ApplicationArea = Basic, Suite;
+                        RunObject = page "LFS LUT Master List";
+                        ToolTip = 'View or manage the LUT (Letter of Undertaking) master list used in export operations.';
+                    }
                 }
                 group("LFS Schemes")
                 {
