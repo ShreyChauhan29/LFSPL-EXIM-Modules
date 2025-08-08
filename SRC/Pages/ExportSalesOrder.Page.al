@@ -1432,6 +1432,15 @@ page 72058 "LFS Export Sales Order"
                         end;
                     end;
                 }
+                action("LFS Export Packing List")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Export Packing List';
+                    ToolTip = 'Specifies the Export Packing List';
+                    Image = CheckList;
+                    RunObject = page "LFS EXIM Packing List";
+                    RunPageLink = "LFS Source Document No." = field("No."), "LFS Source Order No." = field("No."), "LFS Source Document Type" = filter("Sales Order");
+                }
 
                 // action("LFS Work Order Report")
                 // {
@@ -2383,6 +2392,9 @@ page 72058 "LFS Export Sales Order"
                 {
                 }
                 actionref(ExportDraftPAcking; "LFS Export Draft Packing List Report")
+                {
+                }
+                actionref(PackingList_Promoted; "LFS Export Packing List")
                 {
                 }
                 // actionref(ExportCommDraftInvoice; "LFS Export Comm. Draft Invoice Report")

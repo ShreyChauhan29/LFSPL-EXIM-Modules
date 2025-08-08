@@ -223,7 +223,7 @@ page 72047 "LFS EXIM Packing List"
                     if not whseShipmentLine.IsEmpty() then
                         gettrackingDetailsForWhseShipment();
                     SalesLine.SetRange("Document No.", Rec."LFS Source Document No.");
-                    SalesLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
+                    // SalesLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
                     if not SalesLine.IsEmpty() then
                         getTrackingDetailsForSalesOrder();
 
@@ -257,7 +257,7 @@ page 72047 "LFS EXIM Packing List"
             until Rec.Next() = 0;
         LineNo := 0;
         ItemTrackingLines.SetRange("Source ID", Rec."LFS Source Document No.");
-        ItemTrackingLines.SetRange("Source Ref. No.", Rec."LFS Source Doc. Line No.");
+        // ItemTrackingLines.SetRange("Source Ref. No.", Rec."LFS Source Doc. Line No.");
         ItemTrackingLines.Setfilter("Qty. to Handle (Base)", '<>%1', 0);
         ItemTrackingLines.SetFilter("Item Tracking", '<>%1', ItemTrackingLines."Item Tracking"::None);
         if ItemTrackingLines.Findset() then begin
@@ -272,7 +272,7 @@ page 72047 "LFS EXIM Packing List"
                 Rec."LFS Item tracking Updated" := true;
                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SetRange("Document No.", Rec."LFS Source Document No.");
-                SalesLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
+                // SalesLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
                 SalesLine.SetRange(Type, SalesLine.Type::Item);
                 if SalesLine.FindFirst() then begin
                     Rec."LFS Item Code" := SalesLine."No.";

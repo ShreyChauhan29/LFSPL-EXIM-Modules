@@ -160,7 +160,7 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                     {
                         Caption = 'Export Warehouse Shipment List';
                         ApplicationArea = all;
-                        RunObject = page "LFSExportWarehouseShipmentList";
+                        RunObject = page "LFS Export Whse. Shipment List";
                         ObsoleteState = Pending;
                         ObsoleteReason = 'Setup is no longer shown in this page.';
                         ObsoleteTag = '19.0';
