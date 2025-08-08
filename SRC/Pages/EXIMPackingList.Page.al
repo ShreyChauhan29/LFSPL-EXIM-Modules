@@ -272,10 +272,13 @@ page 72047 "LFS EXIM Packing List"
                 Rec."LFS Item tracking Updated" := true;
                 SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SetRange("Document No.", Rec."LFS Source Document No.");
+                SalesLine.SetRange("Line No.", ItemTrackingLines."Source Ref. No.");
                 // SalesLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
                 SalesLine.SetRange(Type, SalesLine.Type::Item);
                 if SalesLine.FindFirst() then begin
                     Rec."LFS Item Code" := SalesLine."No.";
+                    Rec."LFS Source Doc. Line No." := SalesLine."Line No.";
+                    Rec."LFS Source Order Line No." := SalesLine."Line No.";
                     Rec."LFS Quantity" := SalesLine."Qty. to Ship (Base)";
                     rec."LFS Item UOM" := SalesLine."Unit of Measure Code";
                     Rec."LFS Location Code" := SalesLine."Location Code";

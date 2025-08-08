@@ -1,5 +1,6 @@
 namespace LFSEximModule.LFSPLEXIMModule;
 using Microsoft.Purchases.History;
+using Microsoft.Warehouse.Setup;
 using Microsoft.Sales.History;
 using Microsoft.Purchases.Document;
 using Microsoft.Finance.GeneralLedger.Setup;
@@ -19,7 +20,7 @@ using Microsoft.Foundation.NoSeries;
 using Microsoft.Purchases.Setup;
 codeunit 72002 "LFS EXIM Event Subscribers"
 {
-    Permissions = tabledata "Purch. Inv. Line" = m, tabledata "Sales Invoice Header" = m, tabledata "Sales Invoice Line" = m, tabledata "Sales Shipment Header" = m;
+    Permissions = tabledata "Purch. Inv. Line" = m, tabledata "Sales Invoice Header" = m, tabledata "Sales Invoice Line" = m, tabledata "Sales Shipment Header" = m, tabledata "Warehouse Shipment Header" = RIM;
 
     local procedure GetNextImpLicLineNo(EXIMpostedLicPara: Record "LFS EXIM Posted Import Licence"): Integer
     var
@@ -271,19 +272,40 @@ codeunit 72002 "LFS EXIM Event Subscribers"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Warehouse Shipment Header", 'OnAfterOnInsert', '', false, false)]
-    local procedure LFS_EX_GetUnpostedWhseShipmentNos(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var xWarehouseShipmentHeader: Record "Warehouse Shipment Header")
+    // [EventSubscriber(ObjectType::Table, Database::"Warehouse Shipment Header", 'OnAfterOnInsert', '', false, false)]
+    // local procedure LFS_EX_GetUnpostedWhseShipmentNos(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var xWarehouseShipmentHeader: Record "Warehouse Shipment Header")
+    // var
+    //     EximSetup: Record "LFS EXIM Setup";
+    //     NoSeriesMgt: Codeunit "No. Series";
+
+    // begin
+    //     if WarehouseShipmentHeader."LFS EXIM Type" = WarehouseShipmentHeader."LFS EXIM Type"::" " then
+    //         exit;
+    //     EximSetup.Get();
+    //     WarehouseShipmentHeader."No." := '';
+    //     NoSeriesMgt.LookupRelatedNoSeries(WarehouseShipmentHeader."Shipping No. Series", EximSetup."LFS Post Whse Shipment Nos.");
+    //     WarehouseShipmentHeader.Validate("No.", NoSeriesMgt.GetNextNo(EximSetup."LFS Warehouse Shipment Nos.", WorkDate(), true));
+    //     // NoSeriesMgt.InitSeries(EximSetup."LFS Warehouse Shipment No.", xWarehouseShipmentHeader."No. Series", WorkDate(), WarehouseShipmentHeader."No.", WarehouseShipmentHeader."No. Series");
+    // end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Warehouse Shipment Header", OnBeforeOnInsert, '', false, false)]
+    local procedure "Warehouse Shipment Header_OnBeforeOnInsert"(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var xWarehouseShipmentHeader: Record "Warehouse Shipment Header"; var WhseSetup: Record "Warehouse Setup"; var NoSeriesMgt: Codeunit NoSeriesManagement; var Location: Record Location; var IsHandled: Boolean)
     var
         EximSetup: Record "LFS EXIM Setup";
-        NoSeriesMgt: Codeunit "No. Series";
-
+        NoSeriesMgts: Codeunit "No. Series";
     begin
         if WarehouseShipmentHeader."LFS EXIM Type" = WarehouseShipmentHeader."LFS EXIM Type"::" " then
             exit;
         EximSetup.Get();
-        WarehouseShipmentHeader."No." := '';
-        NoSeriesMgt.LookupRelatedNoSeries(WarehouseShipmentHeader."Shipping No. Series", EximSetup."LFS Post Whse Shipment Nos.");
-        WarehouseShipmentHeader.Validate("No.", NoSeriesMgt.GetNextNo(EximSetup."LFS Warehouse Shipment Nos.", WorkDate(), true));
+        if WarehouseShipmentHeader."No." = '' then begin
+            // NoSeriesMgts.LookupRelatedNoSeries(EximSetup."LFS Warehouse Shipment Nos.", EximSetup."LFS Post Whse Shipment Nos.");
+            // WarehouseShipmentHeader.Validate("No.", NoSeriesMgts.GetNextNo(EximSetup."LFS Warehouse Shipment Nos.", WorkDate(), true));
+            WarehouseShipmentHeader."No." := NoSeriesMgts.GetNextNo(EximSetup."LFS Warehouse Shipment Nos.", WorkDate(), true);
+            WarehouseShipmentHeader.Validate("No. Series", EximSetup."LFS Warehouse Shipment Nos.");
+            WarehouseShipmentHeader.Validate("Shipping No. Series", EximSetup."LFS Post Whse Shipment Nos.");
+            IsHandled := true;
+
+        end;
         // NoSeriesMgt.InitSeries(EximSetup."LFS Warehouse Shipment No.", xWarehouseShipmentHeader."No. Series", WorkDate(), WarehouseShipmentHeader."No.", WarehouseShipmentHeader."No. Series");
     end;
 
@@ -771,40 +793,58 @@ codeunit 72002 "LFS EXIM Event Subscribers"
 
     end;
 
-    [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", 'OnBeforeCreateShptHeader', '', false, false)]
-    local procedure LFS_EX_OnBeforeCreateShptHeaderSub(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var WarehouseRequest: Record "Warehouse Request"; SalesLine: Record "Sales Line"; var IsHandled: Boolean; Location: Record Location; var WhseShptLine: Record "Warehouse Shipment Line"; var ActivitiesCreated: Integer; var WhseHeaderCreated: Boolean; var RequestType: Option Receive,Ship)
+    // [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", 'OnBeforeCreateShptHeader', '', false, false)]
+    // local procedure LFS_EX_OnBeforeCreateShptHeaderSub(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var WarehouseRequest: Record "Warehouse Request"; SalesLine: Record "Sales Line"; var IsHandled: Boolean; Location: Record Location; var WhseShptLine: Record "Warehouse Shipment Line"; var ActivitiesCreated: Integer; var WhseHeaderCreated: Boolean; var RequestType: Option Receive,Ship)
+    // var
+    //     EXIMSetup: Record "LFS EXIM Setup";
+    //     Location2: Record Location;
+    //     NoSeriesMgt: codeunit "No. Series";
+    // begin
+    //     if SalesLine."LFS EXIM Type" = SalesLine."LFS EXIM Type"::Export then begin
+    //         WarehouseShipmentHeader.Init();
+    //         WarehouseShipmentHeader."No." := '';
+    //         WarehouseShipmentHeader."Location Code" := WarehouseRequest."Location Code";
+    //         Location2.setrange(code, WarehouseShipmentHeader."Location Code");
+    //         if Location2.FindFirst() then
+    //             WarehouseShipmentHeader."Bin Code" := Location2."Shipment Bin Code";
+    //         WarehouseShipmentHeader."External Document No." := WarehouseRequest."External Document No.";
+    //         WarehouseShipmentHeader."Shipment Method Code" := WarehouseRequest."Shipment Method Code";
+    //         WarehouseShipmentHeader."Shipping Agent Code" := WarehouseRequest."Shipping Agent Code";
+    //         WarehouseShipmentHeader."Shipping Agent Service Code" := WarehouseRequest."Shipping Agent Service Code";
+    //         WhseShptLine.LockTable();
+
+    //         EXIMSetup.Get();
+    //         if WarehouseShipmentHeader."No." = '' then begin
+    //             EXIMSetup.TestField("LFS Warehouse Shipment Nos.");
+    //             WarehouseShipmentHeader.Validate("No.", NoSeriesMgt.GetNextNo(EXIMSetup."LFS Warehouse Shipment Nos.", WorkDate()));
+    //             WarehouseShipmentHeader.Validate("No. Series", EXIMSetup."LFS Warehouse Shipment Nos.");
+    //             // WarehouseShipmentHeader.Validate("Shipping No. Series", EXIMSetup."LFS Post Whse Shipment Nos.");
+    //             // NoSeriesMgt.InitSeries(EXIMSetup."LFS Warehouse Shipment No.", WarehouseShipmentHeader."No. Series", WarehouseShipmentHeader."Posting Date", WarehouseShipmentHeader."No.", WarehouseShipmentHeader."No. Series");
+    //         end;
+
+    //         // NoSeriesMgt.LookupRelatedNoSeries(WarehouseShipmentHeader."Shipping No. Series", EXIMSetup."LFS Post Whse Shipment Nos.");
+    //         WarehouseShipmentHeader."Posting Date" := WorkDate();
+    //         WarehouseShipmentHeader."Shipment Date" := WorkDate();
+    //         ActivitiesCreated := ActivitiesCreated + 1;
+    //         WhseHeaderCreated := true;
+    //         WarehouseShipmentHeader.Insert();
+    //         IsHandled := true
+    //     end;
+    // end;
+
+    [EventSubscriber(ObjectType::Report, Report::"Get Source Documents", OnAfterCreateShptHeader, '', false, false)]
+    local procedure "Get Source Documents_OnAfterCreateShptHeader"(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; WarehouseRequest: Record "Warehouse Request"; SalesLine: Record "Sales Line")
     var
         EXIMSetup: Record "LFS EXIM Setup";
-        Location2: Record Location;
         NoSeriesMgt: codeunit "No. Series";
     begin
-        if SalesLine."LFS EXIM Type" = SalesLine."LFS EXIM Type"::Export then begin
-            WarehouseShipmentHeader.Init();
-            WarehouseShipmentHeader."No." := '';
-            WarehouseShipmentHeader."Location Code" := WarehouseRequest."Location Code";
-            Location2.setrange(code, WarehouseShipmentHeader."Location Code");
-            if Location2.FindFirst() then
-                WarehouseShipmentHeader."Bin Code" := Location2."Shipment Bin Code";
-            WarehouseShipmentHeader."External Document No." := WarehouseRequest."External Document No.";
-            WarehouseShipmentHeader."Shipment Method Code" := WarehouseRequest."Shipment Method Code";
-            WarehouseShipmentHeader."Shipping Agent Code" := WarehouseRequest."Shipping Agent Code";
-            WarehouseShipmentHeader."Shipping Agent Service Code" := WarehouseRequest."Shipping Agent Service Code";
-            WhseShptLine.LockTable();
-
-            EXIMSetup.Get();
-            if WarehouseShipmentHeader."No." = '' then begin
-                EXIMSetup.TestField("LFS Warehouse Shipment Nos.");
-                WarehouseShipmentHeader.Validate("No.", NoSeriesMgt.GetNextNo(EXIMSetup."LFS Warehouse Shipment Nos.", WorkDate()));
-                // NoSeriesMgt.InitSeries(EXIMSetup."LFS Warehouse Shipment No.", WarehouseShipmentHeader."No. Series", WarehouseShipmentHeader."Posting Date", WarehouseShipmentHeader."No.", WarehouseShipmentHeader."No. Series");
-            end;
-
-            NoSeriesMgt.LookupRelatedNoSeries(WarehouseShipmentHeader."Shipping No. Series", EXIMSetup."LFS Post Whse Shipment Nos.");
-            WarehouseShipmentHeader."Posting Date" := WorkDate();
-            WarehouseShipmentHeader."Shipment Date" := WorkDate();
-            ActivitiesCreated := ActivitiesCreated + 1;
-            WhseHeaderCreated := true;
-            WarehouseShipmentHeader.Insert();
-            IsHandled := true
+        EXIMSetup.Get();
+        if WarehouseShipmentHeader."No." = '' then begin
+            EXIMSetup.TestField("LFS Warehouse Shipment Nos.");
+            WarehouseShipmentHeader.Validate("No.", NoSeriesMgt.GetNextNo(EXIMSetup."LFS Warehouse Shipment Nos.", WorkDate()));
+            WarehouseShipmentHeader.Validate("No. Series", EXIMSetup."LFS Warehouse Shipment Nos.");
+            // WarehouseShipmentHeader.Validate("Shipping No. Series", EXIMSetup."LFS Post Whse Shipment Nos.");
+            // NoSeriesMgt.InitSeries(EXIMSetup."LFS Warehouse Shipment No.", WarehouseShipmentHeader."No. Series", WarehouseShipmentHeader."Posting Date", WarehouseShipmentHeader."No.", WarehouseShipmentHeader."No. Series");
         end;
     end;
 
