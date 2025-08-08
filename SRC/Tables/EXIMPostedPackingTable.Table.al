@@ -37,8 +37,8 @@ table 72033 "LFS EXIM Posted Packing Table"
         {
             DataClassification = CustomerContent;
             Editable = false;
-            OptionCaption = 'Sales Order, Transfer Order';
-            OptionMembers = "Sales Order","Transfer Order";
+            OptionCaption = 'Sales Order, Transfer Order, Warehouse Shipment';
+            OptionMembers = "Sales Order","Transfer Order","Warehouse Shipment";
             Caption = 'Source Document Type';
         }
         field(6; "LFS Line No."; Integer)
