@@ -335,5 +335,15 @@ tableextension 72020 "LFS Sales Cr.Memo Header Ext." extends "Sales Cr.Memo Head
             Caption = 'LUT Date';
             DataClassification = CustomerContent;
         }
+        field(72072; "LFS Freight (FCY)"; Decimal)
+        {
+            Caption = 'Freight (FCY)';
+            DataClassification = CustomerContent;
+        }
+        field(72073; "LFS Insurance (FCY)"; Decimal)
+        {
+            Caption = 'Insurance (FCY)';
+            DataClassification = CustomerContent;
+        }
     }
 }

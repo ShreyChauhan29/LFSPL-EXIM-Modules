@@ -376,6 +376,14 @@ page 72055 "LFS Export Sales Invoice"
                 //     MinValue = 0;
                 //     ToolTip = 'Specifies the Commission %';
                 // }
+                field("LFS Freight (FCY)"; Rec."LFS Freight (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Freight (FCY) field.', Comment = '%';
+                }
+                field("LFS Insurance (FCY)"; Rec."LFS Insurance (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
+                }
                 field("LFS Type"; Rec."LFS FOB CIF Calc. Type")
                 {
                     ApplicationArea = all;

@@ -546,6 +546,16 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(72072; "LFS Freight (FCY)"; Decimal)
+        {
+            Caption = 'Freight (FCY)';
+            DataClassification = CustomerContent;
+        }
+        field(72073; "LFS Insurance (FCY)"; Decimal)
+        {
+            Caption = 'Insurance (FCY)';
+            DataClassification = CustomerContent;
+        }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {
         //     DataClassification = CustomerContent;

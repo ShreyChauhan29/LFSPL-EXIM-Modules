@@ -358,5 +358,15 @@ tableextension 72023 "LFS Sales Invoice Header Ext." extends "Sales Invoice Head
             Caption = 'LUT Date';
             DataClassification = CustomerContent;
         }
+        field(72072; "LFS Freight (FCY)"; Decimal)
+        {
+            Caption = 'Freight (FCY)';
+            DataClassification = CustomerContent;
+        }
+        field(72073; "LFS Insurance (FCY)"; Decimal)
+        {
+            Caption = 'Insurance (FCY)';
+            DataClassification = CustomerContent;
+        }
     }
 }

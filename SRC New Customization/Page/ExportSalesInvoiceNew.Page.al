@@ -352,6 +352,14 @@ page 72109 "LFS Export Sales InvoiceNew"
                     ToolTip = 'Specifies the status of a job queue entry or task that handles the posting of sales invoices.';
                     Visible = JobQueuesUsed;
                 }
+                field("LFS Freight (FCY)"; Rec."LFS Freight (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Freight (FCY) field.', Comment = '%';
+                }
+                field("LFS Insurance (FCY)"; Rec."LFS Insurance (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
+                }
                 group("Work Description")
                 {
                     Caption = 'Work Description';

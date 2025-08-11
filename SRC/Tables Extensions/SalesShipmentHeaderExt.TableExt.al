@@ -361,6 +361,16 @@ tableextension 72027 "LFS Sales Shipment Header Ext." extends "Sales Shipment He
             Caption = 'LUT Date';
             DataClassification = CustomerContent;
         }
+        field(72072; "LFS Freight (FCY)"; Decimal)
+        {
+            Caption = 'Freight (FCY)';
+            DataClassification = CustomerContent;
+        }
+        field(72073; "LFS Insurance (FCY)"; Decimal)
+        {
+            Caption = 'Insurance (FCY)';
+            DataClassification = CustomerContent;
+        }
     }
     // var
     //     EXIMPackingHeader: Record "LFS EXIM Packing Header";

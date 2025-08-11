@@ -240,6 +240,14 @@ page 72058 "LFS Export Sales Order"
                         Rec."LFS Port of Loading" := Rec."Exit Point";
                     end;
                 }
+                field("LFS Freight (FCY)"; Rec."LFS Freight (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Freight (FCY) field.', Comment = '%';
+                }
+                field("LFS Insurance (FCY)"; Rec."LFS Insurance (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
+                }
                 // field("Commission Agent"; Rec."LFS Commission Agent")
                 // {
                 //     ApplicationArea = all;

@@ -408,6 +408,14 @@ page 72106 "LFS Export Sales Order New"
                     QuickEntry = false;
                     ToolTip = 'Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.';
                 }
+                field("LFS Freight (FCY)"; Rec."LFS Freight (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Freight (FCY) field.', Comment = '%';
+                }
+                field("LFS Insurance (FCY)"; Rec."LFS Insurance (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
+                }
                 group("Work Description")
                 {
                     Caption = 'Work Description';

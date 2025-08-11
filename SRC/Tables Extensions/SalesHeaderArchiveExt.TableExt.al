@@ -407,6 +407,16 @@ tableextension 72021 "LFS Sales Header Archive Ext." extends "Sales Header Archi
             Caption = 'LUT Date';
             DataClassification = CustomerContent;
         }
+        field(72072; "LFS Freight (FCY)"; Decimal)
+        {
+            Caption = 'Freight (FCY)';
+            DataClassification = CustomerContent;
+        }
+        field(72073; "LFS Insurance (FCY)"; Decimal)
+        {
+            Caption = 'Insurance (FCY)';
+            DataClassification = CustomerContent;
+        }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {
         //     DataClassification = CustomerContent;

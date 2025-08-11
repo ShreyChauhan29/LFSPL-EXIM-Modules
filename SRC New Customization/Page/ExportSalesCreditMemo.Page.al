@@ -360,6 +360,14 @@ page 72017 "LFS Export Sales Credit Memo"
                     Importance = Additional;
                     ToolTip = 'Specifies the ID of entries that will be applied to when you choose the Apply Entries action.';
                 }
+                field("LFS Freight (FCY)"; Rec."LFS Freight (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Freight (FCY) field.', Comment = '%';
+                }
+                field("LFS Insurance (FCY)"; Rec."LFS Insurance (FCY)")
+                {
+                    ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
+                }
                 group("Work Description")
                 {
                     Caption = 'Work Description';
