@@ -727,11 +727,11 @@ table 72032 "LFS Posted Export Information"
         //     DataClassification = CustomerContent;
         //     Caption = 'Customer Order Date 2';
         // }
-        field(142; "LFS Container Size"; Code[50])
-        {
-            Caption = 'Container Size';
-            DataClassification = CustomerContent;
-        }
+        // field(142; "LFS Container Size"; Code[50])
+        // {
+        //     Caption = 'Container Size';
+        //     DataClassification = CustomerContent;
+        // }
         field(143; "LFS RFID Seal No."; Code[50])
         {
             Caption = 'RFID Seal No.';
@@ -747,6 +747,42 @@ table 72032 "LFS Posted Export Information"
         //     Caption = 'Consignee Address';
         //     DataClassification = CustomerContent;
         // }
+        field(146; "LFS Container Type"; Code[20])
+        {
+            Caption = 'Container Type';
+            DataClassification = CustomerContent;
+            TableRelation = "LFS Container Type Master"."LFS Code";
+        }
+        field(147; "LFS Bank Submission Date"; Date)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Bank Submission Date';
+        }
+        field(148; "LFS Customer Submission Date"; Date)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Customer Submission Date';
+        }
+        field(149; "LFS Bank Ref. No."; Code[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Bank Ref. No.';
+        }
+        field(150; "LFS Bank Ref. Date"; Date)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Bank Ref. Date';
+        }
+        field(151; "LFS Payment Due Date"; Date)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Payment Due Date';
+        }
+        field(152; "LFS Customer Bank Details"; Text[2000])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Customer Bank Details';
+        }
     }
 
     keys

@@ -157,6 +157,37 @@ page 72040 "LFS Export Information"
                 // {
                 //     ToolTip = 'Specifies the value of the Notes field.', Comment = '%';
                 // }
+                field("LFS Bank Ref. No."; Rec."LFS Bank Ref. No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Bank Ref. No. field.', Comment = '%';
+                }
+                field("LFS Bank Ref. Date"; Rec."LFS Bank Ref. Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Bank Ref. Date field.', Comment = '%';
+                }
+                field("LFS Bank Submission Date"; Rec."LFS Bank Submission Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Bank Submission Date field.', Comment = '%';
+                }
+                field("LFS Customer Submission Date"; Rec."LFS Customer Submission Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Customer Submission Date field.', Comment = '%';
+                }
+                field("LFS Payment Due Date"; Rec."LFS Payment Due Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Payment Due Date field.', Comment = '%';
+                }
+                field("LFS Customer Bank Details"; Rec."LFS Customer Bank Details")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Customer Bank Details field.', Comment = '%';
+                    MultiLine = true;
+                }
             }
             group(Agent)
             {
@@ -378,11 +409,16 @@ page 72040 "LFS Export Information"
                 {
                     ToolTip = 'Specifies the value of the Container No. field.', Comment = '%';
                 }
-                field("LFS Container Size"; Rec."LFS Container Size")
+                field("LFS Container Type"; Rec."LFS Container Type")
                 {
-                    ToolTip = 'Specifies the value of the Container Size field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Container Type field.', Comment = '%';
                     ApplicationArea = All;
                 }
+                // field("LFS Container Size"; Rec."LFS Container Size")
+                // {
+                //     ToolTip = 'Specifies the value of the Container Size field.', Comment = '%';
+                //     ApplicationArea = All;
+                // }
                 field("LFS RFID Seal No."; Rec."LFS RFID Seal No.")
                 {
                     ToolTip = 'Specifies the value of the RFID Seal No. field.', Comment = '%';
