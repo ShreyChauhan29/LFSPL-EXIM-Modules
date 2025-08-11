@@ -25,12 +25,46 @@ tableextension 72008 "LFS EXIM Purchase Header Ext." extends "Purchase Header"
             Caption = 'Port of Loading';
             DataClassification = CustomerContent;
             TableRelation = "LFS EXIM Port";
+            trigger OnValidate()
+            var
+                PortMaster: Record "LFS EXIM Port";
+            begin
+                if "LFS Port of Loading" <> '' then begin
+                    PortMaster.SetRange("LFS Code", "LFS Port of Loading");
+                    if PortMaster.FindFirst() then begin
+                        PortMaster.TestField("LFS Country/Region Code");
+                        Rec."LFS Country Origin Goods" := PortMaster."LFS Country/Region Code";
+                    end;
+                end
+                else
+                    Rec."LFS Country Origin Goods" := '';
+            end;
         }
         field(72002; "LFS Port of Discharge"; Code[20])
         {
             Caption = 'Port of Discharge';
             DataClassification = CustomerContent;
             TableRelation = "LFS EXIM Port";
+            trigger OnValidate()
+            var
+                PortMaster: Record "LFS EXIM Port";
+                CountryRegion: Record "Country/Region";
+            begin
+                if "LFS Port of Discharge" <> '' then begin
+                    PortMaster.SetRange("LFS Code", "LFS Port of Discharge");
+                    if PortMaster.FindFirst() then begin
+                        PortMaster.TestField("LFS Country/Region Code");
+                        Rec."LFS Country of Final Dest." := PortMaster."LFS Country/Region Code";
+                        CountryRegion.SetRange(Code, PortMaster."LFS Country/Region Code");
+                        if CountryRegion.FindFirst() then
+                            Rec."LFS Final Destination" := Format(CountryRegion.Name);
+                    end;
+                end
+                else begin
+                    Rec."LFS Country of Final Dest." := '';
+                    Rec."LFS Final Destination" := '';
+                end;
+            end;
         }
         field(72003; "LFS Country of Final Dest."; Code[20])
         {
