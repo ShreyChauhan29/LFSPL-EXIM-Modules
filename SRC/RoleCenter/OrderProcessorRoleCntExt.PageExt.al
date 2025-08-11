@@ -88,6 +88,13 @@ pageextension 72000 "Order Processor Role Cnt. Ext" extends "Order Processor Rol
                         RunObject = page "LFS LUT Master List";
                         ToolTip = 'View or manage the LUT (Letter of Undertaking) master list used in export operations.';
                     }
+                    action("Container Type Master")
+                    {
+                        Caption = 'Container Type Master';
+                        ApplicationArea = Basic, Suite;
+                        RunObject = page "LFS Container Type Master List";
+                        ToolTip = 'View or manage the master list of container types used in shipping.';
+                    }
                 }
                 group("LFS Schemes")
                 {
