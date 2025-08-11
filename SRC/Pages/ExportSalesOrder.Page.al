@@ -248,6 +248,10 @@ page 72058 "LFS Export Sales Order"
                 {
                     ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
                 }
+                field("LFS Total Item Amount"; Rec."LFS Total Item Amount")
+                {
+                    ToolTip = 'Specifies the value of the Total Item Amount field.', Comment = '%';
+                }
                 // field("Commission Agent"; Rec."LFS Commission Agent")
                 // {
                 //     ApplicationArea = all;

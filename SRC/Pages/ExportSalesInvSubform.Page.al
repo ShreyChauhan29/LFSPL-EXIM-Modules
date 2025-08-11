@@ -1077,6 +1077,49 @@ page 72056 "LFS Export Sales Inv. Subform"
                             until SalesLine.Next() = 0;
                     end;
                 }
+                action(AssignFreightandInsurance)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Assign Freiight & Insurance';
+                    Image = UpdateDescription;
+                    ToolTip = 'Executes the Assign Freiight & Insurance action.';
+
+                    trigger OnAction()
+                    var
+                        SalesHdr: Record "Sales Header";
+                    begin
+                        SalesHdr.Get(Rec."Document Type", Rec."Document No.");
+                        SalesHdr.AssignFreightNIns(SalesHdr);
+                    end;
+                }
+                action(MarkGSTOnAssessableValue)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Mark GST On Assessable Value';
+                    Image = UpdateDescription;
+                    ToolTip = 'Mark GST On Assessable Value';
+
+                    trigger OnAction()
+                    var
+                        SalesHdr: Record "Sales Header";
+                        SalesLine: Record "Sales Line";
+                        CalculateTax: Codeunit "Calculate Tax";
+                    begin
+                        SalesHdr.Get(Rec."Document Type", Rec."Document No.");
+                        SalesHdr.MarkGSTonAssessableValue();
+
+                        //CurrPage.SaveRecord();
+                        CurrPage.Update();
+                        SalesLine.SetRange("Document Type", Rec."Document Type");
+                        SalesLine.SetRange("Document No.", Rec."Document No.");
+                        if SalesLine.FindSet() then
+                            repeat
+                                CalculateTax.CallTaxEngineOnSalesLine(SalesLine, xRec);
+                                SalesLine.Modify();
+                            until SalesLine.Next() = 0;
+                        CurrPage.Update();
+                    end;
+                }
             }
         }
     }

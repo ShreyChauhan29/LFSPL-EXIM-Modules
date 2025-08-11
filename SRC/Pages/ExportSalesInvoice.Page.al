@@ -384,6 +384,10 @@ page 72055 "LFS Export Sales Invoice"
                 {
                     ToolTip = 'Specifies the value of the Insurance (FCY) field.', Comment = '%';
                 }
+                field("LFS Total Item Amount"; Rec."LFS Total Item Amount")
+                {
+                    ToolTip = 'Specifies the value of the Total Item Amount field.', Comment = '%';
+                }
                 field("LFS Type"; Rec."LFS FOB CIF Calc. Type")
                 {
                     ApplicationArea = all;

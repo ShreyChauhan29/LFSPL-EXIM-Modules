@@ -2,6 +2,7 @@ namespace LFSEximModule.LFSPLEXIMModule;
 
 using Microsoft.Sales.Document;
 using Microsoft.Sales.Customer;
+using Microsoft.Finance.TaxBase;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.NoSeries;
 using Microsoft.Finance.Currency;
@@ -556,6 +557,14 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
             Caption = 'Insurance (FCY)';
             DataClassification = CustomerContent;
         }
+        field(70074; "LFS Total Item Amount"; Decimal)
+        {
+            CalcFormula = sum("Sales Line"."Line Amount" where("Document Type" = field("Document Type"), "Document No." = field("No."),
+                            Type = const(Item)));
+            Caption = 'Total Item Amount';
+            Editable = false;
+            FieldClass = FlowField;
+        }
         // field(72069; "LFS Near Expiry Sales"; Boolean)
         // {
         //     DataClassification = CustomerContent;
@@ -599,6 +608,45 @@ tableextension 72022 "LFS EXIM Sales Header Ext." extends "Sales Header"
         SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
     // NoSeries: Codeunit "No. Series";
 
+    procedure AssignFreightNIns(SalesHdr: Record "Sales Header")
+    var
+        SalesLn: Record "Sales Line";
+    begin
+        SalesHdr.CalcFields("LFS Total Item Amount");
+        SalesLn.SetRange("Document Type", "Document Type");
+        SalesLn.SetRange("Document No.", "No.");
+        SalesLn.SetRange(Type, SalesLn.Type::Item);
+        if SalesLn.FindSet() then
+            repeat
+                SalesLn.Validate("LFS Freight Value (FCY)", Round((SalesLn."Line Amount" / SalesHdr."LFS Total Item Amount") * SalesHdr."LFS Freight (FCY)", 0.01));
+                SalesLn.Validate("LFS Insurance Value (FCY)", Round((SalesLn."Line Amount" / SalesHdr."LFS Total Item Amount") * SalesHdr."LFS Insurance (FCY)", 0.01));
+                SalesLn.Modify();
+            until SalesLn.Next() = 0;
+        Message('Freight & Insurance Value Assigned');
+    end;
+
+    procedure MarkGSTonAssessableValue()
+    var
+        SalesLn: Record "Sales Line";
+        GSTAssValLcy: Decimal;
+        Counter: Integer;
+    begin
+        SalesLn.SetRange("Document Type", "Document Type");
+        SalesLn.SetRange("Document No.", "No.");
+        SalesLn.SetRange(Type, SalesLn.Type::Item);
+        if SalesLn.FindSet() then
+            repeat
+                SalesLn."GST On Assessable Value" := true;
+                GSTAssValLcy := (SalesLn."Line Amount" * SalesLn."LFS Custom Exch. Rate")
+                                - (SalesLn."LFS Freight Value (LCY)" + SalesLn."LFS Insurance Value (LCY)");
+                SalesLn.Validate("GST Assessable Value (LCY)", Round(GSTAssValLcy, 0.01));
+                SalesLn.Modify();
+                // CalculateTax.CallTaxEngineOnSalesLine(SalesLn, SalesLn);
+                SalesLn.Modify();
+                Counter += 1;
+            until SalesLn.Next() = 0;
+        Message('No. of Item Lines Marked: %1', Counter);
+    end;
 
     procedure AssistEditExport(OldSalesHeader: Record "Sales Header"): Boolean
     begin
