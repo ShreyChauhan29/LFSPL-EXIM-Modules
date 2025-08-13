@@ -8,11 +8,13 @@
             "environmentType": "Sandbox",
             "environmentName": "LFS_Addons",
             "breakOnError": "All",
+            "breakOnRecordWrite": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "ba246c6f-3a08-4eae-a0e9-82e32ab3eb76",
-            "schemaUpdateMode": "ForceSync"
+            "schemaUpdateMode": "ForceSync",
+            "usePublicURLFromServer": true
         }
     ]
 }
