@@ -818,7 +818,11 @@ page 72040 "LFS Export Information"
     // begin
     //     IsEditable := true;
     // end;
-
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        if not Rec.IsEmpty then
+            Error('Cannot insert a new record with existing values. Please clear the record before inserting.');
+    end;
     // trigger OnAfterGetRecord()
     // var
     //     SalesHeader: Record "Sales Header";
