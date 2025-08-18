@@ -4,7 +4,7 @@ using Microsoft.Warehouse.Document;
 
 page 72062 LFSExportWarehouseShipmentList
 {
-    ApplicationArea = All;
+    // ApplicationArea = All;
     Caption = 'ExportWarehouseShipmentList';
     PageType = List;
     SourceTable = "Warehouse Shipment Header";

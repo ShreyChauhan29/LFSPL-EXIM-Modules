@@ -19,6 +19,7 @@ page 72119 "LFS Export WarehouseShipment"
     PageType = Document;
     PopulateAllFields = true;
     RefreshOnActivate = true;
+    UsageCategory = Documents;
 
     layout
     {

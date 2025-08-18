@@ -219,7 +219,7 @@ page 72047 "LFS EXIM Packing List"
                     whseShipmentLine: Record "Warehouse Shipment Line";
                 begin
                     whseShipmentLine.SetRange("No.", Rec."LFS Source Document No.");
-                    whseShipmentLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
+                    // whseShipmentLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
                     if not whseShipmentLine.IsEmpty() then
                         gettrackingDetailsForWhseShipment();
                     SalesLine.SetRange("Document No.", Rec."LFS Source Document No.");
@@ -309,37 +309,40 @@ page 72047 "LFS EXIM Packing List"
                     Error('Item Tracking details is already Updated');
             until Rec.Next() = 0;
         LineNo := 0;
-        ItemTrackingLines.SetRange("Source ID", Rec."LFS Source Order No.");
-        ItemTrackingLines.SetRange("Source Ref. No.", Rec."LFS Source Order Line No.");
-        ItemTrackingLines.Setfilter("Qty. to Handle (Base)", '<>%1', 0);
-        ItemTrackingLines.SetFilter("Item Tracking", '<>%1', ItemTrackingLines."Item Tracking"::None);
-        if ItemTrackingLines.Findset() then begin
+        whseShipmentLine.Reset();
+        whseShipmentLine.SetRange("No.", Rec."LFS Source Document No.");
+        if whseShipmentLine.FindSet() then
             repeat
-                LineNo += 10000;
-                Rec."LFS Line No." := LineNo;
-                Rec."LFS Lot No." := ItemTrackingLines."Lot No.";
-                // Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
-                Rec."LFS Total Quantity in Pack" := Abs(ItemTrackingLines."Quantity (Base)");
-                Rec."LFS Net Weight of Pack" := Abs(ItemTrackingLines."Qty. to Handle (Base)");
-                Rec."LFS Packing No." := ItemTrackingLines."Package No.";
-                whseShipmentLine.SetRange("No.", Rec."LFS Source Document No.");
-                whseShipmentLine.SetRange("Line No.", Rec."LFS Source Doc. Line No.");
-                if whseShipmentLine.FindFirst() then begin
-                    Rec."LFS Item Code" := whseShipmentLine."Item No.";
-                    Rec."LFS Quantity" := whseShipmentLine."Qty. to Ship (Base)";
-                    rec."LFS Item UOM" := whseShipmentLine."Unit of Measure Code";
-                    Rec."LFS Location Code" := whseShipmentLine."Location Code";
-                    Rec."LFS Variant Code" := whseShipmentLine."Variant Code";
-                    Item.SetRange("No.", whseShipmentLine."Item No.");
-                    if Item.FindFirst() then
-                        Rec."LFS Net Weight per Item" := Item."Net Weight";
-
-                end;
-                if not Rec.Insert() then Rec.Modify();
-            until ItemTrackingLines.Next() = 0;
-            Message('Item Tracking Lines successfully inserted');
-        end
-        else
-            Message('There are no available Item tracking lines.');
+                ItemTrackingLines.SetRange("Source ID", whseShipmentLine."Source No.");
+                ItemTrackingLines.SetRange("Source Ref. No.", whseShipmentLine."Source Line No.");
+                ItemTrackingLines.Setfilter("Qty. to Handle (Base)", '<>%1', 0);
+                ItemTrackingLines.SetFilter("Item Tracking", '<>%1', ItemTrackingLines."Item Tracking"::None);
+                if ItemTrackingLines.Findset() then begin
+                    repeat
+                        LineNo += 10000;
+                        Rec."LFS Line No." := LineNo;
+                        Rec."LFS Lot No." := ItemTrackingLines."Lot No.";
+                        Rec."LFS Source Order No." := whseShipmentLine."Source No.";
+                        Rec."LFS Source Order Line No." := whseShipmentLine."Source Line No.";
+                        Rec."LFS Source Document Type" := Rec."LFS Source Document Type"::"Warehouse Shipment";
+                        // Rec."LFS Serial No." := ItemTrackingLines."Serial No.";
+                        Rec."LFS Total Quantity in Pack" := Abs(ItemTrackingLines."Quantity (Base)");
+                        Rec."LFS Net Weight of Pack" := Abs(ItemTrackingLines."Qty. to Handle (Base)");
+                        Rec."LFS Packing No." := ItemTrackingLines."Package No.";
+                        Rec."LFS Item Code" := whseShipmentLine."Item No.";
+                        Rec."LFS Quantity" := whseShipmentLine."Qty. to Ship (Base)";
+                        rec."LFS Item UOM" := whseShipmentLine."Unit of Measure Code";
+                        Rec."LFS Location Code" := whseShipmentLine."Location Code";
+                        Rec."LFS Variant Code" := whseShipmentLine."Variant Code";
+                        Item.SetRange("No.", whseShipmentLine."Item No.");
+                        if Item.FindFirst() then
+                            Rec."LFS Net Weight per Item" := Item."Net Weight";
+                        if not Rec.Insert() then Rec.Modify();
+                    until ItemTrackingLines.Next() = 0;
+                    Message('Item Tracking Lines successfully inserted');
+                end
+                else
+                    Message('There are no available Item tracking lines.');
+            until whseShipmentLine.Next() = 0;
     end;
 }
