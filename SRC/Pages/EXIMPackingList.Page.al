@@ -317,7 +317,8 @@ page 72047 "LFS EXIM Packing List"
                 ItemTrackingLines.SetRange("Source Ref. No.", whseShipmentLine."Source Line No.");
                 ItemTrackingLines.Setfilter("Qty. to Handle (Base)", '<>%1', 0);
                 ItemTrackingLines.SetFilter("Item Tracking", '<>%1', ItemTrackingLines."Item Tracking"::None);
-                if ItemTrackingLines.Findset() then begin
+                if ItemTrackingLines.Findset() then
+                    // begin
                     repeat
                         LineNo += 10000;
                         Rec."LFS Line No." := LineNo;
@@ -339,10 +340,15 @@ page 72047 "LFS EXIM Packing List"
                             Rec."LFS Net Weight per Item" := Item."Net Weight";
                         if not Rec.Insert() then Rec.Modify();
                     until ItemTrackingLines.Next() = 0;
-                    Message('Item Tracking Lines successfully inserted');
-                end
-                else
-                    Message('There are no available Item tracking lines.');
+            // Message('Item Tracking Lines successfully inserted');
+            // end
+            // else
+            //     Message('There are no available Item tracking lines.');
             until whseShipmentLine.Next() = 0;
+
+        if not Rec.IsEmpty then
+            Message('Item Tracking Lines successfully inserted')
+        else
+            Message('There are no available Item tracking lines.');
     end;
 }
