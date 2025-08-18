@@ -10,6 +10,7 @@ page 72040 "LFS Export Information"
     PageType = Card;
     SourceTable = "LFS Export Information Header";
     UsageCategory = None;
+    Editable = true;
 
     layout
     {
@@ -189,81 +190,6 @@ page 72040 "LFS Export Information"
                     MultiLine = true;
                 }
             }
-            group(Agent)
-            {
-                Editable = IsEditable;
-                field("Agent Code"; Rec."LFS Agent Code")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Agent Code';
-                    Lookup = true;
-                    LookupPageId = "Vendor List";
-                    trigger OnLookup(var Text: Text): Boolean
-                    var
-                        vendor: Record Vendor;
-                        VendorList: Page "Vendor List";
-                    begin
-                        vendor.SetRange("LFS Agent Code", true);
-                        VendorList.LookupMode(true);
-                        VendorList.SetTableView(vendor);
-                        if Page.RunModal(Page::"Vendor List", vendor) = Action::LookupOK then begin
-                            Rec."LFS Agent Code" := vendor."No.";
-                            Rec."LFS Agent Name" := Vendor.Name;
-                            Rec."LFS Address1" := Vendor.Address;
-                            Rec."LFS Address2" := Vendor."Address 2";
-                            Rec.Validate("LFS City", Vendor.City);
-                            Rec."LFS Tel No." := Vendor."Phone No.";
-                            Rec."LFS Mobile No." := Vendor."Mobile Phone No.";
-                        end;
-
-                    end;
-                }
-                field("Agent Name"; Rec."LFS Agent Name")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Agent Name';
-                }
-                field("Contact Person"; Rec."LFS Contact Person")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Contact Person';
-                }
-                field(Address1; Rec."LFS Address1")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Address1';
-                }
-                field(Address2; Rec."LFS Address2")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Address2';
-                }
-                field(City; Rec."LFS City")
-                {
-                    ToolTip = 'Specifies the City';
-                    ApplicationArea = all;
-                }
-                field(Pin; Rec."LFS Pin")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Pin';
-                }
-                field("Tel No."; Rec."LFS Tel No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Tel No.';
-                }
-                field("Mobile No."; Rec."LFS Mobile No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Mobile No.';
-                }
-                field(Email; Rec."LFS Email")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Email';
-                }
-            }
             // group("Check List")
             // {
             //     Editable = IsEditable;
@@ -319,7 +245,7 @@ page 72040 "LFS Export Information"
             // }
             group("Information")
             {
-                Editable = IsEditable;
+                // Editable = IsEditable;
                 //     field("LFS Your Ref No."; Rec."LFS Your Ref No.")
                 //     {
                 //         ToolTip = 'Specifies the value of the Your Ref No. field.', Comment = '%';
@@ -597,7 +523,7 @@ page 72040 "LFS Export Information"
             // }
             group(Realisation)
             {
-                Editable = IsEditable;
+                // Editable = IsEditable;
 
                 // field("LFS Net Amount"; Rec."LFS Net Amount")
                 // {
@@ -785,6 +711,81 @@ page 72040 "LFS Export Information"
                 //     Caption = 'Commission Paid';
                 // }
             }
+            group(Agent)
+            {
+                // Editable = IsEditable;
+                field("Agent Code"; Rec."LFS Agent Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Agent Code';
+                    Lookup = true;
+                    LookupPageId = "Vendor List";
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        vendor: Record Vendor;
+                        VendorList: Page "Vendor List";
+                    begin
+                        vendor.SetRange("LFS Agent Code", true);
+                        VendorList.LookupMode(true);
+                        VendorList.SetTableView(vendor);
+                        if Page.RunModal(Page::"Vendor List", vendor) = Action::LookupOK then begin
+                            Rec."LFS Agent Code" := vendor."No.";
+                            Rec."LFS Agent Name" := Vendor.Name;
+                            Rec."LFS Address1" := Vendor.Address;
+                            Rec."LFS Address2" := Vendor."Address 2";
+                            Rec.Validate("LFS City", Vendor.City);
+                            Rec."LFS Tel No." := Vendor."Phone No.";
+                            Rec."LFS Mobile No." := Vendor."Mobile Phone No.";
+                        end;
+
+                    end;
+                }
+                field("Agent Name"; Rec."LFS Agent Name")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Agent Name';
+                }
+                field("Contact Person"; Rec."LFS Contact Person")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Contact Person';
+                }
+                field(Address1; Rec."LFS Address1")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Address1';
+                }
+                field(Address2; Rec."LFS Address2")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Address2';
+                }
+                field(City; Rec."LFS City")
+                {
+                    ToolTip = 'Specifies the City';
+                    ApplicationArea = all;
+                }
+                field(Pin; Rec."LFS Pin")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Pin';
+                }
+                field("Tel No."; Rec."LFS Tel No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Tel No.';
+                }
+                field("Mobile No."; Rec."LFS Mobile No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Mobile No.';
+                }
+                field(Email; Rec."LFS Email")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Email';
+                }
+            }
             // group("Letter Document")
             // {
             //     Editable = IsEditable;
@@ -813,35 +814,35 @@ page 72040 "LFS Export Information"
             // }
         }
     }
-    trigger OnInit()
-    begin
-        IsEditable := true;
-    end;
+    // trigger OnInit()
+    // begin
+    //     IsEditable := true;
+    // end;
 
-    trigger OnAfterGetRecord()
-    var
-        SalesHeader: Record "Sales Header";
-    begin
-        // "LFS Description of Goods" := GetLFSDescriptionofGoods();
-        // "LFS Consignee Address" := GetLFSConsigneeAddress();
-        // "LFS Notify Party" := GetLFSNotifyParty();
-        // "LFS Shipping Marks" := GetLFSShippingMarks();
-        IsEditable := true;
-        salesheader.SetRange("No.", Rec."LFS Document No.");
-        if salesheader.FindFirst() then begin
-            if SalesHeader.Status = salesheader.Status::Released then begin
-                CurrPage.Editable := false;
-                IsEditable := false;
-            end;
-        end
-        else begin
-            CurrPage.Editable := true;
-            IsEditable := true;
-        end;
-    end;
+    // trigger OnAfterGetRecord()
+    // var
+    //     SalesHeader: Record "Sales Header";
+    // begin
+    //     // "LFS Description of Goods" := GetLFSDescriptionofGoods();
+    //     // "LFS Consignee Address" := GetLFSConsigneeAddress();
+    //     // "LFS Notify Party" := GetLFSNotifyParty();
+    //     // "LFS Shipping Marks" := GetLFSShippingMarks();
+    //     IsEditable := true;
+    //     salesheader.SetRange("No.", Rec."LFS Document No.");
+    //     if salesheader.FindFirst() then begin
+    //         if SalesHeader.Status = salesheader.Status::Released then begin
+    //             CurrPage.Editable := false;
+    //             IsEditable := false;
+    //         end;
+    //     end
+    //     else begin
+    //         CurrPage.Editable := true;
+    //         IsEditable := true;
+    //     end;
+    // end;
 
-    var
-        IsEditable: Boolean;
+    // var
+    //     IsEditable: Boolean;
     // "LFS Description of Goods", "LFS Shipping Marks", "LFS Notify Party", "LFS Consignee Address" : Text;
 
     // procedure GetLFSDescriptionofGoods() NewLargeText: Text;

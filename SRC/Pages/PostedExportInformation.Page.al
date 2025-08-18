@@ -167,60 +167,6 @@ page 72048 "LFS Posted Export Information"
                     MultiLine = true;
                 }
             }
-            group(Agent)
-            {
-                field("Agent Code"; Rec."LFS Agent Code")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Agent Code';
-                }
-                field("Agent Name"; Rec."LFS Agent Name")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Agent Name';
-                }
-                field("Contact Person"; Rec."LFS Contact Person")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Contact Person';
-                }
-                field(Address1; Rec."LFS Address1")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Address1';
-                }
-                field(Address2; Rec."LFS Address2")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Address2';
-                }
-                field(City; Rec."LFS City")
-                {
-                    ToolTip = 'Specifies the City';
-                    ApplicationArea = all;
-                }
-                field(Pin; Rec."LFS Pin")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Pin';
-                }
-                field("Tel No."; Rec."LFS Tel No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Tel No.';
-                }
-                field("Mobile No."; Rec."LFS Mobile No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Mobile No.';
-                }
-                field(Email; Rec."LFS Email")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Specifies the Email';
-
-                }
-            }
             // group("Check List")
             // {
             //     field("Full Set Clean- Bill of Lading"; Rec."LFS Full Set Clean- BOL")
@@ -730,6 +676,60 @@ page 72048 "LFS Posted Export Information"
                 //     ToolTip = 'Specifies the value of the Receipt field.', Comment = '%';
                 //     Caption = 'Commission Paid';
                 // }
+            }
+            group(Agent)
+            {
+                field("Agent Code"; Rec."LFS Agent Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Agent Code';
+                }
+                field("Agent Name"; Rec."LFS Agent Name")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Agent Name';
+                }
+                field("Contact Person"; Rec."LFS Contact Person")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Contact Person';
+                }
+                field(Address1; Rec."LFS Address1")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Address1';
+                }
+                field(Address2; Rec."LFS Address2")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Address2';
+                }
+                field(City; Rec."LFS City")
+                {
+                    ToolTip = 'Specifies the City';
+                    ApplicationArea = all;
+                }
+                field(Pin; Rec."LFS Pin")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Pin';
+                }
+                field("Tel No."; Rec."LFS Tel No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Tel No.';
+                }
+                field("Mobile No."; Rec."LFS Mobile No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Mobile No.';
+                }
+                field(Email; Rec."LFS Email")
+                {
+                    ApplicationArea = all;
+                    ToolTip = 'Specifies the Email';
+
+                }
             }
             // group("Letter Document")
             // {
