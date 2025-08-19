@@ -211,6 +211,10 @@ report 72009 "Export UnPosted Tax Inv-INR"
 
                         column(No; "No.")
                         { }
+                        // column(Quantity;Quantity){}
+                        // column(Unit_of_Measure_Code;"Unit of Measure Code"){}
+                        // column(Unit_Price; "Unit Price") { }
+                        column(Line_Amount; "Line Amount") { }
                         column(HSN_SAC_Code; HSN_SAC_Code)
                         { }
                         column(HSNSAC_Description; HSNSAC.Description) { }
@@ -448,7 +452,7 @@ report 72009 "Export UnPosted Tax Inv-INR"
                             // else
                             //     AuxUnitRateVar := "Sales Line"."Aux Unit Rate";
 
-                            // InvLineAmount := AuxUnitRateVar * "Sales Line"."Aux Qty";
+                            InvLineAmount := AuxUnitRateVar * "Sales Line"."Line Amount";
 
                             // TotalInsurance += "Sales Line"."Insurance Value Per Type (LCY)";
                             // TotalFreight += "Sales Line"."Freight Value Per Type (LCY)";

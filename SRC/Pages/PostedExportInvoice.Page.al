@@ -967,7 +967,7 @@ page 72072 "LFS Posted Export Invoice"
                 action("Custom Invoice Draft")
                 {
                     ApplicationArea = All;
-                    Caption = 'CI Draft';
+                    Caption = 'Custom Invoice';
                     Image = Report;
                     ToolTip = 'Executes the Custom Invoice Report New action.';
                     trigger OnAction()

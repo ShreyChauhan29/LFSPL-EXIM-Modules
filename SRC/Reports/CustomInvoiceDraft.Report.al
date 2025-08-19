@@ -2,7 +2,7 @@
 report 72003 "Custom Invoice Draft"
 {
     ApplicationArea = All;
-    Caption = 'Custom Invoice Draft';
+    Caption = 'Custom Invoice';
     PreviewMode = PrintLayout;
     RDLCLayout = './SRC/Reports Layouts/Custom Invoice Draft.rdl';
     UsageCategory = ReportsAndAnalysis;
@@ -129,14 +129,17 @@ report 72003 "Custom Invoice Draft"
             {
                 DataItemTableView = sorting(Number);
                 column(Number; Number) { }
-                dataitem("Sales Invoice Line";
-                "Sales Invoice Line")
+                dataitem("Sales Invoice Line"; "Sales Invoice Line")
                 {
                     DataItemLink = "Document No." = field("No.");
                     DataItemLinkReference = "Sales Invoice Header";
                     // DataItemTableView = sorting("Document No.", "Line No.");
                     DataItemTableView = sorting("Document No.", "Line No.") where("No." = filter(<> ''));
                     column(Line_No_; "Line No.") { }
+                    // column(Quantity; Quantity) { }
+                    column(Unit_of_Measure_Code; "Unit of Measure Code") { }
+                    column(Unit_Price; "Unit Price") { }
+                    column(Line_Amount; "Line Amount") { }
                     column(No_; "No.") { }
                     column(Type; Type) { }
                     column(Description; Description) { }
