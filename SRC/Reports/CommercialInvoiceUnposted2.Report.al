@@ -148,6 +148,10 @@ report 72004 "Commercial Invoice Unposted 2"
                     DataItemLinkReference = "Sales Header";
                     DataItemTableView = sorting("Document No.", "Line No.") where("No." = filter(<> ''), Type = filter(<> " "));
                     column(No_; "No.") { }
+                    // column(Quantity;Quantity){}
+                    column(Unit_of_Measure_Code; "Unit of Measure Code") { }
+                    column(Unit_Price; "Unit Price") { }
+                    column(Line_Amount; "Line Amount") { }
                     column(Description; Description) { }
                     column(Description_2; "Description 2")
                     {
@@ -216,7 +220,7 @@ report 72004 "Commercial Invoice Unposted 2"
                         // SalesLine.SetFilter(Type, '<>%1', SalesLine.Type::" ");
                         // if SalesLine.FindSet() then
                         //     repeat
-                        //         SalesLineAmount += SalesLine."Aux Amount" - SalesLine."Line Discount Amount";
+                        SalesLineAmount += SalesLine."Line Amount" - SalesLine."Line Discount Amount";
                         //     UNTIL SalesLine.Next() = 0;
 
                         // SumOfAmount += "Sales Line"."Aux Amount";

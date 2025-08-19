@@ -136,6 +136,9 @@ report 72006 "Custom Invoice Unposted Draft"
                     // DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
                     DataItemTableView = sorting("Document No.", "Line No.") where("No." = filter(<> ''));
                     column(Line_No_; "Line No.") { }
+                    column(Unit_of_Measure_Code; "Unit of Measure Code") { }
+                    column(Unit_Price; "Unit Price") { }
+                    column(Line_Amount; "Line Amount") { }
                     column(No_; "No.")
                     { }
                     column(Description; Description) { }

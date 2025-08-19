@@ -1372,7 +1372,7 @@ page 72055 "LFS Export Sales Invoice"
                 action("Custom Invoice Draft New")
                 {
                     ApplicationArea = All;
-                    Caption = 'CI Draft';
+                    Caption = 'Custom Invoice Unposted';
                     Image = Report;
                     ToolTip = 'Executes the Custom Invoice Report New action.';
                     trigger OnAction()
@@ -1390,7 +1390,7 @@ page 72055 "LFS Export Sales Invoice"
                 action("Commercial Invoice 2")
                 {
                     ApplicationArea = All;
-                    Caption = 'Commercial Invoice Draft';
+                    Caption = 'Commercial Invoice Unposted';
                     Image = Report;
                     ToolTip = 'Executes the Commercial Invoice New action.';
                     trigger OnAction()
