@@ -407,6 +407,10 @@ page 72059 "LFS Export Sales Order Subform"
                         CalculateTAX();
                     end;
                 }
+                field("GST Place Of Supply"; Rec."GST Place Of Supply")
+                {
+                    ToolTip = 'Specifies the GST Place of Supply. For example Bill-to Address, Ship-to Address, Location Address etc.';
+                }
                 field("LFS HS Code"; Rec."LFS HS Code")
                 {
                     ApplicationArea = All;
@@ -1352,10 +1356,11 @@ page 72059 "LFS Export Sales Order Subform"
         CalculateTaxs: Codeunit "Calculate Tax";
     begin
         CurrPage.SaveRecord();
-        if (Rec."GST Group Code" <> '') and (Rec."HSN/SAC Code" <> '') then begin
-            Rec.Validate("GST Place Of Supply");
+        if (Rec."GST Group Code" <> '') and (Rec."HSN/SAC Code" <> '') then
+            // begin
+            // Rec.Validate("GST Place Of Supply");
             CalculateTaxs.CallTaxEngineOnSalesLine(Rec, xRec);
-        end;
+        // end;
     end;
 
     // local procedure UnitofMeasureCodeOnAfterValida()
