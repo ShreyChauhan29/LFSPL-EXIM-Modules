@@ -13,12 +13,12 @@ report 72013 "Export Value Declaration"
         {
             column(Invoice_No; "No.") { }
             column(Invoice_Date; "Posting Date") { }
-            column(Delivery_Terms; 'PostedExportInformation."LFS Delivery Terms"') { }
-            column(Payment_Terms; 'PostedExportInformation."LFS Payment Terms"') { }
+            column(Delivery_Terms; PostedExportInformation."LFS Terms of Delivery") { }
+            column(Payment_Terms; "Payment Terms Code") { }
             column(Shipping_Bill_No_Prev; PostedExportInformation."LFS BL No/ AWB No.") { }
             column(Shipping_Bill_Date_Prev; PostedExportInformation."LFS BL Date/ AWB Date") { }
-            column(CommercialTerm; 'PostedExportInformation."LFS Delivery Terms"') { }
-            column(CustomTerm; 'PostedExportInformation."LFS Payment Terms"') { }
+            column(CommercialTerm; PostedExportInformation."LFS Terms of Delivery") { }
+            column(CustomTerm; "Payment Terms Code") { }
             column(Shipping_Bill_No; "LFS Shipping Bill No.") { }
             column(Shipping_Bill_Date; "LFS Shipping Bill Date") { }
             column(Payment_Terms_Code; "Payment Terms Code") { }
