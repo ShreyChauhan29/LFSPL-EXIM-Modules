@@ -1404,46 +1404,46 @@ page 72058 "LFS Export Sales Order"
                         end;
                     end;
                 }
-                action("LFS Export Draft Invoice Report")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Commercial Draft Invoice';
-                    ToolTip = 'Specifies the Export Draft Invoice';
-                    // Enabled = Rec.Status = Rec.Status::Released;
-                    Image = Report;
-                    trigger OnAction()
-                    var
-                        SalesHeader: Record "Sales Header";
-                        ExportDraftInvoice: Report "LFS Export Draft Invoice";
-                    begin
-                        Clear(ExportDraftInvoice);
-                        SalesHeader.SetRange("No.", Rec."No.");
-                        if SalesHeader.FindFirst() then begin
-                            ExportDraftInvoice.SetTableView(SalesHeader);
-                            ExportDraftInvoice.RunModal();
-                        end;
-                    end;
-                }
-                action("LFS Export Draft Packing List Report")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Commercial Draft Packing List';
-                    ToolTip = 'Specifies the Export Draft Packing List';
-                    // Enabled = Rec.Status = Rec.Status::Released;
-                    Image = Report;
-                    trigger OnAction()
-                    var
-                        SalesHeader: Record "Sales Header";
-                        ExportDraftPackingList: Report "LFS Export Draft Packing List";
-                    begin
-                        Clear(ExportDraftPackingList);
-                        SalesHeader.SetRange("No.", Rec."No.");
-                        if SalesHeader.FindFirst() then begin
-                            ExportDraftPackingList.SetTableView(SalesHeader);
-                            ExportDraftPackingList.RunModal();
-                        end;
-                    end;
-                }
+                // action("LFS Export Draft Invoice Report")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Caption = 'Commercial Draft Invoice';
+                //     ToolTip = 'Specifies the Export Draft Invoice';
+                //     // Enabled = Rec.Status = Rec.Status::Released;
+                //     Image = Report;
+                //     trigger OnAction()
+                //     var
+                //         SalesHeader: Record "Sales Header";
+                //         ExportDraftInvoice: Report "LFS Export Draft Invoice";
+                //     begin
+                //         Clear(ExportDraftInvoice);
+                //         SalesHeader.SetRange("No.", Rec."No.");
+                //         if SalesHeader.FindFirst() then begin
+                //             ExportDraftInvoice.SetTableView(SalesHeader);
+                //             ExportDraftInvoice.RunModal();
+                //         end;
+                //     end;
+                // }
+                // action("LFS Export Draft Packing List Report")
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Caption = 'Commercial Draft Packing List';
+                //     ToolTip = 'Specifies the Export Draft Packing List';
+                //     // Enabled = Rec.Status = Rec.Status::Released;
+                //     Image = Report;
+                //     trigger OnAction()
+                //     var
+                //         SalesHeader: Record "Sales Header";
+                //         ExportDraftPackingList: Report "LFS Export Draft Packing List";
+                //     begin
+                //         Clear(ExportDraftPackingList);
+                //         SalesHeader.SetRange("No.", Rec."No.");
+                //         if SalesHeader.FindFirst() then begin
+                //             ExportDraftPackingList.SetTableView(SalesHeader);
+                //             ExportDraftPackingList.RunModal();
+                //         end;
+                //     end;
+                // }
                 action("LFS Export Packing List")
                 {
                     ApplicationArea = Basic, Suite;
@@ -2029,6 +2029,22 @@ page 72058 "LFS Export Sales Order"
                         ShowPreview();
                     end;
                 }
+                action("Proforma Invoice")
+                {
+                    ApplicationArea = All;
+                    Image = Report;
+                    ToolTip = 'Executes the Proforma Invoice action.';
+                    Visible = true;
+                    trigger OnAction()
+                    var
+                        Salesheader: Record "Sales Header";
+                    begin
+                        Salesheader.Reset();
+                        Salesheader.SetRange("No.", Rec."No.");
+                        if Salesheader.FindFirst() then
+                            Report.RunModal(Report::"Proform Invoice Export", true, true, Salesheader);
+                    end;
+                }
                 action(ProformaInvoice)
                 {
                     ApplicationArea = Basic, Suite;
@@ -2036,6 +2052,7 @@ page 72058 "LFS Export Sales Order"
                     Ellipsis = true;
                     Image = ViewPostedOrder;
                     ToolTip = 'View or print the pro forma sales invoice.';
+                    Visible = false;
 
                     trigger OnAction()
                     begin
@@ -2348,7 +2365,7 @@ page 72058 "LFS Export Sales Order"
                 actionref("Work Order_Promoted"; "Work Order")
                 {
                 }
-                actionref(ProformaInvoice_Promoted; ProformaInvoice)
+                actionref(ProformaInvoice_Promoted; "Proforma Invoice")
                 {
                 }
             }
@@ -2400,12 +2417,12 @@ page 72058 "LFS Export Sales Order"
                 Caption = 'EXIM';
                 actionref(Export_Information_promoted; Export_Information)
                 { }
-                actionref(ExportDraftInvocie_Promoted; "LFS Export Draft Invoice Report")
-                {
-                }
-                actionref(ExportDraftPAcking; "LFS Export Draft Packing List Report")
-                {
-                }
+                // actionref(ExportDraftInvocie_Promoted; "LFS Export Draft Invoice Report")
+                // {
+                // }
+                // actionref(ExportDraftPAcking; "LFS Export Draft Packing List Report")
+                // {
+                // }
                 actionref(PackingList_Promoted; "LFS Export Packing List")
                 {
                 }

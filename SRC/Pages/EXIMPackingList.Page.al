@@ -323,6 +323,7 @@ page 72047 "LFS EXIM Packing List"
                         LineNo += 10000;
                         Rec."LFS Line No." := LineNo;
                         Rec."LFS Lot No." := ItemTrackingLines."Lot No.";
+                        Rec."LFS Source Doc. Line No." := whseShipmentLine."Line No.";
                         Rec."LFS Source Order No." := whseShipmentLine."Source No.";
                         Rec."LFS Source Order Line No." := whseShipmentLine."Source Line No.";
                         Rec."LFS Source Document Type" := Rec."LFS Source Document Type"::"Warehouse Shipment";

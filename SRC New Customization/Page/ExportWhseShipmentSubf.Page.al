@@ -473,7 +473,7 @@ page 72120 "LFS Export Whse. Shipment Subf"
                         PackingList.SetRange("LFS Source Order No.", Rec."Source No.");
                         PackingList.SetRange("LFS Source Order Line No.", Rec."Source Line No.");
                         if Rec."Source Document" = Rec."Source Document"::"Sales Order" then
-                            PackingList.SetRange("LFS Source Document Type", PackingList."LFS Source Document Type"::"Sales Order");
+                            PackingList.SetRange("LFS Source Document Type", PackingList."LFS Source Document Type"::"Warehouse Shipment");
                         PackingListPage.SetTableView(PackingList);
                         Page.Run(page::"LFS EXIM Packing List", PackingList);
                     end;

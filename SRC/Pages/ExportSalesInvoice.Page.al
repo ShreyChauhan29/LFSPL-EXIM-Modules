@@ -1369,6 +1369,62 @@ page 72055 "LFS Export Sales Invoice"
                         Page.RunModal(Page::"LFS Export Information", Export);
                     end;
                 }
+                action("Custom Invoice Draft New")
+                {
+                    ApplicationArea = All;
+                    Caption = 'CI Draft';
+                    Image = Report;
+                    ToolTip = 'Executes the Custom Invoice Report New action.';
+                    trigger OnAction()
+                    var
+                        SalesHeader: Record "Sales Header";
+                        CustomInvoiceReport: Report "Custom Invoice Unposted Draft";
+                    begin
+                        Clear(CustomInvoiceReport);
+                        SalesHeader.Reset();
+                        SalesHeader.SETRANGE(SalesHeader."No.", Rec."No.");
+                        CustomInvoiceReport.SetTableView(SalesHeader);
+                        CustomInvoiceReport.RunModal();
+                    end;
+                }
+                action("Commercial Invoice 2")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Commercial Invoice Draft';
+                    Image = Report;
+                    ToolTip = 'Executes the Commercial Invoice New action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Header";
+                        CommercialInvoiceLFS: Report "Commercial Invoice Unposted 2";
+                    begin
+                        Clear(CommercialInvoiceLFS);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        CommercialInvoiceLFS.SetTableView(SalesInvHeader);
+                        CommercialInvoiceLFS.RunModal();
+                    end;
+                }
+                action("Export Unposted Sales Invoice-INR")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Export Unposted Sales Invoice-INR';
+                    Image = Report;
+                    ToolTip = 'Executes the Export Sales Invoice INR action.';
+                    // Visible = false;
+                    trigger OnAction()
+                    var
+                        SalesHeader: Record "Sales Header";
+                        ExportUnpostedSalesInvoiceINR: Report "Export Unposted Tax Inv-INR";
+                    begin
+                        SalesHeader.Reset();
+                        SalesHeader.SetRange("No.", Rec."No.");
+                        // if SalesHeader.FindFirst() then
+                        //     Report.RunModal(50102, true, false, SalesHeader);
+                        ExportUnpostedSalesInvoiceINR.SetTableView(SalesHeader);
+                        ExportUnpostedSalesInvoiceINR.RunModal();
+                    end;
+                }
                 // action("LFS Dispatch Tax Invoice Export")
                 // {
                 //     ApplicationArea = All;
@@ -2127,6 +2183,15 @@ page 72055 "LFS Export Sales Invoice"
                 Caption = 'EXIM';
                 actionref(Export_Information_promoted; Export_Information)
                 { }
+                actionref(customInvoiceReport_Promoted; "Custom Invoice Draft New")
+                {
+                }
+                actionref(CommercialInvoiceUnposted2_Promoted; "Commercial Invoice 2")
+                {
+                }
+                actionref(ExportUnpostedTaxInvoice_Promoted; "Export Unposted Sales Invoice-INR")
+                {
+                }
                 // actionref(DispatchTaxInvoiceExport; "LFS Dispatch Tax Invoice Export")
                 // {
                 // }

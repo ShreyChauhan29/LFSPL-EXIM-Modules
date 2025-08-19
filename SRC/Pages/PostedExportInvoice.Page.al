@@ -964,6 +964,182 @@ page 72072 "LFS Posted Export Invoice"
                         if Page.RunModal(Page::"LFS Posted Export Information", Export) = action::LookupOK then;
                     end;
                 }
+                action("Custom Invoice Draft")
+                {
+                    ApplicationArea = All;
+                    Caption = 'CI Draft';
+                    Image = Report;
+                    ToolTip = 'Executes the Custom Invoice Report New action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        CustomInvoiceReport: Report "Custom Invoice Draft";
+                    begin
+                        Clear(CustomInvoiceReport);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        CustomInvoiceReport.SetTableView(SalesInvHeader);
+                        CustomInvoiceReport.RunModal();
+                    end;
+                }
+                action("Commercial Invoice")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Commercial Invoice';
+                    Image = Report;
+                    ToolTip = 'Executes the Commercial Invoice New action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        CommercialInvoiceLFS: Report "LFS Commercial Invoice";
+                    begin
+                        Clear(CommercialInvoiceLFS);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        CommercialInvoiceLFS.SetTableView(SalesInvHeader);
+                        CommercialInvoiceLFS.RunModal();
+                    end;
+                }
+                action("Export Sales Invoice INR")
+                {
+                    ApplicationArea = All;
+                    Image = Report;
+                    ToolTip = 'Executes the Export Sales Invoice INR action.';
+                    // Visible = false;
+                    trigger OnAction()
+                    var
+                        SalesInvoiceHeader: Record "Sales Invoice Header";
+                        ExportSalesInvoiceINR: Report "Export Tax Invoice-INR";
+                    begin
+                        SalesInvoiceHeader.Reset();
+                        SalesInvoiceHeader.SetRange("No.", Rec."No.");
+                        // if SalesInvoiceHeader.FindFirst() then
+                        //     Report.RunModal(50102, true, false, SalesInvoiceHeader);
+                        ExportSalesInvoiceINR.SetTableView(SalesInvoiceHeader);
+                        ExportSalesInvoiceINR.RunModal();
+                    end;
+                }
+                action("Certificate Of Self Sealed Container")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Certificate Of Self Sealed Container';
+                    Image = Report;
+                    ToolTip = 'Executes the Certificate Of Self Sealed Container action.';
+                    Visible = true;
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        CertificateSealedContainer: Report "Certificate Sealed Container";
+                    begin
+                        Clear(CertificateSealedContainer);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        CertificateSealedContainer.SetTableView(SalesInvHeader);
+                        CertificateSealedContainer.RunModal();
+                    end;
+                }
+                action(VGM)
+                {
+                    ApplicationArea = All;
+                    Caption = 'VGM';
+                    Ellipsis = true;
+                    Image = Print;
+                    ToolTip = 'Executes the VGM action.';
+                    trigger OnAction()
+                    var
+                        SalesInvoiceHeader: Record "Sales Invoice Header";
+                    begin
+                        SalesInvoiceHeader.SetRange("No.", Rec."No.");
+                        if SalesInvoiceHeader.FindFirst() then
+                            Report.Run(Report::VGM, true, false, SalesInvoiceHeader);
+
+                    end;
+                }
+                action(BillOfExchange)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Bill Of Exchange';
+                    Ellipsis = true;
+                    Image = Print;
+                    ToolTip = 'Executes the Bill Of Exchange action.';
+                    trigger OnAction()
+                    var
+                        SalesHeader: Record "Sales Invoice Header";
+                    begin
+                        SalesHeader.SetRange("No.", Rec."No.");
+                        if SalesHeader.FindFirst() then
+                            Report.Run(Report::"Bill of Exchange", true, false, SalesHeader);
+                    end;
+                }
+                action("BL Instruction")
+                {
+                    ApplicationArea = All;
+                    Caption = 'BL Instruction';
+                    Image = Report;
+                    ShortcutKey = F7;
+                    ToolTip = 'Executes the BL Instruction action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                    begin
+                        SalesInvHeader.SetRange("No.", Rec."No.");
+                        if SalesInvHeader.FindFirst() then
+                            Report.RunModal(Report::"Instruction-PosExpInv", true, true, SalesInvHeader);
+                    end;
+
+                }
+                action("Certificate Of Origin")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Certificate Of Origin';
+                    Image = Report;
+                    ShortcutKey = F7;
+                    ToolTip = 'Executes the Certificate Of Origin action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                    begin
+                        SalesInvHeader.SetRange("No.", Rec."No.");
+                        if SalesInvHeader.FindFirst() then
+                            Report.RunModal(Report::"Certificate Of Origin", true, true, SalesInvHeader);
+                    end;
+                }
+                action("Export Value Declaration")
+                {
+                    ApplicationArea = all;
+                    Image = Export;
+                    Caption = 'Export Value Declaration';
+                    Visible = true;
+                    ToolTip = 'Executes the Export Value Declaration action.';
+                    trigger OnAction()
+                    var
+                        SalesInvoiceHeader: Record "Sales Invoice Header";
+                    begin
+                        SalesInvoiceHeader.Reset();
+                        SalesInvoiceHeader.SetRange("LFS EXIM Type", SalesInvoiceHeader."LFS EXIM Type"::Export);
+                        SalesInvoiceHeader.SetRange("No.", Rec."No.");
+                        if SalesInvoiceHeader.FindFirst() then
+                            Report.RunModal(Report::"Export Value Declaration", true, false, SalesInvoiceHeader);
+                    end;
+                }
+                action("Invoice Back Side")
+                {
+                    ApplicationArea = All;
+                    Image = Report;
+                    Caption = 'Invoice Back Side';
+                    ToolTip = 'Executes the Invoice Back Side action.';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        InvoiceBackSide: Report "Invoice Back Side";
+                    begin
+                        Clear(InvoiceBackSide);
+                        SalesInvHeader.RESET();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        InvoiceBackSide.SetTableView(SalesInvHeader);
+                        InvoiceBackSide.RunModal();
+                    end;
+                }
                 // action("Commercial_Invoice_Report")
                 // {
                 //     ApplicationArea = All;
@@ -1418,6 +1594,36 @@ page 72072 "LFS Posted Export Invoice"
                 Caption = 'EXIM';
                 actionref(Export_Information_Promoted; Export_Information)
                 { }
+                actionref(CustomInvoiceDraft; "Custom Invoice Draft")
+                {
+                }
+                actionref(CommercialInvoice; "Commercial Invoice")
+                {
+                }
+                actionref(ExportSalesInvoiceINR; "Export Sales Invoice INR")
+                {
+                }
+                actionref(CertificateOfSelfSealedContainer; "Certificate Of Self Sealed Container")
+                {
+                }
+                actionref(VGMs; VGM)
+                {
+                }
+                actionref(BillOfExchanges; BillOfExchange)
+                {
+                }
+                actionref(BLInstruction; "BL Instruction")
+                {
+                }
+                actionref(CertificateOfOrigin; "Certificate Of Origin")
+                {
+                }
+                actionref(ExportValueDeclaration; "Export Value Declaration")
+                {
+                }
+                actionref(InvoiceBackSide; "Invoice Back Side")
+                {
+                }
                 // actionref(Commercial_Invoice_Report_Promoted; Commercial_Invoice_Report)
                 // { }
                 // actionref(Custom_Invoice_Report_Promoted; Custom_Invoice_Report)

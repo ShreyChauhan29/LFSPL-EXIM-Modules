@@ -1,0 +1,32 @@
+report 72013 "Export Value Declaration"
+{
+    // UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All;
+    Caption = 'Export Value Declaration';
+    DefaultLayout = RDLC;
+    RDLCLayout = './SRC/Reports Layouts/ExportValueDeclaration.rdl';
+    PreviewMode = PrintLayout;
+
+    dataset
+    {
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
+        {
+            column(Invoice_No; "No.") { }
+            column(Invoice_Date; "Posting Date") { }
+            column(Delivery_Terms; 'PostedExportInformation."LFS Delivery Terms"') { }
+            column(Payment_Terms; 'PostedExportInformation."LFS Payment Terms"') { }
+            column(Shipping_Bill_No_Prev; PostedExportInformation."LFS BL No/ AWB No.") { }
+            column(Shipping_Bill_Date_Prev; PostedExportInformation."LFS BL Date/ AWB Date") { }
+            column(CommercialTerm; 'PostedExportInformation."LFS Delivery Terms"') { }
+            column(CustomTerm; 'PostedExportInformation."LFS Payment Terms"') { }
+            column(Shipping_Bill_No; "LFS Shipping Bill No.") { }
+            column(Shipping_Bill_Date; "LFS Shipping Bill Date") { }
+            trigger OnAfterGetRecord()
+            begin
+                if PostedExportInformation.get("No.", PostedExportInformation."LFS Document Type"::Invoice) then;
+            end;
+        }
+    }
+    var
+        PostedExportInformation: Record "LFS Posted Export Information";
+}
