@@ -109,7 +109,7 @@ report 72002 "Proform Invoice Export"
             column(SalesHeader_PaymentTermsCode; PaymentTerms.Code) { }
             column(Code_Loc; LocationRec.Code) { }
             column(Name_Loc; LocationRec.Name) { }
-            column(OrderDate_SH; FORMAT('', 0, '<Day,2>/<Month,2>/<Year4>')) { }
+            column(OrderDate_SH; '') { }
             column(ETD_SH; ''/*FORMAT("Sales Header".ETD, 0, '<Day,2>/<Month,2>/<Year4>')*/) { }
             column(Address_Loc; LocationRec.Address + ', ' + LocationRec."Address 2") { }
             column(City_PostCode_Loc; LocationRec.City + ' ' + LocationRec."Post Code") { }

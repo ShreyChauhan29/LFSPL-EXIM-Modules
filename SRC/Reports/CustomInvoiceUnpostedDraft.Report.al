@@ -15,7 +15,7 @@ report 72006 "Custom Invoice Unposted Draft"
             RequestFilterHeading = 'Posted Sales Invoice';
             column(No_SIH; "No.") { }
             column(Mode_of_Transport; "Mode of Transport") { }
-            column(Commission_Rate; '') { }
+            column(Commission_Rate; 0) { }
             column(Payment_Terms_Code; "Payment Terms Code") { }
             column(CompanyInfoPicture; CompanyInfo.Picture) { }
             column(CompName; CompanyInfo.Name) { }

@@ -15,7 +15,7 @@ report 72003 "Custom Invoice Draft"
             RequestFilterFields = "No.", "Sell-to Customer No.";
             RequestFilterHeading = 'Posted Sales Invoice';
             column(No_SIH; "No.") { }
-            column(Commission_Rate; '') { }
+            column(Commission_Rate; 0) { }
             column(Mode_of_Transport; "Mode of Transport") { }
             column(Payment_Terms_Code; "Payment Terms Code") { }
             column(CompanyInfoPicture; CompanyInfo.Picture) { }
