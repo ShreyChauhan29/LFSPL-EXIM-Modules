@@ -128,6 +128,10 @@ report 72001 "LFS Commercial Invoice"
                     DataItemLinkReference = "Sales Invoice Header";
                     DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(<> " "));
                     column(No_; "No.") { }
+                    // column(Quantity;Quantity){}
+                    column(Unit_of_Measure_Code; "Unit of Measure Code") { }
+                    column(Unit_Price; "Unit Price") { }
+                    // column(Line_Amount;"Line Amount"){}
                     column(SLAmount; SLAmount) { }
                     column(Line_Amount; "Line Amount") { }
                     column(HSNSAC_Desc; HSNSAC.Description) { }

@@ -23,4 +23,10 @@ table 72009 "LFS Container Type Master"
             Clustered = true;
         }
     }
+    fieldgroups
+    {
+        fieldgroup(DropDown; "LFS Code", "LFS Description")
+        {
+        }
+    }
 }

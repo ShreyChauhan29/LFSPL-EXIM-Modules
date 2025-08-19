@@ -213,6 +213,9 @@ report 72007 "Export Tax Invoice-INR"
                         DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(<> ''), "No." = filter(<> '402545'));
                         column(No; "No.")
                         { }
+                        // column(Unit_of_Measure_Code;"Unit of Measure Code"){}
+                        // column(Unit_Price;"Unit Price"){}
+                        column(Line_Amount; "Line Amount") { }
                         column(HSN_SAC_Code; HSN_SAC_Code)
                         { }
                         column(HSNSAC_Description; HSNSAC.Description) { }

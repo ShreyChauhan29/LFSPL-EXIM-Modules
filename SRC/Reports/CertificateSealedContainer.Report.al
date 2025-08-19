@@ -33,11 +33,22 @@ report 72005 "Certificate Sealed Container"
             column(BuyersAddressName; BuyersAddress) { }
             column(ConsigneeAddress; ConsigneeAddress) { }
             column(LocationAddress; LocationAdress) { }
+            column(ShippingLineSealNo; ShippingLineSealNo) { }
+            column(SizeofContainer; SizeofContainer) { }
+            column(TotalGrossWeight; TotalGrossWeight) { }
             trigger OnAfterGetRecord()
+            var
+                ContainerType: Record "LFS Container Type Master";
+                SalesInvLine: Record "Sales Invoice Line";
+                PostedPackingList: Record "LFS EXIM Posted Packing Table";
             begin
                 Clear(LocationAdress);
                 Clear(LocationState);
                 Clear(LocationCountry);
+                Clear(BuyersAddress);
+                Clear(ConsigneeAddress);
+                Clear(ShippingLineSealNo);
+                Clear(SizeofContainer);
                 if location.Get("Sales Invoice Header"."Location Code") then begin
                     if State_Rec.get(location."State Code") then LocationState := State_Rec.Description;
                     if Country_Rec.get(location."Country/Region Code") then LocationCountry := Country_Rec.Name;
@@ -56,8 +67,13 @@ report 72005 "Certificate Sealed Container"
                 PostedExportInformation.Reset();
                 PostedExportInformation.SetRange("LFS Document No.", "Sales Invoice Header"."No.");
                 if PostedExportInformation.FindFirst() then begin
-                    BuyersAddress := GetBlobBuyersAddressNameAsText(PostedExportInformation);
-                    ConsigneeAddress := GetBlobConsineeAsText(PostedExportInformation);
+                    // BuyersAddress :=PostedExportInformation.add;
+                    ShippingLineSealNo := PostedExportInformation."LFS Container Seal No.";
+                    ContainerType.Reset();
+                    ContainerType.SetRange("LFS Code", PostedExportInformation."LFS Container Type");
+                    if ContainerType.FindFirst() then
+                        SizeofContainer := ContainerType."LFS Description";
+                    ConsigneeAddress := PostedExportInformation."LFS Consignee Name & Address";
                 end;
 
                 Clear(BuyerState);
@@ -75,6 +91,19 @@ report 72005 "Certificate Sealed Container"
                     if Country_Rec.get("Ship-to Country/Region Code") then ConsingneeCountry := Country_Rec.Name;
                     ConsigneeAddress := "Sell-to Address" + ', ' + "Sell-to Address 2" + ', ' + "Sell-to City" + '-' + "Sell-to Post Code" + ', ' + ConsingneeState + ', ' + ConsingneeCountry;
                 end;
+
+                SalesInvLine.SetRange("Document No.", "Sales Invoice Header"."No.");
+                SalesInvLine.SetRange(Type, SalesInvLine.Type::"Item");
+                if SalesInvLine.FindSet() then
+                    repeat
+                        PostedPackingList.Reset();
+                        PostedPackingList.SetRange("LFS Source Document No.", "Sales Invoice Header"."No.");
+                        PostedPackingList.SetRange("LFS Source Doc. Line No.", SalesInvLine."Line No.");
+                        if PostedPackingList.FindSet() then
+                            repeat
+                                TotalGrossWeight += PostedPackingList."LFS Total Gross Weight";
+                            until PostedPackingList.Next() = 0;
+                    until SalesInvLine.Next() = 0;
             end;
         }
     }
@@ -89,7 +118,9 @@ report 72005 "Certificate Sealed Container"
         ConsingneeCountry, ConsingneeState : Text;
         LocationCountry, LocationState : Text;
         Place: Text;
-        BuyersAddress, ConsigneeAddress, LocationAdress : Text[2048];
+        BuyersAddress, ConsigneeAddress, LocationAdress, SizeofContainer : Text[2048];
+        ShippingLineSealNo: Code[50];
+        TotalGrossWeight: Decimal;
 
     procedure GetBlobBuyersAddressNameAsText(PostedExportInfo: Record "LFS Posted Export Information"): Text
     var
