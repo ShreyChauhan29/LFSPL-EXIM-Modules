@@ -76,6 +76,7 @@ report 72010 VGM
             column(BookingNoExpInfo; BookingNoExpInfo) { }
             column(ContainerWeight; ContainerWeight) { }
             column(Posting_Date; "Posting Date") { }
+            column(SizeofContainer; SizeofContainer) { }
 
             trigger OnPreDataItem()
             begin
@@ -88,11 +89,14 @@ report 72010 VGM
                 Clear(Weighing_Method);
                 Clear(BookingNoExpInfo);
                 Clear(ContainerWeight);
+                Clear(SizeofContainer);
 
                 CompanyInfo.Get();
             end;
 
             trigger OnAfterGetRecord()
+            var
+                ContainerType: Record "LFS Container Type Master";
             begin
                 SalesInvLine.Reset();
                 SalesInvLine.SetRange("Document No.", SalesInvoiceHeader."No.");
@@ -110,9 +114,15 @@ report 72010 VGM
 
                 ExpInfo.Reset();
                 ExpInfo.SetRange("LFS Document No.", SalesInvoiceHeader."No.");
-                if ExpInfo.FindFirst() then
+                if ExpInfo.FindFirst() then begin
+
                     // begin
                     ContainerNo := ExpInfo."LFS Container No.";
+                    ContainerType.Reset();
+                    ContainerType.SetRange("LFS Code", ExpInfo."LFS Container Type");
+                    if ContainerType.FindFirst() then
+                        SizeofContainer := ContainerType."LFS Description";
+                end;
                 // Date_and_Time := ExpInfo."LFS Date and time of weighing";
                 // VRC := ExpInfo."LFS VRC No.";
                 // Gross_Mass_of_Container := ExpInfo."LFS Gross Mass of the Container";
@@ -151,7 +161,7 @@ report 72010 VGM
         Date_and_Time: DateTime;
         Gross_Mass_of_Container: Decimal;
         VRC: Decimal;
-        Weighing_Method: Text[50];
+        Weighing_Method, SizeofContainer : Text[500];
         BookingNoExpInfo: Code[20];
         BookingNo: Code[20];
         ContainerWeight: Decimal;

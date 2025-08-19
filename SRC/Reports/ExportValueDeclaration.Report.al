@@ -21,12 +21,20 @@ report 72013 "Export Value Declaration"
             column(CustomTerm; 'PostedExportInformation."LFS Payment Terms"') { }
             column(Shipping_Bill_No; "LFS Shipping Bill No.") { }
             column(Shipping_Bill_Date; "LFS Shipping Bill Date") { }
+            column(Payment_Terms_Code; "Payment Terms Code") { }
+            column(CompanyInfoName; CompanyInfo.Name) { }
             trigger OnAfterGetRecord()
             begin
                 if PostedExportInformation.get("No.", PostedExportInformation."LFS Document Type"::Invoice) then;
             end;
         }
     }
+    trigger OnPreReport()
+    begin
+        CompanyInfo.Get();
+    end;
+
     var
         PostedExportInformation: Record "LFS Posted Export Information";
+        CompanyInfo: Record "Company Information";
 }

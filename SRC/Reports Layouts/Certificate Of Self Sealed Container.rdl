@@ -22,94 +22,6 @@
       <rd:DataSourceID>25168e4d-9c67-4a0d-9c8f-2498650104ad</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Inv_No">
-          <DataField>Inv_No</DataField>
-        </Field>
-        <Field Name="Place">
-          <DataField>Place</DataField>
-        </Field>
-        <Field Name="Shipping_Bill_No_">
-          <DataField>Shipping_Bill_No_</DataField>
-        </Field>
-        <Field Name="Shipping_Bill_Date">
-          <DataField>Shipping_Bill_Date</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Bill_to_Name">
-          <DataField>Bill_to_Name</DataField>
-        </Field>
-        <Field Name="Bill_to_Address">
-          <DataField>Bill_to_Address</DataField>
-        </Field>
-        <Field Name="LFS_No__of_Packages">
-          <DataField>LFS_No__of_Packages</DataField>
-        </Field>
-        <Field Name="locationName">
-          <DataField>locationName</DataField>
-        </Field>
-        <Field Name="LocationGStNo">
-          <DataField>LocationGStNo</DataField>
-        </Field>
-        <Field Name="GST_Without_Payment_of_Duty">
-          <DataField>GST_Without_Payment_of_Duty</DataField>
-        </Field>
-        <Field Name="Bill_Of_Export_No">
-          <DataField>Bill_Of_Export_No</DataField>
-        </Field>
-        <Field Name="Bill_Of_Export_Date">
-          <DataField>Bill_Of_Export_Date</DataField>
-        </Field>
-        <Field Name="Container_No">
-          <DataField>Container_No</DataField>
-        </Field>
-        <Field Name="Seal_Code">
-          <DataField>Seal_Code</DataField>
-        </Field>
-        <Field Name="Container_Size">
-          <DataField>Container_Size</DataField>
-        </Field>
-        <Field Name="RFID_Seal_No">
-          <DataField>RFID_Seal_No</DataField>
-        </Field>
-        <Field Name="Actual_Dispatch_Date">
-          <DataField>Actual_Dispatch_Date</DataField>
-        </Field>
-        <Field Name="Vehicle_No_">
-          <DataField>Vehicle_No_</DataField>
-        </Field>
-        <Field Name="BuyersAddressName">
-          <DataField>BuyersAddressName</DataField>
-        </Field>
-        <Field Name="ConsigneeAddress">
-          <DataField>ConsigneeAddress</DataField>
-        </Field>
-        <Field Name="LocationAddress">
-          <DataField>LocationAddress</DataField>
-        </Field>
-        <Field Name="ShippingLineSealNo">
-          <DataField>ShippingLineSealNo</DataField>
-        </Field>
-        <Field Name="SizeofContainer">
-          <DataField>SizeofContainer</DataField>
-        </Field>
-        <Field Name="TotalGrossWeight">
-          <DataField>TotalGrossWeight</DataField>
-        </Field>
-        <Field Name="TotalGrossWeightFormat">
-          <DataField>TotalGrossWeightFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2859,12 +2771,6 @@ CONTAINER</Value>
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2904,4 +2810,92 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Inv_No">
+          <DataField>Inv_No</DataField>
+        </Field>
+        <Field Name="Place">
+          <DataField>Place</DataField>
+        </Field>
+        <Field Name="Shipping_Bill_No_">
+          <DataField>Shipping_Bill_No_</DataField>
+        </Field>
+        <Field Name="Shipping_Bill_Date">
+          <DataField>Shipping_Bill_Date</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Bill_to_Name">
+          <DataField>Bill_to_Name</DataField>
+        </Field>
+        <Field Name="Bill_to_Address">
+          <DataField>Bill_to_Address</DataField>
+        </Field>
+        <Field Name="LFS_No__of_Packages">
+          <DataField>LFS_No__of_Packages</DataField>
+        </Field>
+        <Field Name="locationName">
+          <DataField>locationName</DataField>
+        </Field>
+        <Field Name="LocationGStNo">
+          <DataField>LocationGStNo</DataField>
+        </Field>
+        <Field Name="GST_Without_Payment_of_Duty">
+          <DataField>GST_Without_Payment_of_Duty</DataField>
+        </Field>
+        <Field Name="Bill_Of_Export_No">
+          <DataField>Bill_Of_Export_No</DataField>
+        </Field>
+        <Field Name="Bill_Of_Export_Date">
+          <DataField>Bill_Of_Export_Date</DataField>
+        </Field>
+        <Field Name="Container_No">
+          <DataField>Container_No</DataField>
+        </Field>
+        <Field Name="Seal_Code">
+          <DataField>Seal_Code</DataField>
+        </Field>
+        <Field Name="Container_Size">
+          <DataField>Container_Size</DataField>
+        </Field>
+        <Field Name="RFID_Seal_No">
+          <DataField>RFID_Seal_No</DataField>
+        </Field>
+        <Field Name="Actual_Dispatch_Date">
+          <DataField>Actual_Dispatch_Date</DataField>
+        </Field>
+        <Field Name="Vehicle_No_">
+          <DataField>Vehicle_No_</DataField>
+        </Field>
+        <Field Name="BuyersAddressName">
+          <DataField>BuyersAddressName</DataField>
+        </Field>
+        <Field Name="ConsigneeAddress">
+          <DataField>ConsigneeAddress</DataField>
+        </Field>
+        <Field Name="LocationAddress">
+          <DataField>LocationAddress</DataField>
+        </Field>
+        <Field Name="ShippingLineSealNo">
+          <DataField>ShippingLineSealNo</DataField>
+        </Field>
+        <Field Name="SizeofContainer">
+          <DataField>SizeofContainer</DataField>
+        </Field>
+        <Field Name="TotalGrossWeight">
+          <DataField>TotalGrossWeight</DataField>
+        </Field>
+        <Field Name="TotalGrossWeightFormat">
+          <DataField>TotalGrossWeightFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
