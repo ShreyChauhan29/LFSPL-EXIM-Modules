@@ -784,6 +784,11 @@ table 72026 "LFS Export Information Header"
             DataClassification = CustomerContent;
             Caption = 'Customer Bank Details';
         }
+        field(153; "LFS Terms of Delivery"; Text[500])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Terms of Delivery';
+        }
     }
 
     keys

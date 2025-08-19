@@ -94,6 +94,11 @@ page 72048 "LFS Posted Export Information"
                 //         ApplicationArea = All;
                 //         ToolTip = 'Specifies the Party HS Code';
                 //     }
+                field("LFS Terms of Delivery"; Rec."LFS Terms of Delivery")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Terms of Delivery';
+                }
                 field("Description of Goods"; Rec."LFS Description of Goods")
                 {
                     ApplicationArea = all;

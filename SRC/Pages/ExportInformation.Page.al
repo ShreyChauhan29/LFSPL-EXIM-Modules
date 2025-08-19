@@ -98,6 +98,11 @@ page 72040 "LFS Export Information"
                 //     ToolTip = 'Specifies the Party HS Code';
                 //     ApplicationArea = All;
                 // }
+                field("LFS Terms of Delivery"; Rec."LFS Terms of Delivery")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Terms of Delivery';
+                }
                 field("LFS Description of Goods"; Rec."LFS Description of Goods")
                 {
                     MultiLine = true;
