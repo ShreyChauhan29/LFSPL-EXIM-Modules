@@ -199,6 +199,10 @@ report 72002 "Proform Invoice Export"
                                "Document Type" = field("Document Type");
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.") order(ascending);
                 column(Type; Type) { }
+                column(Qty__to_Ship; "Qty. to Ship") { }
+                column(Unit_of_Measure_Code; "Unit of Measure Code") { }
+                column(Unit_Price; "Unit Price") { }
+                column(Line_Amount; "Line Amount") { }
                 column(LengthCalculate; LengthCalculate)
                 {
 
@@ -636,11 +640,11 @@ report 72002 "Proform Invoice Export"
                             TCSAmt += TaxTransactionValue.Amount;
                         until TaxTransactionValue.Next() = 0;
 
-                    // TotalLineAmt += "Aux Amount";
-
+                    TotalLineAmt += "Line Amount";
+                    FreightAmt += "LFS Freight Value (FCY)";
                     TotalAmtIncTaxWords := TotalLineAmt + Charge_Amt_TRN + FreightAmt + TCSAmt; //TotalAmtIncTax ;
 
-                    InitTextVariable;
+                    InitTextVariable();
                     FormatNoText(Notext, Abs(TotalAmtIncTaxWords), "Sales Header"."Currency Code");
                     RemittanceAmntInWords := Notext[1] + Notext[2];
                 end;

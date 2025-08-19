@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-06-17T06:36:15.2099180Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-08-19T10:32:58.6860865Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -22,6 +22,967 @@
       <rd:DataSourceID>648302f9-7af5-4b93-b283-2fc8c55f3ac2</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="BilltoName">
+          <DataField>BilltoName</DataField>
+        </Field>
+        <Field Name="BilltoAddress">
+          <DataField>BilltoAddress</DataField>
+        </Field>
+        <Field Name="Quote_No_">
+          <DataField>Quote_No_</DataField>
+        </Field>
+        <Field Name="VesselFlightNo">
+          <DataField>VesselFlightNo</DataField>
+        </Field>
+        <Field Name="QuoteDate">
+          <DataField>QuoteDate</DataField>
+        </Field>
+        <Field Name="Delivery_Load_Time">
+          <DataField>Delivery_Load_Time</DataField>
+        </Field>
+        <Field Name="Valid_Till">
+          <DataField>Valid_Till</DataField>
+        </Field>
+        <Field Name="ShiptoCountry">
+          <DataField>ShiptoCountry</DataField>
+        </Field>
+        <Field Name="BilltoAddress2">
+          <DataField>BilltoAddress2</DataField>
+        </Field>
+        <Field Name="BilltoCity">
+          <DataField>BilltoCity</DataField>
+        </Field>
+        <Field Name="Bill_to_Contact">
+          <DataField>Bill_to_Contact</DataField>
+        </Field>
+        <Field Name="Bill_to_Contact_No_">
+          <DataField>Bill_to_Contact_No_</DataField>
+        </Field>
+        <Field Name="Bill_to_Post_Code">
+          <DataField>Bill_to_Post_Code</DataField>
+        </Field>
+        <Field Name="BillToCountry">
+          <DataField>BillToCountry</DataField>
+        </Field>
+        <Field Name="BillToEmail">
+          <DataField>BillToEmail</DataField>
+        </Field>
+        <Field Name="Customer_GST_Reg__No_">
+          <DataField>Customer_GST_Reg__No_</DataField>
+        </Field>
+        <Field Name="ShiptoName">
+          <DataField>ShiptoName</DataField>
+        </Field>
+        <Field Name="ShiptoAddress">
+          <DataField>ShiptoAddress</DataField>
+        </Field>
+        <Field Name="ShiptoAddress2">
+          <DataField>ShiptoAddress2</DataField>
+        </Field>
+        <Field Name="ShiptoCity">
+          <DataField>ShiptoCity</DataField>
+        </Field>
+        <Field Name="Ship_to_Country_Region_Code">
+          <DataField>Ship_to_Country_Region_Code</DataField>
+        </Field>
+        <Field Name="ShiptoPostCode">
+          <DataField>ShiptoPostCode</DataField>
+        </Field>
+        <Field Name="ShiptoState">
+          <DataField>ShiptoState</DataField>
+        </Field>
+        <Field Name="ShiptoContactname">
+          <DataField>ShiptoContactname</DataField>
+        </Field>
+        <Field Name="Ship_to_Contact">
+          <DataField>Ship_to_Contact</DataField>
+        </Field>
+        <Field Name="ShiptoEmail">
+          <DataField>ShiptoEmail</DataField>
+        </Field>
+        <Field Name="ShipToGSTIN">
+          <DataField>ShipToGSTIN</DataField>
+        </Field>
+        <Field Name="Shipment_Method_Code">
+          <DataField>Shipment_Method_Code</DataField>
+        </Field>
+        <Field Name="Pharmacopia_Code">
+          <DataField>Pharmacopia_Code</DataField>
+        </Field>
+        <Field Name="PlaceofReceiptby">
+          <DataField>PlaceofReceiptby</DataField>
+        </Field>
+        <Field Name="Inco_Terms">
+          <DataField>Inco_Terms</DataField>
+        </Field>
+        <Field Name="Port_of_Discharge">
+          <DataField>Port_of_Discharge</DataField>
+        </Field>
+        <Field Name="Port_of_Loading">
+          <DataField>Port_of_Loading</DataField>
+        </Field>
+        <Field Name="Final_Destination1">
+          <DataField>Final_Destination1</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo">
+          <DataField>ExternalDocumentNo</DataField>
+        </Field>
+        <Field Name="No_SalesShipmentHeader">
+          <DataField>No_SalesShipmentHeader</DataField>
+        </Field>
+        <Field Name="currencycode">
+          <DataField>currencycode</DataField>
+        </Field>
+        <Field Name="CountryofOriginofGoods">
+          <DataField>CountryofOriginofGoods</DataField>
+        </Field>
+        <Field Name="CountryofFinalDestination">
+          <DataField>CountryofFinalDestination</DataField>
+        </Field>
+        <Field Name="Port">
+          <DataField>Port</DataField>
+        </Field>
+        <Field Name="PortofDischarge">
+          <DataField>PortofDischarge</DataField>
+        </Field>
+        <Field Name="RepTypeOpt">
+          <DataField>RepTypeOpt</DataField>
+        </Field>
+        <Field Name="Comp_StateCode">
+          <DataField>Comp_StateCode</DataField>
+        </Field>
+        <Field Name="CompInfo_GSTIN">
+          <DataField>CompInfo_GSTIN</DataField>
+        </Field>
+        <Field Name="CompInfo_FaxNo">
+          <DataField>CompInfo_FaxNo</DataField>
+        </Field>
+        <Field Name="CompInfo_PhoneNo">
+          <DataField>CompInfo_PhoneNo</DataField>
+        </Field>
+        <Field Name="CompName">
+          <DataField>CompName</DataField>
+        </Field>
+        <Field Name="CompAddr">
+          <DataField>CompAddr</DataField>
+        </Field>
+        <Field Name="CompAddr2">
+          <DataField>CompAddr2</DataField>
+        </Field>
+        <Field Name="CompCity_State_PostCode_country">
+          <DataField>CompCity_State_PostCode_country</DataField>
+        </Field>
+        <Field Name="CompWEB">
+          <DataField>CompWEB</DataField>
+        </Field>
+        <Field Name="CompGSTNo">
+          <DataField>CompGSTNo</DataField>
+        </Field>
+        <Field Name="CompInfo_Picture">
+          <DataField>CompInfo_Picture</DataField>
+        </Field>
+        <Field Name="CompInfo_CIN">
+          <DataField>CompInfo_CIN</DataField>
+        </Field>
+        <Field Name="CompPANNo">
+          <DataField>CompPANNo</DataField>
+        </Field>
+        <Field Name="CompEmail">
+          <DataField>CompEmail</DataField>
+        </Field>
+        <Field Name="CompaBankName">
+          <DataField>CompaBankName</DataField>
+        </Field>
+        <Field Name="CompBankAcc">
+          <DataField>CompBankAcc</DataField>
+        </Field>
+        <Field Name="CompBankBranch">
+          <DataField>CompBankBranch</DataField>
+        </Field>
+        <Field Name="CompIFSC">
+          <DataField>CompIFSC</DataField>
+        </Field>
+        <Field Name="I_E_C_CODE">
+          <DataField>I_E_C_CODE</DataField>
+        </Field>
+        <Field Name="Invoice_To_StateCode">
+          <DataField>Invoice_To_StateCode</DataField>
+        </Field>
+        <Field Name="Invoice_To_State">
+          <DataField>Invoice_To_State</DataField>
+        </Field>
+        <Field Name="IEC">
+          <DataField>IEC</DataField>
+        </Field>
+        <Field Name="Druglic">
+          <DataField>Druglic</DataField>
+        </Field>
+        <Field Name="factotsufffile">
+          <DataField>factotsufffile</DataField>
+        </Field>
+        <Field Name="CIN_No">
+          <DataField>CIN_No</DataField>
+        </Field>
+        <Field Name="PAN_No">
+          <DataField>PAN_No</DataField>
+        </Field>
+        <Field Name="comp_city">
+          <DataField>comp_city</DataField>
+        </Field>
+        <Field Name="post_code">
+          <DataField>post_code</DataField>
+        </Field>
+        <Field Name="CompInfo_PostCode">
+          <DataField>CompInfo_PostCode</DataField>
+        </Field>
+        <Field Name="CompInfo_Address2">
+          <DataField>CompInfo_Address2</DataField>
+        </Field>
+        <Field Name="Comment_SalesShipmentHeader">
+          <DataField>Comment_SalesShipmentHeader</DataField>
+        </Field>
+        <Field Name="CompInfo_Address">
+          <DataField>CompInfo_Address</DataField>
+        </Field>
+        <Field Name="city">
+          <DataField>city</DataField>
+        </Field>
+        <Field Name="CompInfo_Name">
+          <DataField>CompInfo_Name</DataField>
+        </Field>
+        <Field Name="ComInfo_Contact_No">
+          <DataField>ComInfo_Contact_No</DataField>
+        </Field>
+        <Field Name="ComInfo_E_Mail">
+          <DataField>ComInfo_E_Mail</DataField>
+        </Field>
+        <Field Name="AmountInWords1">
+          <DataField>AmountInWords1</DataField>
+        </Field>
+        <Field Name="Insurance">
+          <DataField>Insurance</DataField>
+        </Field>
+        <Field Name="InsuranceFormat">
+          <DataField>InsuranceFormat</DataField>
+        </Field>
+        <Field Name="Freight">
+          <DataField>Freight</DataField>
+        </Field>
+        <Field Name="FreightFormat">
+          <DataField>FreightFormat</DataField>
+        </Field>
+        <Field Name="curencycode">
+          <DataField>curencycode</DataField>
+        </Field>
+        <Field Name="SalesHeader_PortofLoading">
+          <DataField>SalesHeader_PortofLoading</DataField>
+        </Field>
+        <Field Name="SalesHeader_PortofDischarge">
+          <DataField>SalesHeader_PortofDischarge</DataField>
+        </Field>
+        <Field Name="SalesHeader_FinalDestination">
+          <DataField>SalesHeader_FinalDestination</DataField>
+        </Field>
+        <Field Name="SalesHeader_CtyfGoods">
+          <DataField>SalesHeader_CtyfGoods</DataField>
+        </Field>
+        <Field Name="SalesHeader_CtyfFinalDest">
+          <DataField>SalesHeader_CtyfFinalDest</DataField>
+        </Field>
+        <Field Name="SalesHeader_PaymentTermsCode">
+          <DataField>SalesHeader_PaymentTermsCode</DataField>
+        </Field>
+        <Field Name="Code_Loc">
+          <DataField>Code_Loc</DataField>
+        </Field>
+        <Field Name="Name_Loc">
+          <DataField>Name_Loc</DataField>
+        </Field>
+        <Field Name="OrderDate_SH">
+          <DataField>OrderDate_SH</DataField>
+        </Field>
+        <Field Name="ETD_SH">
+          <DataField>ETD_SH</DataField>
+        </Field>
+        <Field Name="Address_Loc">
+          <DataField>Address_Loc</DataField>
+        </Field>
+        <Field Name="City_PostCode_Loc">
+          <DataField>City_PostCode_Loc</DataField>
+        </Field>
+        <Field Name="Email_Loc">
+          <DataField>Email_Loc</DataField>
+        </Field>
+        <Field Name="Phone_Loc">
+          <DataField>Phone_Loc</DataField>
+        </Field>
+        <Field Name="FaxNo_Loc">
+          <DataField>FaxNo_Loc</DataField>
+        </Field>
+        <Field Name="GSTNo_Loc">
+          <DataField>GSTNo_Loc</DataField>
+        </Field>
+        <Field Name="Precarriages">
+          <DataField>Precarriages</DataField>
+        </Field>
+        <Field Name="custombankaccount">
+          <DataField>custombankaccount</DataField>
+        </Field>
+        <Field Name="bankadd">
+          <DataField>bankadd</DataField>
+        </Field>
+        <Field Name="IncoTrem">
+          <DataField>IncoTrem</DataField>
+        </Field>
+        <Field Name="modeoftransport">
+          <DataField>modeoftransport</DataField>
+        </Field>
+        <Field Name="AgentCommPer">
+          <DataField>AgentCommPer</DataField>
+        </Field>
+        <Field Name="AgentCode">
+          <DataField>AgentCode</DataField>
+        </Field>
+        <Field Name="SalesPerCode">
+          <DataField>SalesPerCode</DataField>
+        </Field>
+        <Field Name="ModeOf_Transport">
+          <DataField>ModeOf_Transport</DataField>
+        </Field>
+        <Field Name="ShipmentDate">
+          <DataField>ShipmentDate</DataField>
+        </Field>
+        <Field Name="GST_ShipTo">
+          <DataField>GST_ShipTo</DataField>
+        </Field>
+        <Field Name="GST_BuyTo">
+          <DataField>GST_BuyTo</DataField>
+        </Field>
+        <Field Name="Delivery_Terms">
+          <DataField>Delivery_Terms</DataField>
+        </Field>
+        <Field Name="PO_Date">
+          <DataField>PO_Date</DataField>
+        </Field>
+        <Field Name="BankName">
+          <DataField>BankName</DataField>
+        </Field>
+        <Field Name="BankAccNo">
+          <DataField>BankAccNo</DataField>
+        </Field>
+        <Field Name="BankBranchNo">
+          <DataField>BankBranchNo</DataField>
+        </Field>
+        <Field Name="IFSCcode">
+          <DataField>IFSCcode</DataField>
+        </Field>
+        <Field Name="BankSwift">
+          <DataField>BankSwift</DataField>
+        </Field>
+        <Field Name="InterBankAccName">
+          <DataField>InterBankAccName</DataField>
+        </Field>
+        <Field Name="InterBankAccNo">
+          <DataField>InterBankAccNo</DataField>
+        </Field>
+        <Field Name="InterBankAccSwift">
+          <DataField>InterBankAccSwift</DataField>
+        </Field>
+        <Field Name="InterBankAccAddress">
+          <DataField>InterBankAccAddress</DataField>
+        </Field>
+        <Field Name="Notify_Party">
+          <DataField>Notify_Party</DataField>
+        </Field>
+        <Field Name="statename">
+          <DataField>statename</DataField>
+        </Field>
+        <Field Name="countryname">
+          <DataField>countryname</DataField>
+        </Field>
+        <Field Name="paymenttermname">
+          <DataField>paymenttermname</DataField>
+        </Field>
+        <Field Name="ManLicTax">
+          <DataField>ManLicTax</DataField>
+        </Field>
+        <Field Name="AmountInWords2">
+          <DataField>AmountInWords2</DataField>
+        </Field>
+        <Field Name="ComInfo_Name">
+          <DataField>ComInfo_Name</DataField>
+        </Field>
+        <Field Name="ComInfo_Address">
+          <DataField>ComInfo_Address</DataField>
+        </Field>
+        <Field Name="ComInfo_Address_2">
+          <DataField>ComInfo_Address_2</DataField>
+        </Field>
+        <Field Name="ComInfo_City">
+          <DataField>ComInfo_City</DataField>
+        </Field>
+        <Field Name="ComInfo_State_Code">
+          <DataField>ComInfo_State_Code</DataField>
+        </Field>
+        <Field Name="ComInfo_County">
+          <DataField>ComInfo_County</DataField>
+        </Field>
+        <Field Name="ComInfo_Post_Code">
+          <DataField>ComInfo_Post_Code</DataField>
+        </Field>
+        <Field Name="Sell_to_Contact">
+          <DataField>Sell_to_Contact</DataField>
+        </Field>
+        <Field Name="BilltoContactNo">
+          <DataField>BilltoContactNo</DataField>
+        </Field>
+        <Field Name="BillToState">
+          <DataField>BillToState</DataField>
+        </Field>
+        <Field Name="ShiptoContactNo">
+          <DataField>ShiptoContactNo</DataField>
+        </Field>
+        <Field Name="SalesHeaderComment">
+          <DataField>SalesHeaderComment</DataField>
+        </Field>
+        <Field Name="CustomerOrderNo">
+          <DataField>CustomerOrderNo</DataField>
+        </Field>
+        <Field Name="CustomerOrderDate">
+          <DataField>CustomerOrderDate</DataField>
+        </Field>
+        <Field Name="DateOfSupply">
+          <DataField>DateOfSupply</DataField>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="Address2">
+          <DataField>Address2</DataField>
+        </Field>
+        <Field Name="City1">
+          <DataField>City1</DataField>
+        </Field>
+        <Field Name="PostCode">
+          <DataField>PostCode</DataField>
+        </Field>
+        <Field Name="StateCode">
+          <DataField>StateCode</DataField>
+        </Field>
+        <Field Name="CountryCode">
+          <DataField>CountryCode</DataField>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+        </Field>
+        <Field Name="Invoice_To_GSTIN">
+          <DataField>Invoice_To_GSTIN</DataField>
+        </Field>
+        <Field Name="Invoice_To_Post_Code">
+          <DataField>Invoice_To_Post_Code</DataField>
+        </Field>
+        <Field Name="Invoice_To_Email">
+          <DataField>Invoice_To_Email</DataField>
+        </Field>
+        <Field Name="Invoice_To_Country">
+          <DataField>Invoice_To_Country</DataField>
+        </Field>
+        <Field Name="Invoice_To_Contact">
+          <DataField>Invoice_To_Contact</DataField>
+        </Field>
+        <Field Name="Shipping_Agent_Service_Code">
+          <DataField>Shipping_Agent_Service_Code</DataField>
+        </Field>
+        <Field Name="Shipment_Date">
+          <DataField>Shipment_Date</DataField>
+        </Field>
+        <Field Name="Payment_Terms_Code">
+          <DataField>Payment_Terms_Code</DataField>
+        </Field>
+        <Field Name="Charge_Amt_TRN">
+          <DataField>Charge_Amt_TRN</DataField>
+        </Field>
+        <Field Name="Charge_Amt_TRNFormat">
+          <DataField>Charge_Amt_TRNFormat</DataField>
+        </Field>
+        <Field Name="SystemCreatedBy">
+          <DataField>SystemCreatedBy</DataField>
+        </Field>
+        <Field Name="TermAndCondDescrip">
+          <DataField>TermAndCondDescrip</DataField>
+        </Field>
+        <Field Name="TermAndCondDescripTechnical">
+          <DataField>TermAndCondDescripTechnical</DataField>
+        </Field>
+        <Field Name="TermAndCondDescripLogistics">
+          <DataField>TermAndCondDescripLogistics</DataField>
+        </Field>
+        <Field Name="Cust_phone">
+          <DataField>Cust_phone</DataField>
+        </Field>
+        <Field Name="Company_Bank_Account_Code">
+          <DataField>Company_Bank_Account_Code</DataField>
+        </Field>
+        <Field Name="Work_Description">
+          <DataField>Work_Description</DataField>
+        </Field>
+        <Field Name="FooterCompanyAddress">
+          <DataField>FooterCompanyAddress</DataField>
+        </Field>
+        <Field Name="FooterAddress2">
+          <DataField>FooterAddress2</DataField>
+        </Field>
+        <Field Name="FooterCompanyAddressHO">
+          <DataField>FooterCompanyAddressHO</DataField>
+        </Field>
+        <Field Name="FooterAddress2HO">
+          <DataField>FooterAddress2HO</DataField>
+        </Field>
+        <Field Name="LCY_Currency_Code">
+          <DataField>LCY_Currency_Code</DataField>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+        </Field>
+        <Field Name="Qty__to_Ship">
+          <DataField>Qty__to_Ship</DataField>
+        </Field>
+        <Field Name="Qty__to_ShipFormat">
+          <DataField>Qty__to_ShipFormat</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure_Code">
+          <DataField>Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Unit_Price">
+          <DataField>Unit_Price</DataField>
+        </Field>
+        <Field Name="Unit_PriceFormat">
+          <DataField>Unit_PriceFormat</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="LengthCalculate">
+          <DataField>LengthCalculate</DataField>
+        </Field>
+        <Field Name="LengthCalculateFormat">
+          <DataField>LengthCalculateFormat</DataField>
+        </Field>
+        <Field Name="Length_mtr_pc_">
+          <DataField>Length_mtr_pc_</DataField>
+        </Field>
+        <Field Name="Length_feet_pc_">
+          <DataField>Length_feet_pc_</DataField>
+        </Field>
+        <Field Name="Length_mm_pc_">
+          <DataField>Length_mm_pc_</DataField>
+        </Field>
+        <Field Name="Rate_Per_Kg">
+          <DataField>Rate_Per_Kg</DataField>
+        </Field>
+        <Field Name="Rate_per_Feet">
+          <DataField>Rate_per_Feet</DataField>
+        </Field>
+        <Field Name="Rate_per_Lbs">
+          <DataField>Rate_per_Lbs</DataField>
+        </Field>
+        <Field Name="Rate_per_Mtr">
+          <DataField>Rate_per_Mtr</DataField>
+        </Field>
+        <Field Name="Rate_per_Pc">
+          <DataField>Rate_per_Pc</DataField>
+        </Field>
+        <Field Name="Print_Rate_KG">
+          <DataField>Print_Rate_KG</DataField>
+        </Field>
+        <Field Name="Print_Length_Mtr">
+          <DataField>Print_Length_Mtr</DataField>
+        </Field>
+        <Field Name="HSN_SAC_Code">
+          <DataField>HSN_SAC_Code</DataField>
+        </Field>
+        <Field Name="CGSTPer">
+          <DataField>CGSTPer</DataField>
+        </Field>
+        <Field Name="CGSTPerFormat">
+          <DataField>CGSTPerFormat</DataField>
+        </Field>
+        <Field Name="CGSTAmt">
+          <DataField>CGSTAmt</DataField>
+        </Field>
+        <Field Name="CGSTAmtFormat">
+          <DataField>CGSTAmtFormat</DataField>
+        </Field>
+        <Field Name="SGSTPer">
+          <DataField>SGSTPer</DataField>
+        </Field>
+        <Field Name="SGSTPerFormat">
+          <DataField>SGSTPerFormat</DataField>
+        </Field>
+        <Field Name="SGSTAmt">
+          <DataField>SGSTAmt</DataField>
+        </Field>
+        <Field Name="SGSTAmtFormat">
+          <DataField>SGSTAmtFormat</DataField>
+        </Field>
+        <Field Name="IGSTAmt">
+          <DataField>IGSTAmt</DataField>
+        </Field>
+        <Field Name="IGSTAmtFormat">
+          <DataField>IGSTAmtFormat</DataField>
+        </Field>
+        <Field Name="IGSTPer">
+          <DataField>IGSTPer</DataField>
+        </Field>
+        <Field Name="IGSTPerFormat">
+          <DataField>IGSTPerFormat</DataField>
+        </Field>
+        <Field Name="Specification_Code">
+          <DataField>Specification_Code</DataField>
+        </Field>
+        <Field Name="FOB_Igst">
+          <DataField>FOB_Igst</DataField>
+        </Field>
+        <Field Name="FOB_IgstFormat">
+          <DataField>FOB_IgstFormat</DataField>
+        </Field>
+        <Field Name="FOB_CurrValue">
+          <DataField>FOB_CurrValue</DataField>
+        </Field>
+        <Field Name="FOB_CurrValueFormat">
+          <DataField>FOB_CurrValueFormat</DataField>
+        </Field>
+        <Field Name="Curr_Factor">
+          <DataField>Curr_Factor</DataField>
+        </Field>
+        <Field Name="Curr_FactorFormat">
+          <DataField>Curr_FactorFormat</DataField>
+        </Field>
+        <Field Name="TotalValue_INR">
+          <DataField>TotalValue_INR</DataField>
+        </Field>
+        <Field Name="TotalValue_INRFormat">
+          <DataField>TotalValue_INRFormat</DataField>
+        </Field>
+        <Field Name="FOB_Value">
+          <DataField>FOB_Value</DataField>
+        </Field>
+        <Field Name="FOB_ValueFormat">
+          <DataField>FOB_ValueFormat</DataField>
+        </Field>
+        <Field Name="Marks">
+          <DataField>Marks</DataField>
+        </Field>
+        <Field Name="Pallet">
+          <DataField>Pallet</DataField>
+        </Field>
+        <Field Name="FromPallet">
+          <DataField>FromPallet</DataField>
+        </Field>
+        <Field Name="ToPallet">
+          <DataField>ToPallet</DataField>
+        </Field>
+        <Field Name="ExpDate">
+          <DataField>ExpDate</DataField>
+        </Field>
+        <Field Name="NettWeight">
+          <DataField>NettWeight</DataField>
+        </Field>
+        <Field Name="NettWeightFormat">
+          <DataField>NettWeightFormat</DataField>
+        </Field>
+        <Field Name="GrossWeight">
+          <DataField>GrossWeight</DataField>
+        </Field>
+        <Field Name="GrossWeightFormat">
+          <DataField>GrossWeightFormat</DataField>
+        </Field>
+        <Field Name="Amount_CIF">
+          <DataField>Amount_CIF</DataField>
+        </Field>
+        <Field Name="Amount_CIFFormat">
+          <DataField>Amount_CIFFormat</DataField>
+        </Field>
+        <Field Name="AmountINUSD">
+          <DataField>AmountINUSD</DataField>
+        </Field>
+        <Field Name="AmountINUSDFormat">
+          <DataField>AmountINUSDFormat</DataField>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountFormat">
+          <DataField>TotalAmountFormat</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="Gross_Weight">
+          <DataField>Gross_Weight</DataField>
+        </Field>
+        <Field Name="Gross_WeightFormat">
+          <DataField>Gross_WeightFormat</DataField>
+        </Field>
+        <Field Name="Liscnceno">
+          <DataField>Liscnceno</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Description2">
+          <DataField>Description2</DataField>
+        </Field>
+        <Field Name="HSNSACCode">
+          <DataField>HSNSACCode</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode">
+          <DataField>UnitofMeasureCode</DataField>
+        </Field>
+        <Field Name="UnitPrice">
+          <DataField>UnitPrice</DataField>
+        </Field>
+        <Field Name="UnitPriceFormat">
+          <DataField>UnitPriceFormat</DataField>
+        </Field>
+        <Field Name="NetWeight1">
+          <DataField>NetWeight1</DataField>
+        </Field>
+        <Field Name="NetWeight1Format">
+          <DataField>NetWeight1Format</DataField>
+        </Field>
+        <Field Name="Grossweight1">
+          <DataField>Grossweight1</DataField>
+        </Field>
+        <Field Name="Grossweight1Format">
+          <DataField>Grossweight1Format</DataField>
+        </Field>
+        <Field Name="itemno">
+          <DataField>itemno</DataField>
+        </Field>
+        <Field Name="LineAmount">
+          <DataField>LineAmount</DataField>
+        </Field>
+        <Field Name="LineAmountFormat">
+          <DataField>LineAmountFormat</DataField>
+        </Field>
+        <Field Name="SrNo">
+          <DataField>SrNo</DataField>
+        </Field>
+        <Field Name="lisctype">
+          <DataField>lisctype</DataField>
+        </Field>
+        <Field Name="ExmptedMet">
+          <DataField>ExmptedMet</DataField>
+        </Field>
+        <Field Name="AdvLicissuedate">
+          <DataField>AdvLicissuedate</DataField>
+        </Field>
+        <Field Name="noofbags">
+          <DataField>noofbags</DataField>
+        </Field>
+        <Field Name="noofbagsFormat">
+          <DataField>noofbagsFormat</DataField>
+        </Field>
+        <Field Name="UNITPER">
+          <DataField>UNITPER</DataField>
+        </Field>
+        <Field Name="UNITPERFormat">
+          <DataField>UNITPERFormat</DataField>
+        </Field>
+        <Field Name="lot">
+          <DataField>lot</DataField>
+        </Field>
+        <Field Name="ARNno">
+          <DataField>ARNno</DataField>
+        </Field>
+        <Field Name="containner">
+          <DataField>containner</DataField>
+        </Field>
+        <Field Name="UOM">
+          <DataField>UOM</DataField>
+        </Field>
+        <Field Name="mfgdate">
+          <DataField>mfgdate</DataField>
+        </Field>
+        <Field Name="NumInWords1">
+          <DataField>NumInWords1</DataField>
+        </Field>
+        <Field Name="NumInWords2">
+          <DataField>NumInWords2</DataField>
+        </Field>
+        <Field Name="RemittanceAmntInWords">
+          <DataField>RemittanceAmntInWords</DataField>
+        </Field>
+        <Field Name="EXIMRemark_SalesLine">
+          <DataField>EXIMRemark_SalesLine</DataField>
+        </Field>
+        <Field Name="LineAmount_SalesLine">
+          <DataField>LineAmount_SalesLine</DataField>
+        </Field>
+        <Field Name="LineAmount_SalesLineFormat">
+          <DataField>LineAmount_SalesLineFormat</DataField>
+        </Field>
+        <Field Name="ShippingBillNo">
+          <DataField>ShippingBillNo</DataField>
+        </Field>
+        <Field Name="ShippingBillDate">
+          <DataField>ShippingBillDate</DataField>
+        </Field>
+        <Field Name="LineAmtTax">
+          <DataField>LineAmtTax</DataField>
+        </Field>
+        <Field Name="LineAmtTaxFormat">
+          <DataField>LineAmtTaxFormat</DataField>
+        </Field>
+        <Field Name="TotalLineamt">
+          <DataField>TotalLineamt</DataField>
+        </Field>
+        <Field Name="TotalLineamtFormat">
+          <DataField>TotalLineamtFormat</DataField>
+        </Field>
+        <Field Name="FreightAmount">
+          <DataField>FreightAmount</DataField>
+        </Field>
+        <Field Name="FreightAmountFormat">
+          <DataField>FreightAmountFormat</DataField>
+        </Field>
+        <Field Name="InsuranceAmount">
+          <DataField>InsuranceAmount</DataField>
+        </Field>
+        <Field Name="InsuranceAmountFormat">
+          <DataField>InsuranceAmountFormat</DataField>
+        </Field>
+        <Field Name="AdvLiceNo">
+          <DataField>AdvLiceNo</DataField>
+        </Field>
+        <Field Name="IncentiveType_">
+          <DataField>IncentiveType_</DataField>
+        </Field>
+        <Field Name="ClaimDDB_">
+          <DataField>ClaimDDB_</DataField>
+        </Field>
+        <Field Name="FreightAmt">
+          <DataField>FreightAmt</DataField>
+        </Field>
+        <Field Name="FreightAmtFormat">
+          <DataField>FreightAmtFormat</DataField>
+        </Field>
+        <Field Name="PackingAmt">
+          <DataField>PackingAmt</DataField>
+        </Field>
+        <Field Name="PackingAmtFormat">
+          <DataField>PackingAmtFormat</DataField>
+        </Field>
+        <Field Name="GSTAmt">
+          <DataField>GSTAmt</DataField>
+        </Field>
+        <Field Name="GSTAmtFormat">
+          <DataField>GSTAmtFormat</DataField>
+        </Field>
+        <Field Name="BCDAmt">
+          <DataField>BCDAmt</DataField>
+        </Field>
+        <Field Name="BCDAmtFormat">
+          <DataField>BCDAmtFormat</DataField>
+        </Field>
+        <Field Name="SWCAmt">
+          <DataField>SWCAmt</DataField>
+        </Field>
+        <Field Name="SWCAmtFormat">
+          <DataField>SWCAmtFormat</DataField>
+        </Field>
+        <Field Name="EDCAmt">
+          <DataField>EDCAmt</DataField>
+        </Field>
+        <Field Name="EDCAmtFormat">
+          <DataField>EDCAmtFormat</DataField>
+        </Field>
+        <Field Name="Final_destination">
+          <DataField>Final_destination</DataField>
+        </Field>
+        <Field Name="GSTRegNo">
+          <DataField>GSTRegNo</DataField>
+        </Field>
+        <Field Name="Pharmacopoeia">
+          <DataField>Pharmacopoeia</DataField>
+        </Field>
+        <Field Name="TotalAmtIncTax">
+          <DataField>TotalAmtIncTax</DataField>
+        </Field>
+        <Field Name="TotalAmtIncTaxFormat">
+          <DataField>TotalAmtIncTaxFormat</DataField>
+        </Field>
+        <Field Name="TCSAmt">
+          <DataField>TCSAmt</DataField>
+        </Field>
+        <Field Name="TCSAmtFormat">
+          <DataField>TCSAmtFormat</DataField>
+        </Field>
+        <Field Name="Aux_UOM">
+          <DataField>Aux_UOM</DataField>
+        </Field>
+        <Field Name="Aux_Qty">
+          <DataField>Aux_Qty</DataField>
+        </Field>
+        <Field Name="Aux_Unit_Rate">
+          <DataField>Aux_Unit_Rate</DataField>
+        </Field>
+        <Field Name="Aux_Amount">
+          <DataField>Aux_Amount</DataField>
+        </Field>
+        <Field Name="No__of_Pc">
+          <DataField>No__of_Pc</DataField>
+        </Field>
+        <Field Name="Item_Temper_Code">
+          <DataField>Item_Temper_Code</DataField>
+        </Field>
+        <Field Name="OD_inch_">
+          <DataField>OD_inch_</DataField>
+        </Field>
+        <Field Name="Thickness_inch_">
+          <DataField>Thickness_inch_</DataField>
+        </Field>
+        <Field Name="Wt_feet">
+          <DataField>Wt_feet</DataField>
+        </Field>
+        <Field Name="Wt_Pc">
+          <DataField>Wt_Pc</DataField>
+        </Field>
+        <Field Name="ItemDescription">
+          <DataField>ItemDescription</DataField>
+        </Field>
+        <Field Name="Item_Reference_No_">
+          <DataField>Item_Reference_No_</DataField>
+        </Field>
+        <Field Name="Net_Weight">
+          <DataField>Net_Weight</DataField>
+        </Field>
+        <Field Name="Net_WeightFormat">
+          <DataField>Net_WeightFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -536,7 +1497,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!ItemDescription.Value</Value>
+                                  <Value>=Fields!Description.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -641,14 +1602,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox2">
+                        <Textbox Name="Qty__to_Ship">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Aux_Qty.Value</Value>
+                                  <Value>=Fields!Qty__to_Ship.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -659,7 +1620,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <rd:DefaultName>Qty__to_Ship</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -690,14 +1651,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox90">
+                        <Textbox Name="Unit_of_Measure_Code">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Aux_UOM.Value</Value>
+                                  <Value>=Fields!Unit_of_Measure_Code.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -709,7 +1670,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox90</rd:DefaultName>
+                          <rd:DefaultName>Unit_of_Measure_Code</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -740,14 +1701,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox20">
+                        <Textbox Name="Unit_Price">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Aux_Unit_Rate.Value</Value>
+                                  <Value>=Fields!Unit_Price.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -758,7 +1719,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <rd:DefaultName>Unit_Price</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -789,14 +1750,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox22">
+                        <Textbox Name="Line_Amount">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Aux_Amount.Value</Value>
+                                  <Value>=Fields!Line_Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -809,7 +1770,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox22</rd:DefaultName>
+                          <rd:DefaultName>Line_Amount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1015,7 +1976,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Aux_Amount.Value)</Value>
+                                  <Value>=Sum(Fields!Line_Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1157,7 +2118,7 @@
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>0.33767cm</Height>
+                                    <Height>1.09415cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -1242,187 +2203,6 @@
                                       </TablixCell>
                                     </TablixCells>
                                   </TablixRow>
-                                  <TablixRow>
-                                    <Height>0.33767cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox91">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>Total PCS</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox91</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.25pt</Width>
-                                              </Border>
-                                              <PaddingLeft>1pt</PaddingLeft>
-                                              <PaddingRight>1pt</PaddingRight>
-                                              <PaddingTop>1pt</PaddingTop>
-                                              <PaddingBottom>1pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox92">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>: </Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                  <TextRun>
-                                                    <Value>=Sum(Fields!No__of_Pc.Value)</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                      <Format>n2</Format>
-                                                    </Style>
-                                                  </TextRun>
-                                                  <TextRun>
-                                                    <Value> PCS</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                      <Format>n2</Format>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox92</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.25pt</Width>
-                                              </Border>
-                                              <PaddingLeft>1pt</PaddingLeft>
-                                              <PaddingRight>1pt</PaddingRight>
-                                              <PaddingTop>1pt</PaddingTop>
-                                              <PaddingBottom>1pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                  <TablixRow>
-                                    <Height>0.41881cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox6">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>Total As UOM</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox6</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.25pt</Width>
-                                              </Border>
-                                              <PaddingLeft>1pt</PaddingLeft>
-                                              <PaddingRight>1pt</PaddingRight>
-                                              <PaddingTop>1pt</PaddingTop>
-                                              <PaddingBottom>1pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox7">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>: </Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                  <TextRun>
-                                                    <Value>=Sum(Fields!Aux_Qty.Value)</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                  <TextRun>
-                                                    <Value xml:space="preserve">  </Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                  <TextRun>
-                                                    <Value>=Fields!Aux_UOM.Value</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox7</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.25pt</Width>
-                                              </Border>
-                                              <PaddingLeft>1pt</PaddingLeft>
-                                              <PaddingRight>1pt</PaddingRight>
-                                              <PaddingTop>1pt</PaddingTop>
-                                              <PaddingBottom>1pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
                                 </TablixRows>
                               </TablixBody>
                               <TablixColumnHierarchy>
@@ -1433,8 +2213,6 @@
                               </TablixColumnHierarchy>
                               <TablixRowHierarchy>
                                 <TablixMembers>
-                                  <TablixMember />
-                                  <TablixMember />
                                   <TablixMember />
                                 </TablixMembers>
                               </TablixRowHierarchy>
@@ -1561,6 +2339,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
             <Top>0in</Top>
             <Left>0in</Left>
             <Height>1.27821in</Height>
@@ -3907,6 +4686,12 @@ TRUE &amp; CORRECT.	</Value>
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3946,944 +4731,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="BilltoName">
-          <DataField>BilltoName</DataField>
-        </Field>
-        <Field Name="BilltoAddress">
-          <DataField>BilltoAddress</DataField>
-        </Field>
-        <Field Name="Quote_No_">
-          <DataField>Quote_No_</DataField>
-        </Field>
-        <Field Name="VesselFlightNo">
-          <DataField>VesselFlightNo</DataField>
-        </Field>
-        <Field Name="QuoteDate">
-          <DataField>QuoteDate</DataField>
-        </Field>
-        <Field Name="Delivery_Load_Time">
-          <DataField>Delivery_Load_Time</DataField>
-        </Field>
-        <Field Name="Valid_Till">
-          <DataField>Valid_Till</DataField>
-        </Field>
-        <Field Name="ShiptoCountry">
-          <DataField>ShiptoCountry</DataField>
-        </Field>
-        <Field Name="BilltoAddress2">
-          <DataField>BilltoAddress2</DataField>
-        </Field>
-        <Field Name="BilltoCity">
-          <DataField>BilltoCity</DataField>
-        </Field>
-        <Field Name="Bill_to_Contact">
-          <DataField>Bill_to_Contact</DataField>
-        </Field>
-        <Field Name="Bill_to_Contact_No_">
-          <DataField>Bill_to_Contact_No_</DataField>
-        </Field>
-        <Field Name="Bill_to_Post_Code">
-          <DataField>Bill_to_Post_Code</DataField>
-        </Field>
-        <Field Name="BillToCountry">
-          <DataField>BillToCountry</DataField>
-        </Field>
-        <Field Name="BillToEmail">
-          <DataField>BillToEmail</DataField>
-        </Field>
-        <Field Name="Customer_GST_Reg__No_">
-          <DataField>Customer_GST_Reg__No_</DataField>
-        </Field>
-        <Field Name="ShiptoName">
-          <DataField>ShiptoName</DataField>
-        </Field>
-        <Field Name="ShiptoAddress">
-          <DataField>ShiptoAddress</DataField>
-        </Field>
-        <Field Name="ShiptoAddress2">
-          <DataField>ShiptoAddress2</DataField>
-        </Field>
-        <Field Name="ShiptoCity">
-          <DataField>ShiptoCity</DataField>
-        </Field>
-        <Field Name="Ship_to_Country_Region_Code">
-          <DataField>Ship_to_Country_Region_Code</DataField>
-        </Field>
-        <Field Name="ShiptoPostCode">
-          <DataField>ShiptoPostCode</DataField>
-        </Field>
-        <Field Name="ShiptoState">
-          <DataField>ShiptoState</DataField>
-        </Field>
-        <Field Name="ShiptoContactname">
-          <DataField>ShiptoContactname</DataField>
-        </Field>
-        <Field Name="Ship_to_Contact">
-          <DataField>Ship_to_Contact</DataField>
-        </Field>
-        <Field Name="ShiptoEmail">
-          <DataField>ShiptoEmail</DataField>
-        </Field>
-        <Field Name="ShipToGSTIN">
-          <DataField>ShipToGSTIN</DataField>
-        </Field>
-        <Field Name="Shipment_Method_Code">
-          <DataField>Shipment_Method_Code</DataField>
-        </Field>
-        <Field Name="Pharmacopia_Code">
-          <DataField>Pharmacopia_Code</DataField>
-        </Field>
-        <Field Name="PlaceofReceiptby">
-          <DataField>PlaceofReceiptby</DataField>
-        </Field>
-        <Field Name="Inco_Terms">
-          <DataField>Inco_Terms</DataField>
-        </Field>
-        <Field Name="Port_of_Discharge">
-          <DataField>Port_of_Discharge</DataField>
-        </Field>
-        <Field Name="Port_of_Loading">
-          <DataField>Port_of_Loading</DataField>
-        </Field>
-        <Field Name="Final_Destination1">
-          <DataField>Final_Destination1</DataField>
-        </Field>
-        <Field Name="ExternalDocumentNo">
-          <DataField>ExternalDocumentNo</DataField>
-        </Field>
-        <Field Name="No_SalesShipmentHeader">
-          <DataField>No_SalesShipmentHeader</DataField>
-        </Field>
-        <Field Name="currencycode">
-          <DataField>currencycode</DataField>
-        </Field>
-        <Field Name="CountryofOriginofGoods">
-          <DataField>CountryofOriginofGoods</DataField>
-        </Field>
-        <Field Name="CountryofFinalDestination">
-          <DataField>CountryofFinalDestination</DataField>
-        </Field>
-        <Field Name="Port">
-          <DataField>Port</DataField>
-        </Field>
-        <Field Name="PortofDischarge">
-          <DataField>PortofDischarge</DataField>
-        </Field>
-        <Field Name="RepTypeOpt">
-          <DataField>RepTypeOpt</DataField>
-        </Field>
-        <Field Name="Comp_StateCode">
-          <DataField>Comp_StateCode</DataField>
-        </Field>
-        <Field Name="CompInfo_GSTIN">
-          <DataField>CompInfo_GSTIN</DataField>
-        </Field>
-        <Field Name="CompInfo_FaxNo">
-          <DataField>CompInfo_FaxNo</DataField>
-        </Field>
-        <Field Name="CompInfo_PhoneNo">
-          <DataField>CompInfo_PhoneNo</DataField>
-        </Field>
-        <Field Name="CompName">
-          <DataField>CompName</DataField>
-        </Field>
-        <Field Name="CompAddr">
-          <DataField>CompAddr</DataField>
-        </Field>
-        <Field Name="CompAddr2">
-          <DataField>CompAddr2</DataField>
-        </Field>
-        <Field Name="CompCity_State_PostCode_country">
-          <DataField>CompCity_State_PostCode_country</DataField>
-        </Field>
-        <Field Name="CompWEB">
-          <DataField>CompWEB</DataField>
-        </Field>
-        <Field Name="CompGSTNo">
-          <DataField>CompGSTNo</DataField>
-        </Field>
-        <Field Name="CompInfo_Picture">
-          <DataField>CompInfo_Picture</DataField>
-        </Field>
-        <Field Name="CompInfo_CIN">
-          <DataField>CompInfo_CIN</DataField>
-        </Field>
-        <Field Name="CompPANNo">
-          <DataField>CompPANNo</DataField>
-        </Field>
-        <Field Name="CompEmail">
-          <DataField>CompEmail</DataField>
-        </Field>
-        <Field Name="CompaBankName">
-          <DataField>CompaBankName</DataField>
-        </Field>
-        <Field Name="CompBankAcc">
-          <DataField>CompBankAcc</DataField>
-        </Field>
-        <Field Name="CompBankBranch">
-          <DataField>CompBankBranch</DataField>
-        </Field>
-        <Field Name="CompIFSC">
-          <DataField>CompIFSC</DataField>
-        </Field>
-        <Field Name="I_E_C_CODE">
-          <DataField>I_E_C_CODE</DataField>
-        </Field>
-        <Field Name="Invoice_To_StateCode">
-          <DataField>Invoice_To_StateCode</DataField>
-        </Field>
-        <Field Name="Invoice_To_State">
-          <DataField>Invoice_To_State</DataField>
-        </Field>
-        <Field Name="IEC">
-          <DataField>IEC</DataField>
-        </Field>
-        <Field Name="Druglic">
-          <DataField>Druglic</DataField>
-        </Field>
-        <Field Name="factotsufffile">
-          <DataField>factotsufffile</DataField>
-        </Field>
-        <Field Name="CIN_No">
-          <DataField>CIN_No</DataField>
-        </Field>
-        <Field Name="PAN_No">
-          <DataField>PAN_No</DataField>
-        </Field>
-        <Field Name="comp_city">
-          <DataField>comp_city</DataField>
-        </Field>
-        <Field Name="post_code">
-          <DataField>post_code</DataField>
-        </Field>
-        <Field Name="CompInfo_PostCode">
-          <DataField>CompInfo_PostCode</DataField>
-        </Field>
-        <Field Name="CompInfo_Address2">
-          <DataField>CompInfo_Address2</DataField>
-        </Field>
-        <Field Name="Comment_SalesShipmentHeader">
-          <DataField>Comment_SalesShipmentHeader</DataField>
-        </Field>
-        <Field Name="CompInfo_Address">
-          <DataField>CompInfo_Address</DataField>
-        </Field>
-        <Field Name="city">
-          <DataField>city</DataField>
-        </Field>
-        <Field Name="CompInfo_Name">
-          <DataField>CompInfo_Name</DataField>
-        </Field>
-        <Field Name="ComInfo_Contact_No">
-          <DataField>ComInfo_Contact_No</DataField>
-        </Field>
-        <Field Name="ComInfo_E_Mail">
-          <DataField>ComInfo_E_Mail</DataField>
-        </Field>
-        <Field Name="AmountInWords1">
-          <DataField>AmountInWords1</DataField>
-        </Field>
-        <Field Name="Insurance">
-          <DataField>Insurance</DataField>
-        </Field>
-        <Field Name="InsuranceFormat">
-          <DataField>InsuranceFormat</DataField>
-        </Field>
-        <Field Name="Freight">
-          <DataField>Freight</DataField>
-        </Field>
-        <Field Name="FreightFormat">
-          <DataField>FreightFormat</DataField>
-        </Field>
-        <Field Name="curencycode">
-          <DataField>curencycode</DataField>
-        </Field>
-        <Field Name="SalesHeader_PortofLoading">
-          <DataField>SalesHeader_PortofLoading</DataField>
-        </Field>
-        <Field Name="SalesHeader_PortofDischarge">
-          <DataField>SalesHeader_PortofDischarge</DataField>
-        </Field>
-        <Field Name="SalesHeader_FinalDestination">
-          <DataField>SalesHeader_FinalDestination</DataField>
-        </Field>
-        <Field Name="SalesHeader_CtyfGoods">
-          <DataField>SalesHeader_CtyfGoods</DataField>
-        </Field>
-        <Field Name="SalesHeader_CtyfFinalDest">
-          <DataField>SalesHeader_CtyfFinalDest</DataField>
-        </Field>
-        <Field Name="SalesHeader_PaymentTermsCode">
-          <DataField>SalesHeader_PaymentTermsCode</DataField>
-        </Field>
-        <Field Name="Code_Loc">
-          <DataField>Code_Loc</DataField>
-        </Field>
-        <Field Name="Name_Loc">
-          <DataField>Name_Loc</DataField>
-        </Field>
-        <Field Name="OrderDate_SH">
-          <DataField>OrderDate_SH</DataField>
-        </Field>
-        <Field Name="ETD_SH">
-          <DataField>ETD_SH</DataField>
-        </Field>
-        <Field Name="Address_Loc">
-          <DataField>Address_Loc</DataField>
-        </Field>
-        <Field Name="City_PostCode_Loc">
-          <DataField>City_PostCode_Loc</DataField>
-        </Field>
-        <Field Name="Email_Loc">
-          <DataField>Email_Loc</DataField>
-        </Field>
-        <Field Name="Phone_Loc">
-          <DataField>Phone_Loc</DataField>
-        </Field>
-        <Field Name="FaxNo_Loc">
-          <DataField>FaxNo_Loc</DataField>
-        </Field>
-        <Field Name="GSTNo_Loc">
-          <DataField>GSTNo_Loc</DataField>
-        </Field>
-        <Field Name="Precarriages">
-          <DataField>Precarriages</DataField>
-        </Field>
-        <Field Name="custombankaccount">
-          <DataField>custombankaccount</DataField>
-        </Field>
-        <Field Name="bankadd">
-          <DataField>bankadd</DataField>
-        </Field>
-        <Field Name="IncoTrem">
-          <DataField>IncoTrem</DataField>
-        </Field>
-        <Field Name="modeoftransport">
-          <DataField>modeoftransport</DataField>
-        </Field>
-        <Field Name="AgentCommPer">
-          <DataField>AgentCommPer</DataField>
-        </Field>
-        <Field Name="AgentCode">
-          <DataField>AgentCode</DataField>
-        </Field>
-        <Field Name="SalesPerCode">
-          <DataField>SalesPerCode</DataField>
-        </Field>
-        <Field Name="ModeOf_Transport">
-          <DataField>ModeOf_Transport</DataField>
-        </Field>
-        <Field Name="ShipmentDate">
-          <DataField>ShipmentDate</DataField>
-        </Field>
-        <Field Name="GST_ShipTo">
-          <DataField>GST_ShipTo</DataField>
-        </Field>
-        <Field Name="GST_BuyTo">
-          <DataField>GST_BuyTo</DataField>
-        </Field>
-        <Field Name="Delivery_Terms">
-          <DataField>Delivery_Terms</DataField>
-        </Field>
-        <Field Name="PO_Date">
-          <DataField>PO_Date</DataField>
-        </Field>
-        <Field Name="BankName">
-          <DataField>BankName</DataField>
-        </Field>
-        <Field Name="BankAccNo">
-          <DataField>BankAccNo</DataField>
-        </Field>
-        <Field Name="BankBranchNo">
-          <DataField>BankBranchNo</DataField>
-        </Field>
-        <Field Name="IFSCcode">
-          <DataField>IFSCcode</DataField>
-        </Field>
-        <Field Name="BankSwift">
-          <DataField>BankSwift</DataField>
-        </Field>
-        <Field Name="InterBankAccName">
-          <DataField>InterBankAccName</DataField>
-        </Field>
-        <Field Name="InterBankAccNo">
-          <DataField>InterBankAccNo</DataField>
-        </Field>
-        <Field Name="InterBankAccSwift">
-          <DataField>InterBankAccSwift</DataField>
-        </Field>
-        <Field Name="InterBankAccAddress">
-          <DataField>InterBankAccAddress</DataField>
-        </Field>
-        <Field Name="Notify_Party">
-          <DataField>Notify_Party</DataField>
-        </Field>
-        <Field Name="statename">
-          <DataField>statename</DataField>
-        </Field>
-        <Field Name="countryname">
-          <DataField>countryname</DataField>
-        </Field>
-        <Field Name="paymenttermname">
-          <DataField>paymenttermname</DataField>
-        </Field>
-        <Field Name="ManLicTax">
-          <DataField>ManLicTax</DataField>
-        </Field>
-        <Field Name="AmountInWords2">
-          <DataField>AmountInWords2</DataField>
-        </Field>
-        <Field Name="ComInfo_Name">
-          <DataField>ComInfo_Name</DataField>
-        </Field>
-        <Field Name="ComInfo_Address">
-          <DataField>ComInfo_Address</DataField>
-        </Field>
-        <Field Name="ComInfo_Address_2">
-          <DataField>ComInfo_Address_2</DataField>
-        </Field>
-        <Field Name="ComInfo_City">
-          <DataField>ComInfo_City</DataField>
-        </Field>
-        <Field Name="ComInfo_State_Code">
-          <DataField>ComInfo_State_Code</DataField>
-        </Field>
-        <Field Name="ComInfo_County">
-          <DataField>ComInfo_County</DataField>
-        </Field>
-        <Field Name="ComInfo_Post_Code">
-          <DataField>ComInfo_Post_Code</DataField>
-        </Field>
-        <Field Name="Sell_to_Contact">
-          <DataField>Sell_to_Contact</DataField>
-        </Field>
-        <Field Name="BilltoContactNo">
-          <DataField>BilltoContactNo</DataField>
-        </Field>
-        <Field Name="BillToState">
-          <DataField>BillToState</DataField>
-        </Field>
-        <Field Name="ShiptoContactNo">
-          <DataField>ShiptoContactNo</DataField>
-        </Field>
-        <Field Name="SalesHeaderComment">
-          <DataField>SalesHeaderComment</DataField>
-        </Field>
-        <Field Name="CustomerOrderNo">
-          <DataField>CustomerOrderNo</DataField>
-        </Field>
-        <Field Name="CustomerOrderDate">
-          <DataField>CustomerOrderDate</DataField>
-        </Field>
-        <Field Name="DateOfSupply">
-          <DataField>DateOfSupply</DataField>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-        </Field>
-        <Field Name="Address2">
-          <DataField>Address2</DataField>
-        </Field>
-        <Field Name="City1">
-          <DataField>City1</DataField>
-        </Field>
-        <Field Name="PostCode">
-          <DataField>PostCode</DataField>
-        </Field>
-        <Field Name="StateCode">
-          <DataField>StateCode</DataField>
-        </Field>
-        <Field Name="CountryCode">
-          <DataField>CountryCode</DataField>
-        </Field>
-        <Field Name="Email">
-          <DataField>Email</DataField>
-        </Field>
-        <Field Name="Invoice_To_GSTIN">
-          <DataField>Invoice_To_GSTIN</DataField>
-        </Field>
-        <Field Name="Invoice_To_Post_Code">
-          <DataField>Invoice_To_Post_Code</DataField>
-        </Field>
-        <Field Name="Invoice_To_Email">
-          <DataField>Invoice_To_Email</DataField>
-        </Field>
-        <Field Name="Invoice_To_Country">
-          <DataField>Invoice_To_Country</DataField>
-        </Field>
-        <Field Name="Invoice_To_Contact">
-          <DataField>Invoice_To_Contact</DataField>
-        </Field>
-        <Field Name="Shipping_Agent_Service_Code">
-          <DataField>Shipping_Agent_Service_Code</DataField>
-        </Field>
-        <Field Name="Shipment_Date">
-          <DataField>Shipment_Date</DataField>
-        </Field>
-        <Field Name="Payment_Terms_Code">
-          <DataField>Payment_Terms_Code</DataField>
-        </Field>
-        <Field Name="Charge_Amt_TRN">
-          <DataField>Charge_Amt_TRN</DataField>
-        </Field>
-        <Field Name="Charge_Amt_TRNFormat">
-          <DataField>Charge_Amt_TRNFormat</DataField>
-        </Field>
-        <Field Name="SystemCreatedBy">
-          <DataField>SystemCreatedBy</DataField>
-        </Field>
-        <Field Name="TermAndCondDescrip">
-          <DataField>TermAndCondDescrip</DataField>
-        </Field>
-        <Field Name="TermAndCondDescripTechnical">
-          <DataField>TermAndCondDescripTechnical</DataField>
-        </Field>
-        <Field Name="TermAndCondDescripLogistics">
-          <DataField>TermAndCondDescripLogistics</DataField>
-        </Field>
-        <Field Name="Cust_phone">
-          <DataField>Cust_phone</DataField>
-        </Field>
-        <Field Name="Company_Bank_Account_Code">
-          <DataField>Company_Bank_Account_Code</DataField>
-        </Field>
-        <Field Name="Work_Description">
-          <DataField>Work_Description</DataField>
-        </Field>
-        <Field Name="FooterCompanyAddress">
-          <DataField>FooterCompanyAddress</DataField>
-        </Field>
-        <Field Name="FooterAddress2">
-          <DataField>FooterAddress2</DataField>
-        </Field>
-        <Field Name="FooterCompanyAddressHO">
-          <DataField>FooterCompanyAddressHO</DataField>
-        </Field>
-        <Field Name="FooterAddress2HO">
-          <DataField>FooterAddress2HO</DataField>
-        </Field>
-        <Field Name="LCY_Currency_Code">
-          <DataField>LCY_Currency_Code</DataField>
-        </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-        </Field>
-        <Field Name="LengthCalculate">
-          <DataField>LengthCalculate</DataField>
-        </Field>
-        <Field Name="LengthCalculateFormat">
-          <DataField>LengthCalculateFormat</DataField>
-        </Field>
-        <Field Name="Length_mtr_pc_">
-          <DataField>Length_mtr_pc_</DataField>
-        </Field>
-        <Field Name="Length_feet_pc_">
-          <DataField>Length_feet_pc_</DataField>
-        </Field>
-        <Field Name="Length_mm_pc_">
-          <DataField>Length_mm_pc_</DataField>
-        </Field>
-        <Field Name="Rate_Per_Kg">
-          <DataField>Rate_Per_Kg</DataField>
-        </Field>
-        <Field Name="Rate_per_Feet">
-          <DataField>Rate_per_Feet</DataField>
-        </Field>
-        <Field Name="Rate_per_Lbs">
-          <DataField>Rate_per_Lbs</DataField>
-        </Field>
-        <Field Name="Rate_per_Mtr">
-          <DataField>Rate_per_Mtr</DataField>
-        </Field>
-        <Field Name="Rate_per_Pc">
-          <DataField>Rate_per_Pc</DataField>
-        </Field>
-        <Field Name="Print_Rate_KG">
-          <DataField>Print_Rate_KG</DataField>
-        </Field>
-        <Field Name="Print_Length_Mtr">
-          <DataField>Print_Length_Mtr</DataField>
-        </Field>
-        <Field Name="HSN_SAC_Code">
-          <DataField>HSN_SAC_Code</DataField>
-        </Field>
-        <Field Name="CGSTPer">
-          <DataField>CGSTPer</DataField>
-        </Field>
-        <Field Name="CGSTPerFormat">
-          <DataField>CGSTPerFormat</DataField>
-        </Field>
-        <Field Name="CGSTAmt">
-          <DataField>CGSTAmt</DataField>
-        </Field>
-        <Field Name="CGSTAmtFormat">
-          <DataField>CGSTAmtFormat</DataField>
-        </Field>
-        <Field Name="SGSTPer">
-          <DataField>SGSTPer</DataField>
-        </Field>
-        <Field Name="SGSTPerFormat">
-          <DataField>SGSTPerFormat</DataField>
-        </Field>
-        <Field Name="SGSTAmt">
-          <DataField>SGSTAmt</DataField>
-        </Field>
-        <Field Name="SGSTAmtFormat">
-          <DataField>SGSTAmtFormat</DataField>
-        </Field>
-        <Field Name="IGSTAmt">
-          <DataField>IGSTAmt</DataField>
-        </Field>
-        <Field Name="IGSTAmtFormat">
-          <DataField>IGSTAmtFormat</DataField>
-        </Field>
-        <Field Name="IGSTPer">
-          <DataField>IGSTPer</DataField>
-        </Field>
-        <Field Name="IGSTPerFormat">
-          <DataField>IGSTPerFormat</DataField>
-        </Field>
-        <Field Name="Specification_Code">
-          <DataField>Specification_Code</DataField>
-        </Field>
-        <Field Name="FOB_Igst">
-          <DataField>FOB_Igst</DataField>
-        </Field>
-        <Field Name="FOB_IgstFormat">
-          <DataField>FOB_IgstFormat</DataField>
-        </Field>
-        <Field Name="FOB_CurrValue">
-          <DataField>FOB_CurrValue</DataField>
-        </Field>
-        <Field Name="FOB_CurrValueFormat">
-          <DataField>FOB_CurrValueFormat</DataField>
-        </Field>
-        <Field Name="Curr_Factor">
-          <DataField>Curr_Factor</DataField>
-        </Field>
-        <Field Name="Curr_FactorFormat">
-          <DataField>Curr_FactorFormat</DataField>
-        </Field>
-        <Field Name="TotalValue_INR">
-          <DataField>TotalValue_INR</DataField>
-        </Field>
-        <Field Name="TotalValue_INRFormat">
-          <DataField>TotalValue_INRFormat</DataField>
-        </Field>
-        <Field Name="FOB_Value">
-          <DataField>FOB_Value</DataField>
-        </Field>
-        <Field Name="FOB_ValueFormat">
-          <DataField>FOB_ValueFormat</DataField>
-        </Field>
-        <Field Name="Marks">
-          <DataField>Marks</DataField>
-        </Field>
-        <Field Name="Pallet">
-          <DataField>Pallet</DataField>
-        </Field>
-        <Field Name="FromPallet">
-          <DataField>FromPallet</DataField>
-        </Field>
-        <Field Name="ToPallet">
-          <DataField>ToPallet</DataField>
-        </Field>
-        <Field Name="ExpDate">
-          <DataField>ExpDate</DataField>
-        </Field>
-        <Field Name="NettWeight">
-          <DataField>NettWeight</DataField>
-        </Field>
-        <Field Name="NettWeightFormat">
-          <DataField>NettWeightFormat</DataField>
-        </Field>
-        <Field Name="GrossWeight">
-          <DataField>GrossWeight</DataField>
-        </Field>
-        <Field Name="GrossWeightFormat">
-          <DataField>GrossWeightFormat</DataField>
-        </Field>
-        <Field Name="Amount_CIF">
-          <DataField>Amount_CIF</DataField>
-        </Field>
-        <Field Name="Amount_CIFFormat">
-          <DataField>Amount_CIFFormat</DataField>
-        </Field>
-        <Field Name="AmountINUSD">
-          <DataField>AmountINUSD</DataField>
-        </Field>
-        <Field Name="AmountINUSDFormat">
-          <DataField>AmountINUSDFormat</DataField>
-        </Field>
-        <Field Name="TotalAmount">
-          <DataField>TotalAmount</DataField>
-        </Field>
-        <Field Name="TotalAmountFormat">
-          <DataField>TotalAmountFormat</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="Gross_Weight">
-          <DataField>Gross_Weight</DataField>
-        </Field>
-        <Field Name="Gross_WeightFormat">
-          <DataField>Gross_WeightFormat</DataField>
-        </Field>
-        <Field Name="Liscnceno">
-          <DataField>Liscnceno</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Description2">
-          <DataField>Description2</DataField>
-        </Field>
-        <Field Name="HSNSACCode">
-          <DataField>HSNSACCode</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode">
-          <DataField>UnitofMeasureCode</DataField>
-        </Field>
-        <Field Name="UnitPrice">
-          <DataField>UnitPrice</DataField>
-        </Field>
-        <Field Name="UnitPriceFormat">
-          <DataField>UnitPriceFormat</DataField>
-        </Field>
-        <Field Name="NetWeight1">
-          <DataField>NetWeight1</DataField>
-        </Field>
-        <Field Name="NetWeight1Format">
-          <DataField>NetWeight1Format</DataField>
-        </Field>
-        <Field Name="Grossweight1">
-          <DataField>Grossweight1</DataField>
-        </Field>
-        <Field Name="Grossweight1Format">
-          <DataField>Grossweight1Format</DataField>
-        </Field>
-        <Field Name="itemno">
-          <DataField>itemno</DataField>
-        </Field>
-        <Field Name="LineAmount">
-          <DataField>LineAmount</DataField>
-        </Field>
-        <Field Name="LineAmountFormat">
-          <DataField>LineAmountFormat</DataField>
-        </Field>
-        <Field Name="SrNo">
-          <DataField>SrNo</DataField>
-        </Field>
-        <Field Name="lisctype">
-          <DataField>lisctype</DataField>
-        </Field>
-        <Field Name="ExmptedMet">
-          <DataField>ExmptedMet</DataField>
-        </Field>
-        <Field Name="AdvLicissuedate">
-          <DataField>AdvLicissuedate</DataField>
-        </Field>
-        <Field Name="noofbags">
-          <DataField>noofbags</DataField>
-        </Field>
-        <Field Name="noofbagsFormat">
-          <DataField>noofbagsFormat</DataField>
-        </Field>
-        <Field Name="UNITPER">
-          <DataField>UNITPER</DataField>
-        </Field>
-        <Field Name="UNITPERFormat">
-          <DataField>UNITPERFormat</DataField>
-        </Field>
-        <Field Name="lot">
-          <DataField>lot</DataField>
-        </Field>
-        <Field Name="ARNno">
-          <DataField>ARNno</DataField>
-        </Field>
-        <Field Name="containner">
-          <DataField>containner</DataField>
-        </Field>
-        <Field Name="UOM">
-          <DataField>UOM</DataField>
-        </Field>
-        <Field Name="mfgdate">
-          <DataField>mfgdate</DataField>
-        </Field>
-        <Field Name="NumInWords1">
-          <DataField>NumInWords1</DataField>
-        </Field>
-        <Field Name="NumInWords2">
-          <DataField>NumInWords2</DataField>
-        </Field>
-        <Field Name="RemittanceAmntInWords">
-          <DataField>RemittanceAmntInWords</DataField>
-        </Field>
-        <Field Name="EXIMRemark_SalesLine">
-          <DataField>EXIMRemark_SalesLine</DataField>
-        </Field>
-        <Field Name="LineAmount_SalesLine">
-          <DataField>LineAmount_SalesLine</DataField>
-        </Field>
-        <Field Name="LineAmount_SalesLineFormat">
-          <DataField>LineAmount_SalesLineFormat</DataField>
-        </Field>
-        <Field Name="ShippingBillNo">
-          <DataField>ShippingBillNo</DataField>
-        </Field>
-        <Field Name="ShippingBillDate">
-          <DataField>ShippingBillDate</DataField>
-        </Field>
-        <Field Name="LineAmtTax">
-          <DataField>LineAmtTax</DataField>
-        </Field>
-        <Field Name="LineAmtTaxFormat">
-          <DataField>LineAmtTaxFormat</DataField>
-        </Field>
-        <Field Name="TotalLineamt">
-          <DataField>TotalLineamt</DataField>
-        </Field>
-        <Field Name="TotalLineamtFormat">
-          <DataField>TotalLineamtFormat</DataField>
-        </Field>
-        <Field Name="FreightAmount">
-          <DataField>FreightAmount</DataField>
-        </Field>
-        <Field Name="FreightAmountFormat">
-          <DataField>FreightAmountFormat</DataField>
-        </Field>
-        <Field Name="InsuranceAmount">
-          <DataField>InsuranceAmount</DataField>
-        </Field>
-        <Field Name="InsuranceAmountFormat">
-          <DataField>InsuranceAmountFormat</DataField>
-        </Field>
-        <Field Name="AdvLiceNo">
-          <DataField>AdvLiceNo</DataField>
-        </Field>
-        <Field Name="IncentiveType_">
-          <DataField>IncentiveType_</DataField>
-        </Field>
-        <Field Name="ClaimDDB_">
-          <DataField>ClaimDDB_</DataField>
-        </Field>
-        <Field Name="FreightAmt">
-          <DataField>FreightAmt</DataField>
-        </Field>
-        <Field Name="FreightAmtFormat">
-          <DataField>FreightAmtFormat</DataField>
-        </Field>
-        <Field Name="PackingAmt">
-          <DataField>PackingAmt</DataField>
-        </Field>
-        <Field Name="PackingAmtFormat">
-          <DataField>PackingAmtFormat</DataField>
-        </Field>
-        <Field Name="GSTAmt">
-          <DataField>GSTAmt</DataField>
-        </Field>
-        <Field Name="GSTAmtFormat">
-          <DataField>GSTAmtFormat</DataField>
-        </Field>
-        <Field Name="BCDAmt">
-          <DataField>BCDAmt</DataField>
-        </Field>
-        <Field Name="BCDAmtFormat">
-          <DataField>BCDAmtFormat</DataField>
-        </Field>
-        <Field Name="SWCAmt">
-          <DataField>SWCAmt</DataField>
-        </Field>
-        <Field Name="SWCAmtFormat">
-          <DataField>SWCAmtFormat</DataField>
-        </Field>
-        <Field Name="EDCAmt">
-          <DataField>EDCAmt</DataField>
-        </Field>
-        <Field Name="EDCAmtFormat">
-          <DataField>EDCAmtFormat</DataField>
-        </Field>
-        <Field Name="Final_destination">
-          <DataField>Final_destination</DataField>
-        </Field>
-        <Field Name="GSTRegNo">
-          <DataField>GSTRegNo</DataField>
-        </Field>
-        <Field Name="Pharmacopoeia">
-          <DataField>Pharmacopoeia</DataField>
-        </Field>
-        <Field Name="TotalAmtIncTax">
-          <DataField>TotalAmtIncTax</DataField>
-        </Field>
-        <Field Name="TotalAmtIncTaxFormat">
-          <DataField>TotalAmtIncTaxFormat</DataField>
-        </Field>
-        <Field Name="TCSAmt">
-          <DataField>TCSAmt</DataField>
-        </Field>
-        <Field Name="TCSAmtFormat">
-          <DataField>TCSAmtFormat</DataField>
-        </Field>
-        <Field Name="Aux_UOM">
-          <DataField>Aux_UOM</DataField>
-        </Field>
-        <Field Name="Aux_Qty">
-          <DataField>Aux_Qty</DataField>
-        </Field>
-        <Field Name="Aux_Unit_Rate">
-          <DataField>Aux_Unit_Rate</DataField>
-        </Field>
-        <Field Name="Aux_Amount">
-          <DataField>Aux_Amount</DataField>
-        </Field>
-        <Field Name="No__of_Pc">
-          <DataField>No__of_Pc</DataField>
-        </Field>
-        <Field Name="Item_Temper_Code">
-          <DataField>Item_Temper_Code</DataField>
-        </Field>
-        <Field Name="OD_inch_">
-          <DataField>OD_inch_</DataField>
-        </Field>
-        <Field Name="Thickness_inch_">
-          <DataField>Thickness_inch_</DataField>
-        </Field>
-        <Field Name="Wt_feet">
-          <DataField>Wt_feet</DataField>
-        </Field>
-        <Field Name="Wt_Pc">
-          <DataField>Wt_Pc</DataField>
-        </Field>
-        <Field Name="ItemDescription">
-          <DataField>ItemDescription</DataField>
-        </Field>
-        <Field Name="Item_Reference_No_">
-          <DataField>Item_Reference_No_</DataField>
-        </Field>
-        <Field Name="Net_Weight">
-          <DataField>Net_Weight</DataField>
-        </Field>
-        <Field Name="Net_WeightFormat">
-          <DataField>Net_WeightFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
