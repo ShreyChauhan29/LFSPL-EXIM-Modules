@@ -1675,14 +1675,14 @@ page 72072 "LFS Posted Export Invoice"
                 // }
                 // actionref(Custom_Invoice_Report_Promoted; "Custom Invoice Report")
                 // { }
-                // actionref(Custom_Packing_List_Promoted; "Custom Packing List Report")
-                // { }
+                actionref(Custom_Packing_List_Promoted; "Custom Packing List Report")
+                { }
                 // actionref(Commercial_Packing_List_Promoted; "Commercial Invoice New")
                 // {
                 // }
-                // actionref(Final_Packing_List_Promoted; "Final Packing List Report")
-                // {
-                // }
+                actionref(Final_Packing_List_Promoted; "Final Packing List Report")
+                {
+                }
             }
             group(Category_Category7)
             {
