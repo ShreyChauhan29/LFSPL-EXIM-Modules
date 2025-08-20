@@ -1140,6 +1140,42 @@ page 72072 "LFS Posted Export Invoice"
                         InvoiceBackSide.RunModal();
                     end;
                 }
+                action("Custom Packing List Report")
+                {
+                    ApplicationArea = All;
+                    Image = Report;
+                    Caption = 'Custom Packing List';
+                    ToolTip = 'Specifies the Custom Packing List';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        CustomPackingList: Report "LFS Custom Packing List New";
+                    begin
+                        Clear(CustomPackingList);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        CustomPackingList.SetTableView(SalesInvHeader);
+                        CustomPackingList.RunModal();
+                    end;
+                }
+                action("Final Packing List Report")
+                {
+                    ApplicationArea = All;
+                    Image = Report;
+                    Caption = 'Final Packing List';
+                    ToolTip = 'Specifies the Final Packing List Report';
+                    trigger OnAction()
+                    var
+                        SalesInvHeader: Record "Sales Invoice Header";
+                        FinalPackingList: Report "Final Packing List New";
+                    begin
+                        Clear(FinalPackingList);
+                        SalesInvHeader.Reset();
+                        SalesInvHeader.SETRANGE(SalesInvHeader."No.", Rec."No.");
+                        FinalPackingList.SetTableView(SalesInvHeader);
+                        FinalPackingList.RunModal();
+                    end;
+                }
                 // action("Commercial_Invoice_Report")
                 // {
                 //     ApplicationArea = All;

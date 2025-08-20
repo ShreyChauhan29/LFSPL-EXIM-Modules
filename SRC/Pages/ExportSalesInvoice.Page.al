@@ -1466,26 +1466,26 @@ page 72055 "LFS Export Sales Invoice"
                 //         end;
                 //     end;
                 // }
-                // action("LFS Export Comm. Draft Packing List Report")
-                // {
-                //     ApplicationArea = All;
-                //     Caption = 'Custom Draft Packing List';
-                //     ToolTip = 'Specifies the Export Custom Draft Packing List';
-                //     Enabled = Rec.Status = Rec.Status::Released;
-                //     Image = Report;
-                //     trigger OnAction()
-                //     var
-                //         SalesHeader: Record "Sales Header";
-                //         ExportCommDraftPackingList: Report "LFSExport Comm Draft Pack List";
-                //     begin
-                //         Clear(ExportCommDraftPackingList);
-                //         SalesHeader.SetRange("No.", Rec."No.");
-                //         if SalesHeader.FindFirst() then begin
-                //             ExportCommDraftPackingList.SetTableView(SalesHeader);
-                //             ExportCommDraftPackingList.RunModal();
-                //         end;
-                //     end;
-                // }
+                action("LFS Export Comm. Draft Packing List Report")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Custom Draft Packing List';
+                    ToolTip = 'Specifies the Export Custom Draft Packing List';
+                    Enabled = Rec.Status = Rec.Status::Released;
+                    Image = Report;
+                    trigger OnAction()
+                    var
+                        SalesHeader: Record "Sales Header";
+                        ExportCommDraftPackingList: Report "LFSExport Comm Draft Pack List";
+                    begin
+                        Clear(ExportCommDraftPackingList);
+                        SalesHeader.SetRange("No.", Rec."No.");
+                        if SalesHeader.FindFirst() then begin
+                            ExportCommDraftPackingList.SetTableView(SalesHeader);
+                            ExportCommDraftPackingList.RunModal();
+                        end;
+                    end;
+                }
                 // action("LFS Export Draft Invoice Report")
                 // {
                 //     ApplicationArea = Basic, Suite;
@@ -1506,26 +1506,26 @@ page 72055 "LFS Export Sales Invoice"
                 //         end;
                 //     end;
                 // }
-                // action("LFS Export Draft Packing List Report")
-                // {
-                //     ApplicationArea = Basic, Suite;
-                //     Caption = 'Export Draft Packing List';
-                //     ToolTip = 'Specifies the Export Draft Packing List';
-                //     Visible = false;
-                //     Image = Report;
-                //     trigger OnAction()
-                //     var
-                //         SalesHeader: Record "Sales Header";
-                //         ExportDraftPackingList: Report "LFS Export Draft Packing List";
-                //     begin
-                //         Clear(ExportDraftPackingList);
-                //         SalesHeader.SetRange("No.", Rec."No.");
-                //         if SalesHeader.FindFirst() then begin
-                //             ExportDraftPackingList.SetTableView(SalesHeader);
-                //             ExportDraftPackingList.RunModal();
-                //         end;
-                //     end;
-                // }
+                action("LFS Export Draft Packing List Report")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Export Draft Packing List';
+                    ToolTip = 'Specifies the Export Draft Packing List';
+                    Visible = false;
+                    Image = Report;
+                    trigger OnAction()
+                    var
+                        SalesHeader: Record "Sales Header";
+                        ExportDraftPackingList: Report "LFS Export Draft Packing List";
+                    begin
+                        Clear(ExportDraftPackingList);
+                        SalesHeader.SetRange("No.", Rec."No.");
+                        if SalesHeader.FindFirst() then begin
+                            ExportDraftPackingList.SetTableView(SalesHeader);
+                            ExportDraftPackingList.RunModal();
+                        end;
+                    end;
+                }
                 // action("LFS Export Comm. Draft Invoice Report")
                 // {
                 //     ApplicationArea = Basic, Suite;
@@ -2198,9 +2198,12 @@ page 72055 "LFS Export Sales Invoice"
                 // actionref(ExportDraftInvocie_Promoted; "LFS Export Comm. Draft Invoice Report")
                 // {
                 // }
-                // actionref(ExportDraftPAcking; "LFS Export Comm. Draft Packing List Report")
-                // {
-                // }
+                actionref(ExportDraftPAcking; "LFS Export Comm. Draft Packing List Report")
+                {
+                }
+                actionref(ExportPackingList_Promoted; "LFS Export Draft Packing List Report")
+                {
+                }
             }
             // group(Category_Category12)
             // {
